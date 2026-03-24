@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Richend Digital｜Webサービス・ツール</title>
+  <meta name="description" content="便利なWebツール、ギフト情報サイト、FXトレード情報など、さまざまなWebサービスを提供しています。">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, 'Segoe UI', 'Hiragino Sans', sans-serif; background: #f8f9fa; color: #333; line-height: 1.8; }
+    .hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #1e293b, #334155); color: #fff; }
+    .hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 12px; }
+    .hero p { font-size: 1rem; opacity: .7; margin-bottom: 40px; }
+    .services { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
+    .service-card { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15); border-radius: 12px; padding: 24px; transition: all .2s; text-decoration: none; color: #fff; display: block; }
+    .service-card:hover { background: rgba(255,255,255,.15); transform: translateY(-2px); }
+    .service-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .service-card p { font-size: .85rem; opacity: .7; }
+    .service-icon { font-size: 2rem; margin-bottom: 12px; }
+    .footer { text-align: center; padding: 40px 20px; color: #94a3b8; font-size: .8rem; }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div>
+      <h1>Richend Digital</h1>
+      <p>便利なWebサービスを提供しています</p>
+      <div class="services">
+        <a href="/webtools/" class="service-card">
+          <div class="service-icon">🛠</div>
+          <h3>ToolBox</h3>
+          <p>文字数カウンター、QRコード生成、パスワード生成など無料Webツール集</p>
+        </a>
+        <a href="/okurite/" class="service-card">
+          <div class="service-icon">🎁</div>
+          <h3>Okurite</h3>
+          <p>大切な人に贈る特別なギフトを見つけよう</p>
+        </a>
+        <a href="/burning-trade/" class="service-card">
+          <div class="service-icon">📈</div>
+          <h3>BURNING TRADE</h3>
+          <p>FXトレード実績・情報</p>
+        </a>
+        <a href="/keirin-yosou/" class="service-card">
+          <div class="service-icon">🚴</div>
+          <h3>RingAI</h3>
+          <p>AI競輪予想</p>
+        </a>
+        <a href="/trade-jobs/" class="service-card">
+          <div class="service-icon">💼</div>
+          <h3>JobConnect</h3>
+          <p>職人・建設業の求人マッチング</p>
+        </a>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <p>&copy; 2026 Richend Digital. All rights reserved.</p>
+  </footer>
+</body>
+</html>
