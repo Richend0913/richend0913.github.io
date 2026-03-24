@@ -4,137 +4,113 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Richend Digital｜Webサービス・ツール</title>
-  <meta name="description" content="便利なWebツール、ギフト情報サイト、FXトレード情報など、さまざまなWebサービスを提供しています。">
+  <meta name="description" content="便利なWebツール、ギフト情報サイト、生活情報サイトなど、さまざまなWebサービスを提供しています。">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, 'Segoe UI', 'Hiragino Sans', sans-serif; background: #f8f9fa; color: #333; line-height: 1.8; }
-    .hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #1e293b, #334155); color: #fff; }
-    .hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 12px; }
-    .hero p { font-size: 1rem; opacity: .7; margin-bottom: 40px; }
-    .services { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
-    .service-card { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15); border-radius: 12px; padding: 24px; transition: all .2s; text-decoration: none; color: #fff; display: block; }
-    .service-card:hover { background: rgba(255,255,255,.15); transform: translateY(-2px); }
-    .service-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
-    .service-card p { font-size: .85rem; opacity: .7; }
-    .service-icon { font-size: 2rem; margin-bottom: 12px; }
-    .footer { text-align: center; padding: 40px 20px; color: #94a3b8; font-size: .8rem; }
+    .header { background: #1e293b; color: #fff; padding: 48px 20px; text-align: center; }
+    .header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 8px; }
+    .header p { font-size: .9rem; opacity: .6; }
+    .main { max-width: 1000px; margin: 0 auto; padding: 32px 20px; }
+    .category { margin-bottom: 32px; }
+    .category-title { font-size: 1rem; font-weight: 700; color: #1e293b; margin-bottom: 14px; padding: 8px 14px; background: #fff; border-left: 4px solid #6366f1; border-radius: 0 8px 8px 0; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+    .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 16px; text-decoration: none; color: inherit; display: block; transition: all .15s; }
+    .card:hover { border-color: #6366f1; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.06); }
+    .card-icon { font-size: 1.5rem; margin-bottom: 6px; }
+    .card h3 { font-size: .85rem; font-weight: 600; color: #1e293b; margin-bottom: 4px; }
+    .card p { font-size: .7rem; color: #94a3b8; line-height: 1.5; }
+    .card .badge { display: inline-block; font-size: .6rem; padding: 1px 6px; border-radius: 4px; margin-bottom: 4px; }
+    .badge-ad { background: #dbeafe; color: #2563eb; }
+    .badge-aff { background: #fef3c7; color: #d97706; }
+    .badge-stripe { background: #dcfce7; color: #16a34a; }
+    .footer { text-align: center; padding: 32px 20px; color: #94a3b8; font-size: .75rem; border-top: 1px solid #e5e7eb; }
+    .stats { display: flex; justify-content: center; gap: 32px; margin-top: 20px; }
+    .stat { text-align: center; }
+    .stat-num { font-size: 1.6rem; font-weight: 700; color: #6366f1; }
+    .stat-label { font-size: .75rem; opacity: .6; }
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .card { padding: 12px; }
+      .card h3 { font-size: .8rem; }
+      .stats { gap: 16px; }
+    }
   </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6327505164684489" crossorigin="anonymous"></script>
 </head>
 <body>
-  <section class="hero">
-    <div>
-      <h1>Richend Digital</h1>
-      <p>便利なWebサービスを提供しています</p>
-      <div class="services">
-        <a href="/webtools/" class="service-card">
-          <div class="service-icon">🛠</div>
-          <h3>ToolBox</h3>
-          <p>文字数カウンター、QRコード生成、パスワード生成など無料Webツール集</p>
-        </a>
-        <a href="/okurite/" class="service-card">
-          <div class="service-icon">🎁</div>
-          <h3>Okurite</h3>
-          <p>大切な人に贈る特別なギフトを見つけよう</p>
-        </a>
-        <a href="/burning-trade/" class="service-card">
-          <div class="service-icon">📈</div>
-          <h3>BURNING TRADE</h3>
-          <p>FXトレード実績・情報</p>
-        </a>
-        <a href="/keirin-yosou/" class="service-card">
-          <div class="service-icon">🚴</div>
-          <h3>RingAI</h3>
-          <p>AI競輪予想</p>
-        </a>
-        <a href="/trade-jobs/" class="service-card">
-          <div class="service-icon">💼</div>
-          <h3>JobConnect</h3>
-          <p>職人・建設業の求人マッチング</p>
-        </a>
-        <a href="/namebook/" class="service-card">
-          <div class="service-icon">👶</div>
-          <h3>命名辞典</h3>
-          <p>赤ちゃんの名前・漢字の意味と由来</p>
-        </a>
-        <a href="/salary-navi/" class="service-card">
-          <div class="service-icon">💴</div>
-          <h3>年収ナビ</h3>
-          <p>職業別の年収・給料情報を徹底解説</p>
-        </a>
-        <a href="/kotowaza/" class="service-card">
-          <div class="service-icon">📖</div>
-          <h3>ことわざ辞典</h3>
-          <p>ことわざの意味・由来・使い方を解説</p>
-        </a>
-        <a href="/calorie-book/" class="service-card">
-          <div class="service-icon">🥗</div>
-          <h3>カロリーブック</h3>
-          <p>食品別カロリー・栄養素データベース</p>
-        </a>
-        <a href="/yume-uranai/" class="service-card">
-          <div class="service-icon">🌙</div>
-          <h3>夢占い辞典</h3>
-          <p>夢の意味・暗示を徹底解説</p>
-        </a>
-        <a href="/ketsueki-navi/" class="service-card">
-          <div class="service-icon">🩸</div>
-          <h3>血液型ナビ</h3>
-          <p>血液型別の性格・相性診断</p>
-        </a>
-        <a href="/keigo-guide/" class="service-card">
-          <div class="service-icon">📝</div>
-          <h3>敬語ガイド</h3>
-          <p>ビジネス敬語・メール例文集</p>
-        </a>
-        <a href="/mensetsu-guide/" class="service-card">
-          <div class="service-icon">🤝</div>
-          <h3>面接対策ガイド</h3>
-          <p>面接の質問と回答例48問</p>
-        </a>
-        <a href="/uranai-12/" class="service-card">
-          <div class="service-icon">⭐</div>
-          <h3>12星座占い</h3>
-          <p>星座別の性格・相性・運勢診断</p>
-        </a>
-        <a href="/fukugyo-navi/" class="service-card">
-          <div class="service-icon">💰</div>
-          <h3>副業ナビ</h3>
-          <p>35種類の副業の始め方・収入目安</p>
-        </a>
-        <a href="/baby-calendar/" class="service-card">
-          <div class="service-icon">👶</div>
-          <h3>赤ちゃんカレンダー</h3>
-          <p>月齢別の発達・育児ガイド</p>
-        </a>
-        <a href="/todofuken/" class="service-card">
-          <div class="service-icon">🗾</div>
-          <h3>都道府県ガイド</h3>
-          <p>47都道府県の特徴・名産・観光</p>
-        </a>
-        <a href="/shikaku-navi/" class="service-card">
-          <div class="service-icon">📜</div>
-          <h3>資格ナビ</h3>
-          <p>40資格の難易度・合格率・勉強法</p>
-        </a>
-        <a href="/wedding-manners/" class="service-card">
-          <div class="service-icon">💒</div>
-          <h3>結婚式マナーガイド</h3>
-          <p>ご祝儀・服装・スピーチのマナー</p>
-        </a>
-        <a href="/karada-navi/" class="service-card">
-          <div class="service-icon">🏥</div>
-          <h3>からだナビ</h3>
-          <p>40症状の原因・対処法・予防法</p>
-        </a>
-        <a href="/ryouri-kihon/" class="service-card">
-          <div class="service-icon">🍳</div>
-          <h3>料理の基本</h3>
-          <p>42レシピの作り方を初心者向けに解説</p>
-        </a>
+  <header class="header">
+    <h1>Richend Digital</h1>
+    <p>21サイト・870ページ以上のWebサービスを運営</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-num">21</div><div class="stat-label">サイト</div></div>
+      <div class="stat"><div class="stat-num">870+</div><div class="stat-label">ページ</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">収益源</div></div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <div class="category">
+      <div class="category-title">ビジネス・サービス</div>
+      <div class="grid">
+        <a href="/burning-trade/" class="card"><div class="card-icon">📈</div><h3>BURNING TRADE</h3><p>FXトレード実績・情報</p></a>
+        <a href="/keirin-yosou/" class="card"><div class="card-icon">🚴</div><span class="badge badge-stripe">Stripe</span><h3>RingAI</h3><p>AI競輪予想</p></a>
+        <a href="/trade-jobs/" class="card"><div class="card-icon">💼</div><span class="badge badge-stripe">Stripe</span><h3>JobConnect</h3><p>求人マッチング</p></a>
+        <a href="/bb-tools/" class="card"><div class="card-icon">🔧</div><h3>BB Tools</h3><p>自社シフト管理</p></a>
       </div>
     </div>
-  </section>
+
+    <div class="category">
+      <div class="category-title">ショッピング・ギフト</div>
+      <div class="grid">
+        <a href="/okurite/" class="card"><div class="card-icon">🎁</div><span class="badge badge-aff">アフィリ</span><h3>Okurite</h3><p>ギフト情報 + ブログ自動量産</p></a>
+        <a href="/wedding-manners/" class="card"><div class="card-icon">💒</div><span class="badge badge-aff">アフィリ</span><h3>結婚式マナー</h3><p>ご祝儀・服装・スピーチ</p></a>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-title">キャリア・転職・副業</div>
+      <div class="grid">
+        <a href="/salary-navi/" class="card"><div class="card-icon">💴</div><span class="badge badge-aff">アフィリ</span><h3>年収ナビ</h3><p>44職種の年収情報</p></a>
+        <a href="/mensetsu-guide/" class="card"><div class="card-icon">🤝</div><span class="badge badge-aff">アフィリ</span><h3>面接対策ガイド</h3><p>48問のQ&A + 回答例</p></a>
+        <a href="/shikaku-navi/" class="card"><div class="card-icon">📜</div><span class="badge badge-aff">アフィリ</span><h3>資格ナビ</h3><p>40資格の難易度・勉強法</p></a>
+        <a href="/fukugyo-navi/" class="card"><div class="card-icon">💰</div><span class="badge badge-aff">アフィリ</span><h3>副業ナビ</h3><p>35種類の副業ガイド</p></a>
+        <a href="/keigo-guide/" class="card"><div class="card-icon">📝</div><span class="badge badge-ad">AdSense</span><h3>敬語ガイド</h3><p>ビジネス敬語・メール例文</p></a>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-title">生活・健康・子育て</div>
+      <div class="grid">
+        <a href="/calorie-book/" class="card"><div class="card-icon">🥗</div><span class="badge badge-aff">アフィリ</span><h3>カロリーブック</h3><p>70食品の栄養データ</p></a>
+        <a href="/ryouri-kihon/" class="card"><div class="card-icon">🍳</div><span class="badge badge-aff">アフィリ</span><h3>料理の基本</h3><p>42レシピの作り方</p></a>
+        <a href="/karada-navi/" class="card"><div class="card-icon">🏥</div><span class="badge badge-aff">アフィリ</span><h3>からだナビ</h3><p>40症状の対処法</p></a>
+        <a href="/baby-calendar/" class="card"><div class="card-icon">👶</div><span class="badge badge-aff">アフィリ</span><h3>赤ちゃんカレンダー</h3><p>妊娠〜生後24ヶ月</p></a>
+        <a href="/namebook/" class="card"><div class="card-icon">✨</div><span class="badge badge-stripe">¥300</span><h3>命名辞典</h3><p>漢字の意味 + 姓名判断</p></a>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-title">知識・教養・占い</div>
+      <div class="grid">
+        <a href="/kotowaza/" class="card"><div class="card-icon">📖</div><span class="badge badge-ad">AdSense</span><h3>ことわざ辞典</h3><p>57ことわざの意味・由来</p></a>
+        <a href="/todofuken/" class="card"><div class="card-icon">🗾</div><span class="badge badge-aff">アフィリ</span><h3>都道府県ガイド</h3><p>47都道府県の特徴・名産</p></a>
+        <a href="/yume-uranai/" class="card"><div class="card-icon">🌙</div><span class="badge badge-ad">AdSense</span><h3>夢占い辞典</h3><p>60の夢診断</p></a>
+        <a href="/ketsueki-navi/" class="card"><div class="card-icon">🩸</div><span class="badge badge-ad">AdSense</span><h3>血液型ナビ</h3><p>性格・相性診断</p></a>
+        <a href="/uranai-12/" class="card"><div class="card-icon">⭐</div><span class="badge badge-ad">AdSense</span><h3>12星座占い</h3><p>性格・相性・運勢</p></a>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-title">Webツール</div>
+      <div class="grid">
+        <a href="/webtools/" class="card"><div class="card-icon">🛠</div><span class="badge badge-ad">AdSense</span><h3>ToolBox</h3><p>無料Webツール12個</p></a>
+      </div>
+    </div>
+
+  </main>
+
   <footer class="footer">
     <p>&copy; 2026 Richend Digital. All rights reserved.</p>
   </footer>
