@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Richend Digital｜Webサービス・ツール</title>
-  <meta name="description" content="便利なWebツール、ギフト情報サイト、生活情報サイトなど、さまざまなWebサービスを提供しています。">
+  <title>Richend Digital｜Webサービス</title>
+  <meta name="description" content="転職・副業・資格・ギフト・エンタメ。役立つWebサービスを提供しています。">
   <meta name="google-site-verification" content="GRXPtbHLxfl8zA96yG12Rml4YJ00PvNXt6lHKJOYQiE" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Noto+Sans+JP:wght@300;500;700&display=swap" rel="stylesheet">
@@ -12,7 +12,6 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Noto Sans JP', 'Inter', sans-serif; background: #0a0a0a; color: #e4e4e7; line-height: 1.6; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
 
-    /* Animated gradient background */
     .bg-glow { position: fixed; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 30% 40%, rgba(99,102,241,.08) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(168,85,247,.06) 0%, transparent 50%); animation: bgMove 20s ease-in-out infinite; z-index: -1; }
     @keyframes bgMove { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-3%,-3%); } }
 
@@ -35,13 +34,6 @@
     .item-text h3 { font-size: .85rem; font-weight: 700; color: #fafafa; letter-spacing: -.01em; }
     .item-text p { font-size: .68rem; color: #71717a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 300; }
 
-    .item-tag { font-size: .55rem; padding: 2px 8px; border-radius: 6px; font-weight: 500; flex-shrink: 0; }
-    .tag-aff { background: rgba(234,179,8,.1); color: #eab308; border: 1px solid rgba(234,179,8,.15); }
-    .tag-ad { background: rgba(59,130,246,.1); color: #60a5fa; border: 1px solid rgba(59,130,246,.15); }
-    .tag-pay { background: rgba(34,197,94,.1); color: #4ade80; border: 1px solid rgba(34,197,94,.15); }
-
-    .divider { border: none; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent); margin: 8px 0; }
-
     .footer { text-align: center; padding: 32px 20px; font-size: .65rem; color: #3f3f46; font-weight: 300; }
 
     @media (max-width: 400px) {
@@ -57,64 +49,27 @@
 
   <header class="header">
     <div class="logo">Richend Digital</div>
-    <p>23 Sites &middot; 870+ Pages</p>
+    <p>6 Services</p>
   </header>
 
   <main class="main">
 
     <div class="cat">
-      <div class="cat-label">Business</div>
-      <a href="/burning-trade/" class="item"><div class="item-icon">📈</div><div class="item-text"><h3>BURNING TRADE</h3><p>FXトレード実績・情報</p></div></a>
-      <a href="/keirin-yosou/" class="item"><div class="item-icon">🚴</div><div class="item-text"><h3>RingAI</h3><p>AI競輪予想</p></div></a>
-      <a href="/trade-jobs/" class="item"><div class="item-icon">💼</div><div class="item-text"><h3>JobConnect</h3><p>求人マッチング</p></div></a>
-      <a href="/bb-recruit/" class="item"><div class="item-icon">🚚</div><div class="item-text"><h3>BURNING BROS</h3><p>配送パートナー採用ページ</p></div></a>
-      <a href="/pachai/" class="item"><div class="item-icon">🎰</div><div class="item-text"><h3>PachAI</h3><p>AIパチンコ大当たり予測</p></div></a>
-      <a href="/bb-tools/" class="item"><div class="item-icon">🔧</div><div class="item-text"><h3>BB Tools</h3><p>自社シフト管理ツール</p></div></a>
-      <a href="/yoyaku-system/" class="item"><div class="item-icon">📅</div><div class="item-text"><h3>カンタン予約</h3><p>店舗向けWeb予約システム</p></div></a>
-    </div>
-
-    <div class="cat">
-      <div class="cat-label">Shopping &amp; Gift</div>
-      <a href="/okurite/" class="item"><div class="item-icon">🎁</div><div class="item-text"><h3>Okurite</h3><p>ギフト情報 + ブログ自動量産</p></div></a>
-      <a href="/wedding-manners/" class="item"><div class="item-icon">💒</div><div class="item-text"><h3>結婚式マナーガイド</h3><p>ご祝儀・服装・スピーチ</p></div></a>
-    </div>
-
-    <div class="cat">
       <div class="cat-label">Career</div>
       <a href="/salary-navi/" class="item"><div class="item-icon">💴</div><div class="item-text"><h3>年収ナビ</h3><p>44職種の年収・給料情報</p></div></a>
-      <a href="/mensetsu-guide/" class="item"><div class="item-icon">🤝</div><div class="item-text"><h3>面接対策ガイド</h3><p>48問のQ&A + 回答例</p></div></a>
-      <a href="/shikaku-navi/" class="item"><div class="item-icon">📜</div><div class="item-text"><h3>資格ナビ</h3><p>40資格の難易度・勉強法</p></div></a>
       <a href="/fukugyo-navi/" class="item"><div class="item-icon">💰</div><div class="item-text"><h3>副業ナビ</h3><p>35種類の副業ガイド</p></div></a>
-      <a href="/keigo-guide/" class="item"><div class="item-icon">📝</div><div class="item-text"><h3>敬語ガイド</h3><p>ビジネス敬語・メール例文</p></div></a>
-    </div>
-
-    <div class="cat">
-      <div class="cat-label">Lifestyle</div>
-      <a href="/calorie-book/" class="item"><div class="item-icon">🥗</div><div class="item-text"><h3>カロリーブック</h3><p>70食品の栄養データ</p></div></a>
-      <a href="/ryouri-kihon/" class="item"><div class="item-icon">🍳</div><div class="item-text"><h3>料理の基本</h3><p>42レシピの作り方</p></div></a>
-      <a href="/karada-navi/" class="item"><div class="item-icon">🏥</div><div class="item-text"><h3>からだナビ</h3><p>40症状の対処法</p></div></a>
-      <a href="/baby-calendar/" class="item"><div class="item-icon">👶</div><div class="item-text"><h3>赤ちゃんカレンダー</h3><p>妊娠〜生後24ヶ月</p></div></a>
-      <a href="/namebook/" class="item"><div class="item-icon">✨</div><div class="item-text"><h3>命名辞典</h3><p>漢字の意味 + 姓名判断</p></div></a>
-    </div>
-
-    <div class="cat">
-      <div class="cat-label">Knowledge &amp; Fortune</div>
-      <a href="/kotowaza/" class="item"><div class="item-icon">📖</div><div class="item-text"><h3>ことわざ辞典</h3><p>57ことわざの意味・由来</p></div></a>
-      <a href="/todofuken/" class="item"><div class="item-icon">🗾</div><div class="item-text"><h3>都道府県ガイド</h3><p>47都道府県の特徴・名産</p></div></a>
-      <a href="/yume-uranai/" class="item"><div class="item-icon">🌙</div><div class="item-text"><h3>夢占い辞典</h3><p>60の夢の意味・暗示</p></div></a>
-      <a href="/ketsueki-navi/" class="item"><div class="item-icon">🩸</div><div class="item-text"><h3>血液型ナビ</h3><p>性格・相性診断</p></div></a>
-      <a href="/uranai-12/" class="item"><div class="item-icon">⭐</div><div class="item-text"><h3>12星座占い</h3><p>性格・相性・運勢</p></div></a>
-      <a href="/meigen/" class="item"><div class="item-icon">💬</div><div class="item-text"><h3>名言集</h3><p>偉人の名言203選・意味と解説</p></div></a>
-    </div>
-
-    <div class="cat">
-      <div class="cat-label">Tools</div>
-      <a href="/webtools/" class="item"><div class="item-icon">🛠</div><div class="item-text"><h3>ToolBox</h3><p>無料Webツール12個</p></div></a>
+      <a href="/shikaku-navi/" class="item"><div class="item-icon">📜</div><div class="item-text"><h3>資格ナビ</h3><p>40資格の難易度・勉強法</p></div></a>
       <a href="/rirekisho-maker/" class="item"><div class="item-icon">📄</div><div class="item-text"><h3>履歴書メーカー</h3><p>履歴書・職務経歴書をWeb作成</p></div></a>
-      <a href="/ai-uranai/" class="item"><div class="item-icon">🔮</div><div class="item-text"><h3>AI占い師</h3><p>姓名判断×星座×血液型の総合鑑定</p></div></a>
-      <a href="/avatar-maker/" class="item"><div class="item-icon">🎨</div><div class="item-text"><h3>アバターメーカー</h3><p>SNSアイコンを無料で作成</p></div></a>
-      <a href="/menu-maker/" class="item"><div class="item-icon">🍽</div><div class="item-text"><h3>メニューメーカー</h3><p>おしゃれなメニュー表を作成</p></div></a>
-      <a href="/sns-autopilot/" class="item"><div class="item-icon">📱</div><div class="item-text"><h3>SNSオートパイロット</h3><p>SNS投稿コンテンツ自動生成</p></div></a>
+    </div>
+
+    <div class="cat">
+      <div class="cat-label">Entertainment</div>
+      <a href="/keirin-yosou/" class="item"><div class="item-icon">🚴</div><div class="item-text"><h3>RingAI</h3><p>AI競輪予想</p></div></a>
+    </div>
+
+    <div class="cat">
+      <div class="cat-label">Shopping</div>
+      <a href="/okurite/" class="item"><div class="item-icon">🎁</div><div class="item-text"><h3>Okurite</h3><p>シーン別ギフト・プレゼント検索</p></div></a>
     </div>
 
   </main>
