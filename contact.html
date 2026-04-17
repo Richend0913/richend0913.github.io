@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ｜Richend Digital</title>
+  <link rel="canonical" href="https://richend0913.github.io/contact.html">
+  <meta name="description" content="Richend Digital へのお問い合わせページ。サービスに関するご質問やご意見はこちらからお送りください。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans JP', 'Inter', sans-serif; background: #0a0a0a; color: #e4e4e7; line-height: 1.8; -webkit-text-size-adjust: 100%; }
+    .header { padding: 48px 20px 24px; text-align: center; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .logo { font-family: 'Inter', sans-serif; font-size: 1.4rem; font-weight: 900; letter-spacing: -.02em; background: linear-gradient(135deg, #e4e4e7, #a1a1aa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+    .main { max-width: 600px; margin: 0 auto; padding: 40px 20px 80px; }
+    h1 { font-size: 1.6rem; font-weight: 700; color: #fafafa; margin-bottom: 16px; }
+    p { font-size: .9rem; color: #a1a1aa; margin-bottom: 24px; }
+    a { color: #6366f1; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .form-group { margin-bottom: 20px; }
+    label { display: block; font-size: .82rem; font-weight: 600; color: #d4d4d8; margin-bottom: 6px; }
+    input, textarea, select {
+      width: 100%; padding: 12px 14px;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 8px; color: #e4e4e7; font-family: inherit; font-size: .9rem;
+      outline: none; transition: border-color .2s;
+    }
+    input:focus, textarea:focus, select:focus { border-color: #6366f1; }
+    textarea { resize: vertical; min-height: 120px; }
+    select { cursor: pointer; }
+    select option { background: #1a1a1a; color: #e4e4e7; }
+
+    .btn-submit {
+      display: inline-block; padding: 14px 40px;
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      color: #fff; font-size: .9rem; font-weight: 700;
+      border: none; border-radius: 8px; cursor: pointer;
+      font-family: inherit; transition: opacity .2s;
+    }
+    .btn-submit:hover { opacity: .9; }
+
+    .footer { text-align: center; padding: 32px 20px; font-size: .7rem; color: #3f3f46; border-top: 1px solid rgba(255,255,255,.06); }
+    .footer-links { display: flex; justify-content: center; gap: 16px; margin-bottom: 12px; font-size: .75rem; }
+    .footer-links a { color: #52525b; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a href="/" class="logo">Richend Digital</a>
+  </header>
+
+  <main class="main">
+    <h1>お問い合わせ</h1>
+    <p>サービスに関するご質問・ご意見・広告掲載に関するお問い合わせは、以下のフォームよりお送りください。内容を確認の上、必要に応じてご返信いたします。</p>
+
+    <form action="https://formspree.io/f/xpwzgkdl" method="POST">
+      <div class="form-group">
+        <label for="contact-name">お名前</label>
+        <input type="text" id="contact-name" name="name" placeholder="山田 太郎" required>
+      </div>
+      <div class="form-group">
+        <label for="contact-email">メールアドレス</label>
+        <input type="email" id="contact-email" name="email" placeholder="example@mail.com" required>
+      </div>
+      <div class="form-group">
+        <label for="contact-subject">件名</label>
+        <select id="contact-subject" name="_subject" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="【お問い合わせ】サービスについて">サービスについて</option>
+          <option value="【お問い合わせ】広告掲載について">広告掲載について</option>
+          <option value="【お問い合わせ】不具合・バグ報告">不具合・バグ報告</option>
+          <option value="【お問い合わせ】その他">その他</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="contact-message">お問い合わせ内容</label>
+        <textarea id="contact-message" name="message" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">送信する</button>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="/">トップ</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+    &copy; 2026 Richend Digital
+  </footer>
+</body>
+</html>
