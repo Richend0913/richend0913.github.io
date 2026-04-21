@@ -72,6 +72,23 @@
 
   <main class="main">
 
+    <a href="/okurite/blog/mothers-day-2026.html" class="item" style="background:linear-gradient(135deg,rgba(236,72,153,.18),rgba(244,114,182,.1));border-color:rgba(236,72,153,.35);margin-bottom:24px;padding:16px 18px;">
+      <div class="item-icon" style="background:linear-gradient(135deg,#ec4899,#f472b6);font-size:1.4rem;">🌷</div>
+      <div class="item-text">
+        <h3 style="color:#fbcfe8;">母の日まであと<span id="md-countdown">19</span>日</h3>
+        <p style="color:#f9a8d4;white-space:normal;">5/10（日）｜予算別・喜ばれるプレゼント15選</p>
+      </div>
+    </a>
+    <script>
+      (function(){
+        var md = new Date('2026-05-10T00:00:00+09:00');
+        var now = new Date();
+        var days = Math.max(0, Math.ceil((md - now) / 86400000));
+        var el = document.getElementById('md-countdown');
+        if (el) el.textContent = days;
+      })();
+    </script>
+
     <div class="cat">
       <div class="cat-label">Career</div>
       <a href="/salary-navi/" class="item"><div class="item-icon">💴</div><div class="item-text"><h3>年収ナビ</h3><p>44職種の年収・給料情報</p></div></a>
