@@ -172,7 +172,7 @@ td { padding:6px 4px; border-bottom:1px solid #1a1a2a; }
           <td>9.73</td>
           <td>+4.00</td>
           <td class="positive">+25.8M</td>
-          <td>49pt</td>
+          <td>¥700,700</td>
         </tr>
         <tr id="compare-row-B" class="highlight">
           <td>B: ML Dynamic</td>
@@ -181,7 +181,7 @@ td { padding:6px 4px; border-bottom:1px solid #1a1a2a; }
           <td class="compare-best">19.01</td>
           <td class="compare-best">+7.21</td>
           <td class="positive compare-best">+35.8M</td>
-          <td>38pt</td>
+          <td>¥543,400</td>
         </tr>
         <tr id="compare-row-D">
           <td>D: Hybrid</td>
@@ -190,7 +190,7 @@ td { padding:6px 4px; border-bottom:1px solid #1a1a2a; }
           <td>8.83</td>
           <td>+3.75</td>
           <td class="positive">+31.5M</td>
-          <td class="compare-best">19pt</td>
+          <td class="compare-best">¥271,700</td>
         </tr>
       </tbody>
     </table>
@@ -213,9 +213,9 @@ let currentModel = null;
 let currentStrategy = 'A';
 
 const STRATEGY_DATA = {
-  A: { trades:4516, wr:81.2, pf:9.73, avgPts:'+4.00', pnl:'+25,801,354', maxDD:'49pt', model:'unanimous', btFile:'bt_unanimous.json' },
-  B: { trades:3479, wr:85.0, pf:19.01, avgPts:'+7.21', pnl:'+35,844,928', maxDD:'38pt', model:'ml_exit', btFile:'bt_strategy_b.json' },
-  D: { trades:5874, wr:74.1, pf:8.83, avgPts:'+3.75', pnl:'+31,511,863', maxDD:'19pt', model:'hybrid', btFile:'bt_strategy_d.json' },
+  A: { trades:4516, wr:81.2, pf:9.73, avgPts:'+4.00', pnl:'+25,801,354', maxDD:'¥700,700', model:'unanimous', btFile:'bt_unanimous.json' },
+  B: { trades:3479, wr:85.0, pf:19.01, avgPts:'+7.21', pnl:'+35,844,928', maxDD:'¥543,400', model:'ml_exit', btFile:'bt_strategy_b.json' },
+  D: { trades:5874, wr:74.1, pf:8.83, avgPts:'+3.75', pnl:'+31,511,863', maxDD:'¥271,700', model:'hybrid', btFile:'bt_strategy_d.json' },
 };
 
 function selectStrategy(id) {
