@@ -252,6 +252,11 @@ const INLINE_BT_DATA = {
 };
 
 function renderReport(r) {
+  if (!r.recent_trades) r.recent_trades = [];
+  if (!r.multi_year) r.multi_year = [];
+  if (!r.equity_curve) r.equity_curve = [];
+  if (!r.hourly) r.hourly = [];
+  if (!r.monthly) r.monthly = [];
   const s = r.summary;
   const ls = r.long_short;
   const pnlColor = s.total_pnl >= 0 ? '#4CAF50' : '#f44336';
