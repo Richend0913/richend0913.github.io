@@ -16,14 +16,15 @@
   .top h1 .clk{float:right;font-size:11px;font-weight:700;background:rgba(255,255,255,.13);padding:2px 9px;border-radius:999px;}
   .top .sub{font-size:9.5px;color:#b8a888;margin-top:2px;}
   .top .sub i{display:inline-block;width:7px;height:7px;border-radius:50%;margin:0 3px 0 8px;vertical-align:middle;}
-  .grid{flex:1;min-height:0;column-count:2;column-gap:6px;padding:0 7px 8px;overflow:hidden;}
-  .room{break-inside:avoid;background:var(--card);border:1.5px solid var(--wall);border-radius:11px;
-    margin-bottom:6px;padding:5px 6px 6px;}
+  .grid{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;
+    gap:6px;padding:0 7px 6px;overflow:hidden;}
+  .room{background:var(--card);border:1.5px solid var(--wall);border-radius:11px;
+    padding:5px 6px 6px;display:flex;flex-direction:column;min-height:0;overflow:hidden;}
   .room.pres{background:#f7eac0;border-color:var(--gold);}
   .room.mgmt{background:#e7e2ea;border-color:#9aa;}
   .rh{display:flex;align-items:center;gap:4px;margin-bottom:4px;}
   .rh .ic{font-size:12px;} .rh .nm{font-size:10.5px;font-weight:800;color:var(--ink);line-height:1;}
-  .chars{display:flex;flex-wrap:wrap;gap:3px 2px;justify-content:flex-start;}
+  .chars{flex:1;display:flex;flex-wrap:wrap;gap:6px 3px;justify-content:center;align-content:center;}
   .ch{width:31px;text-align:center;position:relative;}
   .av{width:26px;height:26px;margin:0 auto;position:relative;animation:bob 2.8s ease-in-out infinite;}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
