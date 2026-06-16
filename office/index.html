@@ -260,11 +260,14 @@ async function pollState(){
   try{ const r=await fetch('state.json?_='+Date.now()); if(r.ok) applyState(await r.json()); }catch(e){}
 }
 setInterval(pollState,4000); pollState();
-// 24h稼働: 常に各自がタスクを回す。実エージェントの稼働/イベントは state.json で上書き反映
-setInterval(completeAndReport,3500);
-setInterval(morning,60000);   // “朝礼”(デモでは1日を1分に圧縮)
-setTimeout(morning,900);
-setTimeout(completeAndReport,2500);
+// 本番(state.jsonに実データあり)では実稼働だけを表示。嘘の報連相/タスク開始は出さない。
+// 実データが無い時(file://のローカルプレビュー等)だけ、デモで賑やかに動かす。
+setTimeout(()=>{
+  if(LIVE) return;                       // 実データ検出→デモは一切動かさない
+  setInterval(()=>{ if(!LIVE) completeAndReport(); },3500);
+  setInterval(()=>{ if(!LIVE) morning(); },60000);
+  if(!LIVE) morning();
+}, 5000);
 
 // 時計
 function tick(){const n=new Date();
