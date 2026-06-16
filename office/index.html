@@ -24,10 +24,21 @@
   .room.mgmt{background:#e7e2ea;border-color:#9aa;}
   .rh{display:flex;align-items:center;gap:4px;margin-bottom:4px;}
   .rh .ic{font-size:12px;} .rh .nm{font-size:10.5px;font-weight:800;color:var(--ink);line-height:1;}
-  .chars{flex:1;display:flex;flex-wrap:wrap;gap:6px 3px;justify-content:center;align-content:center;}
-  .ch{width:31px;text-align:center;position:relative;}
-  .av{width:26px;height:26px;margin:0 auto;position:relative;animation:bob 2.8s ease-in-out infinite;}
-  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
+  .chars{flex:1;display:flex;flex-wrap:wrap;gap:8px 4px;justify-content:center;align-content:center;
+    background:repeating-linear-gradient(90deg,transparent,transparent 13px,rgba(0,0,0,.02) 13px,rgba(0,0,0,.02) 14px);}
+  .ch{width:34px;text-align:center;position:relative;}
+  .seat{position:relative;width:32px;height:34px;margin:0 auto;}
+  .av{width:26px;height:26px;margin:0 auto;position:relative;z-index:1;
+    animation:work 1.1s ease-in-out infinite;transform-origin:bottom center;}
+  .ch.move .av{animation:bob 0.4s linear infinite;}
+  @keyframes work{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-0.6px) rotate(-1.5deg)}75%{transform:translateY(-0.6px) rotate(1.5deg)}}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-2px) rotate(3deg)}}
+  .desk{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:30px;height:9px;z-index:2;
+    background:linear-gradient(#b88a52,#9a6f3c);border-radius:3px 3px 1px 1px;box-shadow:0 1px 0 rgba(0,0,0,.15);}
+  .desk:before{content:"";position:absolute;left:5px;top:-6px;width:9px;height:6px;background:#3a4a5a;
+    border-radius:2px;box-shadow:inset 0 0 0 1px #5a6a7a;}
+  .ch.move .seat .desk{opacity:.25;}
+  .seat.solo{transform:scale(1.25);}
   .av .body{position:absolute;left:4px;top:10px;width:18px;height:15px;border-radius:8px 8px 6px 6px;}
   .av .head{position:absolute;left:6px;top:1px;width:14px;height:14px;border-radius:50%;background:#ffe0bd;border:1.5px solid rgba(0,0,0,.12);}
   .av .head:before,.av .head:after{content:"";position:absolute;top:6px;width:2px;height:2.5px;border-radius:50%;background:#3a3326;}
@@ -82,7 +93,8 @@ function render(){
     let cells="";
     for(const c of members){
       const st=STATE.chars[c[0]]||{}; const status=st.status||"work";
-      cells+=`<div class="ch" title="${(st.msg||'').replace(/"/g,'')}">${av(c)}
+      cells+=`<div class="ch" id="ch_${c[0]}" title="${(st.msg||'').replace(/"/g,'')}">
+        <div class="seat${members.length===1?' solo':''}">${av(c)}<div class="desk"></div></div>
         <span class="dot" style="background:${SC[status]||SC.work}"></span>
         <div class="n">${c[2].replace('クマ社長','社長')}</div></div>`;
     }
@@ -101,6 +113,15 @@ function tick(){const n=new Date();document.getElementById("clk").textContent=
   String(n.getHours()).padStart(2,"0")+":"+String(n.getMinutes()).padStart(2,"0");}
 tick();setInterval(tick,10000);
 poll();setInterval(poll,30000);
+// 事務所感: たまに誰かが席を立って動く(雰囲気のみ。状態/データは実物)
+setInterval(()=>{
+  const ids=C.map(c=>"ch_"+c[0]);
+  const el=document.getElementById(ids[Math.floor(Math.random()*ids.length)]);
+  if(el && !el.classList.contains("move")){
+    el.classList.add("move");
+    setTimeout(()=>el.classList.remove("move"),1300);
+  }
+},2200);
 </script>
 </body>
 </html>
