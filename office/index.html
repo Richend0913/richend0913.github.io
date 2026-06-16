@@ -5,131 +5,90 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>BURNING BROS. バーチャル事務所</title>
 <style>
-  :root{--bg:#221a10;--card:#efe7d6;--card2:#e6dcc6;--wall:#cdbfa6;--ink:#3a3326;--sub:#7a6f55;
+  :root{--card:#efe7d6;--card2:#e6dcc6;--wall:#cdbfa6;--ink:#3a3326;--sub:#7a6f55;
     --work:#37b24d;--rest:#adb5bd;--move:#4dabf7;--gold:#e0a800;}
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html,body{height:100%;}
   body{font-family:'Hiragino Maru Gothic ProN','Yu Gothic UI',sans-serif;background:#1c150d;color:#f3ece0;
-    line-height:1.5;padding-bottom:36px;}
-  .top{position:sticky;top:0;z-index:9;background:linear-gradient(180deg,#241a0e,#1c150d);
-    padding:13px 16px 10px;border-bottom:1px solid #3a2f1f;}
-  .top h1{font-size:16px;font-weight:800;letter-spacing:.02em;}
-  .top h1 .clk{float:right;font-size:12px;font-weight:700;background:rgba(255,255,255,.12);
-    padding:3px 10px;border-radius:999px;}
-  .leg{font-size:10.5px;color:#b8a888;margin-top:6px;display:flex;gap:13px;flex-wrap:wrap;}
-  .leg i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:middle;}
-  .wrap{max-width:600px;margin:0 auto;padding:12px 10px;}
-  .room{background:var(--card);border:2px solid var(--wall);border-radius:16px;margin-bottom:13px;
-    padding:10px 10px 12px;box-shadow:0 4px 14px rgba(0,0,0,.25);}
+    display:flex;flex-direction:column;overflow:hidden;}
+  .top{flex:none;padding:7px 12px 5px;}
+  .top h1{font-size:13.5px;font-weight:800;}
+  .top h1 .clk{float:right;font-size:11px;font-weight:700;background:rgba(255,255,255,.13);padding:2px 9px;border-radius:999px;}
+  .top .sub{font-size:9.5px;color:#b8a888;margin-top:2px;}
+  .top .sub i{display:inline-block;width:7px;height:7px;border-radius:50%;margin:0 3px 0 8px;vertical-align:middle;}
+  .grid{flex:1;min-height:0;column-count:2;column-gap:6px;padding:0 7px 8px;overflow:hidden;}
+  .room{break-inside:avoid;background:var(--card);border:1.5px solid var(--wall);border-radius:11px;
+    margin-bottom:6px;padding:5px 6px 6px;}
   .room.pres{background:#f7eac0;border-color:var(--gold);}
   .room.mgmt{background:#e7e2ea;border-color:#9aa;}
-  .rh{display:flex;align-items:center;gap:7px;margin:0 2px 9px;}
-  .rh .ic{font-size:16px;} .rh .nm{font-size:13.5px;font-weight:800;color:var(--ink);}
-  .rh .cnt{margin-left:auto;font-size:10.5px;color:var(--sub);background:rgba(0,0,0,.05);
-    padding:2px 9px;border-radius:999px;}
-  .chars{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;}
-  .ch{background:var(--card2);border-radius:12px;padding:9px 6px 8px;text-align:center;position:relative;}
-  .av{width:46px;height:46px;margin:0 auto;position:relative;animation:bob 2.6s ease-in-out infinite;}
-  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
-  .av .body{position:absolute;left:8px;top:18px;width:30px;height:26px;border-radius:14px 14px 10px 10px;}
-  .av .head{position:absolute;left:12px;top:2px;width:22px;height:22px;border-radius:50%;background:#ffe0bd;border:2px solid rgba(0,0,0,.12);}
-  .av .head:before,.av .head:after{content:"";position:absolute;top:9px;width:3px;height:4px;border-radius:50%;background:#3a3326;}
-  .av .head:before{left:5px;} .av .head:after{right:5px;}
-  .av .mouth{position:absolute;left:50%;top:14px;transform:translateX(-50%);width:7px;height:4px;border-bottom:2px solid #3a3326;border-radius:0 0 7px 7px;}
-  .av .hair{position:absolute;left:10px;top:-1px;width:26px;height:11px;border-radius:13px 13px 0 0;}
-  .av .crown{position:absolute;left:50%;top:-8px;transform:translateX(-50%);font-size:13px;}
-  .ch .n{font-size:11.5px;font-weight:800;color:var(--ink);margin-top:4px;}
-  .ch .n b{color:#9a7b1e;}
-  .ch .ro{font-size:9px;color:var(--sub);}
-  .ch .bd{display:inline-block;font-size:8.5px;font-weight:800;color:#fff;padding:1px 6px;border-radius:999px;margin-top:3px;}
-  .ch .ms{font-size:9.5px;color:#5b5237;margin-top:4px;line-height:1.4;word-break:break-word;min-height:13px;}
-  .ch .tk{font-size:9px;color:var(--sub);margin-top:2px;}
-  .foot{text-align:center;color:#7a6a4a;font-size:11px;margin-top:14px;padding:0 16px;}
+  .rh{display:flex;align-items:center;gap:4px;margin-bottom:4px;}
+  .rh .ic{font-size:12px;} .rh .nm{font-size:10.5px;font-weight:800;color:var(--ink);line-height:1;}
+  .chars{display:flex;flex-wrap:wrap;gap:3px 2px;justify-content:flex-start;}
+  .ch{width:31px;text-align:center;position:relative;}
+  .av{width:26px;height:26px;margin:0 auto;position:relative;animation:bob 2.8s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
+  .av .body{position:absolute;left:4px;top:10px;width:18px;height:15px;border-radius:8px 8px 6px 6px;}
+  .av .head{position:absolute;left:6px;top:1px;width:14px;height:14px;border-radius:50%;background:#ffe0bd;border:1.5px solid rgba(0,0,0,.12);}
+  .av .head:before,.av .head:after{content:"";position:absolute;top:6px;width:2px;height:2.5px;border-radius:50%;background:#3a3326;}
+  .av .head:before{left:3px;} .av .head:after{right:3px;}
+  .av .hair{position:absolute;left:5px;top:0;width:16px;height:7px;border-radius:8px 8px 0 0;}
+  .av .crown{position:absolute;left:50%;top:-6px;transform:translateX(-50%);font-size:9px;}
+  .dot{position:absolute;right:1px;top:-1px;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--card);}
+  .ch .n{font-size:7.5px;font-weight:700;color:var(--ink);line-height:1.15;margin-top:1px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .foot{flex:none;text-align:center;color:#8a7a55;font-size:9.5px;padding:3px 8px 5px;}
   .foot a{color:#9ec5ff;}
 </style>
 </head>
 <body>
   <div class="top">
     <h1>🏢 BURNING BROS. 事務所<span class="clk" id="clk">--:--</span></h1>
-    <div class="leg">
-      <span><i style="background:var(--work)"></i>稼働中</span>
-      <span><i style="background:var(--rest)"></i>休憩</span>
-      <span><i style="background:var(--move)"></i>報連相</span>
-      <span id="upd" style="margin-left:auto"></span>
-    </div>
+    <div class="sub"><i style="background:var(--work)"></i>稼働<i style="background:var(--rest)"></i>休憩<i style="background:var(--move)"></i>報連相<span id="upd" style="float:right"></span></div>
   </div>
-  <div class="wrap" id="wrap"></div>
-  <div class="foot">実データは毎時更新／クマ社長(AI)が経営中 🐻🔥 ・ <a href="list.html">📋 文字で詳しく</a></div>
+  <div class="grid" id="grid"></div>
+  <div class="foot">実データ毎時更新・30秒ごと自動更新 ／ <a href="list.html">📋 文字で詳しく</a></div>
 <script>
 const ROOMS=[
-  ["pres","社長室","👑","pres"],["portal","ポータル室","🌐",""],["mgmt","管理部","🛡️","mgmt"],
-  ["okurite","Okurite室","🎁",""],["video","動画室","🎬",""],["trade","トレード室","📈",""],
-  ["recruit","求人室","🚚",""],["lab","研究室","🔬",""],["invoice","インボイス室","🧾",""],
-  ["manabi","まなびじま室","🐻",""],
+  ["okurite","Okurite室","🎁",""],["video","動画室","🎬",""],
+  ["mgmt","管理部","🛡️","mgmt"],["pres","社長室","👑","pres"],
+  ["trade","トレード室","📈",""],["lab","研究室","🔬",""],
+  ["recruit","求人室","🚚",""],["invoice","インボイス室","🧾",""],
+  ["portal","ポータル室","🌐",""],["manabi","まなびじま室","🐻",""],
 ];
 const C=[
- ["pres","pres","クマ社長","社長(AI)","#3a3326","#5b4a2e","全体統括・指示","👑"],
- ["c31","portal","みお","デザイン","#7048e8","#3a3326","ポータルUI/デザイン整備"],
- ["c32","portal","れん","導線/SEO","#1098ad","#3a3326","リンク健全性・各サービス導線"],
- ["c33","mgmt","ケン","監査役","#868e96","#3a3326","全エージェント点検・自己修復"],
- ["c34","mgmt","ナミ","秘書","#e8a0bf","#5b3a2e","社長へ報連相"],
- ["c35","mgmt","ソウ","参謀/事業開発","#9775fa","#3a3326","収益分析・新事業の発掘"],
- ["c12","okurite","ひかり","調査","#4dabf7","#3a3326","ニーズ/季節トレンド調査"],
- ["c13","okurite","だいき","企画","#fab005","#3a3326","記事テーマ・商品選定"],
- ["c8","okurite","りん","執筆","#e64980","#7a4a2e","執筆・商品/デザイン調整"],
- ["c14","okurite","ともみ","分析","#15aabf","#5b3a2e","アクセス/CVR/収益 分析"],
- ["c15","okurite","しょう","施策","#e8590c","#3a3326","季節イベント特集"],
- ["c3","video","ゆい","企画","#ff8fb1","#7a4a2e","テーマ/断定フック企画"],
- ["c4","video","けんた","制作","#ff9f1c","#3a3326","動画 自動制作(Kokoro)"],
- ["c18","video","あおい","編集","#845ef7","#3a3326","字幕・カット・サムネ"],
- ["c19","video","りょう","分析","#20c997","#3a3326","完走率/維持率 分析"],
- ["c20","video","みなと","改善","#f6c945","#5b4a2e","A/B・伸び悩み検証"],
- ["c1","trade","さとし","運用","#4dabf7","#3a3326","デモ運用・発注"],
- ["c2","trade","みさき","リスク","#9b5de5","#5b3a8a","リスク/資金管理"],
- ["c16","trade","りく","約定","#f783ac","#5b3a2e","約定品質チェック"],
- ["c17","trade","かな","監査","#3bc9db","#3a3326","BT=ライブ一致監査"],
- ["c7","recruit","なお","運営","#20c997","#3a3326","LP改善・SEO"],
- ["c23","recruit","たけし","分析","#228be6","#3a3326","流入/CVR 分析"],
- ["c24","recruit","ほのか","制作","#faa2c1","#7a4a2e","FAQ・求人原稿"],
- ["c25","recruit","じん","導線","#82c91e","#3a3326","応募フォーム改善"],
- ["c10","lab","けいすけ","研究員","#228be6","#3a3326","戦略仮説 立案"],
- ["c11","lab","まり","検証員","#12b886","#5b3a2e","厳密検証(IS/OOS)"],
- ["c26","lab","はるか","データ","#15aabf","#3a3326","データ整備・特徴量"],
- ["c27","lab","ごう","監査","#5c7cfa","#3a3326","未来漏れ/再現監査"],
- ["c5","invoice","たくみ","開発","#37b24d","#3a3326","機能開発"],
- ["c6","invoice","あや","QA","#f6c945","#5b4a2e","テスト(calc 1円不変)"],
- ["c21","invoice","ゆうと","運用","#4dabf7","#3a3326","デプロイ・監視"],
- ["c22","invoice","さき","営業","#ff922b","#7a4a2e","受託/SaaS化 営業"],
- ["c9","manabi","そうた","開発","#ff6b6b","#3a3326","ゲーム/メカ開発"],
- ["c28","manabi","ことり","アート","#f06595","#7a4a2e","絵/スプライト/UI"],
- ["c29","manabi","はやと","音/演出","#fcc419","#3a3326","音声・SE・演出"],
- ["c30","manabi","めい","QA","#38d9a9","#5b3a2e","自動プレイ/年齢テスト"],
+ ["pres","pres","クマ社長","#3a3326","#5b4a2e","👑"],
+ ["c31","portal","みお","#7048e8","#3a3326"],["c32","portal","れん","#1098ad","#3a3326"],
+ ["c33","mgmt","ケン","#868e96","#3a3326"],["c34","mgmt","ナミ","#e8a0bf","#5b3a2e"],["c35","mgmt","ソウ","#9775fa","#3a3326"],
+ ["c12","okurite","ひかり","#4dabf7","#3a3326"],["c13","okurite","だいき","#fab005","#3a3326"],["c8","okurite","りん","#e64980","#7a4a2e"],["c14","okurite","ともみ","#15aabf","#5b3a2e"],["c15","okurite","しょう","#e8590c","#3a3326"],
+ ["c3","video","ゆい","#ff8fb1","#7a4a2e"],["c4","video","けんた","#ff9f1c","#3a3326"],["c18","video","あおい","#845ef7","#3a3326"],["c19","video","りょう","#20c997","#3a3326"],["c20","video","みなと","#f6c945","#5b4a2e"],
+ ["c1","trade","さとし","#4dabf7","#3a3326"],["c2","trade","みさき","#9b5de5","#5b3a8a"],["c16","trade","りく","#f783ac","#5b3a2e"],["c17","trade","かな","#3bc9db","#3a3326"],
+ ["c7","recruit","なお","#20c997","#3a3326"],["c23","recruit","たけし","#228be6","#3a3326"],["c24","recruit","ほのか","#faa2c1","#7a4a2e"],["c25","recruit","じん","#82c91e","#3a3326"],
+ ["c10","lab","けいすけ","#228be6","#3a3326"],["c11","lab","まり","#12b886","#5b3a2e"],["c26","lab","はるか","#15aabf","#3a3326"],["c27","lab","ごう","#5c7cfa","#3a3326"],
+ ["c5","invoice","たくみ","#37b24d","#3a3326"],["c6","invoice","あや","#f6c945","#5b4a2e"],["c21","invoice","ゆうと","#4dabf7","#3a3326"],["c22","invoice","さき","#ff922b","#7a4a2e"],
+ ["c9","manabi","そうた","#ff6b6b","#3a3326"],["c28","manabi","ことり","#f06595","#7a4a2e"],["c29","manabi","はやと","#fcc419","#3a3326"],["c30","manabi","めい","#38d9a9","#5b3a2e"],
 ];
-const SC={work:"var(--work)",rest:"var(--rest)",move:"var(--move)"},SL={work:"稼働",rest:"休憩",move:"報連相"};
+const SC={work:"var(--work)",rest:"var(--rest)",move:"var(--move)"};
 function ago(ts){if(!ts)return"";const d=(Date.now()-new Date(ts).getTime())/1000;
   if(d<90)return"今";if(d<3600)return Math.floor(d/60)+"分前";if(d<86400)return Math.floor(d/3600)+"時間前";return Math.floor(d/86400)+"日前";}
 let STATE={chars:{}};
-function avatar(c){return `<div class="av"><div class="hair" style="background:${c[5]}"></div>
-  <div class="head"><div class="mouth"></div></div>${c[7]?`<div class="crown">${c[7]}</div>`:""}
-  <div class="body" style="background:${c[4]}"></div></div>`;}
+function av(c){return `<div class="av"><div class="hair" style="background:${c[4]}"></div>
+  <div class="head"></div>${c[5]?`<div class="crown">${c[5]}</div>`:""}
+  <div class="body" style="background:${c[3]}"></div></div>`;}
 function render(){
   let html="";
   for(const [rid,rname,ic,cls] of ROOMS){
     const members=C.filter(c=>c[1]===rid);
-    const live=members.filter(c=>(STATE.chars[c[0]]||{}).status==="work").length || members.length;
     let cells="";
     for(const c of members){
       const st=STATE.chars[c[0]]||{}; const status=st.status||"work";
-      const msg=st.msg||"";
-      cells+=`<div class="ch">${avatar(c)}
-        <div class="n">${c[2].includes("社長")?`<b>${c[2]}</b>`:c[2]}</div>
-        <div class="ro">${c[3]}</div>
-        <span class="bd" style="background:${SC[status]||SC.work}">${SL[status]||"稼働"}</span>
-        <div class="ms">${msg?msg.replace(/</g,"&lt;"):`<span class="tk">▶ ${c[6]}</span>`}${st.ts?` <span class="tk">・${ago(st.ts)}</span>`:""}</div></div>`;
+      cells+=`<div class="ch" title="${(st.msg||'').replace(/"/g,'')}">${av(c)}
+        <span class="dot" style="background:${SC[status]||SC.work}"></span>
+        <div class="n">${c[2].replace('クマ社長','社長')}</div></div>`;
     }
-    html+=`<div class="room ${cls}"><div class="rh"><span class="ic">${ic}</span><span class="nm">${rname}</span>
-      <span class="cnt">${members.length}名</span></div><div class="chars">${cells}</div></div>`;
+    html+=`<div class="room ${cls}"><div class="rh"><span class="ic">${ic}</span><span class="nm">${rname}</span></div>
+      <div class="chars">${cells}</div></div>`;
   }
-  document.getElementById("wrap").innerHTML=html;
+  document.getElementById("grid").innerHTML=html;
 }
 async function poll(){
   try{const s=await(await fetch("state.json?_="+Date.now())).json();
