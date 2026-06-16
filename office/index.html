@@ -2,109 +2,283 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>BURNING BROS. 事務所 稼働状況</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BURNING BROS. バーチャル事務所</title>
 <style>
-  :root{--bg:#15110c;--card:#221b13;--line:#3a2f22;--ink:#f3ece0;--sub:#b8a888;
-    --work:#37d058;--rest:#9a8f72;--move:#4dabf7;--gold:#f6c945;}
-  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-  body{font-family:'Hiragino Maru Gothic ProN','Yu Gothic UI',sans-serif;background:var(--bg);color:var(--ink);
-    line-height:1.6;padding:0 0 40px;}
-  .top{position:sticky;top:0;background:linear-gradient(180deg,#1c150e,#15110c);padding:16px 16px 12px;
-    border-bottom:1px solid var(--line);z-index:5;}
-  .top h1{font-size:17px;font-weight:800;letter-spacing:.02em;}
-  .top .meta{font-size:11px;color:var(--sub);margin-top:3px;}
-  .top .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--work);margin-right:5px;
-    animation:pulse 2s infinite;}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-  .wrap{max-width:560px;margin:0 auto;padding:14px 12px;}
-  .sec{margin-bottom:22px;}
-  .sec-t{font-size:12px;font-weight:800;color:var(--gold);letter-spacing:.08em;margin:0 4px 10px;text-transform:uppercase;}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:8px;
-    display:flex;align-items:flex-start;gap:11px;}
-  .ava{width:34px;height:34px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;
-    font-size:15px;background:#2e2519;border:1px solid var(--line);}
-  .who{flex:1;min-width:0;}
-  .who .n{font-size:14px;font-weight:700;}
-  .who .n small{font-weight:400;color:var(--sub);font-size:11px;margin-left:6px;}
-  .who .m{font-size:12.5px;color:var(--sub);margin-top:2px;word-break:break-word;}
-  .badge{font-size:10px;font-weight:800;padding:2px 8px;border-radius:999px;flex:none;color:#15110c;}
-  .b-work{background:var(--work);} .b-rest{background:var(--rest);} .b-move{background:var(--move);}
-  .ev{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 13px;margin-bottom:7px;}
-  .ev .h{font-size:12px;font-weight:700;color:var(--gold);}
-  .ev .h .t{float:right;font-weight:400;color:var(--sub);font-size:10.5px;}
-  .ev .b{font-size:13px;margin-top:3px;word-break:break-word;}
-  pre.log{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 13px;
-    font-size:12px;color:var(--sub);white-space:pre-wrap;word-break:break-word;line-height:1.7;
-    font-family:inherit;}
-  .empty{color:var(--sub);font-size:12.5px;padding:8px 4px;}
-  .foot{text-align:center;color:#6a5d44;font-size:11px;margin-top:24px;}
+:root{
+  --floor:#e9e2d4; --floor2:#e2d9c6; --wall:#cdbfa6; --ink:#3a3326;
+  --pres:#f6c945; --work:#37b24d; --rest:#adb5bd; --move:#4dabf7;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hiragino Maru Gothic ProN','Yu Gothic UI',sans-serif;background:#2b2620;color:var(--ink);
+  display:flex;flex-direction:column;align-items:center;min-height:100vh;}
+.topbar{width:100%;max-width:1160px;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 20px;color:#fff;}
+.topbar .brand{font-size:20px;font-weight:800;letter-spacing:.04em;}
+.topbar .brand small{font-weight:400;opacity:.7;font-size:12px;margin-left:8px;}
+.topbar .clock{font-size:14px;font-weight:700;background:rgba(255,255,255,.12);padding:6px 14px;border-radius:999px;}
+.legend{display:flex;gap:16px;font-size:12px;color:#fff;opacity:.9;margin-bottom:8px;}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle;}
+
+.floor{position:relative;width:1120px;height:760px;background:
+  repeating-linear-gradient(0deg,var(--floor),var(--floor) 39px,var(--floor2) 39px,var(--floor2) 40px),
+  repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(0,0,0,.03) 39px,rgba(0,0,0,.03) 40px);
+  border:8px solid var(--wall);border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.5);overflow:hidden;}
+
+.room{position:absolute;border:3px solid var(--wall);border-radius:12px;background:rgba(255,255,255,.55);
+  box-shadow:inset 0 0 0 3px rgba(255,255,255,.5);}
+.room .tab{position:absolute;top:-15px;left:14px;background:var(--wall);color:#fff;font-size:12.5px;font-weight:800;
+  padding:3px 12px;border-radius:8px;white-space:nowrap;box-shadow:0 2px 0 rgba(0,0,0,.15);}
+.room .tab .ic{margin-right:4px;}
+.room.pres{background:rgba(246,201,69,.28);border-color:#d9a400;}
+.room.pres .tab{background:#d9a400;}
+.room.rest{background:rgba(173,181,189,.25);}
+
+/* キャラ */
+.char{position:absolute;width:54px;transition:left 1.6s ease-in-out,top 1.6s ease-in-out;z-index:10;cursor:default;}
+.char .badge{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:800;
+  padding:1px 7px;border-radius:999px;color:#fff;white-space:nowrap;box-shadow:0 2px 4px rgba(0,0,0,.2);}
+.char .av{position:relative;width:54px;height:54px;animation:bob 2.4s ease-in-out infinite;}
+.char.moving .av{animation:walk .4s linear infinite;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
+@keyframes walk{0%,100%{transform:translateY(0) rotate(-3deg);}50%{transform:translateY(-2px) rotate(3deg);}}
+.av .body{position:absolute;left:9px;top:20px;width:36px;height:30px;border-radius:16px 16px 12px 12px;}
+.av .head{position:absolute;left:13px;top:2px;width:28px;height:28px;border-radius:50%;background:#ffe0bd;
+  border:2px solid rgba(0,0,0,.12);}
+.av .head:before,.av .head:after{content:"";position:absolute;top:11px;width:4px;height:5px;border-radius:50%;background:#3a3326;}
+.av .head:before{left:7px;} .av .head:after{right:7px;}
+.av .mouth{position:absolute;left:50%;top:18px;transform:translateX(-50%);width:9px;height:5px;
+  border-bottom:2px solid #3a3326;border-radius:0 0 9px 9px;}
+.av .hair{position:absolute;left:11px;top:-1px;width:32px;height:14px;border-radius:16px 16px 0 0;}
+.av .crown{position:absolute;left:50%;top:-9px;transform:translateX(-50%);font-size:16px;}
+.name{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:800;
+  background:#fff;padding:1px 7px;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.2);white-space:nowrap;}
+.name b{color:#9a7b1e;}
+.role{position:absolute;bottom:-31px;left:50%;transform:translateX(-50%);font-size:8.5px;font-weight:700;
+  color:#6a5d3e;background:rgba(255,255,255,.72);padding:0 4px;border-radius:5px;white-space:nowrap;max-width:120px;
+  overflow:hidden;text-overflow:ellipsis;}
+
+.bubble{position:absolute;bottom:62px;left:50%;transform:translateX(-50%);background:#fff;color:#3a3326;
+  font-size:11.5px;font-weight:700;padding:6px 11px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.25);
+  white-space:nowrap;z-index:30;animation:pop .3s cubic-bezier(.34,1.56,.64,1);}
+.bubble:after{content:"";position:absolute;bottom:-7px;left:50%;transform:translateX(-50%);
+  border:7px solid transparent;border-top-color:#fff;border-bottom:0;}
+@keyframes pop{from{transform:translateX(-50%) scale(0);opacity:0;}to{transform:translateX(-50%) scale(1);opacity:1;}}
+.tasklist{position:absolute;top:16px;left:10px;right:10px;}
+.task{display:flex;align-items:center;gap:5px;font-size:10px;line-height:1.7;color:#5b5237;}
+.task .tt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.task small{margin-left:auto;color:#9a8f72;font-size:9px;flex:none;}
+.task .dot{width:7px;height:7px;border-radius:50%;flex:none;}
+.task.done .dot{background:var(--work);} .task.done .tt{color:#9a9078;text-decoration:line-through;}
+.task.work .dot{background:var(--move);box-shadow:0 0 0 3px rgba(77,171,247,.18);}
+.task.todo .dot{background:#c7b9a0;}
+.deskpc{position:absolute;font-size:15px;opacity:.6;}
+.foot{color:#fff;opacity:.6;font-size:11px;margin:10px 0 24px;}
 </style>
 </head>
 <body>
-  <div class="top">
-    <h1>🏢 BURNING BROS. 事務所</h1>
-    <div class="meta"><span class="dot"></span><span id="upd">読み込み中…</span> ・ 30秒ごとに自動更新</div>
+  <div class="topbar">
+    <div class="brand">🏢 BURNING BROS. バーチャル事務所<small>AI社員 稼働状況</small></div>
+    <div class="clock" id="clock">--:--</div>
   </div>
-  <div class="wrap">
-    <div class="sec">
-      <div class="sec-t">🟢 いま稼働中</div>
-      <div id="working"></div>
-    </div>
-    <div class="sec">
-      <div class="sec-t">📢 最近の報連相</div>
-      <div id="events"></div>
-    </div>
-    <div class="sec">
-      <div class="sec-t">📋 今日の稼働ログ</div>
-      <pre class="log" id="report">—</pre>
-    </div>
-    <div class="foot">CEO=クマ社長(AI) ／ 自動稼働中 🐻🔥</div>
+  <div class="legend">
+    <span><i style="background:var(--work)"></i>稼働中</span>
+    <span><i style="background:var(--rest)"></i>休憩中</span>
+    <span><i style="background:var(--move)"></i>移動中(報連相)</span>
+    <span><i style="background:var(--pres)"></i>社長室</span>
   </div>
+  <div class="floor" id="floor"></div>
+  <div class="foot">実データは毎時更新・キャラは常時稼働中 ／ <a href="list.html" style="color:#9ec5ff;">📋 文字で詳しく見る</a></div>
+
 <script>
-// エージェントid → 名前・部屋・絵文字
-const C = {
-  pres:["クマ社長","社長室","👑"],
-  c1:["さとし","トレード室","📈"],c2:["みさき","トレード室","📈"],c16:["りく","トレード室","📈"],c17:["かな","トレード室","📈"],
-  c3:["ゆい","動画室","🎬"],c4:["けんた","動画室","🎬"],c18:["あおい","動画室","🎬"],c19:["りょう","動画室","🎬"],c20:["みなと","動画室","🎬"],
-  c5:["たくみ","インボイス室","🧾"],c6:["あや","インボイス室","🧾"],c21:["ゆうと","インボイス室","🧾"],c22:["さき","インボイス室","🧾"],
-  c7:["なお","求人室","🚚"],c23:["たけし","求人室","🚚"],c24:["ほのか","求人室","🚚"],c25:["じん","求人室","🚚"],
-  c10:["けいすけ","研究室","🔬"],c11:["まり","研究室","🔬"],c26:["はるか","研究室","🔬"],c27:["ごう","研究室","🔬"],
-  c12:["ひかり","Okurite室","🎁"],c13:["だいき","Okurite室","🎁"],c8:["りん","Okurite室","🎁"],c14:["ともみ","Okurite室","🎁"],c15:["しょう","Okurite室","🎁"],
-  c9:["そうた","まなびじま室","🐻"],c28:["ことり","まなびじま室","🐻"],c29:["はやと","まなびじま室","🐻"],c30:["めい","まなびじま室","🐻"],
-  c31:["みお","ポータル室","🌐"],c32:["れん","ポータル室","🌐"],
-  c33:["ケン","管理部","🛡️"],c34:["ナミ","管理部","🛡️"],c35:["ソウ","管理部","🛡️"],
+// ───── データ(後で state.json から読む) ─────
+const ROOMS = {
+  pres:    {name:"社長室", ic:"👑", x:430, y:18,  w:260, h:158, cls:"pres"},
+  portal:  {name:"ポータル室", ic:"🌐", x:60, y:24, w:300, h:150},
+  mgmt:    {name:"管理部", ic:"🛡️", x:762, y:24, w:330, h:150},
+  trade:   {name:"トレード室", ic:"📈", x:30,  y:208, w:250, h:250},
+  video:   {name:"動画室", ic:"🎬", x:300, y:208, w:250, h:250},
+  invoice: {name:"インボイス室", ic:"🧾", x:570, y:208, w:250, h:250},
+  recruit: {name:"求人室", ic:"🚚", x:840, y:208, w:250, h:250},
+  lab:     {name:"研究室", ic:"🔬", x:30,  y:478, w:250, h:262},
+  okurite: {name:"Okurite室", ic:"🎁", x:300, y:478, w:250, h:262},
+  manabi:  {name:"まなびじま室", ic:"🐻", x:570, y:478, w:250, h:262},
+  rest:    {name:"休憩室", ic:"☕", x:840, y:478, w:250, h:262, cls:"rest"},
 };
-const SB={work:"b-work",rest:"b-rest",move:"b-move"}, SL={work:"稼働",rest:"休憩",move:"報連相"};
-function ago(ts){ if(!ts) return ""; const d=(Date.now()-new Date(ts).getTime())/1000;
-  if(d<60) return "たった今"; if(d<3600) return Math.floor(d/60)+"分前"; if(d<86400) return Math.floor(d/3600)+"時間前"; return Math.floor(d/86400)+"日前"; }
-async function load(){
-  try{
-    const s=await (await fetch("state.json?_="+Date.now())).json();
-    document.getElementById("upd").textContent="更新 "+ago(s.updated);
-    // 稼働中
-    const chars=s.chars||{}; let w="";
-    const order=Object.entries(chars).sort((a,b)=> (b[1].ts||"").localeCompare(a[1].ts||""));
-    for(const [id,v] of order){
-      const c=C[id]; if(!c) continue;
-      w+=`<div class="card"><div class="ava">${c[2]}</div>
-        <div class="who"><div class="n">${c[0]} <small>${c[1]}・${c[2]==='👑'?'CEO':c[1]}</small></div>
-        <div class="m">${(v.msg||"").replace(/</g,"&lt;")} <span style="color:#6a5d44">・${ago(v.ts)}</span></div></div>
-        <span class="badge ${SB[v.status]||'b-rest'}">${SL[v.status]||"待機"}</span></div>`;
-    }
-    document.getElementById("working").innerHTML=w||'<div class="empty">データ待ち…(毎時更新)</div>';
-    // 報連相イベント
-    const evs=(s.events||[]).slice(-12).reverse(); let e="";
-    for(const ev of evs){ const f=C[ev.from], t=C[ev.to];
-      e+=`<div class="ev"><div class="h">${f?f[0]:ev.from} → ${t?t[0]:ev.to}<span class="t">${ago(ev.ts)}</span></div>
-        <div class="b">${(ev.msg||"").replace(/</g,"&lt;")}</div></div>`; }
-    document.getElementById("events").innerHTML=e||'<div class="empty">まだ報連相なし</div>';
-  }catch(err){ document.getElementById("upd").textContent="読み込み失敗(再試行中)"; }
-  // 日報
-  try{ const r=await (await fetch("daily_report.md?_="+Date.now())).text();
-    document.getElementById("report").textContent=r; }catch(e){}
+const CHARS = [
+  {id:"pres", room:"pres",  name:"クマ社長", role:"社長(AI)", body:"#3a3326", hair:"#5b4a2e", crown:"👑", status:"work", task:"全体統括・指示", pool:["各室の報告を確認","優先順位を決定","次の一手を指示"]},
+  // ── トレード室(実運用) ──
+  {id:"c1", room:"trade",   name:"さとし", role:"運用", body:"#4dabf7", hair:"#3a3326", status:"work", task:"デモ運用・発注", pool:["デモ発注","ポジション監視","シグナル確認"]},
+  {id:"c2", room:"trade",   name:"みさき", role:"リスク", body:"#9b5de5", hair:"#5b3a8a", status:"work", task:"リスク/資金管理", pool:["リスク/資金管理","DD監視","ロット調整"]},
+  {id:"c16",room:"trade",   name:"りく",   role:"約定", body:"#f783ac", hair:"#5b3a2e", status:"work", task:"約定品質チェック", pool:["スリッページ計測","約定品質チェック","コスト集計"]},
+  {id:"c17",room:"trade",   name:"かな",   role:"監査", body:"#3bc9db", hair:"#3a3326", status:"work", task:"BT=ライブ一致監査", pool:["BT=ライブ一致監査","未来漏れ監査","ログ突合"]},
+  // ── 動画室 ──
+  {id:"c3", room:"video",   name:"ゆい",   role:"企画", body:"#ff8fb1", hair:"#7a4a2e", status:"work", task:"テーマ/断定フック企画", pool:["トレンド調査","断定フック設計","コメント設計"]},
+  {id:"c4", room:"video",   name:"けんた", role:"制作", body:"#ff9f1c", hair:"#3a3326", status:"work", task:"動画 自動制作(Kokoro)", pool:["台本生成","Kokoro音声","レンダリング"]},
+  {id:"c18",room:"video",   name:"あおい", role:"編集", body:"#845ef7", hair:"#3a3326", status:"work", task:"字幕・カット・サムネ", pool:["ワード字幕","カット編集","サムネ作成"]},
+  {id:"c19",room:"video",   name:"りょう", role:"分析", body:"#20c997", hair:"#3a3326", status:"work", task:"完走率/維持率 分析", pool:["完走率分析","視聴維持分析","CTR分析"]},
+  {id:"c20",room:"video",   name:"みなと", role:"改善", body:"#f6c945", hair:"#5b4a2e", status:"work", task:"A/B・伸び悩み検証", pool:["A/Bテスト","伸び悩み原因検証","投稿時刻最適化"]},
+  // ── インボイス室 ──
+  {id:"c5", room:"invoice", name:"たくみ", role:"開発", body:"#37b24d", hair:"#3a3326", status:"work", task:"機能開発", pool:["機能開発","バグ修正","リファクタ"]},
+  {id:"c6", room:"invoice", name:"あや",   role:"QA", body:"#f6c945", hair:"#5b4a2e", status:"work", task:"テスト(calc 1円不変)", pool:["calcテスト","回帰テスト","型チェック"]},
+  {id:"c21",room:"invoice", name:"ゆうと", role:"運用", body:"#4dabf7", hair:"#3a3326", status:"work", task:"デプロイ・監視", pool:["デプロイ","Cloudflare設定","稼働監視"]},
+  {id:"c22",room:"invoice", name:"さき",   role:"営業", body:"#ff922b", hair:"#7a4a2e", status:"work", task:"受託/SaaS化 営業", pool:["出品文/提案文","問い合わせ対応","受託/SaaS営業"]},
+  // ── 求人室(配送ドライバー募集LP) ──
+  {id:"c7", room:"recruit", name:"なお",   role:"運営", body:"#20c997", hair:"#3a3326", status:"work", task:"LP改善・SEO", pool:["LP改善","SEO","ポータル同期"]},
+  {id:"c23",room:"recruit", name:"たけし", role:"分析", body:"#228be6", hair:"#3a3326", status:"work", task:"流入/CVR 分析", pool:["流入分析","CVR分析","ヒートマップ"]},
+  {id:"c24",room:"recruit", name:"ほのか", role:"制作", body:"#faa2c1", hair:"#7a4a2e", status:"work", task:"FAQ・求人原稿", pool:["FAQ拡充","求人原稿","口コミ収集"]},
+  {id:"c25",room:"recruit", name:"じん",   role:"導線", body:"#82c91e", hair:"#3a3326", status:"work", task:"応募フォーム改善", pool:["フォーム改善","応募導線A/B","CTA最適化"]},
+  // ── 研究室(戦略探索) ──
+  {id:"c10",room:"lab",     name:"けいすけ", role:"研究員", body:"#228be6", hair:"#3a3326", status:"work", task:"戦略仮説 立案", pool:["仮説立案","スイープ実行","結果の解釈"]},
+  {id:"c11",room:"lab",     name:"まり",   role:"検証員", body:"#12b886", hair:"#5b3a2e", status:"work", task:"厳密検証(IS/OOS)", pool:["IS/OOS検証","ロバスト性","コスト感度"]},
+  {id:"c26",room:"lab",     name:"はるか", role:"データ", body:"#15aabf", hair:"#3a3326", status:"work", task:"データ整備・特徴量", pool:["データ整備","特徴量設計","レジーム分類"]},
+  {id:"c27",room:"lab",     name:"ごう",   role:"監査", body:"#5c7cfa", hair:"#3a3326", status:"work", task:"未来漏れ/再現監査", pool:["未来漏れ監査","点時刻整合","BT=ライブ突合"]},
+  // ── Okurite室(ギフトアフィリ) ──
+  {id:"c12",room:"okurite", name:"ひかり", role:"調査", body:"#4dabf7", hair:"#3a3326", status:"work", task:"ニーズ/季節トレンド調査", pool:["検索ニーズ調査","季節イベント整理","競合チェック"]},
+  {id:"c13",room:"okurite", name:"だいき", role:"企画", body:"#fab005", hair:"#3a3326", status:"work", task:"記事テーマ・商品選定", pool:["記事テーマ選定","掲載商品選定","構成案"]},
+  {id:"c8", room:"okurite", name:"りん",   role:"執筆", body:"#e64980", hair:"#7a4a2e", status:"work", task:"執筆・商品/デザイン調整", pool:["記事執筆","商品/デザイン調整","内部リンク"]},
+  {id:"c14",room:"okurite", name:"ともみ", role:"分析", body:"#15aabf", hair:"#5b3a2e", status:"work", task:"アクセス/CVR/収益 分析", pool:["アクセス分析","CVR分析","改善案"]},
+  {id:"c15",room:"okurite", name:"しょう", role:"施策", body:"#e8590c", hair:"#3a3326", status:"work", task:"季節イベント特集", pool:["イベント企画","特集記事","CTA調整"]},
+  // ── ポータル室(richend0913.github.io 総合窓口) ──
+  {id:"c31",room:"portal",  name:"みお",   role:"デザイン", body:"#7048e8", hair:"#3a3326", status:"work", task:"ポータルUI/デザイン整備", pool:["デザイン刷新","季節バナー更新","不要要素の整理"]},
+  {id:"c32",room:"portal",  name:"れん",   role:"導線/SEO", body:"#1098ad", hair:"#3a3326", status:"work", task:"リンク健全性・各サービス導線", pool:["全リンク死活チェック","サービス導線最適化","sitemap/IndexNow更新"]},
+  // ── 管理部(社長直轄: 監査・報連相・収益戦略) ──
+  {id:"c33",room:"mgmt",    name:"ケン",   role:"監査役", body:"#868e96", hair:"#3a3326", status:"work", task:"全エージェント点検・自己修復", pool:["タスク稼働点検","取りこぼし自己修復","異常検知→報連相"]},
+  {id:"c34",room:"mgmt",    name:"ナミ",   role:"秘書", body:"#e8a0bf", hair:"#5b3a2e", status:"work", task:"社長へ報連相", pool:["完了報告の集約","日次報告を社長へ","アラート通知"]},
+  {id:"c35",room:"mgmt",    name:"ソウ",   role:"参謀/事業開発", body:"#9775fa", hair:"#3a3326", status:"work", task:"収益分析・新事業の発掘", pool:["集客指標の分析","なぜ稼げないか診断","各室へ戦略指示","新事業の発掘・立ち上げ"]},
+  // ── まなびじま室(知育アプリ) ──
+  {id:"c9", room:"manabi",  name:"そうた", role:"開発", body:"#ff6b6b", hair:"#3a3326", status:"work", task:"ゲーム/メカ開発", pool:["メカ開発","シーン構築","実機検証"]},
+  {id:"c28",room:"manabi",  name:"ことり", role:"アート", body:"#f06595", hair:"#7a4a2e", status:"work", task:"絵/スプライト/UI", pool:["スプライト作成","UIデザイン","配色調整"]},
+  {id:"c29",room:"manabi",  name:"はやと", role:"音/演出", body:"#fcc419", hair:"#3a3326", status:"work", task:"音声・SE・演出", pool:["音声収録","SE/BGM","演出"]},
+  {id:"c30",room:"manabi",  name:"めい",   role:"QA", body:"#38d9a9", hair:"#5b3a2e", status:"work", task:"自動プレイ/年齢テスト", pool:["自動プレイ検証","対象年齢テスト","難易度調整"]},
+];
+const SCOL={work:"var(--work)",rest:"var(--rest)",move:"var(--move)"};
+const SLBL={work:"🟢稼働",rest:"💤休憩",move:"🚶移動"};
+
+const floor=document.getElementById("floor");
+// 部屋描画
+for(const k in ROOMS){const r=ROOMS[k];const d=document.createElement("div");
+  d.className="room "+(r.cls||"");d.style.cssText=`left:${r.x}px;top:${r.y}px;width:${r.w}px;height:${r.h}px;`;
+  d.innerHTML=`<div class="tab"><span class="ic">${r.ic}</span>${r.name}</div>`;
+  floor.appendChild(d);}
+
+// 部屋内の定位置(複数キャラを横に並べる)
+function homePos(roomId){
+  const r=ROOMS[roomId];const peers=CHARS.filter(c=>c.home===roomId);
+  return peers;
 }
-load(); setInterval(load,30000);
+CHARS.forEach(c=>c.home=c.room);
+function slotXY(c){
+  const r=ROOMS[c.home];const peers=CHARS.filter(x=>x.home===c.home);
+  const i=peers.indexOf(c);const n=peers.length;
+  const perRow=Math.min(n,3);const rows=Math.ceil(n/perRow);
+  const row=Math.floor(i/perRow);const col=i%perRow;
+  const inRow=(row===rows-1)?(n-perRow*row):perRow;          // 最終行は人数に合わせて中央寄せ
+  const gap=r.w/(inRow+1);
+  const x=r.x+gap*(col+1)-27;
+  const rowH=Math.min(96,(r.h-58)/rows);
+  const y=r.y+46+row*rowH;
+  return {x, y};
+}
+
+// キャラ描画
+const el={};
+CHARS.forEach(c=>{
+  const d=document.createElement("div");d.className="char";d.id="ch_"+c.id;
+  d.innerHTML=`<div class="badge" id="bd_${c.id}"></div>
+    <div class="av"><div class="hair" style="background:${c.hair}"></div>
+      <div class="head"><div class="mouth"></div></div>
+      ${c.crown?`<div class="crown">${c.crown}</div>`:""}
+      <div class="body" style="background:${c.body}"></div></div>
+    <div class="name">${c.name.includes("社長")?`<b>${c.name}</b>`:c.name}</div>
+    <div class="role" id="rl_${c.id}">▶ ${c.task||c.role}</div>`;
+  floor.appendChild(d);el[c.id]=d;
+  const p=slotXY(c);d.style.left=p.x+"px";d.style.top=p.y+"px";
+  updateBadge(c);
+});
+function updateBadge(c){const b=document.getElementById("bd_"+c.id);
+  b.textContent=SLBL[c.status];b.style.background=SCOL[c.status];}
+function moveTo(c,x,y){el[c.id].style.left=x+"px";el[c.id].style.top=y+"px";}
+function bubble(c,text){const d=el[c.id];const b=document.createElement("div");b.className="bubble";b.textContent=text;
+  d.appendChild(b);setTimeout(()=>b.remove(),2600);}
+
+// ───── シミュレーション(24h稼働: 各自がタスク実行→完了ごとに社長へ報告) ─────
+const REPLIES=["ナイス、次いこう","了解、助かる！","OK、進めて","いいね、その調子","よし、報告ありがと"];
+const taskIdx={}; CHARS.forEach(c=>{taskIdx[c.id]=0;});
+const workers=CHARS.filter(c=>c.id!=="pres");
+let wq=0;
+function setTaskLabel(c){const rl=document.getElementById("rl_"+c.id); if(rl) rl.textContent="▶ "+(c.task||c.role);}
+function advanceTask(c){
+  if(!c.pool||!c.pool.length) return;
+  taskIdx[c.id]=(taskIdx[c.id]+1)%c.pool.length; c.task=c.pool[taskIdx[c.id]]; setTaskLabel(c);
+}
+// 1人が今のタスクを完了→社長室へ歩いて報告→戻って次タスク着手
+function completeAndReport(){
+  let c=null;
+  for(let k=0;k<workers.length;k++){const cand=workers[(wq+k)%workers.length];
+    if(cand && cand.status==="work"){c=cand; wq=(wq+k+1)%workers.length; break;}}
+  if(!c) return;
+  const done=c.task, pres=CHARS.find(x=>x.id==="pres"), back=slotXY(c), tr=ROOMS["pres"];
+  c.status="move"; updateBadge(c); el[c.id].classList.add("moving");
+  moveTo(c, tr.x+tr.w/2-27, tr.y+tr.h-42);
+  setTimeout(()=>bubble(c,`「${done}」完了！`),1500);
+  setTimeout(()=>bubble(pres,REPLIES[wq%REPLIES.length]),2700);
+  setTimeout(()=>moveTo(c,back.x,back.y),3800);
+  setTimeout(()=>{c.status="work";updateBadge(c);el[c.id].classList.remove("moving");advanceTask(c);},5400);
+}
+// 朝礼: 今日のタスクを配分
+function morning(){
+  const pres=CHARS.find(x=>x.id==="pres");
+  bubble(pres,"おはよう！今日のタスク配分完了。各室よろしく");
+  workers.forEach((c,i)=>{ if(c.status!=="move") setTimeout(()=>{ if(c.status!=="move") bubble(c,"今日のタスク開始"); },400+i*110); });
+}
+// ───── 実稼働連動: state.json をポーリング(HTTPで配信時)。file://直開きはデモ ─────
+let LIVE=false, lastEventTs="", seededEvents=false;
+function applyState(s){
+  if(!s||!s.chars) return;
+  if(Object.keys(s.chars).length>0) LIVE=true;
+  for(const id in s.chars){
+    const c=CHARS.find(x=>x.id===id); if(!c) continue;
+    if(s.chars[id].status && c.status!=="move"){ c.status=s.chars[id].status; updateBadge(c); }
+  }
+  const evs=s.events||[];
+  if(!seededEvents){ if(evs.length) lastEventTs=evs[evs.length-1].ts; seededEvents=true; return; } // 起動時は過去イベントを再生しない
+  for(const e of evs){ if(e.ts>lastEventTs) triggerWalk(e.from,e.to,e.msg); }
+  if(evs.length) lastEventTs=evs[evs.length-1].ts;
+}
+function triggerWalk(fromId,toId,msg){
+  const a=CHARS.find(c=>c.id===fromId), b=CHARS.find(c=>c.id===toId);
+  if(!a||!b||a.status==="move") return;
+  const back=slotXY(a); a.status="move"; updateBadge(a); el[a.id].classList.add("moving");
+  const tr=ROOMS[b.home]; moveTo(a, tr.x+tr.w/2-27, tr.y+tr.h-46);
+  setTimeout(()=>bubble(a,msg||"報連相です"),1500);
+  setTimeout(()=>bubble(b,"了解！"),2700);
+  setTimeout(()=>moveTo(a,back.x,back.y),3800);
+  setTimeout(()=>{a.status="work";updateBadge(a);el[a.id].classList.remove("moving");},5400);
+}
+async function pollState(){
+  try{ const r=await fetch('state.json?_='+Date.now()); if(r.ok) applyState(await r.json()); }catch(e){}
+}
+setInterval(pollState,4000); pollState();
+// 24h稼働: 常に各自がタスクを回す。実エージェントの稼働/イベントは state.json で上書き反映
+setInterval(completeAndReport,3500);
+setInterval(morning,60000);   // “朝礼”(デモでは1日を1分に圧縮)
+setTimeout(morning,900);
+setTimeout(completeAndReport,2500);
+
+// 時計
+function tick(){const n=new Date();
+  document.getElementById("clock").textContent=
+    String(n.getHours()).padStart(2,"0")+":"+String(n.getMinutes()).padStart(2,"0");}
+tick();setInterval(tick,10000);
+
+// スマホ対応: フロアを画面幅に合わせて縮小(zoomは層レイアウトも追従)
+function fitFloor(){
+  const f=document.getElementById("floor"); if(!f) return;
+  const z=Math.min(1,(window.innerWidth-12)/1136);
+  f.style.zoom=z; f.style.MozTransform="scale("+z+")"; f.style.MozTransformOrigin="top left";
+}
+fitFloor(); window.addEventListener("resize",fitFloor); window.addEventListener("orientationchange",fitFloor);
 </script>
 </body>
 </html>
