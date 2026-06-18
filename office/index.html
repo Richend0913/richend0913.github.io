@@ -101,7 +101,8 @@ function render(){
     for(const c of members){
       const st=STATE.chars[c[0]]||{}; const status=st.status||"work";
       const chat = status==="move" ? '<span class="chat">💬</span>' : '';
-      cells+=`<div class="ch ${status==='move'?'talk':''}" id="ch_${c[0]}" title="${(st.msg||'').replace(/"/g,'')}">
+      const tip=((st.done?('前回✓ '+st.done+'\n'):'')+'今▶ '+(st.msg||'')).replace(/"/g,'');
+      cells+=`<div class="ch ${status==='move'?'talk':''}" id="ch_${c[0]}" title="${tip}">
         <div class="seat${members.length===1?' solo':''}">${av(c)}<div class="desk"></div>${chat}</div>
         <span class="dot" style="background:${SC[status]||SC.work}"></span>
         <div class="n">${c[2].replace('クマ社長','社長')}</div></div>`;

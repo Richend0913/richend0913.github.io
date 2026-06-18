@@ -87,9 +87,11 @@ async function load(){
     const order=Object.entries(chars).sort((a,b)=> (b[1].ts||"").localeCompare(a[1].ts||""));
     for(const [id,v] of order){
       const c=C[id]; if(!c) continue;
+      const doneLine = v.done ? `<div class="m" style="color:#6a7a5a;font-size:11px">✓ 前回: ${(v.done||"").replace(/</g,"&lt;")}</div>` : "";
       w+=`<div class="card"><div class="ava">${c[2]}</div>
         <div class="who"><div class="n">${c[0]} <small>${c[1]}・${c[2]==='👑'?'CEO':c[1]}</small></div>
-        <div class="m">${(v.msg||"").replace(/</g,"&lt;")} <span style="color:#6a5d44">・${ago(v.ts)}</span></div></div>
+        ${doneLine}
+        <div class="m">▶ 今: ${(v.msg||"").replace(/</g,"&lt;")} <span style="color:#6a5d44">・${ago(v.ts)}</span></div></div>
         <span class="badge ${SB[v.status]||'b-rest'}">${SL[v.status]||"待機"}</span></div>`;
     }
     document.getElementById("working").innerHTML=w||'<div class="empty">データ待ち…(毎時更新)</div>';
