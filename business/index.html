@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>事業一覧｜Richend Digital 経営ダッシュボード</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Noto+Sans+JP:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans JP','Inter',sans-serif; background:#0a0a0a; color:#e4e4e7; line-height:1.6; -webkit-text-size-adjust:100%; overflow-x:hidden; }
+    .bg-glow { position:fixed; top:-50%; left:-50%; width:200%; height:200%; background:radial-gradient(circle at 30% 40%,rgba(99,102,241,.08) 0%,transparent 50%),radial-gradient(circle at 70% 60%,rgba(168,85,247,.06) 0%,transparent 50%); z-index:-1; }
+    .header { padding:48px 20px 24px; text-align:center; }
+    .logo { font-family:'Inter',sans-serif; font-size:1.5rem; font-weight:900; letter-spacing:-.02em; background:linear-gradient(135deg,#e4e4e7,#a1a1aa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .header p { font-size:.72rem; color:#52525b; margin-top:8px; font-weight:300; letter-spacing:.05em; }
+    .main { max-width:620px; margin:0 auto; padding:12px 18px 60px; }
+
+    .kpi { display:flex; gap:8px; margin-bottom:28px; flex-wrap:wrap; }
+    .kpi-box { flex:1; min-width:90px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:12px 10px; text-align:center; }
+    .kpi-box .n { font-size:1.4rem; font-weight:900; color:#fafafa; font-family:'Inter',sans-serif; }
+    .kpi-box .l { font-size:.6rem; color:#71717a; margin-top:2px; }
+
+    .cat { margin-bottom:26px; }
+    .cat-label { font-size:.65rem; font-weight:700; color:#6366f1; text-transform:uppercase; letter-spacing:.15em; margin-bottom:10px; padding-left:2px; display:flex; align-items:center; gap:8px; }
+    .cat-label .cnt { color:#3f3f46; font-weight:500; }
+
+    .item { display:flex; align-items:center; gap:13px; padding:13px 15px; margin-bottom:7px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); border-radius:13px; text-decoration:none; color:inherit; transition:all .2s ease; }
+    a.item:hover { background:rgba(99,102,241,.08); border-color:rgba(99,102,241,.2); transform:translateX(3px); }
+    .item-icon { width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.15rem; flex-shrink:0; background:rgba(255,255,255,.05); }
+    .item-text { flex:1; min-width:0; }
+    .item-text h3 { font-size:.84rem; font-weight:700; color:#fafafa; letter-spacing:-.01em; display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
+    .item-text p { font-size:.66rem; color:#71717a; font-weight:300; margin-top:1px; }
+    .item-text .rev { color:#a1a1aa; }
+
+    .badge { font-size:.55rem; font-weight:700; padding:2px 7px; border-radius:8px; letter-spacing:.03em; white-space:nowrap; }
+    .b-live { background:rgba(34,197,94,.15); color:#4ade80; border:1px solid rgba(34,197,94,.3); }
+    .b-test { background:rgba(234,179,8,.13); color:#facc15; border:1px solid rgba(234,179,8,.3); }
+    .b-dev  { background:rgba(59,130,246,.13); color:#60a5fa; border:1px solid rgba(59,130,246,.3); }
+    .b-wait { background:rgba(113,113,122,.15); color:#a1a1aa; border:1px solid rgba(113,113,122,.3); }
+
+    .note { font-size:.66rem; color:#52525b; background:rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.05); border-radius:12px; padding:13px 15px; margin-bottom:24px; line-height:1.7; }
+    .footer { text-align:center; padding:28px 20px; font-size:.64rem; color:#3f3f46; font-weight:300; }
+    .footer a { color:#52525b; text-decoration:none; margin:0 8px; }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <header class="header">
+    <h1 class="logo">Richend Digital</h1>
+    <p>事業一覧 / 経営ダッシュボード</p>
+  </header>
+
+  <main class="main">
+
+    <div class="kpi">
+      <div class="kpi-box"><div class="n">24</div><div class="l">事業数</div></div>
+      <div class="kpi-box"><div class="n">17</div><div class="l">稼働中(LIVE)</div></div>
+      <div class="kpi-box"><div class="n">9</div><div class="l">公開プロダクト</div></div>
+      <div class="kpi-box"><div class="n">24/7</div><div class="l">無人運用</div></div>
+    </div>
+
+    <div class="note">
+      AIエージェントだけで運営する会社。検知→対処→納品→検証→収益までを自動で回す。<br>
+      <b style="color:#a1a1aa;">現状の正直な課題</b>：プロダクトは揃った（CVR実装済）。最大のボトルネックは<b style="color:#facc15;">流入（集客）</b>。各SNSチャネルで送客を増やすフェーズ。収益はこれから。
+    </div>
+
+    <!-- 公開プロダクト -->
+    <div class="cat">
+      <div class="cat-label">公開プロダクト <span class="cnt">／ 顧客が使うWebサービス</span></div>
+      <a href="/salary-navi/" class="item"><div class="item-icon">💴</div><div class="item-text"><h3>年収ナビ <span class="badge b-live">LIVE</span></h3><p>44職種の年収・給料情報　<span class="rev">収益：転職アフィリ(A8)</span></p></div></a>
+      <a href="/fukugyo-navi/" class="item"><div class="item-icon">💰</div><div class="item-text"><h3>副業ナビ <span class="badge b-live">LIVE</span></h3><p>35種類の副業ガイド　<span class="rev">収益：アフィリエイト</span></p></div></a>
+      <a href="/shikaku-navi/" class="item"><div class="item-icon">📜</div><div class="item-text"><h3>資格ナビ <span class="badge b-live">LIVE</span></h3><p>40資格の難易度・勉強法　<span class="rev">収益：アフィリエイト</span></p></div></a>
+      <a href="/rirekisho-maker/" class="item"><div class="item-icon">📄</div><div class="item-text"><h3>履歴書メーカー <span class="badge b-live">LIVE</span></h3><p>履歴書・職務経歴書をWeb作成</p></div></a>
+      <a href="/okurite/" class="item"><div class="item-icon">🎁</div><div class="item-text"><h3>Okurite <span class="badge b-live">LIVE</span></h3><p>シーン別ギフト検索　<span class="rev">収益：Amazon/楽天アフィリ</span></p></div></a>
+      <a href="/manabijima/" class="item"><div class="item-icon">🐻</div><div class="item-text"><h3>くまのまなびじま <span class="badge b-live">LIVE</span></h3><p>2〜6歳の知育アプリ｜ブラウザで遊べる</p></div></a>
+      <a href="/shindan/" class="item"><div class="item-icon">🔮</div><div class="item-text"><h3>占い診断 <span class="badge b-live">LIVE</span></h3><p>前世診断＆裏性格診断｜集客フック</p></div></a>
+      <a href="/zense-shindan/" class="item"><div class="item-icon">🌙</div><div class="item-text"><h3>前世&来世診断 <span class="badge b-live">LIVE</span></h3><p>名前と誕生日から魂の物語を診断</p></div></a>
+      <a href="/recruit/" class="item"><div class="item-icon">🚚</div><div class="item-text"><h3>配送スタッフ募集 <span class="badge b-live">LIVE</span></h3><p>BURNING BROS.採用LP　<span class="rev">収益：紹介報酬5万円</span></p></div></a>
+    </div>
+
+    <!-- 直接課金プロダクト -->
+    <div class="cat">
+      <div class="cat-label">直接課金プロダクト <span class="cnt">／ 売り切り・ツール</span></div>
+      <div class="item"><div class="item-icon">🧾</div><div class="item-text"><h3>インボイス工房 <span class="badge b-dev">公開準備</span></h3><p>請求書・見積書作成ツール｜Phase1完成・デプロイ待ち　<span class="rev">収益：直接課金</span></p></div></div>
+      <div class="item"><div class="item-icon">🎮</div><div class="item-text"><h3>ウラ・オモテ <span class="badge b-dev">開発中</span></h3><p>Unity反射ゲーム＋世界ランキング</p></div></div>
+    </div>
+
+    <!-- 集客チャネル -->
+    <div class="cat">
+      <div class="cat-label">集客チャネル <span class="cnt">／ プロダクトへ送客</span></div>
+      <a href="https://note.com/ai_shikumi" class="item"><div class="item-icon">📝</div><div class="item-text"><h3>note（ai_shikumi）<span class="badge b-live">LIVE</span></h3><p>毎日記事公開→Okuriteへ誘導</p></div></a>
+      <a href="https://www.tiktok.com/@aivisionaryart09" class="item"><div class="item-icon">🎬</div><div class="item-text"><h3>TikTokショート <span class="badge b-live">LIVE</span></h3><p>毎日バイラル動画を自動生成・投稿</p></div></a>
+      <div class="item"><div class="item-icon">📌</div><div class="item-text"><h3>Pinterest <span class="badge b-live">LIVE</span></h3><p>毎日3ピン自動投稿→Okuriteへ送客</p></div></div>
+      <div class="item"><div class="item-icon">🦋</div><div class="item-text"><h3>Bluesky / Mastodon <span class="badge b-live">LIVE</span></h3><p>朝夜自動投稿＋いいね/フォローで拡大</p></div></div>
+      <div class="item"><div class="item-icon">𝕏</div><div class="item-text"><h3>X（Twitter）<span class="badge b-wait">キー待ち</span></h3><p>APIキー登録後に自動投稿開始</p></div></div>
+    </div>
+
+    <!-- 受託 -->
+    <div class="cat">
+      <div class="cat-label">受託サービス <span class="cnt">／ 直接売上</span></div>
+      <a href="/juchu/" class="item"><div class="item-icon">📊</div><div class="item-text"><h3>受託KPIダッシュボード <span class="badge b-live">LIVE</span></h3><p>応募/受注中/完了/売上を可視化</p></div></a>
+      <div class="item"><div class="item-icon">🤖</div><div class="item-text"><h3>自動受託（ココナラ/CW）<span class="badge b-live">LIVE</span></h3><p>案件検知→自動提案ループ　<span class="rev">収益：スクレイピング/自動化受託</span></p></div></div>
+    </div>
+
+    <!-- 収益R&D -->
+    <div class="cat">
+      <div class="cat-label">収益R&D <span class="cnt">／ 検証フェーズ</span></div>
+      <div class="item"><div class="item-icon">📈</div><div class="item-text"><h3>BURNING ZERO（FX AI）<span class="badge b-test">検証中</span></h3><p>ML自動売買｜デモで前進検証中</p></div></div>
+      <div class="item"><div class="item-icon">🎯</div><div class="item-text"><h3>デモトレンド運用 <span class="badge b-test">検証中</span></h3><p>検証済アンサンブルをMT5デモで前進テスト</p></div></div>
+      <div class="item"><div class="item-icon">🧪</div><div class="item-text"><h3>Research MLパイプライン <span class="badge b-dev">研究</span></h3><p>事前登録型XAU/USD研究｜実データ投入待ち</p></div></div>
+    </div>
+
+    <!-- 運営基盤 -->
+    <div class="cat">
+      <div class="cat-label">運営基盤 <span class="cnt">／ 会社を回す仕組み</span></div>
+      <div class="item"><div class="item-icon">🏢</div><div class="item-text"><h3>バーチャル事務所 <span class="badge b-live">24/7</span></h3><p>31エージェント・9室が毎時実稼働＆相互監査</p></div></div>
+      <div class="item"><div class="item-icon">🧑‍💼</div><div class="item-text"><h3>AutoCEO <span class="badge b-live">毎日</span></h3><p>無人セッションが毎日収益改善を1つ実装</p></div></div>
+      <div class="item"><div class="item-icon">🔍</div><div class="item-text"><h3>QA監査エージェント <span class="badge b-live">毎時</span></h3><p>本番をユーザー視点で検査→自動修復＋通知</p></div></div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div style="margin-bottom:8px;"><a href="/">← ホーム</a></div>
+    &copy; 2026 Richend Digital
+  </footer>
+</body>
+</html>
