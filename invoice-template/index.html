@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-63VB4HT3T2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-63VB4HT3T2');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インボイス対応 帳票テンプレート（Excel）｜請求書・見積書・納品書・領収書が1ファイルで｜Richend Digital</title>
+<link rel="canonical" href="https://richend0913.github.io/invoice-template/">
+<meta name="description" content="数量と単価を入れるだけ。消費税(10%/8%)も源泉徴収も自動で正しく計算。インボイス制度対応の請求書・見積書・納品書・領収書テンプレート（Excel）。開業したてのフリーランス・個人事業主向け。¥2,980。">
+<meta property="og:title" content="インボイス対応 帳票テンプレート（Excel）｜請求書・見積・納品・領収が1ファイルで">
+<meta property="og:description" content="数量と単価を入れるだけ。消費税(10%/8%)も源泉徴収も自動計算。開業したてのフリーランス・個人事業主のためのインボイス対応Excelテンプレート。¥2,980。">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://richend0913.github.io/invoice-template/">
+<meta property="og:image" content="https://richend0913.github.io/images/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--ink:#1a1d24;--mut:#5b6472;--line:#e6e8ee;--bg:#f7f8fb;--accent:#6366f1;--accent2:#a855f7;--ok:#16a34a}
+  body{font-family:'Noto Sans JP','Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;-webkit-text-size-adjust:100%}
+  .wrap{max-width:720px;margin:0 auto;padding:0 20px}
+  a{color:inherit}
+
+  /* hero */
+  .hero{background:linear-gradient(160deg,#0f1117 0%,#1b1e2b 60%,#241b3a 100%);color:#fff;padding:54px 0 40px;position:relative;overflow:hidden}
+  .hero::after{content:'';position:absolute;top:-40%;right:-20%;width:60%;height:160%;background:radial-gradient(circle,rgba(99,102,241,.25),transparent 60%)}
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{font-size:.72rem;letter-spacing:.16em;font-weight:700;color:#a5b4fc;text-transform:uppercase;margin-bottom:14px}
+  h1{font-size:1.7rem;font-weight:900;line-height:1.4;letter-spacing:-.01em}
+  h1 .hl{background:linear-gradient(120deg,#818cf8,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .lead{margin-top:14px;color:#c7cbd6;font-size:.96rem}
+  .pricetag{display:inline-flex;align-items:baseline;gap:8px;margin-top:22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:10px 18px;border-radius:14px}
+  .pricetag b{font-size:1.9rem;font-weight:900;font-family:'Inter',sans-serif}
+  .pricetag s{color:#8a90a2;font-size:.85rem}
+  .pricetag span{color:#a5b4fc;font-size:.78rem}
+  .cta{display:inline-flex;align-items:center;gap:8px;margin-top:24px;background:linear-gradient(120deg,#6366f1,#a855f7);color:#fff;font-weight:800;font-size:1rem;text-decoration:none;padding:15px 28px;border-radius:14px;box-shadow:0 10px 30px rgba(99,102,241,.4);transition:transform .15s}
+  .cta:hover{transform:translateY(-2px)}
+  .cta.sm{font-size:.92rem;padding:13px 24px;box-shadow:0 8px 22px rgba(99,102,241,.35)}
+  .reassure{margin-top:12px;font-size:.74rem;color:#9aa0b2}
+
+  section{padding:44px 0}
+  .sec-label{font-size:.7rem;letter-spacing:.14em;font-weight:700;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
+  h2{font-size:1.3rem;font-weight:800;letter-spacing:-.01em;margin-bottom:18px}
+  .mut{color:var(--mut)}
+
+  /* preview invoice */
+  .preview{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 40px rgba(20,24,40,.08);padding:26px 24px;font-size:.82rem}
+  .pv-top{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:14px}
+  .pv-top h3{font-size:1.3rem;letter-spacing:.3em}
+  .pv-meta{text-align:right;color:var(--mut);font-size:.72rem}
+  .pv-to{font-size:1rem;font-weight:700;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:14px}
+  table{width:100%;border-collapse:collapse;font-size:.78rem}
+  th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  thead th{background:#f1f2f7;color:var(--mut);font-weight:600;font-size:.72rem}
+  .pv-sum{margin-top:14px;margin-left:auto;width:62%;font-size:.8rem}
+  .pv-sum .r{display:flex;justify-content:space-between;padding:5px 0}
+  .pv-sum .r.tot{border-top:2px solid var(--ink);margin-top:6px;padding-top:8px;font-weight:800;font-size:1.05rem}
+  .pv-sum .r.dim{color:var(--mut);font-size:.74rem}
+  .badge-tax{display:inline-block;background:#eef2ff;color:var(--accent);font-size:.64rem;font-weight:700;padding:1px 7px;border-radius:6px;margin-left:6px}
+  .pv-cap{text-align:center;color:var(--mut);font-size:.72rem;margin-top:12px}
+
+  /* feature grid */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+  .card .ic{font-size:1.4rem}
+  .card h3{font-size:.95rem;font-weight:800;margin:8px 0 4px}
+  .card p{font-size:.82rem;color:var(--mut)}
+
+  /* who pays */
+  .who{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+  .who li{list-style:none;padding:8px 0 8px 30px;position:relative;font-size:.9rem;border-bottom:1px dashed var(--line)}
+  .who li:last-child{border-bottom:0}
+  .who li::before{content:'✓';position:absolute;left:0;color:var(--ok);font-weight:900}
+
+  /* compare */
+  .cmp{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:.84rem}
+  .cmp th,.cmp td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:center}
+  .cmp th:first-child,.cmp td:first-child{text-align:left;color:var(--mut)}
+  .cmp thead th{background:#0f1117;color:#fff;font-weight:700}
+  .cmp thead th.us{background:linear-gradient(120deg,#6366f1,#a855f7)}
+  .cmp .yes{color:var(--ok);font-weight:800}
+  .cmp .no{color:#c0263b}
+
+  /* price block */
+  .pricebox{background:linear-gradient(160deg,#fff, #f3f1fc);border:1px solid #ddd6f3;border-radius:18px;padding:28px 24px;text-align:center}
+  .pricebox .big{font-size:2.4rem;font-weight:900;font-family:'Inter',sans-serif;color:var(--ink)}
+  .pricebox .opt{margin-top:16px;font-size:.84rem;color:var(--mut);text-align:left;max-width:420px;margin-left:auto;margin-right:auto}
+  .pricebox .opt div{padding:5px 0;border-top:1px dashed var(--line)}
+
+  /* order */
+  .order{background:#0f1117;color:#fff;border-radius:18px;padding:30px 24px;text-align:center}
+  .order h2{color:#fff}
+  .steps{display:flex;flex-direction:column;gap:10px;max-width:440px;margin:16px auto 0;text-align:left}
+  .step{display:flex;gap:12px;align-items:flex-start;font-size:.86rem;color:#cdd2de}
+  .step b{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:linear-gradient(120deg,#6366f1,#a855f7);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:800}
+  .order .reassure{color:#7e8499}
+
+  details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px 16px;margin-bottom:10px}
+  summary{cursor:pointer;font-weight:700;padding:12px 0;font-size:.9rem}
+  details p{padding:0 0 14px;font-size:.84rem;color:var(--mut)}
+
+  footer{text-align:center;padding:34px 20px;color:#9aa0b2;font-size:.74rem}
+  footer a{color:#9aa0b2;text-decoration:none;margin:0 8px}
+  @media(max-width:520px){h1{font-size:1.4rem}.grid{grid-template-columns:1fr}.pv-sum{width:100%}}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Product",
+  "name":"インボイス対応 帳票テンプレート（Excel）",
+  "description":"請求書・見積書・納品書・領収書を1ファイルで作成できる、インボイス制度対応のExcelテンプレート。消費税(10%/8%)と源泉徴収を自動計算。",
+  "brand":{"@type":"Brand","name":"Richend Digital"},
+  "offers":{"@type":"Offer","price":"2980","priceCurrency":"JPY","availability":"https://schema.org/InStock","url":"https://richend0913.github.io/invoice-template/"}
+}
+</script>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Richend Digital ｜ 直販ツール</div>
+    <h1>請求書・見積書・納品書・領収書が<br><span class="hl">1ファイル</span>で完結するExcelテンプレート</h1>
+    <p class="lead">数量と単価を入れるだけ。<b style="color:#fff">消費税（10%/8%）も源泉徴収も</b>、税務署準拠の正しい端数処理で自動計算。インボイス制度（適格請求書）対応です。</p>
+    <div class="pricetag"><span>買い切り</span><b>¥2,980</b><s>導入価格</s></div>
+    <div><a class="cta" href="#order" onclick="gtag('event','cta_click',{location:'hero'})">いますぐ注文する →</a></div>
+    <p class="reassure">Excel / Googleスプレッドシート / 無料のLibreOffice で利用可・月額0円の買い切り</p>
+  </div>
+</header>
+
+<main>
+
+<section class="wrap" style="padding-top:38px">
+  <div class="sec-label">Preview</div>
+  <h2>届くのはこんなテンプレートです</h2>
+  <p class="mut" style="margin-bottom:18px;font-size:.9rem">数量と単価を入力すると、税率別の区分集計・消費税・源泉徴収・合計まで自動で埋まります（下は記入例）。</p>
+  <div class="preview">
+    <div class="pv-top">
+      <h3>請　求　書</h3>
+      <div class="pv-meta">No. SE-2026-0001<br>発行日 2026-06-19<br>登録番号 T1234567890123</div>
+    </div>
+    <div class="pv-to">サンプル商事 御中</div>
+    <table>
+      <thead><tr><th>品名</th><th>数量</th><th>単価</th><th>税率</th><th>金額</th></tr></thead>
+      <tbody>
+        <tr><td>Webサイト制作</td><td>1</td><td>200,000</td><td>10%</td><td>200,000</td></tr>
+        <tr><td>保守サポート（月額）</td><td>3</td><td>15,000</td><td>10%</td><td>45,000</td></tr>
+        <tr><td>資料・テキスト（軽減）</td><td>10</td><td>1,200</td><td>8%</td><td>12,000</td></tr>
+      </tbody>
+    </table>
+    <div class="pv-sum">
+      <div class="r dim">10%対象 <span>¥245,000</span></div>
+      <div class="r dim">8%対象 <span>¥12,000</span></div>
+      <div class="r">小計 <span>¥257,000</span></div>
+      <div class="r">消費税<span class="badge-tax">10%/8%区分</span> <span>¥25,460</span></div>
+      <div class="r dim">源泉徴収（税抜10.21%） <span>− ¥26,239</span></div>
+      <div class="r tot">ご請求金額 <span>¥256,221</span></div>
+    </div>
+    <p class="pv-cap">同じ1ファイルに「見積書・納品書・領収書」シートも入っています。A4縦1ページ印刷・PDF化設定済み。</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-label">Why it's worth paying for</div>
+  <h2>無料テンプレに勝てる、4つの理由</h2>
+  <div class="grid">
+    <div class="card"><div class="ic">🧾</div><h3>インボイスの税率別区分</h3><p>10%と8%が混在しても自動で区分集計。無料テンプレの多くは未対応か10%固定です。</p></div>
+    <div class="card"><div class="ic">📉</div><h3>源泉徴収まで自動</h3><p>「あり」にするだけ。100万円を超える分の20.42%という境界も正しく計算します。</p></div>
+    <div class="card"><div class="ic">🎯</div><h3>1円もズレない計算</h3><p>自社Webツールの検証済みコードを移植。端数切り捨て・境界値をテストで担保。</p></div>
+    <div class="card"><div class="ic">📄</div><h3>4書類が1ファイル</h3><p>請求・見積・納品・領収を行き来不要。A4縦1ページ印刷＆PDF化まで設定済み。</p></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-label">Who it's for</div>
+  <h2>こんな方のためのテンプレートです</h2>
+  <ul class="who">
+    <li>開業したばかりで、まだ会計ソフト（月額1,000円〜）は大げさに感じる個人事業主・フリーランス</li>
+    <li>手作りのExcelで請求書を作っているが、インボイスや源泉の計算が合っているか不安な方</li>
+    <li>取引先にそのまま送れる、きちんとした見た目の帳票が今日ほしい方</li>
+    <li>副業を始めて、初めて請求書・領収書を発行することになった方</li>
+  </ul>
+</section>
+
+<section class="wrap">
+  <div class="sec-label">Compare</div>
+  <h2>無料テンプレ・会計ソフトと比べると</h2>
+  <table class="cmp">
+    <thead><tr><th></th><th>無料テンプレ</th><th>会計ソフト</th><th class="us">このテンプレート</th></tr></thead>
+    <tbody>
+      <tr><td>料金</td><td>0円</td><td>月1,000円〜</td><td class="yes">¥2,980 買い切り</td></tr>
+      <tr><td>インボイス税率別区分</td><td class="no">△ 多くは未対応</td><td class="yes">○</td><td class="yes">○</td></tr>
+      <tr><td>源泉徴収100万円境界</td><td class="no">×</td><td class="yes">○</td><td class="yes">○</td></tr>
+      <tr><td>4書類が1ファイル</td><td class="no">×</td><td>△</td><td class="yes">○</td></tr>
+      <tr><td>導入の手間</td><td>自分で数式を組む</td><td class="no">登録・設定が必要</td><td class="yes">開いて入力するだけ</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="wrap">
+  <div class="sec-label">Price</div>
+  <h2>価格</h2>
+  <div class="pricebox">
+    <div class="big">¥2,980<span style="font-size:.9rem;color:var(--mut);font-weight:600"> 買い切り（税込）</span></div>
+    <p class="mut" style="margin-top:6px;font-size:.86rem">月額なし。一度のお支払いでずっと使えます。</p>
+    <div class="opt">
+      <div>＋ ¥4,000〜8,000：社名・ロゴ・振込先を入れた<b>セットアップ代行</b></div>
+      <div>＋ ¥3,000〜：建設／デザイン／EC など<b>業種別カスタム</b></div>
+    </div>
+    <div style="margin-top:20px"><a class="cta sm" href="#order" onclick="gtag('event','cta_click',{location:'price'})">注文方法を見る →</a></div>
+  </div>
+</section>
+
+<section class="wrap" id="order">
+  <div class="order">
+    <div class="sec-label" style="color:#a5b4fc">Order</div>
+    <h2>ご注文（メール・銀行振込）</h2>
+    <p style="color:#cdd2de;font-size:.9rem;max-width:460px;margin:0 auto">下のボタンからメールでご注文ください。折り返し<b style="color:#fff">お振込先</b>をご案内し、ご入金確認後に<b style="color:#fff">Excelファイル</b>をお送りします。</p>
+    <div class="steps">
+      <div class="step"><b>1</b><div>「メールで注文する」を押す（件名・本文は入力済み）。業種やカスタム希望があれば本文に追記してください。</div></div>
+      <div class="step"><b>2</b><div>折り返しお振込先（銀行口座）をご案内します。</div></div>
+      <div class="step"><b>3</b><div>ご入金を確認後、Excelファイル（使い方シート付き）をメールでお届けします。</div></div>
+    </div>
+    <div style="margin-top:22px">
+      <a class="cta" href="mailto:next.growth0913@gmail.com?subject=%E3%80%90%E6%B3%A8%E6%96%87%E3%80%91%E3%82%A4%E3%83%B3%E3%83%9C%E3%82%A4%E3%82%B9%E5%AF%BE%E5%BF%9C%E5%B8%B3%E7%A5%A8%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88&body=%E3%82%A4%E3%83%B3%E3%83%9C%E3%82%A4%E3%82%B9%E5%AF%BE%E5%BF%9C%E5%B8%B3%E7%A5%A8%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%EF%BC%88%C2%A52%2C980%EF%BC%89%E3%82%92%E6%B3%A8%E6%96%87%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%0A%0A%E2%97%8F%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%88%E5%B1%8B%E5%8F%B7%EF%BC%89%EF%BC%9A%0A%E2%97%8F%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E4%BB%A3%E8%A1%8C%E3%81%AE%E5%B8%8C%E6%9C%9B%EF%BC%88%E3%81%82%E3%82%8A%2F%E3%81%AA%E3%81%97%EF%BC%89%EF%BC%9A%0A%E2%97%8F%E6%A5%AD%E7%A8%AE%E5%88%A5%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%A0%E3%81%AE%E5%B8%8C%E6%9C%9B%EF%BC%88%E3%81%82%E3%82%8C%E3%81%B0%EF%BC%89%EF%BC%9A%0A" onclick="gtag('event','order_click',{method:'mailto'})">✉️ メールで注文する</a>
+    </div>
+    <p class="reassure">注文先：next.growth0913@gmail.com ／ ボタンが反応しない場合はこのアドレス宛に直接ご連絡ください。</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-label">FAQ</div>
+  <h2>よくある質問</h2>
+  <details><summary>Excelを持っていなくても使えますか？</summary><p>はい。無料のGoogleスプレッドシートやLibreOffice Calcでも開いて利用できます。Microsoft Excelは不要です。</p></details>
+  <details><summary>インボイス制度（適格請求書）に対応していますか？</summary><p>対応しています。登録番号の記載欄と、消費税10%/8%の税率別区分集計を標準で備えています。</p></details>
+  <details><summary>源泉徴収の計算もできますか？</summary><p>できます。源泉徴収を「あり」にするだけで自動計算されます。報酬が100万円を超える部分は20.42%という税率の境界まで正しく処理します。</p></details>
+  <details><summary>自分の会社名やロゴを入れてもらえますか？</summary><p>はい。セットアップ代行（＋¥4,000〜8,000）で、社名・ロゴ・振込先を入れた状態でお渡しします。注文メールにご希望をお書きください。</p></details>
+  <details><summary>支払い方法は？</summary><p>銀行振込です。ご注文メールをいただいたあと、折り返しお振込先をご案内します。ご入金確認後にファイルをお送りします。</p></details>
+</section>
+
+</main>
+
+<footer>
+  <div style="margin-bottom:8px">
+    <a href="/">Richend Digital トップ</a>・
+    <a href="/privacy.html">プライバシーポリシー</a>・
+    <a href="/contact.html">お問い合わせ</a>
+  </div>
+  &copy; 2026 Richend Digital
+</footer>
+
+</body>
+</html>
