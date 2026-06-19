@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | くまのまなびじま</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes">
+    <title>くまのまなびじま｜2〜6さいの知育アプリ（むりょう・広告なし）</title>
+    <meta name="description" content="クマタといっしょに「いろ・かたち・かず・ひらがな・えいご」をあそびながら学ぼう。2〜6さい向けのやさしい知育アプリ。広告なし・個人情報あつめません。ブラウザですぐ遊べます。">
+    <meta name="theme-color" content="#7ec8e3">
+    <meta property="og:title" content="くまのまなびじま｜2〜6さいの知育アプリ">
+    <meta property="og:description" content="クマタといっしょに いろ・かたち・かず・ひらがな・えいご をあそんで学ぼう。広告なし・無料。">
+    <meta property="og:type" content="website">
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
+    <div id="stage">
+      <canvas id="unity-canvas" tabindex="-1"></canvas>
+
+      <!-- やさしいローディング画面（よみこみ中に表示） -->
+      <div id="loading-screen">
+        <div id="loading-bear" aria-hidden="true">
+          <svg viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="クマタ">
+            <circle cx="32" cy="30" r="16" fill="#a9744f"/>
+            <circle cx="88" cy="30" r="16" fill="#a9744f"/>
+            <circle cx="32" cy="30" r="8" fill="#c79a73"/>
+            <circle cx="88" cy="30" r="8" fill="#c79a73"/>
+            <ellipse cx="60" cy="64" rx="42" ry="38" fill="#c79a73"/>
+            <ellipse cx="60" cy="78" rx="24" ry="20" fill="#f3e3cf"/>
+            <circle cx="44" cy="58" r="6" fill="#3a2a1d"/>
+            <circle cx="76" cy="58" r="6" fill="#3a2a1d"/>
+            <circle cx="42" cy="56" r="2" fill="#fff"/>
+            <circle cx="74" cy="56" r="2" fill="#fff"/>
+            <ellipse cx="60" cy="72" rx="6" ry="4.5" fill="#3a2a1d"/>
+            <path d="M52 82 Q60 90 68 82" stroke="#3a2a1d" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="30" cy="74" r="7" fill="#f6b8c4" opacity="0.7"/>
+            <circle cx="90" cy="74" r="7" fill="#f6b8c4" opacity="0.7"/>
+          </svg>
         </div>
+        <div id="loading-title">くまのまなびじま</div>
+        <div id="loading-text">よみこみちゅう<span class="dots"><span>.</span><span>.</span><span>.</span></span></div>
+        <div id="loading-track"><div id="loading-fill"></div></div>
+        <div id="loading-hint">はじめてのときは すこし まってね</div>
       </div>
+
       <div id="unity-warning"> </div>
-      <div id="unity-footer">
-        <div id="unity-logo-title-footer"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">くまのまなびじま</div>
-      </div>
     </div>
+
+    <!-- ライセンス表記（OpenMoji CC BY-SA 4.0 / クレジット必須） -->
+    <div id="credit">絵文字グラフィック: <a href="https://openmoji.org" rel="noopener nofollow" target="_blank">OpenMoji</a>（CC BY-SA 4.0）　広告なし・個人情報をあつめません</div>
+
     <script>
       var canvas = document.querySelector("#unity-canvas");
+      var loadingScreen = document.querySelector("#loading-screen");
+      var loadingFill = document.querySelector("#loading-fill");
 
-      // Shows a temporary message banner/ribbon for a few seconds, or
-      // a permanent error message on top of the canvas if type=='error'.
-      // If type=='warning', a yellow highlight color is used.
-      // Modify or remove this function to customize the visually presented
-      // way that non-critical warnings and error messages are presented to the
-      // user.
       function unityShowBanner(msg, type) {
         var warningBanner = document.querySelector("#unity-warning");
         function updateBannerVisibility() {
@@ -40,9 +62,9 @@
         var div = document.createElement('div');
         div.innerHTML = msg;
         warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        if (type == 'error') div.style = 'background: #ffdede; color:#7a2020; padding: 10px;';
         else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          if (type == 'warning') div.style = 'background: #fff6c2; padding: 10px;';
           setTimeout(function() {
             warningBanner.removeChild(div);
             updateBannerVisibility();
@@ -53,7 +75,7 @@
 
       var buildUrl = "Build";
       // ?v= でキャッシュを破棄。ビルド更新のたびにこの値を変える(古い端末のIndexedDB/HTTPキャッシュ対策)。
-      var V = "?v=20260619c";
+      var V = "?v=20260619d";
       var loaderUrl = buildUrl + "/WebGL.loader.js" + V;
       var config = {
         arguments: [],
@@ -65,71 +87,26 @@
         productName: "くまのまなびじま",
         productVersion: "1.0",
         showBanner: unityShowBanner,
-        // errorHandler: function(err, url, line) {
-        //    alert("error " + err + " occurred at line " + line);
-        //    // Return 'true' if you handled this error and don't want Unity
-        //    // to process it further, 'false' otherwise.
-        //    return true;
-        // },
       };
-
-      // By default, Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
-
-      // If you would like all file writes inside Unity Application.persistentDataPath
-      // directory to automatically persist so that the contents are remembered when
-      // the user revisits the site the next time, uncomment the following line:
-      // config.autoSyncPersistentDataPath = true;
-      // This autosyncing is currently not the default behavior to avoid regressing
-      // existing user projects that might rely on the earlier manual
-      // JS_FileSystem_Sync() behavior, but in future Unity version, this will be
-      // expected to change.
-
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
-
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-        document.querySelector("#unity-container").className = "unity-mobile";
-        canvas.className = "unity-mobile";
-
-        // To lower canvas resolution on mobile devices to gain some
-        // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
-
-
-      } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
-
-      document.querySelector("#unity-loading-bar").style.display = "block";
 
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
-          document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
-              }).then((unityInstance) => {
-                document.querySelector("#unity-loading-bar").style.display = "none";
-                document.querySelector("#unity-fullscreen-button").onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
-
-              }).catch((message) => {
-                alert(message);
-              });
-            };
+          // 0〜100% をやさしいバーに反映
+          loadingFill.style.width = (100 * progress) + "%";
+        }).then((unityInstance) => {
+          // よみこみ完了 → ふわっと消す
+          loadingScreen.classList.add("done");
+          setTimeout(function(){ loadingScreen.style.display = "none"; }, 600);
+        }).catch((message) => {
+          var t = document.querySelector("#loading-text");
+          if (t) t.textContent = "よみこみに しっぱいしました。ページを さいよみこみ してね。";
+          console.error(message);
+        });
+      };
 
       document.body.appendChild(script);
-
     </script>
   </body>
 </html>
