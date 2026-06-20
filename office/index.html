@@ -91,19 +91,21 @@
   </div>
   <div class="foot">フロア＝事業部。事業名タップでフロアへ／実データ30秒更新 ／ <a href="list.html">📋 文字で詳しく</a></div>
 <script>
-// 事業部フロア。各フロアに 部長室/会議室/自席/休憩室。boss=部長id, rooms=このフロアに属する元部屋id群
+// 事業部フロア = 実在の7事業部 + 経営。各フロアに必ず部長を置き、部長室/会議室/自席/休憩室を持つ。
+// rooms=このフロアに統合する元部屋id群。teams=自席を分ける班(サブチーム)ラベル。
 const FLOORS=[
-  {id:"okurite",  name:"Okurite",     full:"ギフトEC",        ic:"🎁", boss:"mg_okurite",  rooms:["okurite"]},
-  {id:"products", name:"Webプロダクト", full:"年収/副業/診断",  ic:"🌐", boss:"mg_products", rooms:["portal"]},
-  {id:"growth",   name:"集客",         full:"SNS送客",        ic:"📌", boss:"mg_growth",   rooms:["acq"]},
-  {id:"video",    name:"動画",         full:"ショート動画",    ic:"🎬", boss:null,          rooms:["video"]},
-  {id:"monetize", name:"直接課金",     full:"テンプレ直販",    ic:"🧾", boss:"mg_monetize", rooms:["invoice"]},
-  {id:"kids",     name:"教育",         full:"まなびじま",      ic:"🐻", boss:"mg_kids",     rooms:["manabi"]},
-  {id:"services", name:"受託",         full:"CW/ココナラ",     ic:"💼", boss:"mg_services", rooms:["contract"]},
-  {id:"quant",    name:"トレードR&D",  full:"FXデモ検証",      ic:"📈", boss:"mg_quant",    rooms:["trade","lab"]},
-  {id:"recruit",  name:"求人",         full:"配送ドライバー",  ic:"🚚", boss:null,          rooms:["recruit"]},
-  {id:"analytics",name:"分析",         full:"GA流入分析",      ic:"📊", boss:null,          rooms:["analytics"]},
-  {id:"exec",     name:"経営・品質",   full:"社長/管理/QA",    ic:"👑", boss:"pres",        rooms:["mgmt","qa","yakuin"]},
+  {id:"growth",   name:"集客事業部",     full:"SNS送客・動画",   ic:"📌", boss:"mg_growth",   rooms:["acq","video"],
+     teams:{acq:"SNS送客班",video:"動画制作班"}},
+  {id:"products", name:"Webプロダクト事業部", full:"年収/副業/診断/求人/分析", ic:"🌐", boss:"mg_products", rooms:["portal","recruit","analytics"],
+     teams:{portal:"サイト/SEO班",recruit:"求人LP班",analytics:"分析班"}},
+  {id:"okurite",  name:"Okurite事業部",  full:"ギフトEC・アフィリ", ic:"🎁", boss:"mg_okurite",  rooms:["okurite"]},
+  {id:"monetize", name:"直接課金事業部", full:"テンプレ直販",    ic:"🧾", boss:"mg_monetize", rooms:["invoice"]},
+  {id:"kids",     name:"教育事業部",     full:"まなびじま",      ic:"🐻", boss:"mg_kids",     rooms:["manabi"]},
+  {id:"services", name:"受託事業部",     full:"CW/ココナラ",     ic:"💼", boss:"mg_services", rooms:["contract"]},
+  {id:"quant",    name:"トレードR&D事業部", full:"FXデモ検証",   ic:"📈", boss:"mg_quant",    rooms:["trade","lab"],
+     teams:{trade:"運用班",lab:"研究班"}},
+  {id:"exec",     name:"経営・品質管理", full:"社長/管理/QA",    ic:"👑", boss:"pres",        rooms:["mgmt","qa","yakuin"],
+     teams:{mgmt:"管理部",qa:"品質管理"}},
 ];
 // id, 元部屋, 名前, 髪色, 体色, 王冠
 const C=[
@@ -146,13 +148,17 @@ function avHTML(c,mini){return `<div class="av">${mini?'':''}<div class="hair" s
   <div class="head"></div>${c[5]?`<div class="crown">${c[5]}</div>`:""}
   <div class="body" style="background:${c[3]}"></div></div>`;}
 function statusOf(id){return (STATE.chars[id]||{}).status||"work";}
-// 役割→このフロア内のどの部屋(zone)に居るか
-function zoneOf(c){
+// 役割→このフロア内のどの部屋(zone)に居るか。groupMeeting=このフロアで2人以上が会議中か
+function zoneOf(c,groupMeeting){
   if(c[0]==="pres"||/^mg_/.test(c[0])) return "boss";   // 部長/社長は部長室
   const s=statusOf(c[0]);
-  if(s==="move") return "meet";                          // 報連相/会議
-  if(s==="rest") return "rest";                          // 休憩
+  if(s==="rest") return "rest";                          // 休憩→休憩室
+  if(s==="move") return groupMeeting?"meet":"boss";      // 2人以上なら会議室で会議 / 1人なら部長室で部長に報連相
   return "desk";                                         // 自席
+}
+// このフロアで「会議」が成立するか(移動中=会議参加が2人以上)
+function isGroupMeeting(fid){
+  return MEMBERS[fid].filter(c=>!/^mg_/.test(c[0])&&c[0]!=="pres"&&statusOf(c[0])==="move").length>=2;
 }
 // zone矩形（フロアcanvasに対する%）
 const ZONES={
@@ -227,8 +233,9 @@ function buildFloorDOM(f){
 }
 function placeFloor(f,animate){
   // zoneごとにメンバーを集計して定位置へ
+  const gm=isGroupMeeting(f.id);
   const byZone={boss:[],meet:[],desk:[],rest:[]};
-  for(const c of MEMBERS[f.id]) byZone[zoneOf(c)].push(c);
+  for(const c of MEMBERS[f.id]) byZone[zoneOf(c,gm)].push(c);
   for(const zk in byZone){
     byZone[zk].forEach((c,i)=>{
       const p=slotPos(zk,i,byZone[zk].length);
@@ -243,7 +250,7 @@ function placeFloor(f,animate){
       const tip=((st.done?('前回✓ '+st.done+'\n'):'')+'今▶ '+(st.msg||'')).replace(/"/g,'');
       el.title=tip;
       let chat=el.querySelector(".chat");
-      if(zoneOf(c)==="meet"){ if(!chat){chat=document.createElement("span");chat.className="chat";chat.textContent="💬";el.querySelector(".av").appendChild(chat);} }
+      if(st.status==="move"){ if(!chat){chat=document.createElement("span");chat.className="chat";chat.textContent="💬";el.querySelector(".av").appendChild(chat);} }
       else if(chat){chat.remove();}
       if(moved||animate){ el.classList.add("walking"); setTimeout(()=>el.classList.remove("walking"),1500); }
     });
