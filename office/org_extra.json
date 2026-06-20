@@ -1,1 +1,22 @@
-[]
+[
+ {
+  "id": "kdp",
+  "name": "KDP出版事業部",
+  "ic": "📚",
+  "boss_name": "出版部長",
+  "boss_role": "出版部長: Kindle電子書籍の印税で稼ぐ",
+  "full": "Kindle電子書籍の印税で稼ぐ",
+  "members": [
+   {
+    "id": "x_kdp_0",
+    "name": "そら",
+    "role": "そら（KDP出版事業部の班員）"
+   },
+   {
+    "id": "x_kdp_1",
+    "name": "みなと",
+    "role": "みなと（KDP出版事業部の班員）"
+   }
+  ]
+ }
+]
