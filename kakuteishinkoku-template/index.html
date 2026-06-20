@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-63VB4HT3T2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-63VB4HT3T2');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>売上・経費管理Excel（確定申告対応）｜入力するだけで所得が出る｜Richend Digital</title>
+<link rel="canonical" href="https://richend0913.github.io/kakuteishinkoku-template/">
+<meta name="description" content="売上と経費を入力するだけ。年間の売上合計・経費合計・所得（売上−経費）・勘定科目別の経費が自動集計。個人事業主・フリーランスの確定申告（青色／白色）むけ売上・経費管理Excelテンプレート。¥1,980。">
+<meta property="og:title" content="売上・経費管理Excel（確定申告対応）｜入力するだけで所得が出る">
+<meta property="og:description" content="売上と経費を入れるだけで、所得と勘定科目別の経費が自動集計。個人事業主・フリーランスの確定申告むけExcelテンプレート。¥1,980。">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://richend0913.github.io/kakuteishinkoku-template/">
+<meta property="og:image" content="https://richend0913.github.io/images/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--ink:#1a1d24;--mut:#5b6472;--line:#e6e8ee;--bg:#f7f8fb;--accent:#0e9f6e;--accent2:#1F3864;--ok:#16a34a}
+  body{font-family:'Noto Sans JP','Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;-webkit-text-size-adjust:100%}
+  .wrap{max-width:720px;margin:0 auto;padding:0 20px}
+  a{color:inherit}
+
+  .hero{background:linear-gradient(160deg,#0c1411 0%,#13261d 55%,#0f2233 100%);color:#fff;padding:54px 0 40px;position:relative;overflow:hidden}
+  .hero::after{content:'';position:absolute;top:-40%;right:-20%;width:60%;height:160%;background:radial-gradient(circle,rgba(14,159,110,.25),transparent 60%)}
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{font-size:.72rem;letter-spacing:.16em;font-weight:700;color:#6ee7b7;text-transform:uppercase;margin-bottom:14px}
+  h1{font-size:1.7rem;font-weight:900;line-height:1.4;letter-spacing:-.01em}
+  h1 .hl{background:linear-gradient(120deg,#34d399,#67e8f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .lead{margin-top:14px;color:#c7cbd6;font-size:.96rem}
+  .pricetag{display:inline-flex;align-items:baseline;gap:8px;margin-top:22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:10px 18px;border-radius:14px}
+  .pricetag b{font-size:1.9rem;font-weight:900;font-family:'Inter',sans-serif}
+  .pricetag span{color:#6ee7b7;font-size:.78rem}
+  .cta{display:inline-flex;align-items:center;gap:8px;margin-top:24px;background:linear-gradient(120deg,#0e9f6e,#0891b2);color:#fff;font-weight:800;font-size:1rem;text-decoration:none;padding:15px 28px;border-radius:14px;box-shadow:0 10px 30px rgba(14,159,110,.4);transition:transform .15s}
+  .cta:hover{transform:translateY(-2px)}
+  .cta.sm{font-size:.92rem;padding:13px 24px;box-shadow:0 8px 22px rgba(14,159,110,.35)}
+  .reassure{margin-top:12px;font-size:.74rem;color:#9aa0b2}
+
+  section{padding:44px 0}
+  .sec-label{font-size:.7rem;letter-spacing:.14em;font-weight:700;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
+  h2{font-size:1.3rem;font-weight:800;letter-spacing:-.01em;margin-bottom:18px}
+  .mut{color:var(--mut)}
+
+  /* preview summary sheet */
+  .preview{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 40px rgba(20,24,40,.08);padding:26px 24px;font-size:.82rem}
+  .pv-top{border-bottom:2px solid var(--accent2);padding-bottom:10px;margin-bottom:14px}
+  .pv-top h3{font-size:1.15rem;color:var(--accent2);letter-spacing:.04em}
+  .pv-top p{color:var(--mut);font-size:.74rem;margin-top:2px}
+  .sumrow{display:flex;justify-content:space-between;padding:9px 12px;border-radius:8px;margin-bottom:8px;font-size:.92rem}
+  .sumrow.a{background:#eef3fb}.sumrow.b{background:#eef3fb}
+  .sumrow.income{background:#e8f5e9;border:1px solid #b6e0bd}
+  .sumrow b{font-family:'Inter',sans-serif}
+  .sumrow.income span:first-child{font-weight:800;color:#2E7D32}
+  .sumrow.income b{color:#2E7D32;font-size:1.15rem}
+  table{width:100%;border-collapse:collapse;font-size:.78rem;margin-top:6px}
+  th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  thead th{background:#f1f2f7;color:var(--mut);font-weight:600;font-size:.72rem}
+  .pv-cap{text-align:center;color:var(--mut);font-size:.72rem;margin-top:12px}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+  .card .ic{font-size:1.4rem}
+  .card h3{font-size:.95rem;font-weight:800;margin:8px 0 4px}
+  .card p{font-size:.82rem;color:var(--mut)}
+
+  .who{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+  .who li{list-style:none;padding:8px 0 8px 30px;position:relative;font-size:.9rem;border-bottom:1px dashed var(--line)}
+  .who li:last-child{border-bottom:0}
+  .who li::before{content:'✓';position:absolute;left:0;color:var(--ok);font-weight:900}
+
+  .cmp{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:.84rem}
+  .cmp th,.cmp td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:center}
+  .cmp th:first-child,.cmp td:first-child{text-align:left;color:var(--mut)}
+  .cmp thead th{background:#0c1411;color:#fff;font-weight:700}
+  .cmp thead th.us{background:linear-gradient(120deg,#0e9f6e,#0891b2)}
+  .cmp .yes{color:var(--ok);font-weight:800}
+  .cmp .no{color:#c0263b}
+
+  .pricebox{background:linear-gradient(160deg,#fff,#eefaf4);border:1px solid #c8ecdb;border-radius:18px;padding:28px 24px;text-align:center}
+  .pricebox .big{font-size:2.4rem;font-weight:900;font-family:'Inter',sans-serif;color:var(--ink)}
+  .pricebox .opt{margin-top:16px;font-size:.84rem;color:var(--mut);text-align:left;max-width:440px;margin-left:auto;margin-right:auto}
+  .pricebox .opt div{padding:5px 0;border-top:1px dashed var(--line)}
+
+  /* bundle */
+  .bundle{background:linear-gradient(135deg,#0f2233,#13261d);color:#fff;border-radius:18px;padding:26px 22px;text-align:center;border:1px solid rgba(110,231,183,.25)}
+  .bundle h3{font-size:1.1rem;font-weight:800;color:#fff}
+  .bundle .b-price{margin:10px 0 4px;font-family:'Inter',sans-serif}
+  .bundle .b-price s{color:#8a90a2;font-size:1rem;margin-right:8px}
+  .bundle .b-price b{font-size:2rem;font-weight:900;color:#6ee7b7}
+  .bundle p{color:#cdd2de;font-size:.84rem}
+
+  .order{background:#0c1411;color:#fff;border-radius:18px;padding:30px 24px;text-align:center}
+  .order h2{color:#fff}
+  .steps{display:flex;flex-direction:column;gap:10px;max-width:440px;margin:16px auto 0;text-align:left}
+  .step{display:flex;gap:12px;align-items:flex-start;font-size:.86rem;color:#cdd2de}
+  .step b{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:linear-gradient(120deg,#0e9f6e,#0891b2);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:800}
+  .order .reassure{color:#7e8499}
+
+  details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px 16px;margin-bottom:10px}
+  summary{cursor:pointer;font-weight:700;padding:12px 0;font-size:.9rem}
+  details p{padding:0 0 14px;font-size:.84rem;color:var(--mut)}
+
+  footer{text-align:center;padding:34px 20px;color:#9aa0b2;font-size:.74rem}
+  footer a{color:#9aa0b2;text-decoration:none;margin:0 8px}
+  @media(max-width:520px){h1{font-size:1.4rem}.grid{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Product",
+  "name":"売上・経費管理Excel（確定申告対応）",
+  "description":"売上と経費を入力するだけで、年間の売上合計・経費合計・所得（売上−経費）・勘定科目別の経費を自動集計するExcelテンプレート。個人事業主・フリーランスの確定申告（青色／白色）に対応。",
+  "brand":{"@type":"Brand","name":"Richend Digital"},
+  "offers":{"@type":"Offer","price":"1980","priceCurrency":"JPY","availability":"https://schema.org/InStock","url":"https://richend0913.github.io/kakuteishinkoku-template/"}
+}
+</script>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Richend Digital ｜ 直販ツール</div>
+    <h1>売上と経費を入力するだけで<br><span class="hl">所得が自動で出る</span>確定申告Excel</h1>
+    <p class="lead">日付・取引先・金額を入れるだけ。<b style="color:#fff">年間の売上合計・経費合計・所得（売上−経費）・勘定科目別の経費</b>まで自動集計。あとは申告書に転記するだけです。青色・白色どちらにも使えます。</p>
+    <div class="pricetag"><span>買い切り</span><b>¥1,980</b></div>
+    <div><a class="cta" href="#order" onclick="gtag('event','cta_click',{location:'hero'})">いますぐ注文する →</a></div>
+    <p class="reassure">Excel / Googleスプレッドシート / 無料のLibreOffice で利用可・月額0円の買い切り</p>
+  </div>
+</header>
+
+<main>
+
+<section class="wrap" style="padding-top:38px">
+  <div class="sec-label">Preview</div>
+  <h2>「集計」シートはこう自動で埋まります</h2>
+  <p class="mut" style="margin-bottom:18px;font-size:.9rem">「売上」「経費」シートに入力すると、この集計シートが自動で計算されます（下は記入例の実際の計算結果）。</p>
+  <div class="preview">
+    <div class="pv-top">
+      <h3>集計（自動計算）</h3>
+      <p>売上・経費シートに入力すると、ここに自動で集計されます。</p>
+    </div>
+    <div class="sumrow a"><span>年間 売上合計</span><b>¥500,000</b></div>
+    <div class="sumrow b"><span>年間 経費合計</span><b>¥17,000</b></div>
+    <div class="sumrow income"><span>所得（売上−経費）</span><b>¥483,000</b></div>
+    <table>
+      <thead><tr><th>勘定科目</th><th>金額</th></tr></thead>
+      <tbody>
+        <tr><td>旅費交通費</td><td>¥7,000</td></tr>
+        <tr><td>通信費</td><td>¥8,000</td></tr>
+        <tr><td>消耗品費</td><td>¥2,000</td></tr>
+        <tr><td class="mut" style="font-size:.72rem">…ほか全15科目を自動集計</td><td></td></tr>
+      </tbody>
+    </table>
+    <p class="pv-cap">この数字は実際にExcelの数式で計算した結果です（売上3件・経費4件の入力例）。勘定科目はセルのリストから選ぶだけ。</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-label">Why it helps</div>
+  <h2>確定申告の「数字づくり」が、これ1枚で終わる</h2>
+  <div class="grid">
+    <div class="card"><div class="ic">🧮</div><h3>所得まで自動計算</h3><p>売上合計・経費合計・所得（売上−経費）を自動で算出。電卓も関数も組む必要はありません。</p></div>
+    <div class="card"><div class="ic">📂</div><h3>勘定科目別に自動集計</h3><p>旅費交通費・通信費・消耗品費・地代家賃ほか主要15科目を、SUMIFで自動に振り分け集計します。</p></div>
+    <div class="card"><div class="ic">⬇️</div><h3>科目はリストから選ぶだけ</h3><p>経費の勘定科目はセルのドロップダウンから選択。表記ゆれや入力ミスを防ぎます。</p></div>
+    <div class="card"><div class="ic">📘</div><h3>青色・白色どちらもOK</h3><p>所得と科目別の金額を申告書に転記するだけ。記帳・集計の補助として両方式に使えます。</p></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-label">Who it's for</div>
+  <h2>こんな方のためのテンプレートです</h2>
+  <ul class="who">
+    <li>確定申告がはじめてで、何から数字をまとめればいいか分からない個人事業主・フリーランス</li>
+    <li>会計ソフト（月額1,000円〜）は大げさだが、ノートやレシートのままでは不安な方</li>
+    <li>売上と経費だけ入れれば「所得」が出る、シンプルな1ファイルがほしい方</li>
+    <li>副業の利益が増えてきて、今年から申告が必要になった会社員の方</li>
+  </ul>
+</section>
+
+<section class="wrap">
+  <div class="sec-label">Compare</div>
+  <h2>無料テンプレ・会計ソフトと比べると</h2>
+  <table class="cmp">
+    <thead><tr><th></th><th>無料テンプレ</th><th>会計ソフト</th><th class="us">このテンプレート</th></tr></thead>
+    <tbody>
+      <tr><td>料金</td><td>0円</td><td>月1,000円〜</td><td class="yes">¥1,980 買い切り</td></tr>
+      <tr><td>所得（売上−経費）自動</td><td class="no">△ 自分で式を組む</td><td class="yes">○</td><td class="yes">○</td></tr>
+      <tr><td>勘定科目別の自動集計</td><td class="no">×</td><td class="yes">○</td><td class="yes">○</td></tr>
+      <tr><td>科目のドロップダウン入力</td><td class="no">×</td><td class="yes">○</td><td class="yes">○</td></tr>
+      <tr><td>導入の手間</td><td>自分で表を作る</td><td class="no">登録・口座連携が必要</td><td class="yes">開いて入力するだけ</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="wrap">
+  <div class="sec-label">Price</div>
+  <h2>価格</h2>
+  <div class="pricebox">
+    <div class="big">¥1,980<span style="font-size:.9rem;color:var(--mut);font-weight:600"> 買い切り（税込）</span></div>
+    <p class="mut" style="margin-top:6px;font-size:.86rem">月額なし。毎年使えて、来年からも記録を残せます。</p>
+    <div class="opt">
+      <div>＋ ¥3,000〜：屋号・科目の追加など<b>カスタム対応</b></div>
+    </div>
+    <div style="margin-top:20px"><a class="cta sm" href="#order" onclick="gtag('event','cta_click',{location:'price'})">注文方法を見る →</a></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="bundle">
+    <div class="sec-label" style="color:#6ee7b7">Bundle ・ いちばんお得</div>
+    <h3>請求も申告も、これ1セットで。</h3>
+    <p style="margin-top:6px">帳票テンプレ（請求書・見積書・納品書・領収書）＋ この売上・経費管理Excel</p>
+    <div class="b-price"><s>¥4,960</s><b>¥3,980</b></div>
+    <p>2点まとめてなら ¥980 おトク。請求書を出す → その記録を申告まで、を1セットで。</p>
+    <div style="margin-top:18px"><a class="cta sm" href="#order-bundle" onclick="gtag('event','cta_click',{location:'bundle'})">セットを注文する →</a></div>
+    <p style="margin-top:10px;font-size:.78rem"><a href="/invoice-template/" style="color:#6ee7b7;text-decoration:underline">▶ 帳票テンプレ（請求書ほか）単体のページを見る</a></p>
+  </div>
+</section>
+
+<section class="wrap" id="order">
+  <div class="order">
+    <div class="sec-label" style="color:#6ee7b7">Order</div>
+    <h2>ご注文（メール・銀行振込）</h2>
+    <p style="color:#cdd2de;font-size:.9rem;max-width:460px;margin:0 auto">下のボタンからメールでご注文ください。折り返し<b style="color:#fff">お振込先</b>をご案内し、ご入金確認後に<b style="color:#fff">Excelファイル</b>をお送りします。</p>
+    <div class="steps">
+      <div class="step"><b>1</b><div>「メールで注文する」を押す（件名・本文は入力済み）。カスタム希望があれば本文に追記してください。</div></div>
+      <div class="step"><b>2</b><div>折り返しお振込先（銀行口座）をご案内します。</div></div>
+      <div class="step"><b>3</b><div>ご入金を確認後、Excelファイル（使い方シート付き）をメールでお届けします。</div></div>
+    </div>
+    <div style="margin-top:22px">
+      <a class="cta" href="mailto:next.growth0913@gmail.com?subject=%E3%80%90%E6%B3%A8%E6%96%87%E3%80%91%E5%A3%B2%E4%B8%8A%E3%83%BB%E7%B5%8C%E8%B2%BB%E7%AE%A1%E7%90%86Excel%EF%BC%88%E7%A2%BA%E5%AE%9A%E7%94%B3%E5%91%8A%E5%AF%BE%E5%BF%9C%EF%BC%89&body=%E5%A3%B2%E4%B8%8A%E3%83%BB%E7%B5%8C%E8%B2%BB%E7%AE%A1%E7%90%86Excel%EF%BC%88%E7%A2%BA%E5%AE%9A%E7%94%B3%E5%91%8A%E5%AF%BE%E5%BF%9C%E3%83%BB%C2%A51%2C980%EF%BC%89%E3%82%92%E6%B3%A8%E6%96%87%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%0A%0A%E2%97%8F%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%88%E5%B1%8B%E5%8F%B7%EF%BC%89%EF%BC%9A%0A%E2%97%8F%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E4%BB%A3%E8%A1%8C%E3%81%AE%E5%B8%8C%E6%9C%9B%EF%BC%88%E3%81%82%E3%82%8A/%E3%81%AA%E3%81%97%EF%BC%89%EF%BC%9A%0A" onclick="gtag('event','order_click',{method:'mailto',product:'kakuteishinkoku'})">✉️ メールで注文する（¥1,980）</a>
+    </div>
+    <p class="reassure">注文先：next.growth0913@gmail.com ／ ボタンが反応しない場合はこのアドレス宛に直接ご連絡ください。</p>
+  </div>
+</section>
+
+<section class="wrap" id="order-bundle" style="padding-top:0">
+  <div class="order" style="background:#0f2233">
+    <div class="sec-label" style="color:#6ee7b7">Order ・ 2点セット</div>
+    <h2>2点セットを注文する（¥3,980）</h2>
+    <p style="color:#cdd2de;font-size:.9rem;max-width:460px;margin:0 auto">帳票テンプレ（請求書ほか）＋ 売上・経費管理Excel のセットです。単体合計 ¥4,960 → セット ¥3,980。</p>
+    <div style="margin-top:20px">
+      <a class="cta" href="mailto:next.growth0913@gmail.com?subject=%E3%80%90%E6%B3%A8%E6%96%87%E3%80%91%E5%B8%B3%E7%A5%A8%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%EF%BC%8B%E7%A2%BA%E5%AE%9A%E7%94%B3%E5%91%8A%202%E7%82%B9%E3%82%BB%E3%83%83%E3%83%88&body=%E5%B8%B3%E7%A5%A8%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%EF%BC%88%E8%AB%8B%E6%B1%82%E6%9B%B8%E3%81%BB%E3%81%8B%EF%BC%89%EF%BC%8B%20%E5%A3%B2%E4%B8%8A%E3%83%BB%E7%B5%8C%E8%B2%BB%E7%AE%A1%E7%90%86Excel%20%E3%81%AE2%E7%82%B9%E3%82%BB%E3%83%83%E3%83%88%EF%BC%88%C2%A53%2C980%EF%BC%89%E3%82%92%E6%B3%A8%E6%96%87%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%0A%0A%E2%97%8F%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%88%E5%B1%8B%E5%8F%B7%EF%BC%89%EF%BC%9A%0A%E2%97%8F%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E4%BB%A3%E8%A1%8C%E3%81%AE%E5%B8%8C%E6%9C%9B%EF%BC%88%E3%81%82%E3%82%8A/%E3%81%AA%E3%81%97%EF%BC%89%EF%BC%9A%0A" onclick="gtag('event','order_click',{method:'mailto',product:'bundle'})">✉️ 2点セットをメールで注文する</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-label">FAQ</div>
+  <h2>よくある質問</h2>
+  <details><summary>Excelを持っていなくても使えますか？</summary><p>はい。無料のGoogleスプレッドシートやLibreOffice Calcでも開いて利用できます。Microsoft Excelは不要です。</p></details>
+  <details><summary>青色申告・白色申告のどちらに使えますか？</summary><p>どちらにも使えます。集計シートに出る「所得（売上−経費）」と勘定科目別の金額を、申告書に転記してご利用ください。記帳・集計の補助としてのテンプレートです。</p></details>
+  <details><summary>勘定科目は決まっていますか？</summary><p>旅費交通費・通信費・水道光熱費・消耗品費・接待交際費・広告宣伝費・外注工賃・地代家賃ほか、個人事業主の主要15科目に対応しています。科目の追加はカスタム（＋¥3,000〜）で承ります。</p></details>
+  <details><summary>請求書も作りたいのですが？</summary><p>請求書・見積書・納品書・領収書がそろった<a href="/invoice-template/" style="color:var(--accent);text-decoration:underline">帳票テンプレート</a>もあります。2点セット（¥3,980）がいちばんお得です。</p></details>
+  <details><summary>支払い方法は？</summary><p>銀行振込です。ご注文メールをいただいたあと、折り返しお振込先をご案内します。ご入金確認後にファイルをお送りします。</p></details>
+</section>
+
+</main>
+
+<footer>
+  <div style="margin-bottom:8px">
+    <a href="/">Richend Digital トップ</a>・
+    <a href="/invoice-template/">帳票テンプレート</a>・
+    <a href="/privacy.html">プライバシーポリシー</a>・
+    <a href="/contact.html">お問い合わせ</a>
+  </div>
+  &copy; 2026 Richend Digital
+</footer>
+
+</body>
+</html>
