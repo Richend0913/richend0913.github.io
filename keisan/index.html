@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-63VB4HT3T2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-63VB4HT3T2');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>報酬・源泉徴収・消費税 自動計算ツール｜インボイス対応・無料・登録不要｜Richend Digital</title>
+<link rel="canonical" href="https://richend0913.github.io/keisan/">
+<meta name="description" content="フリーランス・個人事業主向けの無料計算ツール。報酬額を入れるだけで消費税(10%/8%)・源泉徴収税額(10.21%/20.42%)・請求総額・お振込額(手取り)を自動計算。インボイス対応・登録不要・ブラウザ完結。">
+<meta property="og:title" content="報酬・源泉徴収・消費税 自動計算ツール｜インボイス対応・無料・登録不要">
+<meta property="og:description" content="報酬額を入れるだけで消費税・源泉徴収・請求総額・お振込額を自動計算。フリーランス・個人事業主向けの無料ツール。インボイス対応・登録不要。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://richend0913.github.io/keisan/">
+<meta property="og:image" content="https://richend0913.github.io/images/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--ink:#1a1d24;--mut:#5b6472;--line:#e6e8ee;--bg:#f7f8fb;--accent:#6366f1;--accent2:#a855f7;--ok:#16a34a;--warn:#c0263b}
+  body{font-family:'Noto Sans JP','Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;-webkit-text-size-adjust:100%}
+  .wrap{max-width:720px;margin:0 auto;padding:0 20px}
+  a{color:inherit}
+
+  /* hero */
+  .hero{background:linear-gradient(160deg,#0f1117 0%,#1b1e2b 60%,#241b3a 100%);color:#fff;padding:48px 0 34px;position:relative;overflow:hidden}
+  .hero::after{content:'';position:absolute;top:-40%;right:-20%;width:60%;height:160%;background:radial-gradient(circle,rgba(99,102,241,.25),transparent 60%)}
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{font-size:.72rem;letter-spacing:.16em;font-weight:700;color:#a5b4fc;text-transform:uppercase;margin-bottom:12px}
+  h1{font-size:1.55rem;font-weight:900;line-height:1.42;letter-spacing:-.01em}
+  h1 .hl{background:linear-gradient(120deg,#818cf8,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .lead{margin-top:12px;color:#c7cbd6;font-size:.92rem}
+  .pills{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+  .pill{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#d7dae4;font-size:.72rem;font-weight:600;padding:6px 12px;border-radius:999px}
+
+  section{padding:34px 0}
+  .sec-label{font-size:.7rem;letter-spacing:.14em;font-weight:700;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
+  h2{font-size:1.22rem;font-weight:800;letter-spacing:-.01em;margin-bottom:16px}
+  .mut{color:var(--mut)}
+
+  /* calculator */
+  .calc{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 12px 40px rgba(20,24,40,.08);padding:24px 22px;margin-top:-30px;position:relative;z-index:2}
+  .field{margin-bottom:18px}
+  .field label.lab{display:block;font-size:.82rem;font-weight:700;margin-bottom:8px}
+  .amount-wrap{position:relative}
+  .amount-wrap .yen{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:1.25rem;font-weight:800;color:var(--mut)}
+  input[type=text]{width:100%;font-family:'Inter','Noto Sans JP',sans-serif;font-size:1.5rem;font-weight:800;padding:14px 16px 14px 38px;border:2px solid var(--line);border-radius:12px;background:#fbfbfe;color:var(--ink);outline:none;transition:border-color .15s}
+  input[type=text]:focus{border-color:var(--accent)}
+
+  .seg{display:inline-flex;background:#f1f2f7;border-radius:11px;padding:4px;gap:4px;width:100%}
+  .seg button{flex:1;border:0;background:transparent;font-family:inherit;font-size:.84rem;font-weight:700;color:var(--mut);padding:9px 6px;border-radius:8px;cursor:pointer;transition:all .15s}
+  .seg button.on{background:#fff;color:var(--accent);box-shadow:0 2px 8px rgba(20,24,40,.1)}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+  .presets{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .presets button{border:1px solid var(--line);background:#fff;font-family:inherit;font-size:.76rem;font-weight:700;color:var(--mut);padding:7px 13px;border-radius:999px;cursor:pointer;transition:all .15s}
+  .presets button:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* results */
+  .results{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+  .res{border:1px solid var(--line);border-radius:14px;padding:15px 16px;background:#fff}
+  .res .rl{font-size:.74rem;font-weight:700;color:var(--mut);display:flex;align-items:center;gap:6px}
+  .res .rv{font-size:1.5rem;font-weight:900;font-family:'Inter','Noto Sans JP',sans-serif;margin-top:4px;letter-spacing:-.01em}
+  .res .rv .u{font-size:.9rem;font-weight:700;color:var(--mut);margin-left:1px}
+  .res.tax .rv{color:#7c3aed}
+  .res.wh .rv{color:var(--warn)}
+  .res.net{grid-column:1 / -1;background:linear-gradient(135deg,#6366f1,#a855f7);border:0;color:#fff;box-shadow:0 12px 30px rgba(99,102,241,.32)}
+  .res.net .rl{color:#e6e3ff}
+  .res.net .rv{font-size:2.1rem;color:#fff}
+  .res.net .rv .u{color:#e6e3ff}
+  .res.total .rv{color:var(--ink)}
+
+  /* breakdown bar */
+  .bar-wrap{margin-top:18px}
+  .bar-wrap .bl{font-size:.74rem;font-weight:700;color:var(--mut);margin-bottom:8px}
+  .bar{display:flex;height:34px;border-radius:9px;overflow:hidden;border:1px solid var(--line);background:#f1f2f7}
+  .bar span{display:flex;align-items:center;justify-content:center;font-size:.66rem;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden;transition:flex-basis .3s}
+  .bar .sb-base{background:linear-gradient(120deg,#4f46e5,#6366f1)}
+  .bar .sb-tax{background:linear-gradient(120deg,#a855f7,#c084fc)}
+  .bar .sb-net{background:linear-gradient(120deg,#16a34a,#22c55e)}
+  .bar .sb-wh{background:repeating-linear-gradient(45deg,#c0263b,#c0263b 6px,#a31f31 6px,#a31f31 12px)}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:.72rem;color:var(--mut)}
+  .legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+  .lg-base i{background:#6366f1}.lg-tax i{background:#c084fc}.lg-net i{background:#22c55e}.lg-wh i{background:#c0263b}
+
+  .copybtn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:18px;border:0;background:var(--ink);color:#fff;font-family:inherit;font-size:.92rem;font-weight:800;padding:14px;border-radius:12px;cursor:pointer;transition:transform .12s,background .2s}
+  .copybtn:hover{transform:translateY(-1px)}
+  .copybtn.done{background:var(--ok)}
+  .note2step{font-size:.72rem;color:var(--mut);margin-top:12px;line-height:1.6;background:#f7f8fb;border-radius:9px;padding:9px 12px;border:1px solid var(--line)}
+
+  /* CTA box */
+  .ctabox{background:linear-gradient(160deg,#fff,#f3f1fc);border:1px solid #ddd6f3;border-radius:18px;padding:24px 22px;margin-top:24px;box-shadow:0 10px 30px rgba(99,102,241,.1)}
+  .ctabox .kicker{font-size:.72rem;letter-spacing:.1em;font-weight:800;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
+  .ctabox h3{font-size:1.05rem;font-weight:900;line-height:1.5}
+  .ctabox p{font-size:.85rem;color:var(--mut);margin-top:8px}
+  .cta-buttons{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+  .cta{display:flex;align-items:center;justify-content:space-between;gap:8px;text-decoration:none;font-weight:800;font-size:.92rem;padding:14px 18px;border-radius:13px;transition:transform .15s}
+  .cta.primary{background:linear-gradient(120deg,#6366f1,#a855f7);color:#fff;box-shadow:0 10px 26px rgba(99,102,241,.36)}
+  .cta.secondary{background:#fff;color:var(--ink);border:1.5px solid #ddd6f3}
+  .cta:hover{transform:translateY(-2px)}
+  .cta .arrow{font-size:1.1rem}
+  .setnote{text-align:center;font-size:.78rem;color:var(--mut);margin-top:12px}
+  .setnote a{color:var(--accent);font-weight:700;text-decoration:none}
+
+  /* explainer */
+  .explain{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+  .explain h2{margin-bottom:12px}
+  .explain p{font-size:.88rem;color:#3a4150}
+  .explain .b{font-weight:700;color:var(--ink)}
+  .explain ul{margin:12px 0 0 0;list-style:none}
+  .explain li{position:relative;padding:7px 0 7px 26px;font-size:.86rem;color:#3a4150;border-bottom:1px dashed var(--line)}
+  .explain li:last-child{border-bottom:0}
+  .explain li::before{content:'›';position:absolute;left:6px;color:var(--accent);font-weight:900}
+
+  details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px 16px;margin-bottom:10px}
+  summary{cursor:pointer;font-weight:700;padding:13px 0;font-size:.9rem;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:'+';float:right;color:var(--accent);font-weight:900}
+  details[open] summary::after{content:'−'}
+  details p{padding:0 0 14px;font-size:.85rem;color:var(--mut)}
+
+  footer{text-align:center;padding:30px 20px;color:#9aa0b2;font-size:.74rem;border-top:1px solid var(--line);margin-top:10px}
+  .foot-cta{margin-bottom:14px}
+  .foot-cta a{color:var(--accent);text-decoration:none;font-weight:700;margin:0 6px;font-size:.8rem}
+  footer .legal a{color:#9aa0b2;text-decoration:none;margin:0 8px}
+
+  @media(max-width:520px){
+    h1{font-size:1.32rem}
+    .results{grid-template-columns:1fr}
+    .res .rv{font-size:1.6rem}
+    .res.net .rv{font-size:2rem}
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"報酬・源泉徴収・消費税 自動計算ツール",
+  "url":"https://richend0913.github.io/keisan/",
+  "description":"報酬額から消費税・源泉徴収税額・請求総額・お振込額を自動計算する、フリーランス・個人事業主向けの無料ツール。インボイス対応・登録不要・ブラウザ完結。",
+  "applicationCategory":"FinanceApplication",
+  "operatingSystem":"Web",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},
+  "publisher":{"@type":"Organization","name":"Richend Digital"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"源泉徴収はいくら引かれる？",
+      "acceptedAnswer":{"@type":"Answer","text":"報酬（税抜の本体価格）が100万円以下の場合、源泉徴収税額は『報酬 × 10.21%』の小数点以下切り捨てです。これは所得税10%に復興特別所得税0.21%を加えた税率です。例えば報酬50,000円なら 50,000×0.1021＝5,105円が源泉徴収され、消費税5,000円を加えた請求総額55,000円から差し引かれて、お振込額は49,895円になります。"}
+    },
+    {
+      "@type":"Question",
+      "name":"100万円を超えるとどう計算する？",
+      "acceptedAnswer":{"@type":"Answer","text":"報酬（税抜本体）が100万円を超える部分は税率が20.42%になり、2段階で計算します。式は『(報酬−1,000,000)×20.42% ＋ 102,100円』です。最初の100万円分は一律102,100円（1,000,000×0.1021）として固定され、超えた分にだけ20.42%がかかります。例えば報酬1,500,000円なら (1,500,000−1,000,000)×0.2042＋102,100＝204,200円が源泉徴収税額です。"}
+    },
+    {
+      "@type":"Question",
+      "name":"消費税は源泉徴収の対象になる？",
+      "acceptedAnswer":{"@type":"Answer","text":"請求書で報酬本体と消費税額を明確に区分して記載していれば、消費税は源泉徴収の対象に含めず、報酬の本体価格（税抜額）のみを対象に計算できます。インボイス（適格請求書）では消費税額を区分記載するため、本ツールも税抜の本体価格を源泉徴収の計算ベースとしています。区分していない場合は税込総額が対象になることがあります。"}
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Free Tool · 登録不要</div>
+    <h1>報酬・<span class="hl">源泉徴収</span>・消費税<br>かんたん自動計算ツール</h1>
+    <p class="lead">報酬額を入れるだけ。消費税・源泉徴収税額・請求総額・お振込額（手取り）をリアルタイム計算。インボイス対応。</p>
+    <div class="pills">
+      <span class="pill">✓ 完全無料</span>
+      <span class="pill">✓ 登録不要</span>
+      <span class="pill">✓ ブラウザ完結</span>
+      <span class="pill">✓ インボイス対応</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section style="padding-top:0">
+    <div class="calc">
+      <div class="field">
+        <label class="lab" for="amount">報酬額を入力</label>
+        <div class="amount-wrap">
+          <span class="yen">¥</span>
+          <input type="text" id="amount" inputmode="numeric" autocomplete="off" placeholder="50,000" aria-label="報酬額">
+        </div>
+        <div class="presets" aria-label="入力プリセット">
+          <button type="button" data-preset="50000">5万円</button>
+          <button type="button" data-preset="300000">30万円</button>
+          <button type="button" data-preset="1000000">100万円</button>
+          <button type="button" data-preset="1500000">150万円</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="lab">入力した金額は</label>
+        <div class="seg" id="seg-incl" role="group" aria-label="税抜か税込か">
+          <button type="button" data-incl="0" class="on">税抜（本体価格）</button>
+          <button type="button" data-incl="1">税込</button>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field" style="margin-bottom:0">
+          <label class="lab">消費税率</label>
+          <div class="seg" id="seg-rate" role="group" aria-label="消費税率">
+            <button type="button" data-rate="0.10" class="on">10%</button>
+            <button type="button" data-rate="0.08">8%</button>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label class="lab">源泉徴収</label>
+          <div class="seg" id="seg-wh" role="group" aria-label="源泉徴収あり/なし">
+            <button type="button" data-wh="1" class="on">あり</button>
+            <button type="button" data-wh="0">なし</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- results -->
+      <div class="results">
+        <div class="res tax">
+          <div class="rl">消費税額</div>
+          <div class="rv">¥<span id="r-tax">5,000</span></div>
+        </div>
+        <div class="res wh">
+          <div class="rl">源泉徴収税額</div>
+          <div class="rv">−¥<span id="r-wh">5,105</span></div>
+        </div>
+        <div class="res total">
+          <div class="rl">請求総額（税込）</div>
+          <div class="rv">¥<span id="r-total">55,000</span></div>
+        </div>
+        <div class="res net">
+          <div class="rl">お振込額（手取り）</div>
+          <div class="rv">¥<span id="r-net">49,895</span></div>
+        </div>
+      </div>
+
+      <!-- breakdown bar -->
+      <div class="bar-wrap">
+        <div class="bl">内訳（お振込額の構成）</div>
+        <div class="bar" id="bar">
+          <span class="sb-net" id="sb-net">手取り</span>
+          <span class="sb-wh" id="sb-wh">源泉</span>
+        </div>
+        <div class="legend">
+          <span class="lg-base"><i></i>本体（税抜）</span>
+          <span class="lg-tax"><i></i>消費税</span>
+          <span class="lg-net"><i></i>手取り</span>
+          <span class="lg-wh"><i></i>源泉徴収（控除）</span>
+        </div>
+      </div>
+
+      <button type="button" class="copybtn" id="copy">📋 結果をコピー（請求書に書く文面）</button>
+
+      <div class="note2step">
+        ※ 源泉徴収は報酬本体（税抜額）が <b>100万円以下は10.21%</b>、<b>100万円超は超過分に20.42%</b> の2段階で計算されます（復興特別所得税を含む税率）。インボイスで消費税額を区分記載しているため、源泉の対象は税抜の本体価格です。
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="ctabox">
+      <div class="kicker">毎回この計算、していませんか？</div>
+      <h3>請求書ごとに手計算は大変。<br>数量と単価を入れるだけで、消費税も源泉も自動計算するExcelテンプレはこちら。</h3>
+      <p>関数で正しく自動計算。インボイス制度（適格請求書）対応。届いたその日から使えます。</p>
+      <div class="cta-buttons">
+        <a class="cta primary" href="https://richend0913.github.io/invoice-template/">
+          <span>インボイス対応 請求書テンプレ ¥2,980</span><span class="arrow">→</span>
+        </a>
+        <a class="cta secondary" href="https://richend0913.github.io/kakuteishinkoku-template/">
+          <span>売上・経費管理（確定申告）テンプレ ¥1,980</span><span class="arrow">→</span>
+        </a>
+      </div>
+      <p class="setnote">2点まとめて買うなら <a href="https://richend0913.github.io/invoice-template/">2点セット ¥3,980</a> がお得です。</p>
+    </div>
+  </section>
+
+  <section style="padding-top:8px">
+    <div class="explain">
+      <div class="sec-label">源泉徴収のしくみ</div>
+      <h2>源泉徴収・消費税の計算ルール</h2>
+      <p>フリーランスや個人事業主がデザイン料・原稿料・講演料などの報酬を受け取るとき、支払う側（クライアント）は<span class="b">源泉徴収</span>として一定額を差し引いて納税します。税率は報酬の本体価格（税抜）が<span class="b">100万円以下なら10.21%</span>、<span class="b">100万円を超える部分は20.42%</span>。この0.21%・0.42%は復興特別所得税を含むためで、所得税10%・20%だけではありません。100万円超のときは「100万円までは一律102,100円＋超過分×20.42%」と2段階で計算します。請求書で消費税額を区分記載していれば、源泉の対象は税抜の本体価格のみです。</p>
+      <ul>
+        <li>消費税額 ＝ 税抜本体 × 税率（10% または 8%）の端数切り捨て</li>
+        <li>請求総額 ＝ 税抜本体 ＋ 消費税額</li>
+        <li>源泉徴収（100万円以下）＝ 税抜本体 × 10.21%</li>
+        <li>源泉徴収（100万円超）＝ (税抜本体 − 100万円) × 20.42% ＋ 102,100円</li>
+        <li>お振込額（手取り）＝ 請求総額 − 源泉徴収税額</li>
+      </ul>
+    </div>
+  </section>
+
+  <section style="padding-top:8px">
+    <div class="sec-label">よくある質問</div>
+    <h2>FAQ</h2>
+    <details open>
+      <summary>源泉徴収はいくら引かれる？</summary>
+      <p>報酬（税抜の本体価格）が100万円以下なら「報酬 × 10.21%」の小数点以下切り捨てです。所得税10%＋復興特別所得税0.21%の合計税率です。例：報酬50,000円 → 5,105円が源泉徴収され、消費税5,000円を足した請求総額55,000円から差し引かれ、お振込額は49,895円になります。</p>
+    </details>
+    <details>
+      <summary>100万円を超えるとどう計算する？</summary>
+      <p>税抜本体が100万円を超える部分は税率が20.42%になり、2段階で計算します。式は「(報酬 − 1,000,000) × 20.42% ＋ 102,100円」。最初の100万円分は一律102,100円として固定され、超えた分にだけ20.42%がかかります。例：報酬1,500,000円 → (1,500,000−1,000,000)×0.2042＋102,100＝204,200円。</p>
+    </details>
+    <details>
+      <summary>消費税は源泉徴収の対象になる？</summary>
+      <p>請求書で報酬本体と消費税額を区分して記載していれば、消費税は源泉の対象に含めず、税抜の本体価格のみで計算できます。インボイス（適格請求書）は消費税額を区分記載するため、本ツールも税抜本体を源泉の計算ベースにしています。区分していない場合は税込総額が対象になることがあります。</p>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-cta">
+    <a href="https://richend0913.github.io/invoice-template/">請求書テンプレ ¥2,980</a>・
+    <a href="https://richend0913.github.io/kakuteishinkoku-template/">確定申告テンプレ ¥1,980</a>
+  </div>
+  <div class="legal">
+    <a href="https://richend0913.github.io/">Richend Digital</a>
+    <span>© 2026 Richend Digital</span>
+  </div>
+  <p style="margin-top:10px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6">本ツールは概算の計算をサポートするものです。実際の納税・申告は最新の税制および税理士等の専門家にご確認ください。</p>
+</footer>
+
+<script>
+(function(){
+  var state = { amount:50000, incl:0, rate:0.10, wh:1 };
+
+  var $ = function(id){ return document.getElementById(id); };
+  var amountEl = $('amount');
+
+  function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
+
+  // ---- core calculation ----
+  function calc(){
+    var amt = state.amount || 0;
+    var rate = state.rate;
+    var base;
+    if(state.incl){
+      // 税込入力 → 税抜本体は四捨五入で割り戻す
+      base = Math.round(amt / (1 + rate));
+    } else {
+      base = amt;
+    }
+    var tax = Math.floor(base * rate);
+    var total = base + tax;
+    var wh = 0;
+    if(state.wh){
+      if(base <= 1000000){
+        wh = Math.floor(base * 0.1021);
+      } else {
+        wh = Math.floor((base - 1000000) * 0.2042) + 102100;
+      }
+    }
+    var net = total - wh;
+    return { base:base, tax:tax, total:total, wh:wh, net:net };
+  }
+
+  function render(){
+    var r = calc();
+    $('r-tax').textContent   = fmt(r.tax);
+    $('r-wh').textContent    = fmt(r.wh);
+    $('r-total').textContent = fmt(r.total);
+    $('r-net').textContent   = fmt(r.net);
+
+    // breakdown bar: 請求総額 = 手取り + 源泉
+    var total = r.total || 1;
+    var netPct = Math.max(0, r.net) / total * 100;
+    var whPct  = r.wh / total * 100;
+    var sbNet = $('sb-net'), sbWh = $('sb-wh');
+    sbNet.style.flexBasis = netPct + '%';
+    sbWh.style.flexBasis  = whPct + '%';
+    sbNet.textContent = netPct > 14 ? ('手取り ¥' + fmt(r.net)) : (netPct > 6 ? '手取り' : '');
+    sbWh.textContent  = whPct  > 14 ? ('源泉 ¥' + fmt(r.wh)) : (whPct > 6 ? '源泉' : '');
+    sbWh.style.display = r.wh > 0 ? 'flex' : 'none';
+
+    window._lastResult = r;
+  }
+
+  // ---- input handling ----
+  function parseAmount(str){
+    var digits = (str || '').replace(/[^0-9]/g, '');
+    return digits ? parseInt(digits, 10) : 0;
+  }
+
+  amountEl.addEventListener('input', function(){
+    var caretFromEnd = this.value.length - this.selectionStart;
+    state.amount = parseAmount(this.value);
+    this.value = state.amount ? state.amount.toLocaleString('en-US') : '';
+    // restore caret roughly
+    var pos = Math.max(0, this.value.length - caretFromEnd);
+    try { this.setSelectionRange(pos, pos); } catch(e){}
+    render();
+  });
+
+  // segmented controls
+  function bindSeg(id, key, parse){
+    var grp = $(id);
+    grp.addEventListener('click', function(e){
+      var btn = e.target.closest('button');
+      if(!btn) return;
+      [].forEach.call(grp.querySelectorAll('button'), function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      state[key] = parse(btn);
+      render();
+    });
+  }
+  bindSeg('seg-incl', 'incl', function(b){ return parseInt(b.dataset.incl,10); });
+  bindSeg('seg-rate', 'rate', function(b){ return parseFloat(b.dataset.rate); });
+  bindSeg('seg-wh',   'wh',   function(b){ return parseInt(b.dataset.wh,10); });
+
+  // presets
+  [].forEach.call(document.querySelectorAll('.presets button'), function(b){
+    b.addEventListener('click', function(){
+      state.amount = parseInt(b.dataset.preset, 10);
+      amountEl.value = state.amount.toLocaleString('en-US');
+      render();
+    });
+  });
+
+  // copy
+  var copyBtn = $('copy');
+  copyBtn.addEventListener('click', function(){
+    var r = window._lastResult || calc();
+    var lines = [
+      '小計（税抜）　¥' + fmt(r.base),
+      '消費税（' + Math.round(state.rate*100) + '%）　¥' + fmt(r.tax),
+      '請求総額（税込）　¥' + fmt(r.total)
+    ];
+    if(r.wh > 0){
+      lines.push('源泉徴収　−¥' + fmt(r.wh));
+    }
+    lines.push('お支払額　¥' + fmt(r.net));
+    var text = lines.join('\n');
+
+    var done = function(){
+      copyBtn.classList.add('done');
+      copyBtn.textContent = '✓ コピーしました';
+      setTimeout(function(){
+        copyBtn.classList.remove('done');
+        copyBtn.textContent = '📋 結果をコピー（請求書に書く文面）';
+      }, 1800);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
+    } else {
+      fallbackCopy(text); done();
+    }
+  });
+  function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch(e){}
+    document.body.removeChild(ta);
+  }
+
+  // init
+  amountEl.value = state.amount.toLocaleString('en-US');
+  render();
+})();
+</script>
+
+</body>
+</html>
