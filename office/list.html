@@ -113,7 +113,14 @@ async function load(){
   try{ const r=await (await fetch("daily_report.md?_="+Date.now())).text();
     document.getElementById("report").textContent=r; }catch(e){}
 }
-load(); setInterval(load,30000);
+// 動的に設立された事業部(org_extra.json)をメンバー名簿にマージ（新事業立ち上げで自動反映）
+async function loadExtra(){
+  try{ const ex=await(await fetch("org_extra.json?_="+Date.now())).json();
+    for(const d of (ex||[])){ if(!d.id)continue; const rm=d.name||"新規事業";
+      C["mg_"+d.id]=[d.boss_name||((d.name||"")+"部長"), rm, d.ic||"🏢"];
+      (d.members||[]).forEach(m=>{ C[m.id]=[m.name, rm, d.ic||"🏢"]; }); } }catch(e){}
+}
+loadExtra().then(load); setInterval(load,30000);
 </script>
 </body>
 </html>

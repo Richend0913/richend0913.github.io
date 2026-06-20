@@ -130,16 +130,29 @@ const C=[
  ["mg_ux","ux","顧客体験部長","#0ca678","#3a3326"],["c62","ux","ねね","#fab005","#3a3326"],["c63","ux","かい","#7048e8","#5b3a2e"],
 ];
 const SC={work:"var(--work)",rest:"var(--rest)",move:"var(--move)"};
-// 元部屋→フロア
-const ROOM2FLOOR={};
-for(const f of FLOORS) for(const r of f.rooms) ROOM2FLOOR[r]=f.id;
-// 部長は自分のフロアの部長室へ（元部屋yakuinから割り当て直す）
-const BOSS2FLOOR={};
-for(const f of FLOORS) if(f.boss) BOSS2FLOOR[f.boss]=f.id;
+// 元部屋→フロア / 部長→フロア / フロア→メンバー（buildMapsで構築。動的事業部追加後に再構築する）
+let ROOM2FLOOR={},BOSS2FLOOR={},MEMBERS={};
 function floorOf(c){ if(BOSS2FLOOR[c[0]]) return BOSS2FLOOR[c[0]]; return ROOM2FLOOR[c[1]]||"exec"; }
-// 各フロアの所属メンバー
-const MEMBERS={}; for(const f of FLOORS) MEMBERS[f.id]=[];
-for(const c of C) MEMBERS[floorOf(c)].push(c);
+function buildMaps(){
+  ROOM2FLOOR={}; for(const f of FLOORS) for(const r of f.rooms) ROOM2FLOOR[r]=f.id;
+  BOSS2FLOOR={}; for(const f of FLOORS) if(f.boss) BOSS2FLOOR[f.boss]=f.id;
+  MEMBERS={}; for(const f of FLOORS) MEMBERS[f.id]=[];
+  for(const c of C) MEMBERS[floorOf(c)].push(c);
+}
+buildMaps();
+// 動的に設立された事業部(org_extra.json)をフロア/メンバーにマージ（新事業立ち上げで自動反映）
+async function loadExtra(){
+  try{
+    const ex=await(await fetch("org_extra.json?_="+Date.now())).json();
+    for(const d of (ex||[])){
+      if(!d.id||FLOORS.find(f=>f.id===d.id)) continue;
+      FLOORS.splice(FLOORS.length-1,0,{id:d.id,name:d.name,full:d.full||"",ic:d.ic||"🏢",boss:"mg_"+d.id,rooms:[d.id]});
+      C.push(["mg_"+d.id,d.id,d.boss_name||((d.name||"")+"部長"),d.color||"#f76707","#3a3326"]);
+      (d.members||[]).forEach(m=>C.push([m.id,d.id,m.name,m.color||"#4dabf7","#3a3326"]));
+    }
+    buildMaps();
+  }catch(e){}
+}
 
 let STATE={chars:{}};
 let CUR="__all__";              // 表示中フロア
@@ -286,8 +299,10 @@ async function poll(){
 }
 function tick(){const n=new Date();document.getElementById("clk").textContent=
   String(n.getHours()).padStart(2,"0")+":"+String(n.getMinutes()).padStart(2,"0");}
-buildTabs(); tick(); setInterval(tick,10000);
-poll(); setInterval(poll,30000);
+tick(); setInterval(tick,10000);
+buildTabs();
+loadExtra().then(()=>{ buildTabs(); poll(); });
+setInterval(poll,30000);
 // 事務所感: フロア表示中、たまに誰かが少し動く(実データはpollが正)
 setInterval(()=>{
   if(CUR==="__all__"||!builtFloor)return;
