@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>スクレイピング・業務自動化代行 ポートフォリオ ｜ BURNING BROS.</title>
+<meta name="description" content="EC商品データ収集・営業リスト作成・Excel/VBA自動化・汎用スクレイピングの代行。実際の収集成果サンプルとExcel納品物を公開しています。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#14151a;color:#ececef;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic UI","Segoe UI",sans-serif;line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 48px}
+a{color:#ff7a2f}
+/* header */
+.hero{background:linear-gradient(135deg,#1c1d24 0%,#23170f 100%);border-bottom:3px solid #ff6a00;padding:30px 16px 26px;text-align:center}
+.hero .brand{font-size:13px;letter-spacing:.18em;color:#ff8a3c;font-weight:700;margin-bottom:8px}
+.hero h1{font-size:23px;line-height:1.4;margin-bottom:10px}
+.hero h1 span{color:#ff8a3c}
+.hero p{font-size:14px;color:#b9bcc6;max-width:560px;margin:0 auto}
+.flame{font-size:30px}
+/* sections */
+section{margin-top:30px}
+h2{font-size:18px;border-left:5px solid #ff6a00;padding-left:10px;margin-bottom:14px}
+h2 small{display:block;font-size:12px;color:#8b8f9c;font-weight:400;margin-top:3px}
+/* menu cards */
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:#1b1d25;border:1px solid #2c303c;border-radius:14px;padding:15px}
+.card h3{font-size:15px;color:#ffae6e;margin-bottom:8px}
+.card .lbl{font-size:11px;color:#8b8f9c;margin-top:8px;text-transform:uppercase;letter-spacing:.05em}
+.card ul{list-style:none;font-size:13px}
+.card li{padding:2px 0 2px 14px;position:relative;color:#cfd2da}
+.card li::before{content:"›";position:absolute;left:0;color:#ff6a00}
+.deliver{margin-top:9px;font-size:12px;color:#9ad9a0;background:#16221a;border:1px solid #25422b;border-radius:9px;padding:8px}
+/* sample */
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.sc{background:linear-gradient(135deg,#1e2029,#262019);border:1px solid #34302a;border-radius:12px;padding:12px;text-align:center}
+.sc b{display:block;font-size:22px;color:#ff8a3c;margin-top:3px}
+.sc span{font-size:11px;color:#9aa}
+.stars{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-bottom:16px;font-size:12px;color:#cfd2da}
+.stars .s{background:#1b1d25;border:1px solid #2c303c;border-radius:9px;padding:6px 9px}
+.stars .s b{color:#ffd43b}
+.tablewrap{overflow-x:auto;border:1px solid #2c303c;border-radius:12px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:430px;font-size:13px}
+th,td{padding:9px 11px;text-align:left;border-bottom:1px solid #262a35}
+th{background:#20222c;color:#ffae6e;font-weight:700;white-space:nowrap;position:sticky;top:0}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+tbody tr:nth-child(even){background:#181a21}
+.star{color:#ffd43b;white-space:nowrap}
+.instock{color:#7ee08a}.low{color:#ffb454}
+.srcnote{font-size:11px;color:#778;margin-top:8px}
+/* excel cta */
+.excel{background:#1b1d25;border:1px solid #2c303c;border-radius:14px;padding:16px;margin-top:14px}
+.excel h3{font-size:15px;color:#ffae6e;margin-bottom:6px}
+.excel p{font-size:13px;color:#cfd2da;margin-bottom:12px}
+.dlbtn{display:inline-block;background:linear-gradient(135deg,#ff7a2f,#ff4d00);color:#fff;font-weight:700;text-decoration:none;padding:11px 18px;border-radius:11px;font-size:14px}
+/* flow */
+.flow{list-style:none}
+.flow li{background:#1b1d25;border:1px solid #2c303c;border-radius:11px;padding:11px 14px;margin-bottom:9px;font-size:13.5px;color:#cfd2da}
+.flow li b{color:#ffae6e}
+/* cta */
+.cta{background:linear-gradient(135deg,#23170f,#2a1206);border:1px solid #ff6a00;border-radius:16px;padding:22px 18px;text-align:center;margin-top:30px}
+.cta h2{border:0;padding:0;justify-content:center;text-align:center;font-size:18px;margin-bottom:8px}
+.cta p{font-size:14px;color:#e3c8b4;margin-bottom:6px}
+.cta .small{font-size:12px;color:#b08e78}
+.foot{text-align:center;color:#666b78;font-size:11px;margin-top:28px;line-height:1.6}
+@media(max-width:520px){
+.menu{grid-template-columns:1fr}
+.summary{grid-template-columns:1fr 1fr}
+.hero h1{font-size:20px}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="flame">🔥</div>
+  <div class="brand">BURNING BROS.</div>
+  <h1>スクレイピング・<span>業務自動化</span>代行</h1>
+  <p>「手作業で毎回コピペしている集計」「欲しいけど集めるのが面倒なデータ」を、CSV／Excelの成果物＋再実行できるツールにしてお渡しします。下に実際の収集サンプルを公開しています。</p>
+</div>
+
+<div class="wrap">
+
+<section>
+  <h2>提供メニュー<small>すべて「成果物＋再実行ツール＋使い方メモ」の3点セットでお渡しします</small></h2>
+  <div class="menu">
+
+    <div class="card">
+      <h3>① EC商品データ収集</h3>
+      <div class="lbl">取れる項目例</div>
+      <ul>
+        <li>商品名 / 価格 / 在庫</li>
+        <li>評価・レビュー件数</li>
+        <li>カテゴリ / 商品URL・画像URL</li>
+        <li>Amazon・楽天・各種ECサイト</li>
+      </ul>
+      <div class="deliver">お渡し: CSV/Excel ＋ 再実行ツール ＋ 使い方メモ</div>
+    </div>
+
+    <div class="card">
+      <h3>② 企業・営業リスト作成</h3>
+      <div class="lbl">取れる項目例</div>
+      <ul>
+        <li>会社名 / 所在地 / 電話</li>
+        <li>URL / 問い合わせフォーム</li>
+        <li>業種 / 従業員規模</li>
+        <li>条件で絞り込んだリスト化</li>
+      </ul>
+      <div class="deliver">お渡し: Excel(整形済) ＋ 収集条件メモ</div>
+    </div>
+
+    <div class="card">
+      <h3>③ Excel / VBA 自動化</h3>
+      <div class="lbl">できること例</div>
+      <ul>
+        <li>複数ファイルの自動集計</li>
+        <li>転記・突合・重複チェック</li>
+        <li>定型レポートの自動生成</li>
+        <li>ボタン一発で更新</li>
+      </ul>
+      <div class="deliver">お渡し: マクロ入りExcel ＋ 操作手順メモ</div>
+    </div>
+
+    <div class="card">
+      <h3>④ 汎用スクレイピング</h3>
+      <div class="lbl">取れる項目例</div>
+      <ul>
+        <li>記事・口コミ・価格の定点収集</li>
+        <li>表・一覧ページの抽出</li>
+        <li>定期実行(毎日/毎週)の仕組み化</li>
+        <li>取得データのExcel整形</li>
+      </ul>
+      <div class="deliver">お渡し: CSV/Excel ＋ 再実行ツール ＋ メモ</div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>実サンプル：商品データ収集の成果物<small>練習用公開サイト books.toscrape.com から100商品を収集した抜粋です（実際に動くツールで取得）</small></h2>
+
+  <div class="summary">
+    <div class="sc"><span>収集件数</span><b>100件</b></div>
+    <div class="sc"><span>平均価格</span><b>£34.56</b></div>
+    <div class="sc"><span>最高価格</span><b>£58.11</b></div>
+  </div>
+
+  <div class="stars">
+    <span class="s">★1 <b>22</b></span>
+    <span class="s">★2 <b>19</b></span>
+    <span class="s">★3 <b>23</b></span>
+    <span class="s">★4 <b>18</b></span>
+    <span class="s">★5 <b>18</b></span>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>商品名</th><th>価格(£)</th><th>評価</th><th>在庫</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>A Light in the Attic</td><td class="num">51.77</td><td><span class="star">★★★</span></td><td class="instock">在庫あり</td></tr>
+        <tr><td>Tipping the Velvet</td><td class="num">53.74</td><td><span class="star">★</span></td><td class="instock">在庫あり</td></tr>
+        <tr><td>Soumission</td><td class="num">50.10</td><td><span class="star">★</span></td><td class="instock">在庫あり</td></tr>
+        <tr><td>Sharp Objects</td><td class="num">47.82</td><td><span class="star">★★★★</span></td><td class="instock">在庫あり</td></tr>
+        <tr><td>Sapiens: A Brief History of Humankind</td><td class="num">54.23</td><td><span class="star">★★★★★</span></td><td class="instock">在庫あり</td></tr>
+        <tr><td>The Requiem Red</td><td class="num">22.65</td><td><span class="star">★</span></td><td class="low">残り僅少</td></tr>
+        <tr><td>The Dirty Little Secrets of Getting Your Dream Job</td><td class="num">33.34</td><td><span class="star">★★★★</span></td><td class="instock">在庫あり</td></tr>
+        <tr><td>The Coming Woman: A Novel</td><td class="num">17.93</td><td><span class="star">★★★</span></td><td class="instock">在庫あり</td></tr>
+        <tr><td>The Boys in the Boat</td><td class="num">22.60</td><td><span class="star">★★★★</span></td><td class="instock">在庫あり</td></tr>
+        <tr><td>The Black Maria</td><td class="num">52.15</td><td><span class="star">★</span></td><td class="low">残り僅少</td></tr>
+        <tr><td>Starving Hearts (Triangular Trade Trilogy, #1)</td><td class="num">13.99</td><td><span class="star">★★</span></td><td class="instock">在庫あり</td></tr>
+        <tr><td>Shakespeare's Sonnets</td><td class="num">20.66</td><td><span class="star">★★★★</span></td><td class="instock">在庫あり</td></tr>
+        <tr><td>Set Me Free</td><td class="num">17.46</td><td><span class="star">★★★★★</span></td><td class="instock">在庫あり</td></tr>
+        <tr><td>Scott Pilgrim's Precious Little Life</td><td class="num">52.29</td><td><span class="star">★★★★★</span></td><td class="low">残り僅少</td></tr>
+        <tr><td>Rip it Up and Start Again</td><td class="num">35.02</td><td><span class="star">★★</span></td><td class="instock">在庫あり</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="srcnote">※ 上記は学習・デモ用に公開されている練習サイトの公開データです。実案件では対象サイトの規約を確認のうえ、Amazon・楽天・指定サイト等から同じ形式で収集します。</p>
+</section>
+
+<section>
+  <h2>Excelで整理してお渡しします<small>生データの羅列ではなく、集計シート付きで「開いてすぐ使える」状態に</small></h2>
+  <div class="excel">
+    <h3>📊 商品データレポート（集計シート付き）</h3>
+    <p>収集した一覧データに加えて、平均価格・最高/最安・評価別の件数などを自動集計したシートを同梱します。実際の納品サンプルをそのままダウンロードしてご確認いただけます。</p>
+    <a class="dlbtn" href="成果物サンプル_商品データレポート.xlsx" download>サンプルExcelをダウンロード</a>
+  </div>
+</section>
+
+<section>
+  <h2>進め方<small>0実績ですが、だからこそ最初に「見て確かめてもらう」を徹底します</small></h2>
+  <ul class="flow">
+    <li><b>1. 無料サンプル先出し</b>　ご依頼前に、数件分を実際に収集してお見せします。仕上がりを見てから判断いただけます。</li>
+    <li><b>2. 規約の事前確認</b>　収集が規約で禁止されているサイトは事前にお伝えし、無理に進めません。</li>
+    <li><b>3. サーバー負荷に配慮</b>　アクセス間隔を空け、相手サイトに負担をかけない設計で取得します。</li>
+    <li><b>4. 納期厳守</b>　お約束した期日を守ります。遅れそうな場合は早めにご連絡します。</li>
+  </ul>
+</section>
+
+<div class="cta">
+  <h2>🔥 まずはお気軽にご相談ください</h2>
+  <p>「こんなデータ集められる？」だけでも歓迎です。クラウドワークスのメッセージでお声がけください。</p>
+  <p class="small">※ こちらのページは成果物サンプルの提示用です。お取引・お支払いはクラウドワークス上で行います。</p>
+</div>
+
+<div class="foot">
+  BURNING BROS. ／ スクレイピング・業務自動化代行<br>
+  本ページは実際に収集できる成果物のサンプルを正直にお見せするものです。受注実績・売上等の数値は記載していません。
+</div>
+
+</div>
+</body>
+</html>
