@@ -5,74 +5,107 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>BURNING BROS. バーチャル事務所</title>
 <style>
-  :root{--card:#efe7d6;--card2:#e6dcc6;--wall:#cdbfa6;--ink:#3a3326;--sub:#7a6f55;
-    --work:#37b24d;--rest:#adb5bd;--move:#4dabf7;--gold:#e0a800;}
+  :root{--floor:#efe7d6;--floor2:#e6dcc6;--wall:#cdbfa6;--ink:#3a3326;--sub:#7a6f55;
+    --work:#37b24d;--rest:#adb5bd;--move:#4dabf7;--gold:#e0a800;--meet:#e9d8b4;--rest-bg:#dfe7e8;--boss-bg:#f7eac0;}
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
   html,body{height:100%;}
   body{font-family:'Hiragino Maru Gothic ProN','Yu Gothic UI',sans-serif;background:#1c150d;color:#f3ece0;
     display:flex;flex-direction:column;overflow:hidden;}
-  .top{flex:none;padding:7px 12px 5px;}
-  .top h1{font-size:13.5px;font-weight:800;}
+  .top{flex:none;padding:7px 12px 4px;}
+  .top h1{font-size:13px;font-weight:800;}
   .top h1 .clk{float:right;font-size:11px;font-weight:700;background:rgba(255,255,255,.13);padding:2px 9px;border-radius:999px;}
-  .top .sub{font-size:9.5px;color:#b8a888;margin-top:2px;}
-  .top .sub i{display:inline-block;width:7px;height:7px;border-radius:50%;margin:0 3px 0 8px;vertical-align:middle;}
-  .grid{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;
-    gap:6px;padding:0 7px 6px;overflow:hidden;}
-  .room{background:var(--card);border:1.5px solid var(--wall);border-radius:11px;
-    padding:5px 6px 6px;display:flex;flex-direction:column;min-height:0;overflow:hidden;}
-  .room.pres{background:#f7eac0;border-color:var(--gold);}
-  .room.mgmt{background:#e7e2ea;border-color:#9aa;}
-  .rh{display:flex;align-items:center;gap:4px;margin-bottom:4px;}
-  .rh .ic{font-size:12px;} .rh .nm{font-size:10.5px;font-weight:800;color:var(--ink);line-height:1;}
-  .chars{flex:1;display:flex;flex-wrap:wrap;gap:8px 4px;justify-content:center;align-content:center;
-    background:repeating-linear-gradient(90deg,transparent,transparent 13px,rgba(0,0,0,.02) 13px,rgba(0,0,0,.02) 14px);}
-  .ch{width:34px;text-align:center;position:relative;}
-  .seat{position:relative;width:32px;height:34px;margin:0 auto;}
-  .av{width:26px;height:26px;margin:0 auto;position:relative;z-index:1;
-    animation:work 1.1s ease-in-out infinite;transform-origin:bottom center;}
-  .ch.move .av{animation:bob 0.4s linear infinite;}
-  @keyframes work{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-0.6px) rotate(-1.5deg)}75%{transform:translateY(-0.6px) rotate(1.5deg)}}
-  @keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-2px) rotate(3deg)}}
-  .desk{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:30px;height:9px;z-index:2;
-    background:linear-gradient(#b88a52,#9a6f3c);border-radius:3px 3px 1px 1px;box-shadow:0 1px 0 rgba(0,0,0,.15);}
-  .desk:before{content:"";position:absolute;left:5px;top:-6px;width:9px;height:6px;background:#3a4a5a;
-    border-radius:2px;box-shadow:inset 0 0 0 1px #5a6a7a;}
-  .ch.move .seat .desk{opacity:.25;}
-  .seat.solo{transform:scale(1.25);}
-  .av .body{position:absolute;left:4px;top:10px;width:18px;height:15px;border-radius:8px 8px 6px 6px;}
-  .av .head{position:absolute;left:6px;top:1px;width:14px;height:14px;border-radius:50%;background:#ffe0bd;border:1.5px solid rgba(0,0,0,.12);}
+  .top .sub{font-size:9px;color:#b8a888;margin-top:2px;}
+  .top .sub i{display:inline-block;width:7px;height:7px;border-radius:50%;margin:0 3px 0 7px;vertical-align:middle;}
+  /* floor selector */
+  .tabs{flex:none;display:flex;gap:5px;overflow-x:auto;padding:5px 9px 6px;scrollbar-width:none;}
+  .tabs::-webkit-scrollbar{display:none;}
+  .tab{flex:none;font-size:10.5px;font-weight:800;color:#e9dcc2;background:rgba(255,255,255,.08);
+    border:1.5px solid rgba(255,255,255,.12);border-radius:999px;padding:5px 11px;white-space:nowrap;cursor:pointer;
+    transition:.15s;display:flex;align-items:center;gap:4px;}
+  .tab .cnt{font-size:8.5px;background:rgba(0,0,0,.25);border-radius:999px;padding:0 5px;color:#cdeccd;}
+  .tab.on{background:var(--gold);border-color:var(--gold);color:#2a2310;}
+  .tab.on .cnt{background:rgba(0,0,0,.18);color:#2a2310;}
+  .stage{flex:1;min-height:0;position:relative;padding:0 7px 6px;overflow:hidden;}
+  /* ---------- building overview ---------- */
+  .bld{position:absolute;inset:0 7px 6px;overflow-y:auto;scrollbar-width:none;display:flex;flex-direction:column;gap:5px;}
+  .bld::-webkit-scrollbar{display:none;}
+  .frow{flex:none;background:var(--floor);border:1.5px solid var(--wall);border-radius:11px;padding:6px 8px;
+    display:flex;align-items:center;gap:8px;cursor:pointer;position:relative;overflow:hidden;min-height:52px;}
+  .frow.exec{background:var(--boss-bg);border-color:var(--gold);}
+  .frow .fic{font-size:18px;flex:none;width:24px;text-align:center;}
+  .frow .fmeta{flex:none;width:90px;}
+  .frow .fmeta .fn{font-size:11px;font-weight:800;color:var(--ink);line-height:1.15;}
+  .frow .fmeta .fb{font-size:8px;color:var(--sub);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .frow .fppl{flex:1;display:flex;flex-wrap:wrap;gap:3px 3px;align-content:center;min-width:0;max-height:42px;overflow:hidden;}
+  .frow .mini{width:15px;height:17px;position:relative;}
+  .frow .fst{flex:none;font-size:8px;color:var(--sub);text-align:right;width:40px;}
+  .frow .fst b{color:var(--work);font-size:11px;}
+  /* ---------- single floor ---------- */
+  .floor{position:absolute;inset:0 7px 6px;border:1.5px solid var(--wall);border-radius:12px;
+    background:var(--floor);overflow:hidden;display:none;}
+  .floor.show{display:block;}
+  .zone{position:absolute;border-radius:9px;border:1.4px dashed rgba(120,100,70,.35);overflow:hidden;}
+  .zone .zl{position:absolute;left:6px;top:4px;font-size:8.5px;font-weight:800;color:var(--sub);z-index:1;
+    display:flex;align-items:center;gap:3px;}
+  .z-boss{background:var(--boss-bg);border-color:rgba(200,150,0,.5);}
+  .z-meet{background:var(--meet);}
+  .z-desk{background:repeating-linear-gradient(90deg,var(--floor2),var(--floor2) 15px,rgba(0,0,0,.025) 15px,rgba(0,0,0,.025) 16px);}
+  .z-rest{background:var(--rest-bg);}
+  /* avatar (persistent, walks via transition) */
+  .ag{position:absolute;width:30px;margin-left:-15px;margin-top:-26px;text-align:center;z-index:5;
+    transition:left 1.4s cubic-bezier(.4,0,.3,1),top 1.4s cubic-bezier(.4,0,.3,1);}
+  .ag .av{width:24px;height:24px;margin:0 auto;position:relative;animation:work 1.2s ease-in-out infinite;transform-origin:bottom center;}
+  .ag.walking .av{animation:bob .4s linear infinite;}
+  @keyframes work{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-.6px) rotate(-1.5deg)}75%{transform:translateY(-.6px) rotate(1.5deg)}}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-2px) rotate(4deg)}}
+  .av .body{position:absolute;left:3px;top:9px;width:18px;height:14px;border-radius:8px 8px 6px 6px;}
+  .av .head{position:absolute;left:5px;top:0;width:14px;height:14px;border-radius:50%;background:#ffe0bd;border:1.5px solid rgba(0,0,0,.12);}
   .av .head:before,.av .head:after{content:"";position:absolute;top:6px;width:2px;height:2.5px;border-radius:50%;background:#3a3326;}
   .av .head:before{left:3px;} .av .head:after{right:3px;}
-  .av .hair{position:absolute;left:5px;top:0;width:16px;height:7px;border-radius:8px 8px 0 0;}
-  .av .crown{position:absolute;left:50%;top:-6px;transform:translateX(-50%);font-size:9px;}
-  .dot{position:absolute;right:1px;top:-1px;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--card);}
-  .ch .n{font-size:7.5px;font-weight:700;color:var(--ink);line-height:1.15;margin-top:1px;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .chat{position:absolute;top:-7px;right:-4px;font-size:9px;z-index:3;animation:pop .3s ease;}
-  .ch.talk .av{animation:bob .45s linear infinite;}
+  .av .hair{position:absolute;left:4px;top:-1px;width:16px;height:7px;border-radius:8px 8px 0 0;}
+  .av .crown{position:absolute;left:50%;top:-7px;transform:translateX(-50%);font-size:10px;}
+  .ag .dot{position:absolute;right:2px;top:-2px;width:7px;height:7px;border-radius:50%;border:1.5px solid var(--floor);z-index:2;}
+  .ag .n{font-size:7px;font-weight:700;color:var(--ink);line-height:1.1;margin-top:0;white-space:nowrap;}
+  .ag .chat{position:absolute;top:-8px;right:-3px;font-size:9px;animation:pop .3s ease;}
   @keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
-  .foot{flex:none;text-align:center;color:#8a7a55;font-size:9.5px;padding:3px 8px 5px;}
+  .mini .av{width:15px;height:17px;animation:none;}
+  .mini .av .body{left:2px;top:7px;width:11px;height:9px;}
+  .mini .av .head{left:3px;top:0;width:9px;height:9px;border-width:1px;}
+  .mini .av .head:before,.mini .av .head:after{top:4px;width:1.3px;height:1.6px;}
+  .mini .av .head:before{left:2px;}.mini .av .head:after{right:2px;}
+  .mini .av .hair{left:2.5px;top:-.5px;width:10px;height:4.5px;}
+  .mini .av .crown{font-size:7px;top:-5px;}
+  .foot{flex:none;text-align:center;color:#8a7a55;font-size:9px;padding:3px 8px 5px;}
   .foot a{color:#9ec5ff;}
+  .hint{position:absolute;left:0;right:0;bottom:6px;text-align:center;font-size:8.5px;color:rgba(120,100,70,.7);pointer-events:none;}
 </style>
 </head>
 <body>
   <div class="top">
     <h1>🏢 BURNING BROS. 事務所<span class="clk" id="clk">--:--</span></h1>
-    <div class="sub"><i style="background:var(--work)"></i>稼働<i style="background:var(--rest)"></i>休憩<i style="background:var(--move)"></i>報連相<span id="upd" style="float:right"></span></div>
+    <div class="sub"><i style="background:var(--work)"></i>自席<i style="background:var(--move)"></i>会議<i style="background:var(--rest)"></i>休憩<span id="upd" style="float:right"></span></div>
   </div>
-  <div class="grid" id="grid"></div>
-  <div class="foot">実データ毎時更新・30秒ごと自動更新 ／ <a href="list.html">📋 文字で詳しく</a></div>
+  <div class="tabs" id="tabs"></div>
+  <div class="stage">
+    <div class="bld" id="bld"></div>
+  </div>
+  <div class="foot">フロア＝事業部。事業名タップでフロアへ／実データ30秒更新 ／ <a href="list.html">📋 文字で詳しく</a></div>
 <script>
-const ROOMS=[
-  ["okurite","Okurite室","🎁",""],["video","動画室","🎬",""],
-  ["mgmt","管理部","🛡️","mgmt"],["pres","社長室","👑","pres"],
-  ["trade","トレード室","📈",""],["lab","研究室","🔬",""],
-  ["recruit","求人室","🚚",""],["invoice","インボイス室","🧾",""],
-  ["portal","ポータル室","🌐",""],["manabi","まなびじま室","🐻",""],
-  ["acq","集客室","📌",""],["contract","受託室","💼",""],["analytics","分析室","📊",""],
-  ["qa","品質管理室","🔍","mgmt"],
-  ["yakuin","経営室（事業部責任者）","🏢","pres"],
+// 事業部フロア。各フロアに 部長室/会議室/自席/休憩室。boss=部長id, rooms=このフロアに属する元部屋id群
+const FLOORS=[
+  {id:"okurite",  name:"Okurite",     full:"ギフトEC",        ic:"🎁", boss:"mg_okurite",  rooms:["okurite"]},
+  {id:"products", name:"Webプロダクト", full:"年収/副業/診断",  ic:"🌐", boss:"mg_products", rooms:["portal"]},
+  {id:"growth",   name:"集客",         full:"SNS送客",        ic:"📌", boss:"mg_growth",   rooms:["acq"]},
+  {id:"video",    name:"動画",         full:"ショート動画",    ic:"🎬", boss:null,          rooms:["video"]},
+  {id:"monetize", name:"直接課金",     full:"テンプレ直販",    ic:"🧾", boss:"mg_monetize", rooms:["invoice"]},
+  {id:"kids",     name:"教育",         full:"まなびじま",      ic:"🐻", boss:"mg_kids",     rooms:["manabi"]},
+  {id:"services", name:"受託",         full:"CW/ココナラ",     ic:"💼", boss:"mg_services", rooms:["contract"]},
+  {id:"quant",    name:"トレードR&D",  full:"FXデモ検証",      ic:"📈", boss:"mg_quant",    rooms:["trade","lab"]},
+  {id:"recruit",  name:"求人",         full:"配送ドライバー",  ic:"🚚", boss:null,          rooms:["recruit"]},
+  {id:"analytics",name:"分析",         full:"GA流入分析",      ic:"📊", boss:null,          rooms:["analytics"]},
+  {id:"exec",     name:"経営・品質",   full:"社長/管理/QA",    ic:"👑", boss:"pres",        rooms:["mgmt","qa","yakuin"]},
 ];
+// id, 元部屋, 名前, 髪色, 体色, 王冠
 const C=[
  ["pres","pres","クマ社長","#3a3326","#5b4a2e","👑"],
  ["c31","portal","みお","#7048e8","#3a3326"],["c32","portal","れん","#1098ad","#3a3326"],
@@ -91,50 +124,173 @@ const C=[
  ["mg_growth","yakuin","集客部長","#e64980","#3a3326"],["mg_products","yakuin","プロダクト部長","#4263eb","#3a3326"],["mg_okurite","yakuin","Okurite部長","#f59f00","#5b4a2e"],["mg_services","yakuin","受託部長","#0ca678","#3a3326"],["mg_monetize","yakuin","直接課金部長","#7048e8","#3a3326"],["mg_kids","yakuin","教育部長","#ff6b6b","#3a3326"],["mg_quant","yakuin","R&D部長","#1098ad","#3a3326"],
 ];
 const SC={work:"var(--work)",rest:"var(--rest)",move:"var(--move)"};
+// 元部屋→フロア
+const ROOM2FLOOR={};
+for(const f of FLOORS) for(const r of f.rooms) ROOM2FLOOR[r]=f.id;
+// 部長は自分のフロアの部長室へ（元部屋yakuinから割り当て直す）
+const BOSS2FLOOR={};
+for(const f of FLOORS) if(f.boss) BOSS2FLOOR[f.boss]=f.id;
+function floorOf(c){ if(BOSS2FLOOR[c[0]]) return BOSS2FLOOR[c[0]]; return ROOM2FLOOR[c[1]]||"exec"; }
+// 各フロアの所属メンバー
+const MEMBERS={}; for(const f of FLOORS) MEMBERS[f.id]=[];
+for(const c of C) MEMBERS[floorOf(c)].push(c);
+
+let STATE={chars:{}};
+let CUR="__all__";              // 表示中フロア
+const agEls={};                 // floorId -> {charId -> el}
+let builtFloor=null;
+
 function ago(ts){if(!ts)return"";const d=(Date.now()-new Date(ts).getTime())/1000;
   if(d<90)return"今";if(d<3600)return Math.floor(d/60)+"分前";if(d<86400)return Math.floor(d/3600)+"時間前";return Math.floor(d/86400)+"日前";}
-let STATE={chars:{}};
-function av(c){return `<div class="av"><div class="hair" style="background:${c[4]}"></div>
+function avHTML(c,mini){return `<div class="av">${mini?'':''}<div class="hair" style="background:${c[4]}"></div>
   <div class="head"></div>${c[5]?`<div class="crown">${c[5]}</div>`:""}
   <div class="body" style="background:${c[3]}"></div></div>`;}
-function render(){
-  let html="";
-  for(const [rid,rname,ic,cls] of ROOMS){
-    const members=C.filter(c=>c[1]===rid);
-    let cells="";
-    for(const c of members){
-      const st=STATE.chars[c[0]]||{}; const status=st.status||"work";
-      const chat = status==="move" ? '<span class="chat">💬</span>' : '';
-      const tip=((st.done?('前回✓ '+st.done+'\n'):'')+'今▶ '+(st.msg||'')).replace(/"/g,'');
-      cells+=`<div class="ch ${status==='move'?'talk':''}" id="ch_${c[0]}" title="${tip}">
-        <div class="seat${members.length===1?' solo':''}">${av(c)}<div class="desk"></div>${chat}</div>
-        <span class="dot" style="background:${SC[status]||SC.work}"></span>
-        <div class="n">${c[2].replace('クマ社長','社長')}</div></div>`;
-    }
-    html+=`<div class="room ${cls}"><div class="rh"><span class="ic">${ic}</span><span class="nm">${rname}</span></div>
-      <div class="chars">${cells}</div></div>`;
+function statusOf(id){return (STATE.chars[id]||{}).status||"work";}
+// 役割→このフロア内のどの部屋(zone)に居るか
+function zoneOf(c){
+  if(c[0]==="pres"||/^mg_/.test(c[0])) return "boss";   // 部長/社長は部長室
+  const s=statusOf(c[0]);
+  if(s==="move") return "meet";                          // 報連相/会議
+  if(s==="rest") return "rest";                          // 休憩
+  return "desk";                                         // 自席
+}
+// zone矩形（フロアcanvasに対する%）
+const ZONES={
+  boss:{x:3,y:9,w:45,h:30,label:"🚪 部長室"},
+  meet:{x:51,y:9,w:46,h:30,label:"💬 会議室"},
+  desk:{x:3,y:43,w:63,h:53,label:"🖥 自席エリア"},
+  rest:{x:69,y:43,w:28,h:53,label:"☕ 休憩室"},
+};
+// charごとの zone内の定位置（idで安定）
+function hash(s){let h=0;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))|0;return Math.abs(h);}
+function slotPos(zone,idx,n){
+  const Z=ZONES[zone];
+  const cols=Math.max(2,Math.ceil(Math.sqrt(n*Z.w/Z.h)));
+  const rows=Math.ceil(n/cols);
+  const col=idx%cols, row=Math.floor(idx/cols);
+  const px=Z.x + Z.w*( (col+0.5)/cols );
+  const py=Z.y + 7 + (Z.h-10)*( rows<=1?0.5:(row+0.6)/rows );
+  return {x:px,y:Math.min(py,Z.y+Z.h-3)};
+}
+
+/* ---------- フロアタブ ---------- */
+function buildTabs(){
+  let h=`<div class="tab ${CUR==='__all__'?'on':''}" onclick="go('__all__')">🏢 全体</div>`;
+  for(const f of FLOORS){
+    const n=MEMBERS[f.id].length;
+    h+=`<div class="tab ${CUR===f.id?'on':''}" onclick="go('${f.id}')">${f.ic} ${f.name}<span class="cnt">${n}</span></div>`;
   }
-  document.getElementById("grid").innerHTML=html;
+  document.getElementById("tabs").innerHTML=h;
+}
+function go(fid){ CUR=fid; buildTabs(); render(true); }
+window.go=go;
+
+/* ---------- ビル全体 ---------- */
+function renderBuilding(){
+  const bld=document.getElementById("bld"); bld.style.display="flex";
+  let h="";
+  for(const f of FLOORS){
+    const ms=MEMBERS[f.id];
+    const working=ms.filter(c=>statusOf(c[0])==="work"||/^mg_/.test(c[0])||c[0]==="pres").length;
+    const boss=f.boss?C.find(c=>c[0]===f.boss):null;
+    let ppl="";
+    for(const c of ms){ ppl+=`<div class="mini">${avHTML(c,1)}</div>`; }
+    h+=`<div class="frow ${f.id==='exec'?'exec':''}" onclick="go('${f.id}')">
+      <div class="fic">${f.ic}</div>
+      <div class="fmeta"><div class="fn">${f.name}</div><div class="fb">${boss?boss[2]:f.full}</div></div>
+      <div class="fppl">${ppl}</div>
+      <div class="fst"><b>${working}</b>/${ms.length}<br>稼働</div></div>`;
+  }
+  bld.innerHTML=h;
+}
+
+/* ---------- 単一フロア ---------- */
+function buildFloorDOM(f){
+  // フロアcanvas + zones + 各メンバーの永続avatar
+  let zoneHTML="";
+  for(const zk of ["boss","meet","desk","rest"]){
+    const Z=ZONES[zk]; const cls={boss:"z-boss",meet:"z-meet",desk:"z-desk",rest:"z-rest"}[zk];
+    zoneHTML+=`<div class="zone ${cls}" style="left:${Z.x}%;top:${Z.y}%;width:${Z.w}%;height:${Z.h}%">
+      <span class="zl">${Z.label}</span></div>`;
+  }
+  const div=document.createElement("div");
+  div.className="floor show"; div.id="floor_"+f.id;
+  div.innerHTML=zoneHTML+`<div class="hint">${f.ic} ${f.name}事業部 — 会議は会議室へ、休憩は休憩室へ歩いて移動します</div>`;
+  agEls[f.id]={};
+  for(const c of MEMBERS[f.id]){
+    const el=document.createElement("div"); el.className="ag"; el.id="ag_"+f.id+"_"+c[0];
+    el.innerHTML=`${avHTML(c)}<span class="dot"></span><div class="n">${c[2].replace('クマ社長','社長')}</div>`;
+    div.appendChild(el); agEls[f.id][c[0]]=el;
+    el._zone=null;
+  }
+  return div;
+}
+function placeFloor(f,animate){
+  // zoneごとにメンバーを集計して定位置へ
+  const byZone={boss:[],meet:[],desk:[],rest:[]};
+  for(const c of MEMBERS[f.id]) byZone[zoneOf(c)].push(c);
+  for(const zk in byZone){
+    byZone[zk].forEach((c,i)=>{
+      const p=slotPos(zk,i,byZone[zk].length);
+      const el=agEls[f.id][c[0]]; if(!el)return;
+      const moved = el._zone && el._zone!==zk;
+      el.style.left=p.x+"%"; el.style.top=p.y+"%";
+      el._zone=zk;
+      // 状態色 + 吹き出し
+      const st=STATE.chars[c[0]]||{};
+      const status=/^mg_/.test(c[0])||c[0]==="pres"?"work":(st.status||"work");
+      el.querySelector(".dot").style.background=SC[status]||SC.work;
+      const tip=((st.done?('前回✓ '+st.done+'\n'):'')+'今▶ '+(st.msg||'')).replace(/"/g,'');
+      el.title=tip;
+      let chat=el.querySelector(".chat");
+      if(zoneOf(c)==="meet"){ if(!chat){chat=document.createElement("span");chat.className="chat";chat.textContent="💬";el.querySelector(".av").appendChild(chat);} }
+      else if(chat){chat.remove();}
+      if(moved||animate){ el.classList.add("walking"); setTimeout(()=>el.classList.remove("walking"),1500); }
+    });
+  }
+}
+function renderFloor(f,justSwitched){
+  document.getElementById("bld").style.display="none";
+  const stage=document.querySelector(".stage");
+  if(builtFloor!==f.id){
+    // 既存フロアDOM除去して作り直し
+    const old=stage.querySelector(".floor"); if(old)old.remove();
+    stage.appendChild(buildFloorDOM(f)); builtFloor=f.id;
+    // 初期配置（画面外/中央から歩いてくる演出のためまず自席集合→次フレームで配置）
+    requestAnimationFrame(()=>placeFloor(f,true));
+  }else{
+    placeFloor(f,false);
+  }
+}
+
+function render(justSwitched){
+  if(CUR==="__all__"){ const fl=document.querySelector(".floor"); if(fl)fl.remove(); builtFloor=null; renderBuilding(); }
+  else{ const f=FLOORS.find(x=>x.id===CUR); if(f) renderFloor(f,justSwitched); }
 }
 async function poll(){
   try{const s=await(await fetch("state.json?_="+Date.now())).json();
     STATE=s||{chars:{}}; document.getElementById("upd").textContent="更新 "+ago(s.updated);
   }catch(e){}
-  render();
+  render(false);
 }
 function tick(){const n=new Date();document.getElementById("clk").textContent=
   String(n.getHours()).padStart(2,"0")+":"+String(n.getMinutes()).padStart(2,"0");}
-tick();setInterval(tick,10000);
-poll();setInterval(poll,30000);
-// 事務所感: たまに誰かが席を立って動く(雰囲気のみ。状態/データは実物)
+buildTabs(); tick(); setInterval(tick,10000);
+poll(); setInterval(poll,30000);
+// 事務所感: フロア表示中、たまに誰かが少し動く(実データはpollが正)
 setInterval(()=>{
-  const ids=C.map(c=>"ch_"+c[0]);
-  const el=document.getElementById(ids[Math.floor(Math.random()*ids.length)]);
-  if(el && !el.classList.contains("move")){
-    el.classList.add("move");
-    setTimeout(()=>el.classList.remove("move"),1300);
+  if(CUR==="__all__"||!builtFloor)return;
+  const els=Object.values(agEls[builtFloor]||{});
+  if(!els.length)return;
+  const el=els[Math.floor(Math.random()*els.length)];
+  if(el && !el.classList.contains("walking")){
+    const dx=(Math.random()-.5)*4, dy=(Math.random()-.5)*4;
+    const l=parseFloat(el.style.left)||50, t=parseFloat(el.style.top)||50;
+    el.classList.add("walking");
+    el.style.left=Math.max(4,Math.min(94,l+dx))+"%"; el.style.top=Math.max(12,Math.min(94,t+dy))+"%";
+    setTimeout(()=>el.classList.remove("walking"),1200);
   }
-},2200);
+},2600);
 </script>
 </body>
 </html>
