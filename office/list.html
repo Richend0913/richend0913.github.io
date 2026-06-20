@@ -74,6 +74,11 @@ const C = {
   c9:["そうた","まなびじま室","🐻"],c28:["ことり","まなびじま室","🐻"],c29:["はやと","まなびじま室","🐻"],c30:["めい","まなびじま室","🐻"],
   c31:["みお","ポータル室","🌐"],c32:["れん","ポータル室","🌐"],
   c33:["ケン","管理部","🛡️"],c34:["ナミ","管理部","🛡️"],c35:["ソウ","管理部","🛡️"],
+  c40:["ひな","集客室","📌"],c41:["かいと","集客室","📌"],
+  c42:["しょうご","受託室","💼"],c43:["みき","受託室","💼"],c45:["たくみ","受託室","💼"],c46:["さき","受託室","💼"],
+  c44:["りさ","分析室","📊"],
+  qa_test:["テスター","品質管理室","🔍"],qa_audit:["品質監査","品質管理室","🔍"],qa_pulse:["心拍","品質管理室","🔍"],
+  mg_growth:["集客部長","経営室","🏢"],mg_products:["プロダクト部長","経営室","🏢"],mg_okurite:["Okurite部長","経営室","🏢"],mg_services:["受託部長","経営室","🏢"],mg_monetize:["直接課金部長","経営室","🏢"],mg_kids:["教育部長","経営室","🏢"],mg_quant:["R&D部長","経営室","🏢"],
 };
 const SB={work:"b-work",rest:"b-rest",move:"b-move"}, SL={work:"稼働",rest:"休憩",move:"報連相"};
 function ago(ts){ if(!ts) return ""; const d=(Date.now()-new Date(ts).getTime())/1000;
@@ -89,7 +94,7 @@ async function load(){
       const c=C[id]; if(!c) continue;
       const doneLine = v.done ? `<div class="m" style="color:#6a7a5a;font-size:11px">✓ 前回: ${(v.done||"").replace(/</g,"&lt;")}</div>` : "";
       w+=`<div class="card"><div class="ava">${c[2]}</div>
-        <div class="who"><div class="n">${c[0]} <small>${c[1]}・${c[2]==='👑'?'CEO':c[1]}</small></div>
+        <div class="who"><div class="n">${c[0]} <small>${c[2]} ${c[1]}</small></div>
         ${doneLine}
         <div class="m">▶ 今: ${(v.msg||"").replace(/</g,"&lt;")} <span style="color:#6a5d44">・${ago(v.ts)}</span></div></div>
         <span class="badge ${SB[v.status]||'b-rest'}">${SL[v.status]||"待機"}</span></div>`;
