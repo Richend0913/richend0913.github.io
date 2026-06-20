@@ -221,7 +221,7 @@ function buildFloorDOM(f){
   }
   const div=document.createElement("div");
   div.className="floor show"; div.id="floor_"+f.id;
-  div.innerHTML=zoneHTML+`<div class="hint">${f.ic} ${f.name}事業部 — 会議は会議室へ、休憩は休憩室へ歩いて移動します</div>`;
+  div.innerHTML=zoneHTML+`<div class="hint">${f.ic} ${f.name} — 報連相は部長室、会議(2人以上)は会議室、休憩は休憩室へ歩いて移動します</div>`;
   agEls[f.id]={};
   for(const c of MEMBERS[f.id]){
     const el=document.createElement("div"); el.className="ag"; el.id="ag_"+f.id+"_"+c[0];
