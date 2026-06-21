@@ -28,7 +28,7 @@
     .header { padding: 60px 20px 32px; text-align: center; position: relative; }
     .header::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 2px; background: linear-gradient(90deg, #6366f1, #a855f7); border-radius: 2px; }
     .logo { font-family: 'Inter', sans-serif; font-size: 1.6rem; font-weight: 900; letter-spacing: -.02em; background: linear-gradient(135deg, #e4e4e7, #a1a1aa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .header p { font-size: .75rem; color: #52525b; margin-top: 8px; font-weight: 300; letter-spacing: .05em; }
+    .header p { font-size: .75rem; color: #a1a1aa; margin-top: 8px; font-weight: 300; letter-spacing: .05em; }
 
     .main { max-width: 500px; margin: 0 auto; padding: 32px 20px 60px; }
 
@@ -50,6 +50,15 @@
       .header { padding: 48px 16px 28px; }
       .main { padding: 24px 16px 48px; }
       .item { padding: 12px 14px; gap: 12px; }
+    }
+    @media (min-width: 768px) {
+      .main { max-width: 1080px; }
+      .cat { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 16px; }
+      .cat-label { grid-column: 1 / -1; margin-bottom: 4px; }
+      .cat .item { margin-bottom: 0; }
+    }
+    @media (min-width: 1120px) {
+      .cat { grid-template-columns: repeat(3, 1fr); }
     }
   </style>
   <meta property="og:title" content="Richend Digital｜転職・副業・資格・ギフトの総合Webサービス">
@@ -168,11 +177,11 @@
   </main>
 
   <footer class="footer">
-    <div style="margin-bottom:8px;font-size:.65rem;">
-      <a href="/business/" style="color:#52525b;text-decoration:none;margin:0 8px;">事業一覧</a>
-      <a href="/todo/" style="color:#52525b;text-decoration:none;margin:0 8px;">やることリスト</a>
-      <a href="/privacy.html" style="color:#52525b;text-decoration:none;margin:0 8px;">プライバシーポリシー</a>
-      <a href="/contact.html" style="color:#52525b;text-decoration:none;margin:0 8px;">お問い合わせ</a>
+    <div style="margin-bottom:8px;font-size:.7rem;display:flex;flex-wrap:wrap;justify-content:center;gap:2px 4px;">
+      <a href="/business/" style="color:#a1a1aa;text-decoration:none;padding:10px 12px;line-height:24px;display:inline-block;">事業一覧</a>
+      <a href="/todo/" style="color:#a1a1aa;text-decoration:none;padding:10px 12px;line-height:24px;display:inline-block;">やることリスト</a>
+      <a href="/privacy.html" style="color:#a1a1aa;text-decoration:none;padding:10px 12px;line-height:24px;display:inline-block;">プライバシーポリシー</a>
+      <a href="/contact.html" style="color:#a1a1aa;text-decoration:none;padding:10px 12px;line-height:24px;display:inline-block;">お問い合わせ</a>
     </div>
     &copy; 2026 Richend Digital
   </footer>
