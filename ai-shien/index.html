@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-63VB4HT3T2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-63VB4HT3T2');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中小企業のAI導入支援・業務自動化代行｜Richend Digital</title>
+  <meta name="description" content="提案で終わるAIコンサルとは違います。私たち自身がAIエージェントだけで9つの事業部を毎日無人運営。その仕組みを御社の属人化した定型業務に入れます。90分の無料AI業務診断を受付中。">
+  <link rel="canonical" href="https://richend0913.github.io/ai-shien/">
+  <meta property="og:title" content="中小企業のAI導入支援・業務自動化代行｜Richend Digital">
+  <meta property="og:description" content="動く実物＋自動監査。AIエージェントで定型業務を止まらず回す。90分の無料AI業務診断を受付中。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://richend0913.github.io/ai-shien/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a0a0a; --bg2:#0d0d12; --ink:#e4e4e7; --ink-dim:#a1a1aa; --ink-faint:#71717a;
+      --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.05);
+      --indigo:#6366f1; --indigo-bright:#818cf8; --violet:#a855f7;
+      --card:rgba(255,255,255,.03); --card-hover:rgba(99,102,241,.07);
+      --mono:'JetBrains Mono',ui-monospace,monospace;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Noto Sans JP','Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;-webkit-text-size-adjust:100%;overflow-x:hidden;font-weight:400}
+
+    /* texture layers */
+    .bg-glow{position:fixed;inset:-50%;width:200%;height:200%;background:radial-gradient(circle at 25% 18%,rgba(99,102,241,.10) 0%,transparent 45%),radial-gradient(circle at 80% 75%,rgba(168,85,247,.06) 0%,transparent 50%);animation:bgMove 22s ease-in-out infinite;z-index:-2}
+    @keyframes bgMove{0%,100%{transform:translate(0,0)}50%{transform:translate(-3%,-2%)}}
+    .bg-grid{position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:54px 54px;mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 75%);-webkit-mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 75%)}
+    .grain{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.035;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+    .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+    .narrow{max-width:760px;margin:0 auto;padding:0 22px}
+
+    /* topbar */
+    .topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,10,10,.7);border-bottom:1px solid var(--line2)}
+    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+    .brand{font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-.02em;font-size:1.05rem;background:linear-gradient(135deg,#fff,#a1a1aa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .brand small{display:block;font-family:var(--mono);font-size:.52rem;letter-spacing:.22em;color:var(--indigo-bright);-webkit-text-fill-color:var(--indigo-bright);margin-top:2px;text-transform:uppercase;font-weight:400}
+    .topcta{font-size:.74rem;font-weight:700;color:#fff;background:var(--indigo);padding:9px 16px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:.2s;box-shadow:0 0 0 0 rgba(99,102,241,.5)}
+    .topcta:hover{background:var(--indigo-bright);box-shadow:0 8px 24px -8px rgba(99,102,241,.7)}
+
+    /* hero */
+    .hero{position:relative;padding:84px 0 64px}
+    .eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;color:var(--indigo-bright);text-transform:uppercase;display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border:1px solid rgba(99,102,241,.3);border-radius:999px;background:rgba(99,102,241,.06)}
+    .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 10px #22c55e;animation:pulse 1.8s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+    h1.hero-h{font-family:'Inter','Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(2.1rem,7vw,4rem);line-height:1.12;letter-spacing:-.03em;margin:26px 0 0;color:#fafafa}
+    h1.hero-h .hl{position:relative;white-space:nowrap;background:linear-gradient(120deg,var(--indigo-bright),var(--violet));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-sub{max-width:660px;font-size:clamp(.95rem,2.4vw,1.12rem);color:var(--ink-dim);font-weight:300;margin-top:24px;line-height:1.85}
+    .hero-sub b{color:var(--ink);font-weight:500}
+    .hero-cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;align-items:center}
+    .btn-primary{font-size:.96rem;font-weight:700;color:#fff;background:linear-gradient(120deg,var(--indigo),#4f46e5);padding:16px 28px;border-radius:14px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:.22s;box-shadow:0 14px 34px -14px rgba(99,102,241,.8);border:1px solid rgba(129,140,248,.4)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 44px -14px rgba(99,102,241,.9)}
+    .btn-primary .arrow{transition:.22s}
+    .btn-primary:hover .arrow{transform:translateX(4px)}
+    .btn-ghost{font-size:.82rem;font-weight:500;color:var(--ink-dim);text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.25);padding-bottom:2px;transition:.2s}
+    .btn-ghost:hover{color:#fff;border-color:var(--indigo-bright)}
+    .hero-note{font-family:var(--mono);font-size:.66rem;color:var(--ink-faint);margin-top:18px;letter-spacing:.04em}
+
+    /* section scaffolding */
+    section{padding:62px 0;position:relative}
+    .kicker{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;color:var(--indigo-bright);text-transform:uppercase;margin-bottom:14px}
+    h2.sec-h{font-family:'Inter','Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(1.5rem,4.4vw,2.3rem);letter-spacing:-.025em;line-height:1.25;color:#fafafa}
+    .sec-lead{color:var(--ink-dim);font-weight:300;font-size:1rem;margin-top:14px;max-width:660px;line-height:1.85}
+    .divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+
+    /* proof / evidence */
+    .proof-band{border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(99,102,241,.05),rgba(255,255,255,.01));padding:34px 26px;position:relative;overflow:hidden}
+    .proof-band::before{content:'';position:absolute;top:-40%;right:-10%;width:340px;height:340px;background:radial-gradient(circle,rgba(99,102,241,.18),transparent 70%);filter:blur(10px)}
+    .proof-grid{display:grid;gap:12px;margin-top:24px;position:relative}
+    @media(min-width:680px){.proof-grid{grid-template-columns:1fr 1fr}}
+    .proof-card{display:flex;gap:14px;align-items:flex-start;padding:16px 16px;border:1px solid var(--line2);border-radius:14px;background:var(--card);text-decoration:none;color:inherit;transition:.2s}
+    .proof-card:hover{background:var(--card-hover);border-color:rgba(99,102,241,.28);transform:translateY(-2px)}
+    .proof-ic{flex-shrink:0;width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.2)}
+    .proof-card h4{font-size:.9rem;font-weight:700;color:#fafafa}
+    .proof-card p{font-size:.72rem;color:var(--ink-faint);font-weight:300;margin-top:3px;line-height:1.5}
+    .proof-card .go{font-family:var(--mono);font-size:.62rem;color:var(--indigo-bright);margin-top:7px;letter-spacing:.05em}
+    .honest{font-size:.82rem;color:var(--ink-dim);font-weight:300;margin-top:22px;padding:14px 16px;border-left:2px solid var(--indigo);background:rgba(99,102,241,.04);border-radius:0 10px 10px 0;line-height:1.8;position:relative}
+    .honest b{color:var(--ink);font-weight:500}
+
+    /* pains */
+    .pain-grid{display:grid;gap:16px;margin-top:30px}
+    @media(min-width:760px){.pain-grid{grid-template-columns:repeat(3,1fr)}}
+    .pain{padding:24px 22px;border:1px solid var(--line);border-radius:18px;background:var(--card);position:relative;overflow:hidden}
+    .pain .num{font-family:var(--mono);font-size:2.4rem;font-weight:700;color:rgba(99,102,241,.22);line-height:1;letter-spacing:-.04em}
+    .pain h4{font-size:1rem;font-weight:700;color:#fafafa;margin-top:8px;line-height:1.5}
+    .pain p{font-size:.84rem;color:var(--ink-dim);font-weight:300;margin-top:10px;line-height:1.8}
+
+    /* compare table */
+    .cmp{margin-top:30px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card)}
+    .cmp-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line2)}
+    .cmp-row:last-child{border-bottom:none}
+    .cmp-head{background:rgba(255,255,255,.02)}
+    .cmp-cell{padding:15px 16px;font-size:.82rem;font-weight:300;color:var(--ink-dim);line-height:1.6}
+    .cmp-cell:first-child{border-right:1px solid var(--line2)}
+    .cmp-head .cmp-cell{font-weight:700;font-size:.78rem;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em}
+    .cmp-head .cmp-cell.us{color:var(--indigo-bright)}
+    .cmp-cell.us{color:var(--ink);font-weight:400}
+    .cmp-cell.us::before{content:'✓ ';color:#22c55e;font-weight:700}
+    .cmp-cell.them::before{content:'✕ ';color:#71717a}
+
+    /* pricing */
+    .plans{display:grid;gap:18px;margin-top:32px}
+    @media(min-width:880px){.plans{grid-template-columns:repeat(3,1fr);align-items:start}}
+    .plan{border:1px solid var(--line);border-radius:20px;background:var(--card);padding:28px 24px;position:relative;transition:.22s;display:flex;flex-direction:column}
+    .plan:hover{border-color:rgba(99,102,241,.3);transform:translateY(-3px)}
+    .plan.feat{border-color:rgba(99,102,241,.5);background:linear-gradient(180deg,rgba(99,102,241,.09),rgba(255,255,255,.01));box-shadow:0 20px 50px -24px rgba(99,102,241,.6)}
+    .plan .badge{position:absolute;top:-12px;left:24px;font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;background:var(--indigo);color:#fff;padding:5px 11px;border-radius:999px;font-weight:700}
+    .plan .tier{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;color:var(--indigo-bright);text-transform:uppercase}
+    .plan .pname{font-size:1.15rem;font-weight:700;color:#fafafa;margin-top:8px}
+    .plan .price{font-family:'Inter',sans-serif;font-size:1.7rem;font-weight:900;color:#fff;margin-top:12px;letter-spacing:-.02em;line-height:1.2}
+    .plan .price small{font-size:.74rem;color:var(--ink-faint);font-weight:300;letter-spacing:0}
+    .plan .pdesc{font-size:.82rem;color:var(--ink-dim);font-weight:300;margin-top:12px;line-height:1.8;flex:1}
+    .plan ul{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:9px}
+    .plan li{font-size:.8rem;color:var(--ink-dim);font-weight:300;padding-left:22px;position:relative;line-height:1.6}
+    .plan li::before{content:'▸';position:absolute;left:2px;color:var(--indigo-bright)}
+    .plan .scope{margin-top:16px;font-size:.7rem;line-height:1.7;color:var(--ink-faint);border-top:1px solid var(--line2);padding-top:14px}
+    .plan .scope b{color:var(--indigo-bright);font-weight:700}
+    .price-note{font-family:var(--mono);font-size:.66rem;color:var(--ink-faint);text-align:center;margin-top:22px;letter-spacing:.03em}
+
+    /* faq */
+    .faq{margin-top:28px;display:flex;flex-direction:column;gap:10px}
+    details{border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden;transition:.2s}
+    details[open]{border-color:rgba(99,102,241,.3);background:var(--card-hover)}
+    summary{padding:18px 20px;font-size:.92rem;font-weight:700;color:#fafafa;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    summary::-webkit-details-marker{display:none}
+    summary::after{content:'+';font-family:var(--mono);font-size:1.2rem;color:var(--indigo-bright);transition:.2s;flex-shrink:0}
+    details[open] summary::after{transform:rotate(45deg)}
+    .faq-a{padding:0 20px 18px;font-size:.85rem;color:var(--ink-dim);font-weight:300;line-height:1.85}
+
+    /* final cta */
+    .final{text-align:center;border:1px solid rgba(99,102,241,.35);border-radius:24px;background:linear-gradient(180deg,rgba(99,102,241,.1),rgba(255,255,255,.01));padding:46px 24px;position:relative;overflow:hidden}
+    .final::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(99,102,241,.2),transparent 60%)}
+    .final h2{position:relative;font-family:'Inter','Noto Sans JP',sans-serif;font-weight:900;font-size:clamp(1.5rem,5vw,2.3rem);letter-spacing:-.025em;color:#fff;line-height:1.3}
+    .final p{position:relative;color:var(--ink-dim);font-weight:300;margin-top:14px;font-size:.95rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.85}
+    .final .hero-cta-row{justify-content:center;position:relative}
+
+    /* footer */
+    footer{border-top:1px solid var(--line2);padding:40px 0 56px;margin-top:20px}
+    footer .ft-brand{font-family:'Inter',sans-serif;font-weight:900;font-size:1rem;color:#fafafa;letter-spacing:-.02em}
+    footer p{font-size:.72rem;color:var(--ink-faint);font-weight:300;margin-top:10px;line-height:1.8;max-width:620px}
+    footer .ft-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px}
+    footer .ft-links a{font-size:.72rem;color:var(--ink-dim);text-decoration:none;border-bottom:1px solid transparent;transition:.2s}
+    footer .ft-links a:hover{color:var(--indigo-bright);border-color:var(--indigo-bright)}
+    footer .copy{font-family:var(--mono);font-size:.62rem;color:#3f3f46;margin-top:22px;letter-spacing:.05em}
+
+    /* reveal */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.in{opacity:1;transform:none}
+    @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.bg-glow{animation:none}.eyebrow .dot{animation:none}}
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div class="bg-grid"></div>
+  <div class="grain"></div>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">Richend Digital<small>AI Operations Studio</small></div>
+      <a class="topcta" href="mailto:clawburning@gmail.com?subject=AI%E6%A5%AD%E5%8B%99%E8%A8%BA%E6%96%AD%E3%81%AE%E7%94%B3%E8%BE%BC&body=%E4%BC%9A%E7%A4%BE%E5%90%8D%0D%0A%E6%A5%AD%E7%A8%AE%0D%0A%E5%BE%93%E6%A5%AD%E5%93%A1%E6%95%B0%0D%0A%E8%87%AA%E5%8B%95%E5%8C%96%E3%81%97%E3%81%9F%E3%81%84%E5%AE%9A%E5%9E%8B%E6%A5%AD%E5%8B%99%0D%0A" onclick="gtag('event','cta_click',{cta_location:'topbar'})">無料診断</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap reveal">
+      <span class="eyebrow"><span class="dot"></span>AI導入支援 ・ 業務自動化代行</span>
+      <h1 class="hero-h">定型業務を、<br>AIエージェントだけで<br><span class="hl">"止まらず"</span>回す。</h1>
+      <p class="hero-sub">提案で終わるAIコンサルとは違います。<b>私たち自身が、AIエージェントだけで9つの事業部を毎日無人運営しています。</b>その仕組みを、御社の属人化した定型業務にそのまま入れます。</p>
+      <div class="hero-cta-row">
+        <a class="btn-primary" href="mailto:clawburning@gmail.com?subject=AI%E6%A5%AD%E5%8B%99%E8%A8%BA%E6%96%AD%E3%81%AE%E7%94%B3%E8%BE%BC&body=%E4%BC%9A%E7%A4%BE%E5%90%8D%0D%0A%E6%A5%AD%E7%A8%AE%0D%0A%E5%BE%93%E6%A5%AD%E5%93%A1%E6%95%B0%0D%0A%E8%87%AA%E5%8B%95%E5%8C%96%E3%81%97%E3%81%9F%E3%81%84%E5%AE%9A%E5%9E%8B%E6%A5%AD%E5%8B%99%0D%0A" onclick="gtag('event','cta_click',{cta_location:'hero'})">90分 無料AI業務診断を申し込む <span class="arrow">→</span></a>
+        <a class="btn-ghost" href="https://richend0913.github.io/contact.html">フォームから問い合わせる</a>
+      </div>
+      <p class="hero-note">// 診断は無料。構築・顧問は有料（料金は下記）。まずは「動いている実物」を見てください。</p>
+    </div>
+  </div>
+
+  <!-- PROOF -->
+  <section>
+    <div class="wrap reveal">
+      <div class="kicker">Proof / 実在の証拠</div>
+      <h2 class="sec-h">資料の前に、まず「動いている実物」を。</h2>
+      <p class="sec-lead">スライドの実績数字ではなく、いま稼働している自社の運営物そのものが証拠です。すべて、私たちがAIエージェントで構築・運営しています。</p>
+
+      <div class="proof-band" style="margin-top:30px">
+        <div class="proof-grid">
+          <a class="proof-card" href="https://note.com/ai_shikumi" target="_blank" rel="noopener" onclick="gtag('event','proof_click',{proof:'note'})">
+            <div class="proof-ic">✍️</div>
+            <div><h4>note メディア（AIが執筆・運営）</h4><p>記事の企画から公開まで、AIが回しているメディア。</p><div class="go">note.com/ai_shikumi →</div></div>
+          </a>
+          <a class="proof-card" href="https://richend.base.shop" target="_blank" rel="noopener" onclick="gtag('event','proof_click',{proof:'base'})">
+            <div class="proof-ic">🛒</div>
+            <div><h4>直販ショップ（AIが構築・出品・運営）</h4><p>商品登録から販売導線まで、AIが構築した実在のショップ。</p><div class="go">richend.base.shop →</div></div>
+          </a>
+          <a class="proof-card" href="https://richend0913.github.io/kojin-excel/" target="_blank" rel="noopener" onclick="gtag('event','proof_click',{proof:'kojin_excel'})">
+            <div class="proof-ic">📊</div>
+            <div><h4>Excel直販ハブ（AI制作）</h4><p>個人事業主向けの自動計算Excelを、AIが制作・公開。</p><div class="go">kojin-excel →</div></div>
+          </a>
+          <a class="proof-card" href="https://richend0913.github.io/" target="_blank" rel="noopener" onclick="gtag('event','proof_click',{proof:'portal'})">
+            <div class="proof-ic">🏢</div>
+            <div><h4>事業ポータル（自社サービス群）</h4><p>複数のWebサービスを、AI主導で運営しているハブ。</p><div class="go">richend0913.github.io →</div></div>
+          </a>
+        </div>
+        <div class="honest"><b>正直にお伝えします。</b>これは「他社の導入実績◯社」ではありません。私たちはまだ外部の顧客導入実績を公開していません。お見せできる証拠は、<b>私たち自身がAIエージェントだけで事業を運営している事実</b>と、その仕組みを<b>自動監査（嘘・不備・死活を毎日自動点検）まで含めて回している</b>ことです。机上の提案ではなく、動く実物でご判断ください。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PAINS -->
+  <section>
+    <div class="wrap reveal">
+      <div class="kicker">Problem / よくある詰まり</div>
+      <h2 class="sec-h">人は増やせない。<br>でも定型業務は社長に溜まり続ける。</h2>
+      <div class="pain-grid">
+        <div class="pain">
+          <div class="num">01</div>
+          <h4>属人化で、社長/No.2の時間が溶ける</h4>
+          <p>人を雇えないのに、SNS更新・一次対応・見積/請求・集計が社長やNo.2に属人化。本来やるべき仕事の時間を食い続けます。</p>
+        </div>
+        <div class="pain">
+          <div class="num">02</div>
+          <h4>外注に払っても、人が抜けると止まる</h4>
+          <p>RPAや外注・SNS代行に月3〜15万払っているのに、担当が抜けると止まる/品質がブレる/結局は自分が最終確認している。</p>
+        </div>
+        <div class="pain">
+          <div class="num">03</div>
+          <h4>「AI入れたい」が、提案資料で終わる</h4>
+          <p>何をどこまでAIに任せられるのか分からない。コンサルに頼んでも、立派な提案資料だけが残って実務は動かない。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DIFFERENTIATION -->
+  <section>
+    <div class="wrap reveal">
+      <div class="kicker">Difference / なぜ違うのか</div>
+      <h2 class="sec-h">「提案で終わるAIコンサル」と、私たちの違い。</h2>
+      <p class="sec-lead">同じ「AI導入支援」でも、納品物がまったく違います。</p>
+      <div class="cmp">
+        <div class="cmp-row cmp-head">
+          <div class="cmp-cell">よくあるAIコンサル</div>
+          <div class="cmp-cell us">Richend Digital</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-cell them">提案書・ロードマップを納品して終わり</div>
+          <div class="cmp-cell us">実際に動くAIエージェントを構築して納品</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-cell them">ツール選定の助言まで。運用は自社で</div>
+          <div class="cmp-cell us">自社で毎日AI運営している運用ノウハウを移植</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-cell them">動いているかは現場任せ</div>
+          <div class="cmp-cell us">死活・不備・誤りを毎日「自動監査」で点検</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-cell them">実物デモがなく、スライドで説明</div>
+          <div class="cmp-cell us">診断の場で、自社の稼働中システムを実演</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PRICING / OFFER -->
+  <section id="pricing">
+    <div class="wrap reveal">
+      <div class="kicker">Offer / 料金</div>
+      <h2 class="sec-h">小さく試して、効いたら任せる。</h2>
+      <p class="sec-lead">まずは無料の診断から。構築・顧問は内容が決まってからで大丈夫です。下記は<b style="color:var(--ink);font-weight:500">目安</b>であり、業務範囲により個別に見積もります。</p>
+
+      <div class="plans">
+        <!-- 梅 -->
+        <div class="plan">
+          <div class="tier">梅 ・ ENTRY</div>
+          <div class="pname">AI業務診断</div>
+          <div class="price">5万円<br><small>構築をご発注の場合は全額を構築費に充当</small></div>
+          <p class="pdesc">業務を棚卸しし、自動化できるTOP3を特定。自社の稼働システムをデモしながら、90分の診断とレポートをお渡しします。</p>
+          <ul>
+            <li>定型業務の棚卸しヒアリング</li>
+            <li>自動化候補TOP3の特定</li>
+            <li>自社AI稼働デモの実演</li>
+            <li>90分セッション + レポート</li>
+          </ul>
+          <div class="scope"><b>AIが行う範囲：</b>業務分析・自動化案の設計・デモ。<br><b>人(弊社オーナー)が担当：</b>当日の説明・契約・最終判断。</div>
+        </div>
+
+        <!-- 竹 -->
+        <div class="plan feat">
+          <div class="badge">主力 / おすすめ</div>
+          <div class="tier">竹 ・ BUILD</div>
+          <div class="pname">自動化構築代行</div>
+          <div class="price">30〜80万円<br><small>対象工程・難易度により目安</small></div>
+          <p class="pdesc">1〜3工程をAIエージェント化。SNS自動投稿・一次返信・集計・記事更新などを、止まらず回る仕組みとして構築します。</p>
+          <ul>
+            <li>1〜3工程のAIエージェント化</li>
+            <li>SNS投稿/一次返信/集計/記事更新 等</li>
+            <li>自動監査(死活・不備点検)の組み込み</li>
+            <li>構築後30日サポート</li>
+          </ul>
+          <div class="scope"><b>AIが行う範囲：</b>日々の自動実行・監査・レポート生成。<br><b>人(弊社オーナー)が担当：</b>外部サービス接続・契約・最終説明。</div>
+        </div>
+
+        <!-- 松 -->
+        <div class="plan">
+          <div class="tier">松 ・ OPERATE</div>
+          <div class="pname">AI運用顧問</div>
+          <div class="price">月8〜20万円<br><small>対象範囲により目安</small></div>
+          <p class="pdesc">月次で自動化を追加し、監査(虚偽/死活点検)と改善レポートを継続。属人化に戻さず、仕組みを育て続けます。</p>
+          <ul>
+            <li>月次で自動化を追加・改善</li>
+            <li>虚偽/死活の継続監査</li>
+            <li>月次の改善レポート</li>
+            <li>運用相談の窓口</li>
+          </ul>
+          <div class="scope"><b>AIが行う範囲：</b>監視・改善案の立案・実装・レポート。<br><b>人(弊社オーナー)が担当：</b>方針合意・契約更新・対外説明。</div>
+        </div>
+      </div>
+      <p class="price-note">// 価格はすべて目安(税別)です。「無料」は90分診断のみ。構築・顧問は有料です。返金・契約条件は個別にご相談ください。</p>
+
+      <div class="hero-cta-row" style="justify-content:center;margin-top:30px">
+        <a class="btn-primary" href="mailto:clawburning@gmail.com?subject=AI%E6%A5%AD%E5%8B%99%E8%A8%BA%E6%96%AD%E3%81%AE%E7%94%B3%E8%BE%BC&body=%E4%BC%9A%E7%A4%BE%E5%90%8D%0D%0A%E6%A5%AD%E7%A8%AE%0D%0A%E5%BE%93%E6%A5%AD%E5%93%A1%E6%95%B0%0D%0A%E8%87%AA%E5%8B%95%E5%8C%96%E3%81%97%E3%81%9F%E3%81%84%E5%AE%9A%E5%9E%8B%E6%A5%AD%E5%8B%99%0D%0A" onclick="gtag('event','cta_click',{cta_location:'pricing'})">90分 無料AI業務診断を申し込む <span class="arrow">→</span></a>
+        <a class="btn-ghost" href="https://richend0913.github.io/contact.html">フォームから問い合わせる</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- FAQ -->
+  <section>
+    <div class="narrow reveal">
+      <div class="kicker">FAQ / よくある質問</div>
+      <h2 class="sec-h">不安なところ、正直にお答えします。</h2>
+      <div class="faq">
+        <details>
+          <summary>結局また人がやることになりませんか？</summary>
+          <div class="faq-a">日々の実行はAIエージェントが担い、その上で「死活・不備・誤りを自動監査」する設計にします。人が必要なのは、外部サービスの接続・契約・最終判断といった、人にしかできない部分です。私たち自身がこの形で事業を運営しているので、その運用ノウハウごとお渡しします。「完全無人で100%」とは言いません。任せられる工程と、人が握る工程を最初に切り分けます。</div>
+        </details>
+        <details>
+          <summary>うちの業務でも自動化できますか？</summary>
+          <div class="faq-a">向き不向きはあります。SNS更新・一次対応の下書き・データ集計・定型レポート・記事更新といった「手順が決まっている繰り返し業務」は得意分野です。逆に、毎回判断が変わる業務や対人交渉そのものは自動化に向きません。まずは無料診断で、御社の業務のうち自動化に向くTOP3を一緒に見極めます。</div>
+        </details>
+        <details>
+          <summary>データやアカウントは安全ですか？</summary>
+          <div class="faq-a">御社の環境やアカウントへの接続は、必要最小限の権限で、必ずご許諾をいただいた上で行います。不要な範囲にはアクセスしません。接続・認証情報の管理といったセンシティブな操作は、弊社オーナー(人)が責任を持って扱います。具体的な範囲は契約前に書面で取り決めます。</div>
+        </details>
+        <details>
+          <summary>最低いくらから始められますか？</summary>
+          <div class="faq-a">まずは無料の90分AI業務診断から始められます。次のステップである有料の診断(5万円)は、その後に構築をご発注いただいた場合、全額を構築費に充当します。構築は対象工程により30万円〜が目安です。小さく1工程から試すことができます。</div>
+        </details>
+        <details>
+          <summary>どのくらいで動き始めますか？</summary>
+          <div class="faq-a">業務の複雑さと外部サービス接続の状況によります。1工程のシンプルな自動化であれば短期間で稼働まで持っていける場合もありますが、確実な期日は診断で業務を拝見してからご提示します。期間を断定したお約束はいたしません。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section>
+    <div class="wrap reveal">
+      <div class="final">
+        <h2>まず、動いている実物を見てから決めてください。</h2>
+        <p>90分の無料AI業務診断で、御社の定型業務のうち「いま自動化できるTOP3」を特定します。提案資料ではなく、稼働中のシステムを実演しながら。</p>
+        <div class="hero-cta-row">
+          <a class="btn-primary" href="mailto:clawburning@gmail.com?subject=AI%E6%A5%AD%E5%8B%99%E8%A8%BA%E6%96%AD%E3%81%AE%E7%94%B3%E8%BE%BC&body=%E4%BC%9A%E7%A4%BE%E5%90%8D%0D%0A%E6%A5%AD%E7%A8%AE%0D%0A%E5%BE%93%E6%A5%AD%E5%93%A1%E6%95%B0%0D%0A%E8%87%AA%E5%8B%95%E5%8C%96%E3%81%97%E3%81%9F%E3%81%84%E5%AE%9A%E5%9E%8B%E6%A5%AD%E5%8B%99%0D%0A" onclick="gtag('event','cta_click',{cta_location:'footer'})">90分 無料AI業務診断を申し込む <span class="arrow">→</span></a>
+          <a class="btn-ghost" href="https://richend0913.github.io/contact.html">フォームから問い合わせる</a>
+        </div>
+        <p style="font-family:var(--mono);font-size:.66rem;color:var(--ink-faint);margin-top:18px">// メールが開かない場合は clawburning@gmail.com 宛にご連絡ください</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="ft-brand">Richend Digital</div>
+      <p>運営：Richend Digital。AIエージェントによる業務自動化の構築・運用を行っています。本ページの価格・期間はすべて目安であり、内容は業務範囲により個別に決定します。返金・契約条件は個別にご相談のうえ書面で取り決めます。誇大な成果のお約束はいたしません。</p>
+      <div class="ft-links">
+        <a href="mailto:clawburning@gmail.com">clawburning@gmail.com</a>
+        <a href="https://richend0913.github.io/contact.html">お問い合わせフォーム</a>
+        <a href="https://richend0913.github.io/">事業ポータル</a>
+        <a href="https://richend0913.github.io/privacy.html">プライバシーポリシー</a>
+      </div>
+      <div class="copy">© 2026 Richend Digital — AI Operations Studio</div>
+    </div>
+  </footer>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI導入支援・業務自動化代行",
+    "serviceType": "AI導入支援/ 業務自動化",
+    "description": "中小企業の属人化した定型業務を、AIエージェントで自動化する導入支援・構築代行・運用顧問サービス。90分の無料AI業務診断を提供。",
+    "provider": {
+      "@type": "Organization",
+      "name": "Richend Digital",
+      "url": "https://richend0913.github.io/",
+      "email": "clawburning@gmail.com"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "JP"
+    },
+    "url": "https://richend0913.github.io/ai-shien/",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "AI業務診断 (梅)",
+        "price": "50000",
+        "priceCurrency": "JPY",
+        "description": "業務棚卸し、自動化TOP3の特定、自社稼働デモ、90分セッションとレポート。構築発注時は全額を構築費に充当。価格は目安(税別)。"
+      },
+      {
+        "@type": "Offer",
+        "name": "自動化構築代行 (竹)",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": "300000",
+          "maxPrice": "800000",
+          "priceCurrency": "JPY"
+        },
+        "description": "1〜3工程のAIエージェント化(SNS自動投稿/一次返信/集計/記事更新など)と自動監査の組み込み、30日サポート。価格は目安(税別)。"
+      },
+      {
+        "@type": "Offer",
+        "name": "AI運用顧問 (松)",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": "80000",
+          "maxPrice": "200000",
+          "priceCurrency": "JPY",
+          "unitText": "MONTH"
+        },
+        "description": "月次での自動化追加、虚偽/死活の監査、改善レポート。価格は目安(税別)。"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "結局また人がやることになりませんか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "日々の実行はAIエージェントが担い、死活・不備・誤りを自動監査する設計にします。人が必要なのは外部サービスの接続・契約・最終判断といった人にしかできない部分です。任せられる工程と人が握る工程を最初に切り分けます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "うちの業務でも自動化できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SNS更新・一次対応の下書き・データ集計・定型レポート・記事更新といった手順が決まっている繰り返し業務は得意分野です。毎回判断が変わる業務や対人交渉そのものは自動化に向きません。無料診断で自動化に向くTOP3を見極めます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "データやアカウントは安全ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "御社の環境やアカウントへの接続は必要最小限の権限で、必ずご許諾のうえ行います。接続・認証情報の管理といったセンシティブな操作は弊社オーナーが責任を持って扱い、具体的な範囲は契約前に書面で取り決めます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "最低いくらから始められますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "まずは無料の90分AI業務診断から始められます。次の有料診断(5万円)は構築をご発注の場合に全額を構築費へ充当します。構築は対象工程により30万円〜が目安で、1工程から小さく試せます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "どのくらいで動き始めますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "業務の複雑さと外部サービス接続の状況によります。シンプルな1工程なら短期間で稼働できる場合もありますが、確実な期日は診断で業務を拝見してから提示します。期間を断定したお約束はいたしません。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- reveal on scroll -->
+  <script>
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:0.12});
+    els.forEach(function(e){io.observe(e);});
+  })();
+  </script>
+</body>
+</html>
