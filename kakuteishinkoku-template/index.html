@@ -44,6 +44,12 @@
   .cta.sm{font-size:.92rem;padding:13px 24px;box-shadow:0 8px 22px rgba(14,159,110,.35)}
   .reassure{margin-top:12px;font-size:.74rem;color:#9aa0b2}
 
+  .buybar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(12,20,17,.96);backdrop-filter:blur(6px);border-top:1px solid rgba(110,231,183,.3);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .buybar .bp{color:#fff;font-weight:900;font-family:'Inter',sans-serif;font-size:1.1rem;white-space:nowrap}
+  .buybar .bp small{display:block;color:#9aa0b2;font-size:.62rem;font-weight:600;letter-spacing:.02em}
+  .buybar a{flex:1;text-align:center;background:linear-gradient(120deg,#0e9f6e,#0891b2);color:#fff;font-weight:800;text-decoration:none;padding:13px 10px;border-radius:12px;font-size:.98rem}
+  body{padding-bottom:72px}
+
   section{padding:44px 0}
   .sec-label{font-size:.7rem;letter-spacing:.14em;font-weight:700;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
   h2{font-size:1.3rem;font-weight:800;letter-spacing:-.01em;margin-bottom:18px}
@@ -120,7 +126,7 @@
   "name":"売上・経費管理Excel（確定申告対応）",
   "description":"売上と経費を入力するだけで、年間の売上合計・経費合計・所得（売上−経費）・勘定科目別の経費を自動集計するExcelテンプレート。個人事業主・フリーランスの確定申告（青色／白色）に対応。",
   "brand":{"@type":"Brand","name":"Richend Digital"},
-  "offers":{"@type":"Offer","price":"1980","priceCurrency":"JPY","availability":"https://schema.org/InStock","url":"https://richend0913.github.io/kakuteishinkoku-template/"}
+  "offers":{"@type":"Offer","price":"1980","priceCurrency":"JPY","availability":"https://schema.org/InStock","url":"https://richend.base.shop/items/147890288"}
 }
 </script>
 </head>
@@ -132,7 +138,7 @@
     <h1>売上と経費を入力するだけで<br><span class="hl">所得が自動で出る</span>確定申告Excel</h1>
     <p class="lead">日付・取引先・金額を入れるだけ。<b style="color:#fff">年間の売上合計・経費合計・所得（売上−経費）・勘定科目別の経費</b>まで自動集計。あとは申告書に転記するだけです。青色・白色どちらにも使えます。</p>
     <div class="pricetag"><span>買い切り</span><b>¥1,980</b></div>
-    <div><a class="cta" href="#order" onclick="gtag('event','cta_click',{location:'hero'})">いますぐ注文する →</a></div>
+    <div><a class="cta" href="https://richend.base.shop/items/147890288" target="_blank" rel="noopener" onclick="gtag('event','order_click',{method:'base',product:'kakuteishinkoku',location:'hero'})">🛒 いますぐ購入する（¥1,980）→</a></div>
     <p class="reassure">Excel / Googleスプレッドシート / 無料のLibreOffice で利用可・月額0円の買い切り</p>
   </div>
 </header>
@@ -210,18 +216,18 @@
     <div class="opt">
       <div>＋ ¥3,000〜：屋号・科目の追加など<b>カスタム対応</b></div>
     </div>
-    <div style="margin-top:20px"><a class="cta sm" href="#order" onclick="gtag('event','cta_click',{location:'price'})">注文方法を見る →</a></div>
+    <div style="margin-top:20px"><a class="cta sm" href="#order" onclick="gtag('event','cta_click',{location:'price'})">購入する →</a></div>
   </div>
 </section>
 
 <section class="wrap">
   <div class="bundle">
-    <div class="sec-label" style="color:#6ee7b7">Bundle ・ いちばんお得</div>
+    <div class="sec-label" style="color:#6ee7b7">Cross-sell ・ あわせて使える</div>
     <h3>請求も申告も、これ1セットで。</h3>
     <p style="margin-top:6px">帳票テンプレ（請求書・見積書・納品書・領収書）＋ この売上・経費管理Excel</p>
-    <div class="b-price"><s>¥4,960</s><b>¥3,980</b></div>
-    <p>2点まとめてなら ¥980 おトク。請求書を出す → その記録を申告まで、を1セットで。</p>
-    <div style="margin-top:18px"><a class="cta sm" href="#order-bundle" onclick="gtag('event','cta_click',{location:'bundle'})">セットを注文する →</a></div>
+    <div class="b-price"><b>請求書テンプレ ¥2,980</b></div>
+    <p>請求書を出す→その記録を申告まで。請求書・見積書・納品書・領収書の<b>帳票テンプレ4点セット（¥2,980）</b>もカード決済で購入できます。</p>
+    <div style="margin-top:18px"><a class="cta sm" href="https://richend.base.shop/items/147886888" target="_blank" rel="noopener" onclick="gtag('event','order_click',{method:'base',product:'invoice4set',location:'bundle'})">🛒 帳票テンプレを購入する（¥2,980）→</a></div>
     <p style="margin-top:10px;font-size:.78rem"><a href="/invoice-template/" style="color:#6ee7b7;text-decoration:underline">▶ 帳票テンプレ（請求書ほか）単体のページを見る</a></p>
   </div>
 </section>
@@ -229,27 +235,28 @@
 <section class="wrap" id="order">
   <div class="order">
     <div class="sec-label" style="color:#6ee7b7">Order</div>
-    <h2>ご注文（メール・銀行振込）</h2>
-    <p style="color:#cdd2de;font-size:.9rem;max-width:460px;margin:0 auto">下のボタンからメールでご注文ください。折り返し<b style="color:#fff">お振込先</b>をご案内し、ご入金確認後に<b style="color:#fff">Excelファイル</b>をお送りします。</p>
+    <h2>ご注文（クレジットカード決済・購入後すぐダウンロード）</h2>
+    <p style="color:#cdd2de;font-size:.9rem;max-width:460px;margin:0 auto">下の購入ボタンからBASEの安全な決済画面へ進みます。クレジットカード等でお支払い後、<b style="color:#fff">Excelファイルをその場ですぐにダウンロード</b>できます（メール返信や振込待ちはありません）。</p>
     <div class="steps">
-      <div class="step"><b>1</b><div>「メールで注文する」を押す（件名・本文は入力済み）。カスタム希望があれば本文に追記してください。</div></div>
-      <div class="step"><b>2</b><div>折り返しお振込先（銀行口座）をご案内します。</div></div>
-      <div class="step"><b>3</b><div>ご入金を確認後、Excelファイル（使い方シート付き）をメールでお届けします。</div></div>
+      <div class="step"><b>1</b><div>「BASEで購入する」を押すと、安全な購入ページが開きます。</div></div>
+      <div class="step"><b>2</b><div>クレジットカード等でお支払い（その場で完了）。</div></div>
+      <div class="step"><b>3</b><div>購入後すぐに、Excelファイル（使い方シート付き）をダウンロードできます。</div></div>
     </div>
     <div style="margin-top:22px">
-      <a class="cta" href="mailto:next.growth0913@gmail.com?subject=%E3%80%90%E6%B3%A8%E6%96%87%E3%80%91%E5%A3%B2%E4%B8%8A%E3%83%BB%E7%B5%8C%E8%B2%BB%E7%AE%A1%E7%90%86Excel%EF%BC%88%E7%A2%BA%E5%AE%9A%E7%94%B3%E5%91%8A%E5%AF%BE%E5%BF%9C%EF%BC%89&body=%E5%A3%B2%E4%B8%8A%E3%83%BB%E7%B5%8C%E8%B2%BB%E7%AE%A1%E7%90%86Excel%EF%BC%88%E7%A2%BA%E5%AE%9A%E7%94%B3%E5%91%8A%E5%AF%BE%E5%BF%9C%E3%83%BB%C2%A51%2C980%EF%BC%89%E3%82%92%E6%B3%A8%E6%96%87%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%0A%0A%E2%97%8F%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%88%E5%B1%8B%E5%8F%B7%EF%BC%89%EF%BC%9A%0A%E2%97%8F%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E4%BB%A3%E8%A1%8C%E3%81%AE%E5%B8%8C%E6%9C%9B%EF%BC%88%E3%81%82%E3%82%8A/%E3%81%AA%E3%81%97%EF%BC%89%EF%BC%9A%0A" onclick="gtag('event','order_click',{method:'mailto',product:'kakuteishinkoku'})">✉️ メールで注文する（¥1,980）</a>
+      <a class="cta" href="https://richend.base.shop/items/147890288" target="_blank" rel="noopener" onclick="gtag('event','order_click',{method:'base',product:'kakuteishinkoku'})">🛒 BASEで購入する（¥1,980）</a>
     </div>
-    <p class="reassure">注文先：next.growth0913@gmail.com ／ ボタンが反応しない場合はこのアドレス宛に直接ご連絡ください。</p>
+    <p class="reassure">決済はBASE（安全な国内サービス）。購入後すぐダウンロード。デジタル商品のため、購入後の返金はお受けできません。</p>
   </div>
 </section>
 
 <section class="wrap" id="order-bundle" style="padding-top:0">
   <div class="order" style="background:#0f2233">
-    <div class="sec-label" style="color:#6ee7b7">Order ・ 2点セット</div>
-    <h2>2点セットを注文する（¥3,980）</h2>
-    <p style="color:#cdd2de;font-size:.9rem;max-width:460px;margin:0 auto">帳票テンプレ（請求書ほか）＋ 売上・経費管理Excel のセットです。単体合計 ¥4,960 → セット ¥3,980。</p>
+    <div class="sec-label" style="color:#6ee7b7">Order ・ あわせ買い</div>
+    <h2>請求書テンプレもあわせて</h2>
+    <p style="color:#cdd2de;font-size:.9rem;max-width:460px;margin:0 auto">請求業務もこのテンプレで。帳票テンプレ（請求書・見積書・納品書・領収書 4点）¥2,980 も、同じくBASEのカード決済で購入できます。</p>
     <div style="margin-top:20px">
-      <a class="cta" href="mailto:next.growth0913@gmail.com?subject=%E3%80%90%E6%B3%A8%E6%96%87%E3%80%91%E5%B8%B3%E7%A5%A8%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%EF%BC%8B%E7%A2%BA%E5%AE%9A%E7%94%B3%E5%91%8A%202%E7%82%B9%E3%82%BB%E3%83%83%E3%83%88&body=%E5%B8%B3%E7%A5%A8%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%EF%BC%88%E8%AB%8B%E6%B1%82%E6%9B%B8%E3%81%BB%E3%81%8B%EF%BC%89%EF%BC%8B%20%E5%A3%B2%E4%B8%8A%E3%83%BB%E7%B5%8C%E8%B2%BB%E7%AE%A1%E7%90%86Excel%20%E3%81%AE2%E7%82%B9%E3%82%BB%E3%83%83%E3%83%88%EF%BC%88%C2%A53%2C980%EF%BC%89%E3%82%92%E6%B3%A8%E6%96%87%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%0A%0A%E2%97%8F%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%88%E5%B1%8B%E5%8F%B7%EF%BC%89%EF%BC%9A%0A%E2%97%8F%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E4%BB%A3%E8%A1%8C%E3%81%AE%E5%B8%8C%E6%9C%9B%EF%BC%88%E3%81%82%E3%82%8A/%E3%81%AA%E3%81%97%EF%BC%89%EF%BC%9A%0A" onclick="gtag('event','order_click',{method:'mailto',product:'bundle'})">✉️ 2点セットをメールで注文する</a>
+      <a class="cta" href="https://richend.base.shop/items/147890288" target="_blank" rel="noopener" onclick="gtag('event','order_click',{method:'base',product:'kakuteishinkoku',location:'bundle'})">🛒 売上・経費管理Excel（¥1,980）</a>
+      <div style="margin-top:12px"><a class="cta" href="https://richend.base.shop/items/147886888" target="_blank" rel="noopener" onclick="gtag('event','order_click',{method:'base',product:'invoice4set',location:'bundle'})">🛒 帳票テンプレ4点セット（¥2,980）</a></div>
     </div>
   </div>
 </section>
@@ -260,8 +267,8 @@
   <details><summary>Excelを持っていなくても使えますか？</summary><p>はい。無料のGoogleスプレッドシートやLibreOffice Calcでも開いて利用できます。Microsoft Excelは不要です。</p></details>
   <details><summary>青色申告・白色申告のどちらに使えますか？</summary><p>どちらにも使えます。集計シートに出る「所得（売上−経費）」と勘定科目別の金額を、申告書に転記してご利用ください。記帳・集計の補助としてのテンプレートです。</p></details>
   <details><summary>勘定科目は決まっていますか？</summary><p>旅費交通費・通信費・水道光熱費・消耗品費・接待交際費・広告宣伝費・外注工賃・地代家賃ほか、個人事業主の主要15科目に対応しています。科目の追加はカスタム（＋¥3,000〜）で承ります。</p></details>
-  <details><summary>請求書も作りたいのですが？</summary><p>請求書・見積書・納品書・領収書がそろった<a href="/invoice-template/" style="color:var(--accent);text-decoration:underline">帳票テンプレート</a>もあります。2点セット（¥3,980）がいちばんお得です。</p></details>
-  <details><summary>支払い方法は？</summary><p>銀行振込です。ご注文メールをいただいたあと、折り返しお振込先をご案内します。ご入金確認後にファイルをお送りします。</p></details>
+  <details><summary>請求書も作りたいのですが？</summary><p>請求書・見積書・納品書・領収書がそろった<a href="/invoice-template/" style="color:var(--accent);text-decoration:underline">帳票テンプレート</a>もあります。請求書・見積書・納品書・領収書がそろった帳票テンプレートもBASEで購入できます。</p></details>
+  <details><summary>支払い方法は？</summary><p>クレジットカード等（BASEの決済）です。購入後すぐにExcelファイルをダウンロードできます。メールでの振込案内や入金待ちはありません。</p></details>
 </section>
 
 </main>
@@ -275,6 +282,11 @@
   </div>
   &copy; 2026 Richend Digital
 </footer>
+
+<div class="buybar">
+  <div class="bp">¥1,980<small>買い切り・税込</small></div>
+  <a href="https://richend.base.shop/items/147890288" target="_blank" rel="noopener" onclick="gtag('event','order_click',{method:'base',product:'kakuteishinkoku',location:'stickybar'})">🛒 BASEで購入する</a>
+</div>
 
 </body>
 </html>
