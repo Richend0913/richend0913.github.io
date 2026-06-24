@@ -93,16 +93,13 @@
 <script>
 // 事業部フロア = 実在の7事業部 + 経営。各フロアに必ず部長を置き、部長室/会議室/自席/休憩室を持つ。
 // rooms=このフロアに統合する元部屋id群。teams=自席を分ける班(サブチーム)ラベル。
+// 2026-06-24 24→3集中: 稼働中の事業部のみ表示。凍結(growth/okurite/kids/ux/video)は表示配列から除外
+// (キャラ定義Cも下で除外。コード/データは保存=可逆。再稼働時はここに戻すだけ)。
 const FLOORS=[
-  {id:"growth",   name:"集客事業部",     full:"SNS送客・動画",   ic:"📌", boss:"mg_growth",   rooms:["acq","video"],
-     teams:{acq:"SNS送客班",video:"動画制作班"}},
   {id:"products", name:"Webプロダクト事業部", full:"年収/副業/診断/求人/分析", ic:"🌐", boss:"mg_products", rooms:["portal","recruit","analytics"],
      teams:{portal:"サイト/SEO班",recruit:"求人LP班",analytics:"分析班"}},
-  {id:"okurite",  name:"Okurite事業部",  full:"ギフトEC・アフィリ", ic:"🎁", boss:"mg_okurite",  rooms:["okurite"]},
   {id:"monetize", name:"直接課金事業部", full:"テンプレ直販",    ic:"🧾", boss:"mg_monetize", rooms:["invoice"]},
-  {id:"kids",     name:"教育事業部",     full:"まなびじま",      ic:"🐻", boss:"mg_kids",     rooms:["manabi"]},
   {id:"newbiz",   name:"新規事業開発部", full:"新事業をMVP化・検証", ic:"🚀", boss:"mg_newbiz", rooms:["newbiz"]},
-  {id:"ux",       name:"顧客体験部",     full:"UX/第三者の使い勝手評価", ic:"🗣", boss:"mg_ux",  rooms:["ux"]},
   {id:"exec",     name:"経営・品質管理", full:"社長/管理/QA",    ic:"👑", boss:"pres",        rooms:["mgmt","qa","yakuin"],
      teams:{mgmt:"管理部",qa:"品質管理"}},
 ];
@@ -112,17 +109,14 @@ const C=[
  ["c31","portal","みお","#7048e8","#3a3326"],["c32","portal","れん","#1098ad","#3a3326"],
  ["c33","mgmt","ケン","#868e96","#3a3326"],["c34","mgmt","ナミ","#e8a0bf","#5b3a2e"],["c35","mgmt","ソウ","#9775fa","#3a3326"],
  ["ex_cto","mgmt","CTO","#4263eb","#3a3326"],["ex_cmo","mgmt","CMO","#e64980","#3a3326"],["ex_coo","mgmt","COO","#0ca678","#3a3326"],["ex_cfo","mgmt","CFO","#f59f00","#5b4a2e"],["ex_kcfo","mgmt","KillerCFO","#fa5252","#3a3326"],["ex_dstr","mgmt","Destroyer","#495057","#3a3326"],
- ["c12","okurite","ひかり","#4dabf7","#3a3326"],["c13","okurite","だいき","#fab005","#3a3326"],["c8","okurite","りん","#e64980","#7a4a2e"],["c14","okurite","ともみ","#15aabf","#5b3a2e"],["c15","okurite","しょう","#e8590c","#3a3326"],
- ["c3","video","ゆい","#ff8fb1","#7a4a2e"],["c4","video","けんた","#ff9f1c","#3a3326"],["c18","video","あおい","#845ef7","#3a3326"],["c19","video","りょう","#20c997","#3a3326"],["c20","video","みなと","#f6c945","#5b4a2e"],
  ["c7","recruit","なお","#20c997","#3a3326"],["c23","recruit","たけし","#228be6","#3a3326"],["c24","recruit","ほのか","#faa2c1","#7a4a2e"],["c25","recruit","じん","#82c91e","#3a3326"],
  ["c5","invoice","たくみ","#37b24d","#3a3326"],["c6","invoice","あや","#f6c945","#5b4a2e"],["c21","invoice","ゆうと","#4dabf7","#3a3326"],["c22","invoice","さき","#ff922b","#7a4a2e"],
- ["c9","manabi","そうた","#ff6b6b","#3a3326"],["c28","manabi","ことり","#f06595","#7a4a2e"],["c29","manabi","はやと","#fcc419","#3a3326"],["c30","manabi","めい","#38d9a9","#5b3a2e"],
- ["c40","acq","ひな","#e64980","#5b3a2e"],["c41","acq","かいと","#4dabf7","#3a3326"],
  ["c44","analytics","りさ","#7048e8","#3a3326"],
  ["qa_test","qa","テスター","#fa5252","#3a3326"],["qa_audit","qa","品質監査","#15aabf","#3a3326"],["qa_pulse","qa","心拍","#82c91e","#3a3326"],
- ["mg_growth","yakuin","集客部長","#e64980","#3a3326"],["mg_products","yakuin","プロダクト部長","#4263eb","#3a3326"],["mg_okurite","yakuin","Okurite部長","#f59f00","#5b4a2e"],["mg_monetize","yakuin","直接課金部長","#7048e8","#3a3326"],["mg_kids","yakuin","教育部長","#ff6b6b","#3a3326"],
+ ["mg_products","yakuin","プロダクト部長","#4263eb","#3a3326"],["mg_monetize","yakuin","直接課金部長","#7048e8","#3a3326"],
  ["mg_newbiz","newbiz","新規事業部長","#f76707","#3a3326"],["c60","newbiz","そら","#4dabf7","#3a3326"],["c61","newbiz","たまき","#f06595","#5b3a2e"],
- ["mg_ux","ux","顧客体験部長","#0ca678","#3a3326"],["c62","ux","ねね","#fab005","#3a3326"],["c63","ux","かい","#7048e8","#5b3a2e"],
+ // 凍結部署のキャラ(growth/okurite/kids/ux/video=mg_growth/mg_okurite/mg_kids/mg_ux及び okurite/video/manabi/acq/ux室)は
+ // 24→3集中で表示から除外。コード履歴に保存=可逆(再稼働時は上記Cに戻すだけ)。
 ];
 const SC={work:"var(--work)",rest:"var(--rest)",move:"var(--move)"};
 // 元部屋→フロア / 部長→フロア / フロア→メンバー（buildMapsで構築。動的事業部追加後に再構築する）
