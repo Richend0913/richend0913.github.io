@@ -3,122 +3,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex,nofollow">
-  <title>事業一覧｜Richend Digital 経営ダッシュボード</title>
+  <title>事業一覧｜Richend Digital</title>
+  <meta name="description" content="Richend Digital が運営する事業の一覧。集客メディア・直販ツール・B2B支援・実業（配送）まで、いま動いているサービスをまとめています。">
+  <link rel="canonical" href="https://richend0913.github.io/business/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Noto+Sans+JP:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Noto Sans JP','Inter',sans-serif; background:#0a0a0a; color:#e4e4e7; line-height:1.6; -webkit-text-size-adjust:100%; overflow-x:hidden; }
     .bg-glow { position:fixed; top:-50%; left:-50%; width:200%; height:200%; background:radial-gradient(circle at 30% 40%,rgba(99,102,241,.08) 0%,transparent 50%),radial-gradient(circle at 70% 60%,rgba(168,85,247,.06) 0%,transparent 50%); z-index:-1; }
-    .header { padding:48px 20px 24px; text-align:center; }
-    .logo { font-family:'Inter',sans-serif; font-size:1.5rem; font-weight:900; letter-spacing:-.02em; background:linear-gradient(135deg,#e4e4e7,#a1a1aa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-    .header p { font-size:.72rem; color:#52525b; margin-top:8px; font-weight:300; letter-spacing:.05em; }
-    .main { max-width:620px; margin:0 auto; padding:12px 18px 60px; }
 
-    .kpi { display:flex; gap:8px; margin-bottom:28px; flex-wrap:wrap; }
-    .kpi-box { flex:1; min-width:90px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:12px 10px; text-align:center; }
-    .kpi-box .n { font-size:1.4rem; font-weight:900; color:#fafafa; font-family:'Inter',sans-serif; }
-    .kpi-box .l { font-size:.6rem; color:#71717a; margin-top:2px; }
+    .header { padding:52px 20px 24px; text-align:center; position:relative; }
+    .header::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:60px; height:2px; background:linear-gradient(90deg,#6366f1,#a855f7); border-radius:2px; }
+    .logo { font-family:'Inter',sans-serif; font-size:1.6rem; font-weight:900; letter-spacing:-.02em; background:linear-gradient(135deg,#e4e4e7,#a1a1aa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .header p { font-size:.74rem; color:#a1a1aa; margin-top:8px; font-weight:300; letter-spacing:.05em; }
 
-    .cat { margin-bottom:26px; }
-    .cat-label { font-size:.65rem; font-weight:700; color:#6366f1; text-transform:uppercase; letter-spacing:.15em; margin-bottom:10px; padding-left:2px; display:flex; align-items:center; gap:8px; }
-    .cat-label .cnt { color:#3f3f46; font-weight:500; }
+    .main { max-width:560px; margin:0 auto; padding:20px 18px 60px; }
 
-    .item { display:flex; align-items:center; gap:13px; padding:13px 15px; margin-bottom:7px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); border-radius:13px; text-decoration:none; color:inherit; transition:all .2s ease; }
-    a.item:hover { background:rgba(99,102,241,.08); border-color:rgba(99,102,241,.2); transform:translateX(3px); }
-    .item-icon { width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.15rem; flex-shrink:0; background:rgba(255,255,255,.05); }
+    .intro { font-size:.72rem; color:#a1a1aa; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:15px 16px; margin-bottom:26px; line-height:1.8; }
+    .intro b { color:#e4e4e7; }
+
+    .cat { margin-bottom:30px; }
+    .cat-label { font-size:.66rem; font-weight:700; color:#6366f1; text-transform:uppercase; letter-spacing:.14em; margin-bottom:11px; padding-left:2px; display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; }
+    .cat-label .sub { color:#52525b; font-weight:500; text-transform:none; letter-spacing:0; font-size:.64rem; }
+
+    .item { display:flex; align-items:center; gap:13px; padding:14px 15px; margin-bottom:8px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); border-radius:14px; text-decoration:none; color:inherit; transition:all .2s ease; }
+    a.item:hover { background:rgba(99,102,241,.08); border-color:rgba(99,102,241,.2); transform:translateX(4px); }
+    .item-icon { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; background:rgba(255,255,255,.05); }
     .item-text { flex:1; min-width:0; }
-    .item-text h3 { font-size:.84rem; font-weight:700; color:#fafafa; letter-spacing:-.01em; display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
-    .item-text p { font-size:.66rem; color:#71717a; font-weight:300; margin-top:1px; }
-    .item-text .rev { color:#a1a1aa; }
+    .item-text h3 { font-size:.85rem; font-weight:700; color:#fafafa; letter-spacing:-.01em; display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
+    .item-text p { font-size:.68rem; color:#8b8b93; font-weight:300; margin-top:2px; white-space:normal; }
 
-    .badge { font-size:.55rem; font-weight:700; padding:2px 7px; border-radius:8px; letter-spacing:.03em; white-space:nowrap; }
+    .badge { font-size:.56rem; font-weight:700; padding:2px 8px; border-radius:8px; letter-spacing:.02em; white-space:nowrap; }
     .b-live { background:rgba(34,197,94,.15); color:#4ade80; border:1px solid rgba(34,197,94,.3); }
-    .b-test { background:rgba(234,179,8,.13); color:#facc15; border:1px solid rgba(234,179,8,.3); }
-    .b-dev  { background:rgba(59,130,246,.13); color:#60a5fa; border:1px solid rgba(59,130,246,.3); }
-    .b-wait { background:rgba(113,113,122,.15); color:#a1a1aa; border:1px solid rgba(113,113,122,.3); }
+    .b-grow { background:rgba(99,102,241,.15); color:#a5b4fc; border:1px solid rgba(99,102,241,.3); }
+    .b-open { background:rgba(234,179,8,.13); color:#facc15; border:1px solid rgba(234,179,8,.3); }
+    .b-soon { background:rgba(113,113,122,.15); color:#a1a1aa; border:1px solid rgba(113,113,122,.3); }
 
-    .note { font-size:.66rem; color:#52525b; background:rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.05); border-radius:12px; padding:13px 15px; margin-bottom:24px; line-height:1.7; }
-    .footer { text-align:center; padding:28px 20px; font-size:.64rem; color:#3f3f46; font-weight:300; }
-    .footer a { color:#52525b; text-decoration:none; margin:0 8px; }
+    .footer { text-align:center; padding:30px 20px; font-size:.66rem; color:#52525b; font-weight:300; }
+    .footer a { color:#71717a; text-decoration:none; margin:0 8px; }
+
+    @media (max-width:400px){ .main{padding:16px 14px 48px;} .item{padding:12px 13px; gap:11px;} }
+    @media (min-width:768px){
+      .main{ max-width:1000px; }
+      .cat{ display:grid; grid-template-columns:repeat(2,1fr); gap:8px 16px; }
+      .cat-label{ grid-column:1/-1; margin-bottom:4px; }
+      .cat .item{ margin-bottom:0; }
+    }
   </style>
 </head>
 <body>
   <div class="bg-glow"></div>
+
   <header class="header">
     <h1 class="logo">Richend Digital</h1>
-    <p>事業一覧 / 経営ダッシュボード</p>
+    <p>事業一覧</p>
   </header>
 
   <main class="main">
 
-    <div class="kpi">
-      <div class="kpi-box"><div class="n">24</div><div class="l">事業数</div></div>
-      <div class="kpi-box"><div class="n">17</div><div class="l">稼働中(LIVE)</div></div>
-      <div class="kpi-box"><div class="n">9</div><div class="l">公開プロダクト</div></div>
-      <div class="kpi-box"><div class="n">24/7</div><div class="l">無人運用</div></div>
+    <div class="intro">
+      <b>いま動いている事業を、ひと目で。</b><br>
+      暮らしに役立つ無料Webサービスで人を集め、便利なツールやAI支援につなげる ― 集客メディア／直販ツール／B2B支援／実業（配送）まで、運営中のサービスを正直にまとめています。ステータスは現在の状態を表します。
     </div>
 
-    <div class="note">
-      AIエージェントだけで運営する会社。検知→対処→納品→検証→収益までを自動で回す。<br>
-      <b style="color:#a1a1aa;">現状の正直な課題</b>：プロダクトは揃った（CVR実装済）。最大のボトルネックは<b style="color:#facc15;">流入（集客）</b>。各SNSチャネルで送客を増やすフェーズ。収益はこれから。
-    </div>
-
-    <div class="cat" id="org-section">
-  <div class="cat-label">経営組織 <span class="cnt">／ 各事業部＝チーム制（部長＋作業者×2＋独立レビュー）。1日3回稼働・合格まで反復</span></div>
-  <div class="item" style="background:linear-gradient(135deg,rgba(168,85,247,.14),rgba(99,102,241,.1));border-color:rgba(168,85,247,.35);"><div class="item-icon" style="background:linear-gradient(135deg,#a855f7,#6366f1);">👑</div><div class="item-text"><h3>CEO（統括AI）</h3><p>稼働中3事業部(Webプロダクト/直接課金/新規事業)＋インフラ(ポータル/分析/役員会)を束ね、優先順位と全社品質を統括。各部長は作業者に実装させ、無関係な独立レビューが実画面で合否を出し、合格＆公開反映まで反復してから完了する</p></div></div>
-<div class="item"><div class="item-icon">🧭</div><div class="item-text"><h3>Webプロダクト部長 <span class="badge b-live">稼働中</span></h3><p>年収/副業/資格/履歴書/診断のSEO・CVR・アフィリ＋求人/配送採用</p><p style="color:#71717a;margin-top:3px;font-size:.62rem;"><span style="color:#4ade80;">●</span> 毎時点検OK</p><p style="color:#71717a;margin-top:2px;font-size:.62rem;"><span style="color:#a1a1aa;">最新 06/27 10:14</span> #1 recruit LPのライブ不具合を修正: 中文フッターの会社住所文字化け『上�的间本町』(U+FFFD)→『上鹤间本町』を修正しpush(commit e52c5b3)。ライブ richend0913.github.io/recruit/ をcurl実検証=修正文字列が配信・ページ全体U+FFFD 0件を独立確認。bug recruit-07741 をdoneに。中文は言語スイッチャーに露出済(/recruit/ で中文客が見る面)のため信頼毀損を解消。会議要点=ルール0(不具合最優先)に従い唯一のopenバグを処理。ただし本件は信頼/品質修正であり応募を動かす集客アクションではない事を明記。</p></div></div>
-<div class="item"><div class="item-icon">💳</div><div class="item-text"><h3>直接課金部長 <span class="badge b-live">稼働中</span></h3><p>インボイス工房・税務テンプレほか直販プロダクトの収益化</p><p style="color:#71717a;margin-top:3px;font-size:.62rem;"><span style="color:#4ade80;">●</span> 毎時点検OK</p><p style="color:#71717a;margin-top:2px;font-size:.62rem;"><span style="color:#a1a1aa;">最新 06/27 13:21</span> 新規集客チャネル『note送客』を開設・即ライブ公開(従来6サイクルはゼロ流入のLP内CTA磨き直し→今回は仮説を『既存読者チャネル×客層マッチ』に変更)。note.com/ai_shikumi(AI仕組み化/効率化=個人事業主・フリーランスの読者層)に、毎月の請求書手作業の痛み→インボイス必須記載事項/端数処理の実用解説→BASE請求書4点セット¥2,980(items/147886888 カード即決+即DL)へ送客する実記事を公開。LIVE=https://note.com/ai_shikumi/n/n88050391b265 (HTTP200・本文にBASE CTA(147886888)と無料keisanリンクが実在を確認)。部長=私が方針決定/公開実行(note_daily.py headed投稿成功13:19・posted移動確認)、作業者がmarketing:draft-contentで執筆、制作非関与の独立レビューが①note公開フォーマット②実HTTP照合で価格¥2,980・4点・2026改正対応が実ページと一致し虚偽表示無し③税務記述(インボイス6項目/端数処理/源泉10.21・20.42%)正確④送客導線成立を裏取りし合格。</p></div></div>
-<div class="item"><div class="item-icon">🚀</div><div class="item-text"><h3>新規事業部長 <span class="badge b-live">稼働中</span></h3><p>需要から逆算しPF駆動の新事業をMVP化→検証→昇格(AI導入支援B2B/LLMO等)</p><p style="color:#71717a;margin-top:3px;font-size:.62rem;"><span style="color:#71717a;">●</span> 点検待ち</p><p style="color:#71717a;margin-top:2px;font-size:.62rem;"><span style="color:#a1a1aa;">最新 06/27 16:23</span> ココナラLLMO出品(0レビューで売れない真因=信頼障壁)のCVR改善を1本実行。自社サイトOkuriteの実在LLMO診断レポート(office/board/llmo_sample_okurite.md・18KB)を『納品物サンプル』3ページ(表紙/現状診断+貼れるコード+優先施策6/効果測定10問プロトコル)に画像化+PDF化し、公開出品 https://coconala.com/services/4274653 にポートフォリオ追加(画像1→4枚)。作業者1体が実装→実装未関与の独立レビューが【公開ページ】をheadless Playwrightで実検証=4枚の公開反映(CDN実URL確認)・全数値が原本md準拠で捏造ゼロ・保証表現/架空実績なし(逆に『順位は保証しない/架空は作らない』正直表記)・プロ品質で合格。架空実績禁止と免責を遵守(llmo-auditスキル観点準拠)。新商品/新LPは作らずBuilder Bias回避=既存出品の信頼障壁突破に集中。</p></div></div>
-<div class="item"><div class="item-icon">📚</div><div class="item-text"><h3>出版部長 <span class="badge b-live">稼働中</span></h3><p>Kindle電子書籍の印税で稼ぐ</p><p style="color:#71717a;margin-top:3px;font-size:.62rem;"><span style="color:#71717a;">●</span> 点検待ち</p><p style="color:#71717a;margin-top:2px;font-size:.62rem;"><span style="color:#a1a1aa;">最新 06/27 11:11</span> KDP開業本¥680(BASE 148291874)へ生きた流入エンジン(note ai_shikumi)を初めて計測可能な形で接続。note検索/発見流入で開業予定フリーランスに届く実用記事『開業届の出し方完全ガイド』(2428字, 国税庁一次情報照合済=独立レビューがA1-8等で全項目検証し信頼毀損リスク0)を執筆し本番の自動投稿queueに投入(note-business/queue/075_kaigyo.txt)。毎日16:00のNoteDailyタスク(headed)が公開=現在queue5番目で約5日後ライブ。CTAは当初のBASE直リンクから【自分で計測できるLP】https://richend0913.github.io/kaigyo-aoiro/?utm_source=note に張替(LPはGA4 G-63VB4HT3T2搭載・lp_traffic.pyが毎日読む)→note流入をowner不要で自分で実測でき、LPのbuy_clickでBASE受渡も計測。作業者1体執筆→制作未関与の独立レビューが実ファイル/税の正確性/CTA完全一致/他queue非破壊を検証し合格。</p></div></div>
-</div>
-
-    <!-- 公開プロダクト -->
+    <!-- 1. 集客メディア（無料） -->
     <div class="cat">
-      <div class="cat-label">公開プロダクト <span class="cnt">／ 顧客が使うWebサービス</span></div>
-      <a href="/salary-navi/" class="item"><div class="item-icon">💴</div><div class="item-text"><h3>年収ナビ <span class="badge b-live">LIVE</span></h3><p>44職種の年収・給料情報　<span class="rev">収益：転職アフィリ(A8)</span></p></div></a>
-      <a href="/fukugyo-navi/" class="item"><div class="item-icon">💰</div><div class="item-text"><h3>副業ナビ <span class="badge b-live">LIVE</span></h3><p>35種類の副業ガイド　<span class="rev">収益：アフィリエイト</span></p></div></a>
-      <a href="/shikaku-navi/" class="item"><div class="item-icon">📜</div><div class="item-text"><h3>資格ナビ <span class="badge b-live">LIVE</span></h3><p>40資格の難易度・勉強法　<span class="rev">収益：アフィリエイト</span></p></div></a>
-      <a href="/rirekisho-maker/" class="item"><div class="item-icon">📄</div><div class="item-text"><h3>履歴書メーカー <span class="badge b-live">LIVE</span></h3><p>履歴書・職務経歴書をWeb作成</p></div></a>
-      <a href="/okurite/" class="item"><div class="item-icon">🎁</div><div class="item-text"><h3>Okurite <span class="badge b-live">LIVE</span></h3><p>シーン別ギフト検索　<span class="rev">収益：Amazon/楽天アフィリ</span></p></div></a>
-      <a href="/manabijima/" class="item"><div class="item-icon">🐻</div><div class="item-text"><h3>くまのまなびじま <span class="badge b-live">LIVE</span></h3><p>2〜6歳の知育アプリ｜ブラウザで遊べる</p></div></a>
-      <a href="/shindan/" class="item"><div class="item-icon">🔮</div><div class="item-text"><h3>占い診断 <span class="badge b-live">LIVE</span></h3><p>前世診断＆裏性格診断｜集客フック</p></div></a>
-      <a href="/zense-shindan/" class="item"><div class="item-icon">🌙</div><div class="item-text"><h3>前世&来世診断 <span class="badge b-live">LIVE</span></h3><p>名前と誕生日から魂の物語を診断</p></div></a>
-      <a href="/recruit/" class="item"><div class="item-icon">🚚</div><div class="item-text"><h3>配送スタッフ募集 <span class="badge b-live">LIVE</span></h3><p>BURNING BROS.採用LP　<span class="rev">収益：紹介報酬5万円</span></p></div></a>
+      <div class="cat-label">集客メディア（無料）<span class="sub">／ 役立つ無料サービスで人を集める</span></div>
+
+      <a href="/okurite/" class="item"><div class="item-icon">🎁</div><div class="item-text"><h3>Okurite <span class="badge b-live">集客中</span></h3><p>シーン別ギフト・プレゼント検索。相場やマナーも解説</p></div></a>
+      <a href="https://invoice-koubou.pages.dev" class="item"><div class="item-icon">🧾</div><div class="item-text"><h3>インボイス工房 <span class="badge b-live">公開中</span></h3><p>請求書・見積・納品・領収を無料作成（適格請求書対応）</p></div></a>
+      <a href="/salary-navi/" class="item"><div class="item-icon">💴</div><div class="item-text"><h3>年収ナビ <span class="badge b-live">公開中</span></h3><p>職業別の平均年収・給料データベース</p></div></a>
+      <a href="/fukugyo-navi/" class="item"><div class="item-icon">💰</div><div class="item-text"><h3>副業ナビ <span class="badge b-live">公開中</span></h3><p>種類別の副業ガイド・始め方</p></div></a>
+      <a href="/shikaku-navi/" class="item"><div class="item-icon">📜</div><div class="item-text"><h3>資格ナビ <span class="badge b-live">公開中</span></h3><p>資格の難易度・勉強法・取り方</p></div></a>
+      <a href="/rirekisho-maker/" class="item"><div class="item-icon">📄</div><div class="item-text"><h3>履歴書メーカー <span class="badge b-live">公開中</span></h3><p>履歴書・職務経歴書をブラウザで作成</p></div></a>
+      <a href="/shindan/" class="item"><div class="item-icon">🔮</div><div class="item-text"><h3>占い診断 <span class="badge b-live">公開中</span></h3><p>前世診断＆裏性格診断（無料）</p></div></a>
+      <a href="/zense-shindan/" class="item"><div class="item-icon">🌙</div><div class="item-text"><h3>前世＆来世診断 <span class="badge b-live">公開中</span></h3><p>名前と誕生日から魂の物語を診断</p></div></a>
+      <a href="/manabijima/" class="item"><div class="item-icon">🐻</div><div class="item-text"><h3>くまのまなびじま <span class="badge b-live">公開中</span></h3><p>2〜6歳向けの知育アプリ｜ブラウザで遊べる</p></div></a>
+      <a href="https://note.com/ai_shikumi" class="item"><div class="item-icon">📝</div><div class="item-text"><h3>note（AI仕組み化）<span class="badge b-live">更新中</span></h3><p>ギフト・仕事効率化の実用記事</p></div></a>
+      <a href="https://note.com/ai_race_lab" class="item"><div class="item-icon">🏁</div><div class="item-text"><h3>note（AIレース予想ラボ）<span class="badge b-live">更新中</span></h3><p>AIが公式データから競輪・競艇を毎日無料予想</p></div></a>
+      <div class="item"><div class="item-icon">📌</div><div class="item-text"><h3>Pinterest <span class="badge b-live">投稿中</span></h3><p>ギフトのアイデアピンを毎日投稿→Okuriteへ</p></div></div>
+      <div class="item"><div class="item-icon">🛍️</div><div class="item-text"><h3>楽天ROOM <span class="badge b-live">投稿中</span></h3><p>厳選ギフトのコレクションを毎日紹介</p></div></div>
     </div>
 
-    <!-- 直接課金プロダクト -->
+    <!-- 2. B2B / 受託 -->
     <div class="cat">
-      <div class="cat-label">直接課金プロダクト <span class="cnt">／ 売り切り・ツール</span></div>
-      <a href="https://richend.base.shop/" class="item"><div class="item-icon">🛒</div><div class="item-text"><h3>BASE直販ショップ Richend Digital <span class="badge b-live">LIVE</span></h3><p>請求書・見積・納品・領収 4帳票Excelテンプレ ¥2,980を販売中　<span class="rev">収益：直接課金</span></p></div></a>
-      <div class="item"><div class="item-icon">📚</div><div class="item-text"><h3>KDP電子書籍 <span class="badge b-dev">出版準備</span></h3><p>確定申告・開業ガイド2冊（EPUB＋表紙完成）｜Amazon Kindleで出版　<span class="rev">収益：印税</span></p></div></div>
-      <div class="item"><div class="item-icon">🧾</div><div class="item-text"><h3>インボイス工房 <span class="badge b-dev">公開準備</span></h3><p>請求書・見積書作成ツール｜Phase1完成・デプロイ待ち　<span class="rev">収益：直接課金</span></p></div></div>
-      <div class="item"><div class="item-icon">🎮</div><div class="item-text"><h3>ウラ・オモテ <span class="badge b-dev">開発中</span></h3><p>Unity反射ゲーム＋世界ランキング</p></div></div>
+      <div class="cat-label">B2B・受託 <span class="sub">／ 企業の業務をAIで自動化</span></div>
+
+      <a href="/ai-shien/" class="item"><div class="item-icon">🤖</div><div class="item-text"><h3>AI導入支援・業務自動化代行 <span class="badge b-grow">受付中</span></h3><p>SNS更新・一次対応・集計・請求などをAIで自動化｜90分無料診断</p></div></a>
+      <div class="item"><div class="item-icon">🛠️</div><div class="item-text"><h3>GAS即日レスキュー <span class="badge b-grow">受託募集中</span></h3><p>止まったGoogleスプレッドシート自動化を当日復旧</p></div></div>
+      <div class="item"><div class="item-icon">🕸️</div><div class="item-text"><h3>スクレイピング・自動化受託 <span class="badge b-grow">受託募集中</span></h3><p>データ収集・定型作業の自動化ツールを制作</p></div></div>
+      <div class="item"><div class="item-icon">🔎</div><div class="item-text"><h3>LLMO／AI検索最適化 診断 <span class="badge b-grow">受託募集中</span></h3><p>ChatGPT等のAI検索で引用・推薦されるサイト改善</p></div></div>
     </div>
 
-    <!-- 集客チャネル -->
+    <!-- 3. 実業（配送） -->
     <div class="cat">
-      <div class="cat-label">集客チャネル <span class="cnt">／ プロダクトへ送客</span></div>
-      <a href="https://note.com/ai_shikumi" class="item"><div class="item-icon">📝</div><div class="item-text"><h3>note（ai_shikumi）<span class="badge b-live">LIVE</span></h3><p>毎日記事公開→Okuriteへ誘導</p></div></a>
-      <a href="https://www.tiktok.com/@aivisionaryart09" class="item"><div class="item-icon">🎬</div><div class="item-text"><h3>TikTokショート <span class="badge b-live">LIVE</span></h3><p>毎日バイラル動画を自動生成・投稿</p></div></a>
-      <div class="item"><div class="item-icon">📌</div><div class="item-text"><h3>Pinterest <span class="badge b-live">LIVE</span></h3><p>毎日3ピン自動投稿→Okuriteへ送客</p></div></div>
-      <div class="item"><div class="item-icon">🦋</div><div class="item-text"><h3>Bluesky / Mastodon <span class="badge b-live">LIVE</span></h3><p>朝夜自動投稿＋いいね/フォローで拡大</p></div></div>
-      <div class="item"><div class="item-icon">𝕏</div><div class="item-text"><h3>X（Twitter）<span class="badge b-wait">キー待ち</span></h3><p>APIキー登録後に自動投稿開始</p></div></div>
+      <div class="cat-label">実業（配送）<span class="sub">／ 地元密着の軽貨物配送</span></div>
+
+      <a href="/haisou/" class="item"><div class="item-icon">📦</div><div class="item-text"><h3>NEXT GROWTH（荷主向け）<span class="badge b-grow">荷主募集中</span></h3><p>岩国の軽貨物・ルート配送を地元密着で代行（黒ナンバー）</p></div></a>
+      <a href="/recruit/" class="item"><div class="item-icon">🚚</div><div class="item-text"><h3>配送スタッフ募集（BURNING BROS.）<span class="badge b-grow">急募</span></h3><p>未経験OK・月収30万円以上可能の配送ドライバー採用</p></div></a>
     </div>
 
-    <!-- 運営基盤 -->
+    <!-- 4. 直販ツール / 商品 -->
     <div class="cat">
-      <div class="cat-label">運営基盤 <span class="cnt">／ 会社を回す仕組み</span></div>
-      <div class="item"><div class="item-icon">🏢</div><div class="item-text"><h3>バーチャル事務所 <span class="badge b-live">24/7</span></h3><p>31エージェント・9室が毎時実稼働＆相互監査</p></div></div>
-      <div class="item"><div class="item-icon">🧑‍💼</div><div class="item-text"><h3>AutoCEO <span class="badge b-live">毎日</span></h3><p>無人セッションが毎日収益改善を1つ実装</p></div></div>
-      <div class="item"><div class="item-icon">🔍</div><div class="item-text"><h3>QA監査エージェント <span class="badge b-live">毎時</span></h3><p>本番をユーザー視点で検査→自動修復＋通知</p></div></div>
+      <div class="cat-label">直販ツール・商品 <span class="sub">／ 仕事に使える実用テンプレ</span></div>
+
+      <a href="/kojin-excel/" class="item"><div class="item-icon">📑</div><div class="item-text"><h3>個人事業主向けExcel 3点 <span class="badge b-live">販売中</span></h3><p>確定申告・経理・青色申告65万円控除をExcelで</p></div></a>
+      <a href="/invoice-template/" class="item"><div class="item-icon">🧾</div><div class="item-text"><h3>インボイス対応 帳票テンプレ <span class="badge b-live">販売中</span></h3><p>請求書・見積・納品・領収が1ファイル｜消費税・源泉も自動計算</p></div></a>
+      <a href="/kakuteishinkoku-template/" class="item"><div class="item-icon">🧮</div><div class="item-text"><h3>売上・経費管理Excel <span class="badge b-live">販売中</span></h3><p>入力するだけで所得・科目別を自動集計｜青色/白色対応</p></div></a>
+      <a href="/kaigyo-aoiro/" class="item"><div class="item-icon">📗</div><div class="item-text"><h3>開業・青色申告スタートガイド <span class="badge b-live">販売中</span></h3><p>開業届・青色申告の書き方｜記入見本＆Excel特典付き</p></div></a>
+      <div class="item"><div class="item-icon">📚</div><div class="item-text"><h3>KDP電子書籍 <span class="badge b-soon">準備中</span></h3><p>確定申告・開業ガイドをAmazon Kindleで出版予定</p></div></div>
     </div>
 
   </main>
 
   <footer class="footer">
-    <div style="margin-bottom:8px;"><a href="/">← ホーム</a></div>
+    <div style="margin-bottom:8px;"><a href="/">← ホーム</a><a href="/contact.html">お問い合わせ</a></div>
     &copy; 2026 Richend Digital
   </footer>
 </body>
