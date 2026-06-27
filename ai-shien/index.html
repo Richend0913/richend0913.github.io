@@ -27,6 +27,10 @@
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{font-family:'Noto Sans JP','Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;-webkit-text-size-adjust:100%;overflow-x:hidden;font-weight:400}
+    /* JP line-break hygiene: balance headings, prettify paragraphs, avoid awkward orphan chars */
+    h1,h2,h3,h4{text-wrap:balance}
+    p,li,summary,.faq-a,.cmp-cell,.scope,.pdesc,.honest{text-wrap:pretty}
+    b,strong,.hl{box-decoration-break:clone;-webkit-box-decoration-break:clone}
 
     /* texture layers */
     .bg-glow{position:fixed;inset:-50%;width:200%;height:200%;background:radial-gradient(circle at 25% 18%,rgba(99,102,241,.10) 0%,transparent 45%),radial-gradient(circle at 80% 75%,rgba(168,85,247,.06) 0%,transparent 50%);animation:bgMove 22s ease-in-out infinite;z-index:-2}
@@ -80,7 +84,7 @@
     .proof-ic{flex-shrink:0;width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.2)}
     .proof-card h4{font-size:.9rem;font-weight:700;color:#fafafa}
     .proof-card p{font-size:.72rem;color:var(--ink-faint);font-weight:300;margin-top:3px;line-height:1.5}
-    .proof-card .go{font-family:var(--mono);font-size:.62rem;color:var(--indigo-bright);margin-top:7px;letter-spacing:.05em}
+    .proof-card .go{font-family:var(--mono);font-size:.62rem;color:var(--indigo-bright);margin-top:7px;letter-spacing:.05em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .honest{font-size:.82rem;color:var(--ink-dim);font-weight:300;margin-top:22px;padding:14px 16px;border-left:2px solid var(--indigo);background:rgba(99,102,241,.04);border-radius:0 10px 10px 0;line-height:1.8;position:relative}
     .honest b{color:var(--ink);font-weight:500}
 
@@ -150,6 +154,21 @@
     footer .ft-links a:hover{color:var(--indigo-bright);border-color:var(--indigo-bright)}
     footer .copy{font-family:var(--mono);font-size:.62rem;color:#3f3f46;margin-top:22px;letter-spacing:.05em}
 
+    /* mobile fine-tuning: kill orphan chars & cramped wraps at narrow widths */
+    @media(max-width:430px){
+      .wrap,.narrow{padding:0 18px}
+      /* CTA button: keep label intact, shrink to fit one cleaner break */
+      .btn-primary{font-size:.9rem;padding:15px 20px;gap:8px;justify-content:center;text-align:center;word-break:keep-all;line-height:1.4}
+      .hero-cta-row{gap:12px}
+      /* compare table: relieve the cramped 2-col cells (worst orphan source) */
+      .cmp-cell{padding:13px 12px;font-size:.78rem;word-break:auto-phrase;line-height:1.55}
+      .cmp-head .cmp-cell{font-size:.7rem}
+      /* proof card heads/bodies: balance the (...) tails so '群）' '営）' don't drop alone */
+      .proof-card h4{text-wrap:balance}
+      .proof-card p{text-wrap:pretty}
+      /* section headings: keep auto-phrase so JP clauses don't split mid-word */
+      h1.hero-h,h2.sec-h,.final h2{word-break:auto-phrase}
+    }
     /* reveal */
     .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
     .reveal.in{opacity:1;transform:none}
