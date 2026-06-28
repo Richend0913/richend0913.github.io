@@ -95,6 +95,12 @@
   footer{text-align:center;padding:34px 20px;color:#9aa0b2;font-size:.74rem}
   footer a{color:#9aa0b2;text-decoration:none;margin:0 8px}
   @media(max-width:520px){h1{font-size:1.42rem}.prod{padding:22px 18px}.prod .foot{flex-direction:column;align-items:stretch}.prod .buy{justify-content:center}}
+
+  .buybar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(12,20,17,.96);backdrop-filter:blur(6px);border-top:1px solid rgba(110,231,183,.3);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .buybar .bp{color:#fff;font-weight:900;font-family:'Inter',sans-serif;font-size:1.1rem;white-space:nowrap}
+  .buybar .bp small{display:block;color:#9aa0b2;font-size:.62rem;font-weight:600;letter-spacing:.02em}
+  .buybar a{flex:1;text-align:center;background:linear-gradient(120deg,#0e9f6e,#0891b2);color:#fff;font-weight:800;text-decoration:none;padding:13px 10px;border-radius:12px;font-size:.98rem}
+  body{padding-bottom:72px}
 </style>
 <script type="application/ld+json">
 {
@@ -245,6 +251,11 @@
   </div>
   &copy; 2026 Richend Digital
 </footer>
+
+<div class="buybar">
+  <div class="bp">Excel 3点<small>請求書¥2,980〜・税込</small></div>
+  <a href="#products" onclick="gtag('event','order_click',{method:'base',product:'kojin',location:'stickybar'})">▼ 3点の購入はこちら</a>
+</div>
 
 </body>
 </html>
