@@ -5,3 +5,4 @@ Sitemap: https://richend0913.github.io/sitemap_index.xml
 Sitemap: https://richend0913.github.io/sitemap.xml
 Sitemap: https://richend0913.github.io/okurite/sitemap.xml
 Sitemap: https://richend0913.github.io/recruit/sitemap.xml
+Sitemap: https://richend0913.github.io/shikaku/sitemap.xml
