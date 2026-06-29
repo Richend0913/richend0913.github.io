@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4路スイッチの複線図 書き方｜3か所点滅を3路2個＋4路1個で配線する手順【第二種電気工事士】</title>
+<meta name="description" content="第二種電気工事士でつまずく4路スイッチの複線図を解説。3か所点滅は3路スイッチ2個の間に4路スイッチを1個入れる構成。4路の端子のつなぎ方、3路との渡り線、点滅する理由を手順でわかりやすく整理します。">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://richend0913.github.io/shikaku/fukusenzu-4ro-switch.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="4路スイッチの複線図 書き方｜3か所点滅を3路2個＋4路1個で配線する手順">
+<meta property="og:description" content="3か所点滅は3路2個＋4路1個。4路スイッチの端子のつなぎ方と渡り線の引き方を手順で解説。">
+<meta property="og:url" content="https://richend0913.github.io/shikaku/fukusenzu-4ro-switch.html">
+<meta property="og:locale" content="ja_JP">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a href="./" class="logo">資格つまずき解説ノート</a>
+    <a href="https://fukusenzu-master.pages.dev/?utm_source=shikaku_blog&utm_medium=header&utm_campaign=fukusenzu" class="nav-cta" target="_blank" rel="noopener">複線図を練習</a>
+  </div>
+</header>
+
+<main>
+<article>
+  <div class="wrap">
+    <p class="crumb"><a href="/">トップ</a> ＞ <a href="./">資格つまずき解説ノート</a> ＞ 4路スイッチの複線図</p>
+    <div class="kw-tags"><span>複線図 4路スイッチ 書き方</span><span>第二種電気工事士</span><span>3か所点滅</span><span>技能試験</span></div>
+    <h1>4路スイッチの複線図 書き方｜3か所点滅を3路2個＋4路1個で配線する手順</h1>
+    <p class="meta">公開日：2026-06-29 ／ 更新日：2026-06-29 ｜ 資格つまずき解説ノート</p>
+
+    <div class="lead-box">
+      <p><b>結論：</b>3か所のどこからでも同じ照明を入り切りしたいときは、<b>3路スイッチ2個の「間」に4路スイッチを1個</b>はさみます。4路スイッチは入ってきた2本の線の行き先を「平行（そのまま）」か「たすき掛け（入れ替え）」に切り替える部品です。複線図では「①両端は3路スイッチ（0番＝外側、1番・3番＝内側） ②3路から出た渡り線2本を4路の入力側へ ③4路の出力側からもう一方の3路の1番・3番へ」とつなげば描けます。</p>
+    </div>
+
+    <p>「リビングの入口・廊下・階段の3か所、どこのスイッチでも同じ照明を点けたり消したりしたい」——このときに使うのが<strong>4路スイッチ</strong>です。第二種電気工事士の技能試験でも出題され、<a href="fukusenzu-3ro-switch.html">3路スイッチ</a>の一歩先でつまずく人が多いところ。ですが「4路は3路2個の間にはさむ」「4路は線の行き先を入れ替えるだけ」という2点を押さえれば、複線図は一気にほどけます。</p>
+
+    <h2>まず大前提：3か所点滅は「3路2個＋4路1個」</h2>
+    <p>点滅させたい場所の数と、必要なスイッチの組み合わせは決まっています。</p>
+    <table class="cmp">
+      <tr><th>点滅させたい場所</th><th>使うスイッチの構成</th></tr>
+      <tr><td>1か所</td><td>単極スイッチ 1個</td></tr>
+      <tr><td>2か所</td><td>3路スイッチ 2個</td></tr>
+      <tr><td>3か所</td><td>3路スイッチ 2個 ＋ <b>4路スイッチ 1個</b></td></tr>
+      <tr><td>4か所以上</td><td>3路スイッチ 2個 ＋ 4路スイッチを（場所数−2）個</td></tr>
+    </table>
+    <p>つまり<strong>両端は必ず3路スイッチ</strong>で、その間に増やしたい数だけ4路スイッチを足していく構造です。4路スイッチが単独で回路の端に来ることはありません。</p>
+
+    <h2>4路スイッチの端子の意味</h2>
+    <p>4路スイッチには端子が4つあり、「入力側2つ・出力側2つ」のペアになっています。内部のスイッチを切り替えると、入ってきた2本の行き先が次の2通りに変わります。</p>
+    <table class="cmp">
+      <tr><th>状態</th><th>つながり方</th></tr>
+      <tr><td>平行（ストレート）</td><td>入力1→出力1、入力2→出力2 のようにそのまま通す。</td></tr>
+      <tr><td>たすき掛け（クロス）</td><td>入力1→出力2、入力2→出力1 のように左右を入れ替える。</td></tr>
+    </table>
+    <p>4路スイッチは「2本の線をそのまま通すか、入れ替えるか」を切り替えるだけの部品だ、と捉えるのがいちばんの近道です。電源や灯（負荷）を直接つなぐ端子ではありません（直接つなぐのは両端の3路の0番）。</p>
+
+    <h2>複線図での描き方（手順）</h2>
+    <p>2つの3路スイッチ（A・B）の間に4路スイッチ（C）を1個入れ、1つの灯を点滅させる回路を例に、順番に描きます。基本は<a href="fukusenzu-kakikata-kihon.html">複線図の基本4ステップ</a>と同じく、接地側→非接地側→渡り、の流れです。</p>
+
+    <div class="step"><span class="n">1</span><p><b><span class="swatch w"></span>接地側（白）を灯へ直接つなぐ</b><br>電源の接地側（白）は、スイッチを通さず灯（負荷）へ直接つなぎます。3路・4路がいくつ増えてもここは変わりません。</p></div>
+    <div class="step"><span class="n">2</span><p><b><span class="swatch k"></span>非接地側（黒）を、片方の3路スイッチAの0番へ</b><br>電源の非接地側（黒）を、3路スイッチAの0番（コモン）端子に入れます。</p></div>
+    <div class="step"><span class="n">3</span><p><b>もう片方の3路スイッチBの0番から、灯へつなぐ</b><br>3路スイッチBの0番端子から、灯（負荷）へ線を引きます。これで「電源→A→（C）→B→灯」の通り道の両端ができます。</p></div>
+    <div class="step"><span class="n">4</span><p><b>3路Aの1番・3番を、4路スイッチCの入力側2端子へ</b><br>3路スイッチAの1番・3番から出た渡り線2本を、4路スイッチCの「入力側」の2端子につなぎます。</p></div>
+    <div class="step"><span class="n">5</span><p><b>4路スイッチCの出力側2端子を、3路Bの1番・3番へ</b><br>4路スイッチCの「出力側」の2端子から、3路スイッチBの1番・3番へつなぎます。これで A↔C↔B が2本の渡り線で結ばれます。</p></div>
+
+    <div class="note">覚え方：<b>「両端は3路の0番＝外、間の4路は渡り2本をそのまま受けて、そのまま渡す」</b>。4路には電源も灯もつなぎません。3路から来た2本を受け取り、2本のまま次の3路へ送る“中継”だと考えると配線を間違えません。4か所以上にするなら、この4路を渡り2本のまま数珠つなぎで増やします。</p></div>
+
+    <h2>なぜ3か所のどこからでも点滅できるのか</h2>
+    <p>3路スイッチは0番が「1番側」か「3番側」のどちらかに必ずつながります（<a href="fukusenzu-3ro-switch.html">3路スイッチの解説</a>参照）。その2本の通り道の途中に入った4路スイッチが、線を「平行」か「たすき掛け」に切り替えます。3路A・4路C・3路Bのどれを操作しても、通り道がつながる／切れるが反転するため、3か所のどのスイッチからでも照明を入り切りできるわけです。スイッチを1つ動かすたびに「導通する経路がつながる⇔切れる」が入れ替わる、と考えると腑に落ちます。</p>
+
+    <h2>つまずきやすいポイント</h2>
+    <h3>4路に電源や灯を直接つないでしまう</h3>
+    <p>4路スイッチは渡り線の“中継”です。電源（黒）や灯につなぐのは<strong>両端の3路スイッチの0番</strong>。4路の4端子は、3路から来た渡り線の入口・出口に使います。</p>
+    <h3>4路の入力側・出力側のペアを崩す</h3>
+    <p>4路は「入力2つ・出力2つ」が決まっています。入力側に3路Aの渡り2本、出力側に3路Bへの2本、とペアを守ってつなぎます。入力と出力を混ぜると正しく切り替わりません。</p>
+    <h3>両端を3路にし忘れる</h3>
+    <p>3か所点滅で端に4路を置くのは誤り。<strong>必ず両端は3路スイッチ</strong>、4路はその間です。まずは<a href="fukusenzu-3ro-switch.html">3路2個の基本形</a>を確実に描けるようにしてから4路を足すと迷いません。</p>
+
+    <div class="tool">
+      <h3>3路・4路の回路を実際に描いて練習できる無料ツール</h3>
+      <p><strong>複線図マスター</strong>では、公表候補問題の単線図を見ながら自分で複線図を描き、正解を重ねて自己採点できます。3路・4路を含む問題も収録。<span class="free">お試し問題（No.1・2・6）と描き方手順は無料</span>。全13問の開放はPro（¥680・買い切り、サブスクなし）。</p>
+      <a class="btn" href="https://fukusenzu-master.pages.dev/?utm_source=shikaku_blog&utm_medium=article&utm_campaign=fukusenzu_4ro" target="_blank" rel="noopener">複線図マスターで練習する →</a>
+    </div>
+
+    <h2>よくある質問（FAQ）</h2>
+    <p class="faq-q">3か所点滅に4路スイッチは何個必要ですか？</p>
+    <p class="faq-a">3か所なら4路スイッチは1個です。両端に3路スイッチを2個置き、その間に4路スイッチを1個はさみます。4か所なら4路を2個、というように（場所数−2）個の4路を足します。</p>
+
+    <p class="faq-q">4路スイッチに電源（黒）は直接つなぎますか？</p>
+    <p class="faq-a">つなぎません。電源の非接地側（黒）は片方の3路スイッチの0番へ入れます。4路スイッチは3路から来た渡り線2本を受け取り、次の3路へ渡す“中継”の役割で、4端子はすべて渡り線に使います。</p>
+
+    <p class="faq-q">3路と4路の渡り線は何本になりますか？</p>
+    <p class="faq-a">3路A↔4路Cの間に2本、4路C↔3路Bの間に2本で、渡り線は合計4本です。3路どうしを直接つなぐ2本（4路なしの2か所点滅）の“間”に4路が割り込み、それぞれ2本ずつになると考えるとわかりやすいです。</p>
+
+    <div class="related">
+      <h3>あわせて読みたい</h3>
+      <ul>
+        <li><a href="fukusenzu-3ro-switch.html">3路スイッチの複線図 書き方｜2か所点滅の配線を端子0・1・3でわかる解説</a></li>
+        <li><a href="fukusenzu-kakikata-kihon.html">複線図の書き方 基本｜接地側・非接地側・スイッチの渡りを順番に理解する</a></li>
+        <li><a href="fukusenzu-haishoku-rule.html">複線図の配線色ルール｜白・黒・赤・緑はどこに使う？</a></li>
+        <li><a href="./">資格つまずき解説ノート トップ</a></li>
+      </ul>
+    </div>
+  </div>
+</article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>資格つまずき解説ノート｜運営：NEXT GROWTH</p>
+    <p>本記事の用語・手順は一般財団法人 電気技術者試験センターの公表情報および標準的な複線図の作図手順に基づきます。受験前には最新の公表問題・施工条件をご確認ください。<br><a href="./">解説ノート トップ</a></p>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"4路スイッチの複線図 書き方｜3か所点滅を3路2個＋4路1個で配線する手順","description":"3か所点滅は3路スイッチ2個の間に4路スイッチ1個。4路の端子のつなぎ方と渡り線の引き方を手順で解説。","inLanguage":"ja","datePublished":"2026-06-29","dateModified":"2026-06-29","mainEntityOfPage":{"@type":"WebPage","@id":"https://richend0913.github.io/shikaku/fukusenzu-4ro-switch.html"},"author":{"@type":"Organization","name":"NEXT GROWTH"},"publisher":{"@type":"Organization","name":"NEXT GROWTH"},"about":["4路スイッチ","複線図","第二種電気工事士","3か所点滅"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"3か所点滅に4路スイッチは何個必要ですか？","acceptedAnswer":{"@type":"Answer","text":"3か所なら4路スイッチは1個です。両端に3路スイッチを2個置き、その間に4路スイッチを1個はさみます。4か所なら4路を2個、というように（場所数−2）個の4路を足します。"}},
+{"@type":"Question","name":"4路スイッチに電源（黒）は直接つなぎますか？","acceptedAnswer":{"@type":"Answer","text":"つなぎません。電源の非接地側（黒）は片方の3路スイッチの0番へ入れます。4路スイッチは3路から来た渡り線2本を受け取り、次の3路へ渡す中継の役割で、4端子はすべて渡り線に使います。"}},
+{"@type":"Question","name":"3路と4路の渡り線は何本になりますか？","acceptedAnswer":{"@type":"Answer","text":"3路Aと4路Cの間に2本、4路Cと3路Bの間に2本で、渡り線は合計4本です。3路どうしを直接つなぐ2本の間に4路が割り込み、それぞれ2本ずつになると考えるとわかりやすいです。"}}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"資格つまずき解説ノート","item":"https://richend0913.github.io/shikaku/"},
+{"@type":"ListItem","position":2,"name":"4路スイッチの複線図 書き方"}
+]}
+</script>
+</body>
+</html>
