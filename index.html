@@ -95,28 +95,35 @@
 
   <main class="main">
 
-    <a href="/business/" class="item" style="background:linear-gradient(135deg,rgba(168,85,247,.18),rgba(99,102,241,.12));border-color:rgba(168,85,247,.4);margin-bottom:16px;padding:16px 18px;">
-      <div class="item-icon" style="background:linear-gradient(135deg,#a855f7,#6366f1);font-size:1.3rem;">📊</div>
+    <a id="season-hero" href="/okurite/" class="item" style="background:linear-gradient(135deg,rgba(37,99,235,.2),rgba(168,85,247,.12));border-color:rgba(59,130,246,.4);margin-bottom:24px;padding:16px 18px;">
+      <div class="item-icon" id="season-icon" style="background:linear-gradient(135deg,#1d4ed8,#a855f7);font-size:1.4rem;">🎁</div>
       <div class="item-text">
-        <h3 style="color:#e9d5ff;">事業一覧</h3>
-        <p style="color:#c4b5fd;white-space:normal;">運営中のサービスをまとめて見る →</p>
-      </div>
-    </a>
-
-    <a href="/okurite/blog/fathers-day-2026.html" class="item" style="background:linear-gradient(135deg,rgba(37,99,235,.2),rgba(59,130,246,.1));border-color:rgba(59,130,246,.4);margin-bottom:24px;padding:16px 18px;">
-      <div class="item-icon" style="background:linear-gradient(135deg,#1d4ed8,#3b82f6);font-size:1.4rem;">👔</div>
-      <div class="item-text">
-        <h3 style="color:#bfdbfe;">父の日まであと<span id="fd-countdown">6</span>日</h3>
-        <p style="color:#93c5fd;white-space:normal;">6/21（日）｜お父さんが本当に喜ぶプレゼント特集</p>
+        <h3 id="season-title" style="color:#bfdbfe;">シーン別ギフトを探す</h3>
+        <p id="season-sub" style="color:#93c5fd;white-space:normal;">誕生日・記念日・季節の贈り物をまとめて検索 →</p>
       </div>
     </a>
     <script>
       (function(){
-        var fd = new Date('2026-06-21T00:00:00+09:00');
-        var now = new Date();
-        var days = Math.max(0, Math.ceil((fd - now) / 86400000));
-        var el = document.getElementById('fd-countdown');
-        if (el) el.textContent = days;
+        // 季節ギフト特集を自動で切り替える（公開済みページのみ・期限切れ表示を防ぐ）。
+        // 該当イベントが近くに無いときは既定の「シーン別ギフトを探す → /okurite/」のままにする。
+        var events = [
+          { name:'お中元',   date:'2026-07-15T23:59:59+09:00', url:'/okurite/blog/ochugen-2026.html',      icon:'🍉', sub:'日頃の感謝を伝える夏のごあいさつ｜予算別おすすめギフト' },
+          { name:'敬老の日', date:'2026-09-21T23:59:59+09:00', url:'/okurite/blog/keirou-no-hi-2026.html', icon:'🌾', sub:'9/21（月・祝）｜祖父母へ感謝を伝えるプレゼント' },
+          { name:'お歳暮',   date:'2026-12-13T23:59:59+09:00', url:'/okurite/blog/oseibo-2026.html',       icon:'❄️', sub:'年末のごあいさつ｜予算別おすすめギフト' }
+        ];
+        var DAY = 86400000, WINDOW = 75, now = new Date(), pick = null, pickDays = null;
+        for (var i = 0; i < events.length; i++) {
+          var d = Math.ceil((new Date(events[i].date) - now) / DAY);
+          if (d >= 0 && d <= WINDOW) { pick = events[i]; pickDays = d; break; }
+        }
+        if (pick) {
+          document.getElementById('season-hero').href = pick.url;
+          document.getElementById('season-icon').textContent = pick.icon;
+          var badge = pickDays > 0 ? 'あと' + pickDays + '日' : '受付中';
+          document.getElementById('season-title').innerHTML = pick.name + 'ギフト特集'
+            + ' <span style="font-size:.62rem;color:#fff;background:#e11d48;padding:1px 7px;border-radius:9px;vertical-align:middle;">' + badge + '</span>';
+          document.getElementById('season-sub').textContent = pick.sub;
+        }
       })();
     </script>
 
