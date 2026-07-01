@@ -23,9 +23,11 @@
 <meta property="og:url" content="https://richend0913.github.io/genba-os/">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:site_name" content="現場職OS">
+<meta property="og:image" content="https://richend0913.github.io/genba-os/app-home.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="現場職OS｜確定申告、もう一人で泣かない。">
 <meta name="twitter:description" content="軽貨物・現場職のための 確定申告・経費・請求 アプリ。レシートは撮るだけ。月¥980予定・先行登録受付中。">
+<meta name="twitter:image" content="https://richend0913.github.io/genba-os/app-home.png">
 
 <!-- JSON-LD -->
 <script type="application/ld+json">
@@ -35,7 +37,7 @@
   "name": "現場職OS",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "iOS, Android, Web",
-  "description": "現場で働く一人親方・個人事業主（軽貨物・建設・電気・設備・清掃・警備・引越し等）のための、確定申告の準備・経費(レシート撮影・職種別の勘定科目)・請求書発行をスマホで完結できるアプリ。現在は先行登録を受付中。",
+  "description": "現場で働く一人親方・個人事業主（軽貨物・建設・電気・設備・清掃・警備・引越し）のための、確定申告の準備・経費(レシート撮影・職種別の勘定科目)・請求書発行をスマホで完結できるアプリ。現在は先行登録を受付中。",
   "url": "https://richend0913.github.io/genba-os/",
   "offers": {
     "@type": "Offer",
@@ -52,246 +54,375 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --ink:#15181d;
-  --ink-soft:#3a4049;
-  --ink-dim:#6b727c;
-  --paper:#f6f3ec;
-  --paper-2:#ffffff;
+  --ink:#111619;
+  --ink-soft:#3c454d;
+  --ink-dim:#6d7680;
+  --paper:#f4f1ea;
+  --paper-2:#fbf9f4;
   --card:#ffffff;
-  --line:rgba(21,24,29,.10);
-  --line-soft:rgba(21,24,29,.06);
-  --brand:#1b8f5a;      /* trustworthy green */
-  --brand-deep:#136e44;
-  --brand-soft:#e7f5ed;
-  --road:#ffce21;        /* road-marking yellow accent */
+  --line:rgba(17,22,25,.10);
+  --line-soft:rgba(17,22,25,.06);
+  --brand:#128a54;
+  --brand-2:#1ba766;
+  --brand-deep:#0e6a41;
+  --brand-soft:#e6f4ec;
+  --road:#ffcb1f;
   --warn:#d8482f;
-  --shadow:0 10px 30px -14px rgba(21,24,29,.22);
+  --shadow-sm:0 2px 14px -6px rgba(17,22,25,.18);
+  --shadow:0 24px 60px -30px rgba(17,22,25,.34);
+  --shadow-lg:0 40px 90px -40px rgba(14,48,32,.5);
+  --sans:'Zen Kaku Gothic New',system-ui,sans-serif;
+  --mono:'Manrope',system-ui,sans-serif;
+  --num:'Bebas Neue',sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --maxw:1120px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
-  font-family:'Zen Kaku Gothic New',system-ui,sans-serif;
-  background:var(--paper);color:var(--ink);line-height:1.85;
-  -webkit-text-size-adjust:100%;overflow-x:hidden;font-weight:400;
+  font-family:var(--sans);
+  background:var(--paper);color:var(--ink);line-height:1.9;
+  overflow-x:hidden;font-weight:400;letter-spacing:.01em;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
-h1,h2,h3,h4{text-wrap:balance;line-height:1.35}
-p,li,summary,.lead,.honest,.note{text-wrap:pretty;word-break:normal;overflow-wrap:anywhere}
+h1,h2,h3,h4{text-wrap:balance;line-height:1.32;letter-spacing:-.01em}
+p,li,summary{text-wrap:pretty;word-break:normal;overflow-wrap:anywhere}
 b,strong{box-decoration-break:clone;-webkit-box-decoration-break:clone}
-a{color:inherit}
-img{max-width:100%}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+svg{display:block}
+::selection{background:var(--brand);color:#fff}
 
-.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.kicker{font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.22em;color:var(--brand);text-transform:uppercase;display:inline-flex;align-items:center;gap:8px}
+.kicker::before{content:"";width:22px;height:1px;background:var(--brand);opacity:.5}
+.eyebrow-center{justify-content:center}
+
+/* grain */
+body::before{content:"";position:fixed;inset:0;z-index:999;pointer-events:none;opacity:.028;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+#progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:1000;background:linear-gradient(90deg,var(--brand),var(--brand-2))}
 
 /* top bar */
-.topbar{position:sticky;top:0;z-index:50;background:rgba(246,243,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
-.topbar .row{max-width:760px;margin:0 auto;padding:11px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.logo{font-weight:900;font-size:1.05rem;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
-.logo .mark{width:26px;height:26px;border-radius:7px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.95rem;font-weight:900}
-.logo small{display:block;font-size:.5rem;letter-spacing:.16em;color:var(--ink-dim);font-weight:700;margin-top:-2px}
-.topcta{font-size:.74rem;font-weight:900;color:#fff;background:#06c755;padding:8px 13px;border-radius:999px;text-decoration:none;white-space:nowrap}
+.topbar{position:sticky;top:0;z-index:80;transition:background .4s,box-shadow .4s,border-color .4s;border-bottom:1px solid transparent}
+.topbar.on{background:rgba(244,241,234,.82);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);border-bottom-color:var(--line-soft)}
+.topbar .row{max-width:var(--maxw);margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-weight:900;font-size:1.06rem;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+.logo .mark{width:32px;height:32px;border-radius:9px;background:linear-gradient(150deg,var(--brand-2),var(--brand-deep));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:900;box-shadow:0 8px 18px -8px rgba(18,138,84,.7)}
+.logo small{display:block;font-family:var(--mono);font-size:.5rem;letter-spacing:.22em;color:var(--ink-dim);font-weight:700;margin-top:-3px}
+.topnav{display:none;gap:26px;align-items:center}
+.topnav a{font-size:.82rem;font-weight:500;color:var(--ink-soft);position:relative}
+.topnav a::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
+.topnav a:hover{color:var(--brand)}
+.topnav a:hover::after{transform:scaleX(1);transform-origin:left}
+.topcta{font-size:.8rem;font-weight:800;color:#fff;background:var(--brand);padding:10px 18px;border-radius:999px;transition:transform .4s var(--ease),box-shadow .4s;box-shadow:0 10px 22px -12px rgba(18,138,84,.7)}
+.topcta:hover{transform:translateY(-2px);background:var(--brand-deep)}
+@media(min-width:820px){.topnav{display:flex}}
 
-/* hero */
-.hero{padding:40px 0 30px;position:relative}
-.badge{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:700;color:var(--brand-deep);background:var(--brand-soft);border:1px solid rgba(27,143,90,.25);padding:6px 12px;border-radius:999px}
-.badge .dot{width:7px;height:7px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 0 rgba(27,143,90,.5);animation:pulse 1.9s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-h1{font-size:clamp(1.85rem,8.5vw,3rem);font-weight:900;letter-spacing:-.02em;line-height:1.22;margin:18px 0 0}
-h1 .hl{color:var(--brand-deep);position:relative}
-h1 .u{background:linear-gradient(transparent 62%,var(--road) 62%)}
-.hero .lead{font-size:clamp(1rem,4vw,1.12rem);color:var(--ink-soft);margin-top:18px;font-weight:500}
-.hero .lead b{color:var(--ink);font-weight:900}
-.cta-row{display:flex;flex-direction:column;gap:12px;margin-top:26px}
-.btn{display:flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-weight:900;border-radius:14px;padding:16px 18px;font-size:1.02rem;text-align:center;transition:transform .15s,box-shadow .15s}
-.btn:active{transform:translateY(1px)}
-.btn-line{background:#06c755;color:#fff;box-shadow:0 12px 26px -12px rgba(6,199,85,.7)}
-.btn-line:hover{box-shadow:0 16px 32px -12px rgba(6,199,85,.8)}
-.btn-mail{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
-.btn-mail:hover{border-color:var(--brand)}
-.cta-note{font-size:.78rem;color:var(--ink-dim);margin-top:12px;text-align:center}
-.cta-note b{color:var(--ink-soft)}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:800;border-radius:14px;padding:16px 26px;font-size:1rem;transition:transform .4s var(--ease),box-shadow .4s var(--ease),background .3s;white-space:nowrap}
+.btn svg{width:19px;height:19px}
+.btn-brand{background:var(--brand);color:#fff;box-shadow:0 16px 34px -16px rgba(18,138,84,.75)}
+.btn-brand:hover{transform:translateY(-3px);background:var(--brand-deep);box-shadow:0 22px 44px -18px rgba(18,138,84,.85)}
+.btn-line{background:#06c755;color:#fff;box-shadow:0 16px 34px -16px rgba(6,199,85,.6)}
+.btn-line:hover{transform:translateY(-3px);filter:brightness(1.05)}
+.btn-ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{transform:translateY(-3px);border-color:var(--brand);color:var(--brand-deep)}
 
-/* section frame */
-section{padding:34px 0}
-.kicker{font-size:.72rem;font-weight:900;letter-spacing:.14em;color:var(--brand);text-transform:uppercase}
-h2{font-size:clamp(1.45rem,6vw,2rem);font-weight:900;letter-spacing:-.01em;margin-top:8px;line-height:1.3}
-.sec-lead{color:var(--ink-soft);font-size:.98rem;margin-top:12px;font-weight:500}
-.divider{height:1px;background:var(--line-soft);margin:0 18px}
+/* ===== HERO ===== */
+.hero{position:relative;padding:60px 0 30px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;
+  background:
+   radial-gradient(60% 60% at 78% 8%,rgba(27,167,102,.16),transparent 60%),
+   radial-gradient(50% 50% at 8% 40%,rgba(255,203,31,.10),transparent 60%);
+}
+.hero-bg::after{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(70% 60% at 50% 30%,#000,transparent 75%);opacity:.5}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:34px;align-items:center;padding-top:20px}
+.badge{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;color:var(--brand-deep);background:rgba(255,255,255,.7);border:1px solid rgba(18,138,84,.24);padding:7px 14px;border-radius:999px}
+.badge .dot{width:7px;height:7px;border-radius:50%;background:var(--brand);animation:pulse 1.9s infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(18,138,84,.4)}50%{opacity:.5;box-shadow:0 0 0 6px rgba(18,138,84,0)}}
+.hero h1{font-size:clamp(2.1rem,6.6vw,3.7rem);font-weight:900;letter-spacing:-.02em;line-height:1.2;margin:20px 0 0}
+.hero h1 .hl{color:var(--brand-deep)}
+.hero h1 .u{background:linear-gradient(transparent 60%,var(--road) 60%);padding:0 .05em}
+.hero .lead{font-size:clamp(1rem,2.4vw,1.14rem);color:var(--ink-soft);margin-top:22px;font-weight:500;max-width:34em}
+.hero .lead b{color:var(--ink);font-weight:800}
+.cta-row{display:flex;flex-direction:column;gap:12px;margin-top:30px}
+.hero .cta-note{font-size:.78rem;color:var(--ink-dim);margin-top:14px}
+.hero .cta-note b{color:var(--ink-soft)}
+.hero-trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line-soft)}
+.hero-trust div{display:flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;color:var(--ink-soft)}
+.hero-trust svg{width:17px;height:17px;color:var(--brand)}
 
-/* pain band */
-.pain{background:var(--ink);color:#e9e6df;border-radius:20px;padding:26px 22px;box-shadow:var(--shadow)}
-.pain h2{color:#fff}
-.pain .sec-lead{color:#b9bdc4}
-.pain ul{list-style:none;margin-top:18px;display:grid;gap:11px}
-.pain li{display:flex;gap:11px;align-items:flex-start;font-size:.95rem;font-weight:500;color:#dcdfe4}
-.pain li .x{flex-shrink:0;color:var(--road);font-weight:900;font-size:1.05rem;line-height:1.55}
+/* device mockup */
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:360px}
+.device{position:relative;width:min(300px,74vw);background:#0e1214;border-radius:42px;padding:11px;box-shadow:var(--shadow-lg);z-index:2}
+.device::before{content:"";position:absolute;top:16px;left:50%;transform:translateX(-50%);width:96px;height:20px;background:#0e1214;border-radius:0 0 14px 14px;z-index:3}
+.device img{border-radius:32px;width:100%;background:#e6f4ec}
+.float-chip{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:11px 14px;box-shadow:var(--shadow);font-size:.78rem;font-weight:700;display:flex;align-items:center;gap:9px}
+.float-chip svg{width:20px;height:20px;color:var(--brand)}
+.float-chip .fc-num{font-family:var(--num);font-size:1.3rem;color:var(--brand-deep);line-height:.8}
+.fc-1{top:8%;left:-6%}
+.fc-2{bottom:12%;right:-8%}
+@media(max-width:560px){.fc-1{left:2%}.fc-2{right:2%}}
+@media(min-width:900px){
+  .hero{padding:74px 0 40px}
+  .hero-grid{grid-template-columns:1.05fr .95fr;gap:48px}
+  .cta-row{flex-direction:row}
+  .device{width:320px}
+}
 
-/* value cards (the stars) */
-.values{display:grid;gap:16px;margin-top:24px}
-.val{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 20px;box-shadow:var(--shadow);position:relative;overflow:hidden}
-.val .vnum{position:absolute;top:14px;right:16px;font-family:'Bebas Neue',sans-serif;font-size:2.6rem;line-height:1;color:var(--brand-soft)}
-.val .vic{width:46px;height:46px;border-radius:12px;background:var(--brand-soft);display:flex;align-items:center;justify-content:center;font-size:1.5rem}
-.val h3{font-size:1.18rem;font-weight:900;margin-top:14px;line-height:1.4}
+/* trades marquee */
+.trades{border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:20px 0;overflow:hidden;background:var(--paper-2)}
+.trades-inner{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.trades .tl{font-size:.72rem;font-weight:800;letter-spacing:.1em;color:var(--ink-dim)}
+.trade{font-size:.84rem;font-weight:700;color:var(--ink-soft);display:inline-flex;align-items:center;gap:7px}
+.trade::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--brand);opacity:.6}
+
+/* generic section */
+section.blk{padding:74px 0}
+.sec-head{max-width:640px}
+.sec-head.center{margin:0 auto;text-align:center}
+h2{font-size:clamp(1.6rem,4.6vw,2.5rem);font-weight:900;letter-spacing:-.01em;margin-top:12px;line-height:1.28}
+.sec-lead{color:var(--ink-soft);font-size:1rem;margin-top:16px;font-weight:500}
+
+/* pain */
+.pain{background:var(--ink);color:#e9e6df;border-radius:26px;padding:44px 34px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.pain::after{content:"";position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(255,203,31,.14),transparent 70%)}
+.pain .kicker{color:var(--road)}.pain .kicker::before{background:var(--road)}
+.pain h2{color:#fff}.pain .sec-lead{color:#b7bcc3}
+.pain ul{list-style:none;margin-top:28px;display:grid;gap:16px;max-width:760px}
+.pain li{display:flex;gap:14px;align-items:flex-start;font-size:.98rem;font-weight:500;color:#d9dce1}
+.pain li .x{flex-shrink:0;width:26px;height:26px;border-radius:8px;background:rgba(255,203,31,.14);color:var(--road);display:flex;align-items:center;justify-content:center;margin-top:2px}
+.pain li .x svg{width:15px;height:15px}
+
+/* values */
+.values{display:grid;gap:24px;margin-top:44px}
+.val{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .55s var(--ease),box-shadow .55s var(--ease),border-color .55s;display:grid;grid-template-columns:1fr}
+.val:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(18,138,84,.22)}
+.val-body{padding:32px 30px}
+.val .vnum{font-family:var(--num);font-size:1.4rem;color:var(--brand-2);letter-spacing:.04em}
+.val .vic{width:52px;height:52px;border-radius:14px;background:var(--brand-soft);display:flex;align-items:center;justify-content:center;margin:12px 0 0}
+.val .vic svg{width:26px;height:26px;color:var(--brand-deep)}
+.val h3{font-size:1.32rem;font-weight:900;margin-top:18px;line-height:1.4}
 .val h3 .hl{color:var(--brand-deep)}
-.val p{font-size:.93rem;color:var(--ink-soft);margin-top:9px;font-weight:500}
-.val .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
-.val .chip{font-size:.74rem;font-weight:700;color:var(--brand-deep);background:var(--brand-soft);border-radius:999px;padding:5px 11px;line-height:1.4}
-.val .prog{margin-top:15px;background:#eef0f2;border-radius:999px;height:12px;overflow:hidden;position:relative}
-.val .prog .bar{position:absolute;inset:0 38% 0 0;background:linear-gradient(90deg,var(--brand),#2bb673);border-radius:999px}
-.val .prog-label{font-size:.76rem;font-weight:700;color:var(--ink-dim);margin-top:7px}
+.val p{font-size:.95rem;color:var(--ink-soft);margin-top:12px;font-weight:500}
+.val .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.val .chip{font-size:.74rem;font-weight:700;color:var(--brand-deep);background:var(--brand-soft);border-radius:999px;padding:6px 13px}
+.val .prog{margin-top:20px;background:#eef0f2;border-radius:999px;height:12px;overflow:hidden;position:relative}
+.val .prog .bar{position:absolute;inset:0;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--brand),var(--brand-2));border-radius:999px;transition:transform 1.4s var(--ease)}
+.val.in .prog .bar{transform:scaleX(.62)}
+.val .prog-label{font-size:.78rem;font-weight:600;color:var(--ink-dim);margin-top:9px}
 .val .prog-label b{color:var(--brand-deep)}
+.val-shot{background:linear-gradient(160deg,#eef6f1,#e2efe8);display:flex;align-items:center;justify-content:center;padding:26px}
+.val-shot .device{width:min(230px,60vw);box-shadow:var(--shadow)}
+.val-shot .device::before{width:76px;height:16px}
+@media(min-width:760px){
+  .val.wide{grid-template-columns:1.1fr .9fr}
+  .val.wide .val-body{padding:40px 38px}
+}
 
-/* AI assistant block */
-.ai{background:linear-gradient(180deg,var(--brand-soft),#fff);border:1px solid rgba(27,143,90,.2);border-radius:20px;padding:26px 22px;box-shadow:var(--shadow)}
-.ai h2{color:var(--brand-deep)}
-.ai .big{font-size:1.3rem;font-weight:900;margin-top:14px;line-height:1.45}
-.ai .big .u{background:linear-gradient(transparent 60%,var(--road) 60%)}
-.ai p{font-size:.93rem;color:var(--ink-soft);margin-top:10px;font-weight:500}
+/* AI band */
+.ai{background:linear-gradient(155deg,#0f2a1c,#123a26);color:#dcefe4;border-radius:26px;padding:48px 34px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.ai::after{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 85% 15%,rgba(27,167,102,.3),transparent 60%)}
+.ai>*{position:relative;z-index:1}
+.ai .kicker{color:var(--road)}.ai .kicker::before{background:var(--road)}
+.ai h2{color:#fff;max-width:16em}
+.ai .big{font-size:clamp(1.3rem,3.4vw,1.7rem);font-weight:900;margin-top:20px;line-height:1.45}
+.ai .big .u{background:linear-gradient(transparent 60%,rgba(255,203,31,.9) 60%);color:#fff;padding:0 .05em}
+.ai p.d{font-size:.96rem;color:#bcd3c7;margin-top:16px;font-weight:500;max-width:44em}
 
-/* keep / continuity */
-.keep{background:var(--ink);color:#fff;border-radius:18px;padding:24px 22px;text-align:center}
-.keep .q{font-size:1.25rem;font-weight:900;line-height:1.5}
-.keep .q .u{background:linear-gradient(transparent 60%,rgba(255,206,33,.85) 60%);color:#fff}
-.keep p{color:#b9bdc4;font-size:.9rem;margin-top:12px;font-weight:500}
+/* keep */
+.keep{background:var(--ink);color:#fff;border-radius:22px;padding:44px 34px;text-align:center;position:relative;overflow:hidden}
+.keep .q{font-size:clamp(1.3rem,3.6vw,1.7rem);font-weight:900;line-height:1.5;max-width:20em;margin:0 auto}
+.keep .q .u{background:linear-gradient(transparent 60%,rgba(255,203,31,.85) 60%);padding:0 .05em}
+.keep p{color:#b7bcc3;font-size:.95rem;margin-top:16px;font-weight:500;max-width:40em;margin-left:auto;margin-right:auto}
 
 /* pricing */
-.price{background:var(--card);border:2px solid var(--brand);border-radius:20px;padding:26px 22px;box-shadow:var(--shadow);text-align:center}
-.price .tag{font-size:.78rem;font-weight:900;color:var(--brand-deep);background:var(--brand-soft);display:inline-block;padding:5px 12px;border-radius:999px}
-.price .amount{margin-top:16px;display:flex;align-items:baseline;justify-content:center;gap:4px}
-.price .amount .yen{font-size:1.4rem;font-weight:900}
-.price .amount .num{font-family:'Bebas Neue',sans-serif;font-size:4.2rem;line-height:.9;color:var(--ink)}
-.price .amount .per{font-size:1rem;font-weight:700;color:var(--ink-dim)}
-.price .free{font-size:1rem;font-weight:900;color:var(--brand-deep);margin-top:8px}
-.price .cmp{margin-top:18px;background:var(--paper);border-radius:14px;padding:16px;text-align:left;font-size:.9rem;font-weight:500;color:var(--ink-soft)}
+.price{background:var(--card);border:1.5px solid rgba(18,138,84,.35);border-radius:26px;padding:46px 34px;box-shadow:var(--shadow);text-align:center;max-width:560px;margin:44px auto 0;position:relative;overflow:hidden}
+.price::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--brand),var(--road))}
+.price .tag{font-size:.76rem;font-weight:800;color:var(--brand-deep);background:var(--brand-soft);display:inline-block;padding:6px 15px;border-radius:999px;letter-spacing:.02em}
+.price .amount{margin-top:22px;display:flex;align-items:baseline;justify-content:center;gap:5px}
+.price .amount .yen{font-size:1.7rem;font-weight:900}
+.price .amount .num{font-family:var(--num);font-size:5.4rem;line-height:.85;color:var(--ink)}
+.price .amount .per{font-size:1.05rem;font-weight:700;color:var(--ink-dim)}
+.price .free{font-size:1.05rem;font-weight:900;color:var(--brand-deep);margin-top:12px}
+.price .cmp{margin-top:24px;background:var(--paper);border-radius:16px;padding:20px;text-align:left;font-size:.92rem;font-weight:500;color:var(--ink-soft)}
 .price .cmp b{color:var(--ink);font-weight:900}
-.price .preorder{font-size:.84rem;color:var(--ink-dim);margin-top:16px;line-height:1.7;font-weight:500}
+.price .preorder{font-size:.84rem;color:var(--ink-dim);margin-top:20px;line-height:1.8;font-weight:500}
 .price .preorder b{color:var(--brand-deep)}
+.price .btn{margin-top:24px;width:100%}
 
-/* north star / future */
-.future{background:#10241a;color:#dfeee6;border-radius:18px;padding:26px 22px;position:relative;overflow:hidden}
-.future .kicker{color:var(--road)}
-.future h2{color:#fff;font-size:1.3rem;margin-top:8px}
-.future p{color:#bcd3c7;font-size:.92rem;margin-top:12px;font-weight:500}
-.future .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.future .tag{font-size:.76rem;font-weight:700;color:#dfeee6;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:5px 11px}
-.future .small{font-size:.8rem;color:#8fae9e;margin-top:16px}
+/* future */
+.future{background:#0d2418;color:#dfeee6;border-radius:26px;padding:48px 34px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.future::after{content:"";position:absolute;bottom:-60px;left:-30px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(27,167,102,.22),transparent 70%)}
+.future>*{position:relative;z-index:1}
+.future .kicker{color:var(--road)}.future .kicker::before{background:var(--road)}
+.future h2{color:#fff}
+.future p{color:#bcd3c7;font-size:.96rem;margin-top:16px;font-weight:500;max-width:46em}
+.future .tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.future .ftag{font-size:.78rem;font-weight:700;color:#dfeee6;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 15px}
+.future .small{font-size:.8rem;color:#8fae9e;margin-top:20px}
 
-/* honesty / legal */
-.honest{background:#fff;border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:0 14px 14px 0;padding:18px 18px;font-size:.86rem;color:var(--ink-soft);font-weight:500;margin-top:20px}
+/* honesty */
+.honest{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:0 16px 16px 0;padding:22px 24px;font-size:.9rem;color:var(--ink-soft);font-weight:500;box-shadow:var(--shadow-sm)}
+.honest+.honest{margin-top:16px}
 .honest b{color:var(--ink);font-weight:900}
-.honest + .honest{margin-top:12px}
+.honest-grid{margin-top:36px;display:grid;gap:16px;max-width:820px}
 
-/* final CTA */
+/* final */
 .final{text-align:center}
-.final h2{font-size:clamp(1.5rem,7vw,2.1rem)}
-.final .sec-lead{margin-left:auto;margin-right:auto;max-width:520px}
+.final h2{font-size:clamp(1.7rem,5.5vw,2.7rem)}
+.final .sec-lead{margin:16px auto 0;max-width:540px}
+.final .cta-row{max-width:520px;margin:32px auto 0}
+.final .cta-note{text-align:center;font-size:.8rem;color:var(--ink-dim);margin-top:16px}
+.final .cta-note b{color:var(--ink-soft)}
 
 /* footer */
-footer{padding:30px 0 46px;border-top:1px solid var(--line-soft);margin-top:20px}
-footer .f-logo{font-weight:900;font-size:1rem;display:flex;align-items:center;gap:8px;justify-content:center}
-footer p{text-align:center;font-size:.78rem;color:var(--ink-dim);margin-top:10px;font-weight:500}
-footer .links{text-align:center;margin-top:14px;font-size:.8rem}
-footer .links a{color:var(--brand-deep);text-decoration:none;font-weight:700;margin:0 8px;border-bottom:1px solid transparent}
+footer{padding:56px 0 46px;border-top:1px solid var(--line-soft);margin-top:30px}
+footer .f-logo{font-weight:900;font-size:1.05rem;display:flex;align-items:center;gap:10px;justify-content:center}
+footer .f-logo .mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(150deg,var(--brand-2),var(--brand-deep));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900}
+footer .f-desc{text-align:center;font-size:.8rem;color:var(--ink-dim);margin-top:14px;font-weight:500}
+footer .links{text-align:center;margin-top:18px;font-size:.82rem}
+footer .links a{color:var(--brand-deep);font-weight:700;margin:0 10px;border-bottom:1px solid transparent;transition:border-color .3s}
 footer .links a:hover{border-color:var(--brand)}
-footer .disc{font-size:.72rem;color:var(--ink-dim);margin-top:16px;line-height:1.7}
+footer .disc{font-size:.72rem;color:var(--ink-dim);margin-top:22px;line-height:1.8;text-align:center;max-width:720px;margin-left:auto;margin-right:auto}
 
 /* sticky mobile cta */
-.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(246,243,236,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 14px;display:flex;gap:10px;box-shadow:0 -8px 24px -16px rgba(0,0,0,.4)}
-.sticky-cta a{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;font-weight:900;border-radius:12px;padding:13px;text-decoration:none;font-size:.95rem}
-.sticky-cta .l{background:#06c755;color:#fff}
-.sticky-cta .m{background:#fff;color:var(--ink);border:1.5px solid var(--line);flex:0 0 52px;font-size:1.2rem}
-body{padding-bottom:74px}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(244,241,234,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:11px 14px;display:flex;gap:10px;box-shadow:0 -10px 30px -18px rgba(0,0,0,.5)}
+.sticky-cta a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:800;border-radius:13px;padding:14px;font-size:.95rem}
+.sticky-cta .s-brand{background:var(--brand);color:#fff}
+.sticky-cta .s-line{background:#fff;color:#06c755;border:1.5px solid var(--line);flex:0 0 64px;font-size:.82rem;font-weight:900}
+body{padding-bottom:78px}
+@media(min-width:820px){.sticky-cta{display:none}body{padding-bottom:0}}
 
-@media(min-width:560px){
-  .values{grid-template-columns:1fr}
-  .cta-row{flex-direction:row}
-  .cta-row .btn{flex:1}
-}
+/* reveal */
+.rv{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}*{scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
+<div id="progress"></div>
 
-<div class="topbar">
+<div class="topbar" id="topbar">
   <div class="row">
-    <div class="logo">
-      <span class="mark">現</span>
-      <span>現場職OS<small>GENBA OS</small></span>
-    </div>
-    <a class="topcta" href="https://genba-os.pages.dev/" target="_blank" rel="noopener" style="background:#1b8f5a">無料で使ってみる</a>
+    <a href="#top" class="logo"><span class="mark">現</span><span>現場職OS<small>GENBA OS</small></span></a>
+    <nav class="topnav">
+      <a href="#values">できること</a>
+      <a href="#price">料金</a>
+      <a href="#future">これから</a>
+      <a class="topcta" href="https://genba-os.pages.dev/" target="_blank" rel="noopener">無料で使ってみる</a>
+    </nav>
   </div>
 </div>
 
-<div class="wrap">
-
-  <!-- HERO -->
-  <header class="hero">
-    <span class="badge"><span class="dot"></span>現場職（軽貨物・建設・電気・清掃ほか）のためのアプリ／先行登録受付中</span>
-    <h1>確定申告、<br><span class="hl">もう一人で泣かない。</span><br><span class="u">領収書は「撮るだけ」。</span></h1>
-    <p class="lead">現場で働く一人親方の <b>確定申告・経費・請求書</b> を、<b>スマホだけ</b>で。<br>軽貨物・建設・電気・設備・清掃・警備・引越し――<b>職種を選ぶと経費の科目が切り替わります</b>。パソコンも、簿記の知識も、いりません。</p>
-    <div class="cta-row">
-      <a class="btn btn-line" href="https://genba-os.pages.dev/" target="_blank" rel="noopener" style="background:#1b8f5a;box-shadow:0 12px 26px -12px rgba(27,143,90,.7)">無料で使ってみる（登録不要）</a>
-      <a class="btn btn-mail" href="https://lin.ee/8rR88pb" target="_blank" rel="noopener">LINEで先行登録</a>
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="badge rv"><span class="dot"></span>現場職（軽貨物・建設・電気・清掃ほか）のためのアプリ／先行公開中</span>
+        <h1 class="rv">確定申告、<br><span class="hl">もう一人で泣かない。</span><br><span class="u">領収書は「撮るだけ」。</span></h1>
+        <p class="lead rv">現場で働く一人親方の <b>確定申告・経費・請求書</b> を、<b>スマホだけ</b>で。軽貨物・建設・電気・設備・清掃・警備・引越し――<b>職種を選ぶと経費の科目が切り替わります</b>。パソコンも簿記の知識も、いりません。</p>
+        <div class="cta-row rv">
+          <a class="btn btn-brand" href="https://genba-os.pages.dev/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            無料で使ってみる（登録不要）
+          </a>
+          <a class="btn btn-line" href="https://lin.ee/8rR88pb" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.79 2 10.46c0 4.18 3.62 7.68 8.51 8.34.33.07.78.22.9.5.1.26.06.66.03.92l-.15.9c-.04.27-.21 1.05.92.57 1.13-.48 6.1-3.59 8.32-6.15C22.29 13.85 22 11.9 22 10.46 22 5.79 17.52 2 12 2Z"/></svg>
+            LINEで先行登録
+          </a>
+        </div>
+        <p class="cta-note rv">アプリは <b>登録不要・インストール不要</b>。ブラウザで開いてすぐ使えます。先行公開中につき無料。</p>
+        <div class="hero-trust rv">
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>登録不要ですぐ試せる</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>税理士¥10万→月¥980予定</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>7職種の経費科目に対応</div>
+        </div>
+      </div>
+      <div class="hero-visual rv">
+        <div class="device"><img src="app-home.png" width="320" height="690" alt="現場職OS アプリのホーム画面（所得・経費サマリー）" loading="eager"></div>
+        <div class="float-chip fc-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 12h6M12 9v6"/></svg><span>職種で<br>科目が変わる</span></div>
+        <div class="float-chip fc-2"><span class="fc-num">62%</span><span>申告準備<br>たまってます</span></div>
+      </div>
     </div>
-    <p class="cta-note">アプリは <b>登録不要・インストール不要</b>。ブラウザで開いてすぐ使えます。<br>先行公開中につき無料。最新情報はLINEでもご案内します。</p>
-  </header>
+  </div>
+</header>
+
+<!-- trades -->
+<div class="trades">
+  <div class="trades-inner">
+    <span class="tl">対応職種</span>
+    <span class="trade">軽貨物配送</span><span class="trade">建設・土木</span><span class="trade">電気工事</span><span class="trade">設備</span><span class="trade">清掃</span><span class="trade">警備</span><span class="trade">引越し</span>
+  </div>
 </div>
 
-<div class="wrap">
-  <!-- PAIN -->
-  <section>
-    <div class="pain">
-      <span class="kicker" style="color:var(--road)">2月の、あの感じ</span>
-      <h2>毎年これ、しんどくないですか。</h2>
-      <p class="sec-lead">走るのが仕事なのに、確定申告のたびに手が止まる。</p>
-      <ul>
-        <li><span class="x">×</span>レシートが、車のダッシュボードと財布に山積み。どれが経費かもわからない。</li>
-        <li><span class="x">×</span>ガソリン代って何割落とせる？車は？高速代は？毎年ネットで調べて、結局あいまい。</li>
-        <li><span class="x">×</span>2月になってから一気にやろうとして、毎年泣く。</li>
-        <li><span class="x">×</span>請求書はExcelを毎回コピペ。インボイスの番号も合ってるか不安。</li>
-      </ul>
-    </div>
-  </section>
-</div>
+<!-- PAIN -->
+<section class="blk"><div class="wrap">
+  <div class="pain rv">
+    <span class="kicker">2月の、あの感じ</span>
+    <h2>毎年これ、しんどくないですか。</h2>
+    <p class="sec-lead">走るのが仕事なのに、確定申告のたびに手が止まる。</p>
+    <ul>
+      <li><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg></span>レシートが、車のダッシュボードと財布に山積み。どれが経費かもわからない。</li>
+      <li><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg></span>ガソリン代って何割落とせる？車は？高速代は？毎年ネットで調べて、結局あいまい。</li>
+      <li><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg></span>2月になってから一気にやろうとして、毎年泣く。</li>
+      <li><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg></span>請求書はExcelを毎回コピペ。インボイスの番号も合ってるか不安。</li>
+    </ul>
+  </div>
+</div></section>
 
-<div class="wrap">
-  <!-- VALUES -->
-  <section>
+<!-- VALUES -->
+<section class="blk" id="values"><div class="wrap">
+  <div class="sec-head">
     <span class="kicker">現場職OSがやること</span>
     <h2>やることは、たった3つ。</h2>
     <p class="sec-lead">難しい機能は、いりません。現場で働く人の「事務」だけを、まるごとラクにします。</p>
+  </div>
 
-    <div class="values">
-      <!-- 1 -->
-      <div class="val">
+  <div class="values">
+    <!-- 1 -->
+    <div class="val rv">
+      <div class="val-body">
         <span class="vnum">01</span>
-        <div class="vic">📸</div>
+        <div class="vic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3Z"/><circle cx="12" cy="13" r="3.5"/></svg></div>
         <h3>レシートは<span class="hl">撮るだけ</span>。<br>経費を自動で仕分け。</h3>
-        <p>スマホでレシートを撮るだけ。日付・金額・店名を読み取って、勘定科目に自動で振り分けます。職種（軽貨物・建設・電気・設備・清掃・警備・引越し）に合わせた経費判断のナレッジを内蔵しているから、「これ経費にしていいの？」がなくなります。</p>
+        <p>スマホでレシートを撮るだけ。日付・金額・店名を読み取って、勘定科目に自動で振り分けます。職種に合わせた経費判断のナレッジを内蔵しているから、「これ経費にしていいの？」がなくなります。</p>
         <div class="chips">
           <span class="chip">ガソリン代の家事按分</span>
-          <span class="chip">車両の減価償却・少額減価償却特例</span>
+          <span class="chip">車両の減価償却・少額特例</span>
           <span class="chip">高速・駐車場代</span>
           <span class="chip">インボイス2割特例</span>
         </div>
       </div>
+    </div>
 
-      <!-- 2 -->
-      <div class="val">
+    <!-- 2 (with product shot) -->
+    <div class="val wide rv">
+      <div class="val-body">
         <span class="vnum">02</span>
-        <div class="vic">📈</div>
+        <div class="vic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-4 4"/></svg></div>
         <h3>確定申告が<span class="hl">「貯まっていく」</span>。</h3>
-        <p>撮る・答える、それだけで申告の準備が毎日少しずつ積み上がります。2月にゼロから始めるのではなく、走った日に少しずつ。気づいたら、もうほぼ終わっている状態に。</p>
+        <p>撮る・答える、それだけで申告の準備が毎日少しずつ積み上がります。2月にゼロから始めるのではなく、走った日に少しずつ。気づいたら、もうほぼ終わっている状態に。売上・経費から所得税・住民税の概算まで自動で試算します。</p>
         <div class="prog"><span class="bar"></span></div>
         <p class="prog-label">今年の経費 <b>たまっています</b>／確定申告の準備 <b>62%完了</b>（※体験イメージ）</p>
       </div>
+      <div class="val-shot">
+        <div class="device"><img src="app-tax.png" width="230" height="500" alt="現場職OS 確定申告サマリー画面（売上・経費・所得の集計）" loading="lazy"></div>
+      </div>
+    </div>
 
-      <!-- 3 -->
-      <div class="val">
+    <!-- 3 -->
+    <div class="val rv">
+      <div class="val-body">
         <span class="vnum">03</span>
-        <div class="vic">🧾</div>
+        <div class="vic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 2v20l2-1.5L8 22l2-1.5L12 22l2-1.5L16 22l2-1.5L20 22V2l-2 1.5L16 2l-2 1.5L12 2l-2 1.5L8 2 6 3.5 4 2Z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
         <h3>スマホで<span class="hl">請求書</span>。<br>元請けにすぐ送れる。</h3>
         <p>屋号・インボイス登録番号・連番に対応。テンプレートに金額を入れるだけで、きれいな請求書が完成。その場でPDFにして、元請けにすぐ送れます。Excelのコピペは、もう卒業。</p>
         <div class="chips">
@@ -302,127 +433,119 @@ body{padding-bottom:74px}
         </div>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</div></section>
 
-<div class="wrap">
-  <!-- AI ASSISTANT -->
-  <section>
-    <div class="ai">
-      <span class="kicker">手を動かす量を、減らす</span>
-      <h2>AI秘書が、ぜんぶラクにする。</h2>
-      <p class="big"><span class="u">撮る・しゃべる → もう終わってる。</span></p>
-      <p>新しく覚えることはありません。AIは「上の3つ」をラクにするための道具です。レシートを撮る、「今日ガソリン3,000円」としゃべる。それだけで、仕分けも記録も裏で勝手に進みます。入力という作業そのものを、減らします。</p>
-    </div>
-  </section>
-</div>
+<!-- AI -->
+<section class="blk"><div class="wrap">
+  <div class="ai rv">
+    <span class="kicker">手を動かす量を、減らす</span>
+    <h2>AI秘書が、事務をぜんぶ引き受ける。</h2>
+    <p class="big"><span class="u">撮る・きく → もう終わってる。</span></p>
+    <p class="d">新しく覚えることはありません。AIは「上の3つ」をラクにするための道具です。「今年の経費は？」「車検はいつ？」と聞けば、記録から即答。レシートを撮る、経費をしゃべる。それだけで、仕分けも記録も裏で進みます。※データにない事は正直に「記録なし」と答え、嘘は作りません。</p>
+  </div>
+</div></section>
 
-<div class="wrap">
-  <!-- KEEP -->
-  <section>
-    <div class="keep">
-      <p class="q">やめたら、また <span class="u">2月の地獄</span> に戻る。</p>
-      <p>続けるほど、経費も申告準備もたまっていきます。止めるのはいつでもできるけれど、たまり続ける安心は、続けている人だけのもの。</p>
-    </div>
-  </section>
-</div>
+<!-- KEEP -->
+<section class="blk"><div class="wrap">
+  <div class="keep rv">
+    <p class="q">やめたら、また <span class="u">2月の地獄</span> に戻る。</p>
+    <p>続けるほど、経費も申告準備もたまっていきます。止めるのはいつでもできるけれど、たまり続ける安心は、続けている人だけのもの。</p>
+  </div>
+</div></section>
 
-<div class="wrap">
-  <!-- PRICING -->
-  <section>
-    <span class="kicker">料金</span>
+<!-- PRICING -->
+<section class="blk" id="price"><div class="wrap">
+  <div class="sec-head center">
+    <span class="kicker eyebrow-center">料金</span>
     <h2>税理士に頼むより、ずっと安く。</h2>
-    <div class="price" style="margin-top:18px">
-      <span class="tag">まずは無料で試せる</span>
-      <div class="amount">
-        <span class="yen">¥</span><span class="num">980</span><span class="per">／月（予定）</span>
-      </div>
-      <p class="free">無料で試して、続けるなら 月¥980。</p>
-      <div class="cmp">
-        税理士に確定申告をお願いすると、<b>年10万円〜</b>かかることも珍しくありません。<br>
-        現場職OSなら <b>1年でも約1万円ちょっと</b>。浮いたお金も、空いた時間も、現場に回せます。
-      </div>
-      <p class="preorder">
-        <b>※ 現在は先行公開中で、すべての機能を無料でお使いいただけます。</b>課金はまだ開始しておらず、ニセの課金や「購入済み」表示は一切ありません。
-        正式版は月¥980を予定（変更の可能性あり）。最新情報はLINEでもご案内します。
-      </p>
-    </div>
-  </section>
-</div>
+  </div>
+  <div class="price rv">
+    <span class="tag">まずは無料で試せる</span>
+    <div class="amount"><span class="yen">¥</span><span class="num">980</span><span class="per">／月（予定）</span></div>
+    <p class="free">無料で試して、続けるなら 月¥980。</p>
+    <div class="cmp">税理士に確定申告をお願いすると、<b>年10万円〜</b>かかることも珍しくありません。<br>現場職OSなら <b>1年でも約1万円ちょっと</b>。浮いたお金も、空いた時間も、現場に回せます。</div>
+    <p class="preorder"><b>※ 現在は先行公開中で、すべての機能を無料でお使いいただけます。</b>課金はまだ開始しておらず、ニセの課金や「購入済み」表示は一切ありません。正式版は月¥980を予定（変更の可能性あり）。</p>
+    <a class="btn btn-brand" href="https://genba-os.pages.dev/" target="_blank" rel="noopener">無料で使ってみる（登録不要）</a>
+  </div>
+</div></section>
 
-<div class="wrap">
-  <!-- FUTURE / NORTH STAR -->
-  <section>
-    <div class="future">
-      <span class="kicker">これから目指すこと</span>
-      <h2>ゆくゆくは、現場職のすべてを一つに。</h2>
-      <p>現場職OSが最初に向き合うのは「確定申告・経費・請求」です。でも目指しているのは、その先。案件管理・仲間募集・車両・学習・コミュニティまで、現場で働く人の毎日を、ひとつにまとめていきます。</p>
-      <p>そして配送（軽貨物）から、建設・警備・清掃・設備・電気工事・引越しへ。現場で働くすべての人の、いちばん近い相棒に。</p>
-      <div class="tags">
-        <span class="tag">案件管理</span>
-        <span class="tag">仲間募集</span>
-        <span class="tag">車両</span>
-        <span class="tag">学習</span>
-        <span class="tag">コミュニティ</span>
-      </div>
-      <p class="small">※ まずは税務×事務の3点から。上記は今後の構想で、現時点で提供を約束するものではありません。</p>
+<!-- FUTURE -->
+<section class="blk" id="future"><div class="wrap">
+  <div class="future rv">
+    <span class="kicker">これから目指すこと</span>
+    <h2>ゆくゆくは、現場職のすべてを一つに。</h2>
+    <p>現場職OSが最初に向き合うのは「確定申告・経費・請求」です。でも目指しているのは、その先。案件管理・仲間募集・車両・学習・コミュニティまで、現場で働く人の毎日を、ひとつにまとめていきます。</p>
+    <p>そして配送（軽貨物）から、建設・警備・清掃・設備・電気工事・引越しへ。現場で働くすべての人の、いちばん近い相棒に。</p>
+    <div class="tags">
+      <span class="ftag">案件管理</span><span class="ftag">仲間募集</span><span class="ftag">車両</span><span class="ftag">まなび</span><span class="ftag">コミュニティ</span><span class="ftag">AI秘書</span>
     </div>
-  </section>
-</div>
+    <p class="small">※ まずは税務×事務の3点から。上記は今後の構想で、現時点で提供を約束するものではありません。</p>
+  </div>
+</div></section>
 
-<div class="wrap">
-  <!-- HONESTY / LEGAL -->
-  <section>
+<!-- HONESTY -->
+<section class="blk"><div class="wrap">
+  <div class="sec-head">
     <span class="kicker">正直に、お伝えします</span>
     <h2>ごまかしません。</h2>
-    <div class="honest">
-      <b>確定申告は「作成のお手伝い」をするツールです。</b>税務の代行はしません。最終的な申告内容のご確認は、税理士またはご本人でお願いします。内容に不安がある場合は、税理士へのご相談をおすすめします。
-    </div>
-    <div class="honest">
-      <b>「必ず節税できる」とは言いません。</b>制度や控除を漏れなく整理するお手伝いはしますが、結果を保証するものではありません。
-    </div>
-    <div class="honest">
-      <b>まだ先行登録の段階です。</b>利用者数や体験談を盛ることはしません。これから一緒に作っていく仲間を、いま募集しています。
-    </div>
-  </section>
-</div>
+  </div>
+  <div class="honest-grid">
+    <div class="honest rv"><b>確定申告は「作成のお手伝い」をするツールです。</b>税務の代行はしません。最終的な申告内容のご確認は、税理士またはご本人でお願いします。内容に不安がある場合は、税理士へのご相談をおすすめします。</div>
+    <div class="honest rv"><b>「必ず節税できる」とは言いません。</b>制度や控除を漏れなく整理するお手伝いはしますが、結果を保証するものではありません。</div>
+    <div class="honest rv"><b>まだ先行公開の段階です。</b>利用者数や体験談を盛ることはしません。これから一緒に作っていく仲間を、いま募集しています。</div>
+  </div>
+</div></section>
 
-<div class="wrap">
-  <!-- FINAL CTA -->
-  <section class="final">
-    <span class="kicker">今すぐ無料で</span>
-    <h2>来年の2月を、<br>静かに迎えませんか。</h2>
-    <p class="sec-lead">登録もインストールもいりません。ブラウザで開いて、今日の経費を1件入れるだけ。</p>
-    <div class="cta-row" style="margin-top:24px">
-      <a class="btn btn-line" href="https://genba-os.pages.dev/" target="_blank" rel="noopener" style="background:#1b8f5a;box-shadow:0 12px 26px -12px rgba(27,143,90,.7)">無料で使ってみる（登録不要）</a>
-      <a class="btn btn-mail" href="https://lin.ee/8rR88pb" target="_blank" rel="noopener">LINEで先行登録</a>
-    </div>
-    <p class="cta-note">アプリは <b>https://genba-os.pages.dev/</b> ですぐに使えます。<br>先行公開中につき無料。最新情報はLINEでもご案内します。</p>
-  </section>
-</div>
+<!-- FINAL -->
+<section class="blk final"><div class="wrap">
+  <span class="kicker eyebrow-center">今すぐ無料で</span>
+  <h2>来年の2月を、<br>静かに迎えませんか。</h2>
+  <p class="sec-lead">登録もインストールもいりません。ブラウザで開いて、今日の経費を1件入れるだけ。</p>
+  <div class="cta-row">
+    <a class="btn btn-brand" href="https://genba-os.pages.dev/" target="_blank" rel="noopener">無料で使ってみる（登録不要）</a>
+    <a class="btn btn-line" href="https://lin.ee/8rR88pb" target="_blank" rel="noopener">LINEで先行登録</a>
+  </div>
+  <p class="cta-note">アプリは <b>https://genba-os.pages.dev/</b> ですぐに使えます。先行公開中につき無料。</p>
+</div></section>
 
-<div class="wrap">
-  <footer>
-    <div class="f-logo"><span class="logo"><span class="mark">現</span></span>現場職OS</div>
-    <p>現場職（軽貨物・建設・電気・設備・清掃・警備・引越し）のための 確定申告・経費・請求 アプリ（開発中）</p>
-    <div class="links">
-      <a href="https://richend0913.github.io/haisou/" target="_blank" rel="noopener">運営の配送事業</a>
-      <a href="https://richend0913.github.io/privacy.html" target="_blank" rel="noopener">プライバシー</a>
-      <a href="mailto:next.growth0913@gmail.com">お問い合わせ</a>
-    </div>
-    <p class="disc">
-      現場職OSは現在開発中であり、表示している機能・料金・特典は予定です。内容は予告なく変更となる場合があります。<br>
-      本サービスは確定申告書類の作成補助を目的としたものであり、税務代理・税務相談（税理士業務）を行うものではありません。<br>
-      運営：NEXT GROWTH ／ next.growth0913@gmail.com
-    </p>
-  </footer>
-</div>
+<footer><div class="wrap">
+  <div class="f-logo"><span class="mark">現</span>現場職OS</div>
+  <p class="f-desc">現場職（軽貨物・建設・電気・設備・清掃・警備・引越し）のための 確定申告・経費・請求 アプリ（開発中）</p>
+  <div class="links">
+    <a href="https://richend0913.github.io/haisou/" target="_blank" rel="noopener">運営の配送事業</a>
+    <a href="https://richend0913.github.io/privacy.html" target="_blank" rel="noopener">プライバシー</a>
+    <a href="mailto:next.growth0913@gmail.com">お問い合わせ</a>
+  </div>
+  <p class="disc">
+    現場職OSは現在開発中であり、表示している機能・料金・特典は予定です。内容は予告なく変更となる場合があります。<br>
+    本サービスは確定申告書類の作成補助を目的としたものであり、税務代理・税務相談（税理士業務）を行うものではありません。<br>
+    運営：NEXT GROWTH ／ next.growth0913@gmail.com
+  </p>
+</div></footer>
 
-<!-- sticky mobile cta -->
 <div class="sticky-cta">
-  <a class="l" href="https://genba-os.pages.dev/" target="_blank" rel="noopener" style="background:#1b8f5a">無料で使ってみる（登録不要）</a>
-  <a class="m" href="https://lin.ee/8rR88pb" target="_blank" rel="noopener" aria-label="LINEで先行登録" style="font-size:.78rem;font-weight:900;color:#06c755">LINE</a>
+  <a class="s-brand" href="https://genba-os.pages.dev/" target="_blank" rel="noopener">無料で使ってみる</a>
+  <a class="s-line" href="https://lin.ee/8rR88pb" target="_blank" rel="noopener" aria-label="LINEで先行登録">LINE</a>
 </div>
 
+<script>
+/* progress bar + sticky header state */
+addEventListener('scroll',function(){
+  var h=document.documentElement.scrollHeight-innerHeight;
+  document.getElementById('progress').style.width=(h>0?scrollY/h*100:0)+'%';
+  document.getElementById('topbar').classList.toggle('on',scrollY>8);
+},{passive:true});
+
+/* scroll reveal (progressive: no-JS keeps content visible) */
+(function(){
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var els=document.querySelectorAll('.rv');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){io.observe(el);});
+  // progress bars use .in on their .val container
+  document.querySelectorAll('.val').forEach(function(v){io.observe(v);});
+})();
+</script>
 </body>
 </html>
