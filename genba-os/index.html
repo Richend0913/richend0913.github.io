@@ -89,11 +89,16 @@ body{
   overflow-x:hidden;font-weight:400;letter-spacing:.01em;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
-/* --- 日本語組版: 文節単位の自然な改行（階段化を防ぐ） --- */
-h1,h2,h3,h4{text-wrap:balance;line-height:1.34;letter-spacing:-.01em;word-break:auto-phrase;line-break:strict}
-p,li,summary,.lead,.sec-lead,.d,.badge,.cta-note,.prog-label,.honest,.preorder,.cmp,.f-desc{text-wrap:pretty;word-break:auto-phrase;line-break:strict;overflow-wrap:anywhere}
-/* 文節を塊で扱う（内部で折り返さない＝孤立文字を防ぐ）。長すぎる語はauto-phrase/anywhereが救済 */
+/* --- 日本語組版: 単語(熟語)を割らずに折り返す（全ブラウザで確実） --- */
+h1,h2,h3,h4{line-height:1.42;letter-spacing:-.005em;word-break:keep-all;overflow-wrap:anywhere;line-break:strict}
+p,li,summary,.lead,.sec-lead,.d,.badge,.cta-note,.prog-label,.honest,.preorder,.cmp,.f-desc{word-break:keep-all;overflow-wrap:anywhere;line-break:strict}
+/* 文節チャンク（内部で折り返さない）。<br>と併用して"人が読みやすい"改行に */
 .nb{display:inline-block}
+/* 意図的な改行はスマホのみ適用（PCは自然に流す＝右側の空白を防ぐ） */
+.brm{display:inline}
+@media(min-width:760px){.brm{display:none}}
+/* 本文の行間を読みやすく・詰めすぎず */
+.pain li,.sec-lead,.val p,.ai p.d,.keep p,.future p,.honest{line-height:1.75}
 b,strong{box-decoration-break:clone;-webkit-box-decoration-break:clone}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
@@ -186,20 +191,23 @@ body::before{content:"";position:fixed;inset:0;z-index:999;pointer-events:none;o
 .trade::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--brand);opacity:.6}
 
 /* generic section */
-section.blk{padding:74px 0}
+section.blk{padding:46px 0}
+@media(min-width:820px){section.blk{padding:64px 0}}
 .sec-head{max-width:640px}
 .sec-head.center{margin:0 auto;text-align:center}
 h2{font-size:clamp(1.6rem,4.6vw,2.5rem);font-weight:900;letter-spacing:-.01em;margin-top:12px;line-height:1.28}
 .sec-lead{color:var(--ink-soft);font-size:1rem;margin-top:16px;font-weight:500}
 
 /* pain */
-.pain{background:var(--ink);color:#e9e6df;border-radius:26px;padding:44px 34px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.pain{background:var(--ink);color:#e9e6df;border-radius:22px;padding:30px 18px;box-shadow:var(--shadow);position:relative;overflow:hidden}
 .pain::after{content:"";position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(255,203,31,.14),transparent 70%)}
 .pain .kicker{color:var(--road)}.pain .kicker::before{background:var(--road)}
 .pain h2{color:#fff}.pain .sec-lead{color:#b7bcc3}
-.pain ul{list-style:none;margin-top:28px;display:grid;gap:16px;max-width:760px}
-.pain li{display:flex;gap:14px;align-items:flex-start;font-size:.98rem;font-weight:500;color:#d9dce1}
-.pain li .x{flex-shrink:0;width:26px;height:26px;border-radius:8px;background:rgba(255,203,31,.14);color:var(--road);display:flex;align-items:center;justify-content:center;margin-top:2px}
+.pain ul{list-style:none;margin-top:22px;display:grid;gap:15px;max-width:620px}
+.pain h2,.pain .sec-lead{max-width:24em}
+.pain li{display:flex;gap:11px;align-items:flex-start;font-size:.88rem;font-weight:500;color:#d9dce1;letter-spacing:0}
+.pain li>span:last-child{min-width:0}
+.pain li .x{flex-shrink:0;width:24px;height:24px;border-radius:7px;background:rgba(255,203,31,.14);color:var(--road);display:flex;align-items:center;justify-content:center;margin-top:1px}
 .pain li .x svg{width:15px;height:15px}
 
 /* values */
@@ -229,7 +237,7 @@ h2{font-size:clamp(1.6rem,4.6vw,2.5rem);font-weight:900;letter-spacing:-.01em;ma
 }
 
 /* AI band */
-.ai{background:linear-gradient(155deg,#0f2a1c,#123a26);color:#dcefe4;border-radius:26px;padding:48px 34px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.ai{background:linear-gradient(155deg,#0f2a1c,#123a26);color:#dcefe4;border-radius:22px;padding:34px 28px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
 .ai::after{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 85% 15%,rgba(27,167,102,.3),transparent 60%)}
 .ai>*{position:relative;z-index:1}
 .ai .kicker{color:var(--road)}.ai .kicker::before{background:var(--road)}
@@ -239,13 +247,13 @@ h2{font-size:clamp(1.6rem,4.6vw,2.5rem);font-weight:900;letter-spacing:-.01em;ma
 .ai p.d{font-size:.96rem;color:#bcd3c7;margin-top:16px;font-weight:500;max-width:44em}
 
 /* keep */
-.keep{background:var(--ink);color:#fff;border-radius:22px;padding:44px 34px;text-align:center;position:relative;overflow:hidden}
+.keep{background:var(--ink);color:#fff;border-radius:22px;padding:34px 28px;text-align:center;position:relative;overflow:hidden}
 .keep .q{font-size:clamp(1.3rem,3.6vw,1.7rem);font-weight:900;line-height:1.5;max-width:20em;margin:0 auto}
 .keep .q .u{background:linear-gradient(transparent 60%,rgba(255,203,31,.85) 60%);padding:0 .05em}
 .keep p{color:#b7bcc3;font-size:.95rem;margin-top:16px;font-weight:500;max-width:40em;margin-left:auto;margin-right:auto}
 
 /* pricing */
-.price{background:var(--card);border:1.5px solid rgba(18,138,84,.35);border-radius:26px;padding:46px 34px;box-shadow:var(--shadow);text-align:center;max-width:560px;margin:44px auto 0;position:relative;overflow:hidden}
+.price{background:var(--card);border:1.5px solid rgba(18,138,84,.35);border-radius:22px;padding:36px 28px;box-shadow:var(--shadow);text-align:center;max-width:560px;margin:44px auto 0;position:relative;overflow:hidden}
 .price::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--brand),var(--road))}
 .price .tag{font-size:.76rem;font-weight:800;color:var(--brand-deep);background:var(--brand-soft);display:inline-block;padding:6px 15px;border-radius:999px;letter-spacing:.02em}
 .price .amount{margin-top:22px;display:flex;align-items:baseline;justify-content:center;gap:5px}
@@ -260,7 +268,7 @@ h2{font-size:clamp(1.6rem,4.6vw,2.5rem);font-weight:900;letter-spacing:-.01em;ma
 .price .btn{margin-top:24px;width:100%}
 
 /* future */
-.future{background:#0d2418;color:#dfeee6;border-radius:26px;padding:48px 34px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.future{background:#0d2418;color:#dfeee6;border-radius:22px;padding:34px 28px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
 .future::after{content:"";position:absolute;bottom:-60px;left:-30px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(27,167,102,.22),transparent 70%)}
 .future>*{position:relative;z-index:1}
 .future .kicker{color:var(--road)}.future .kicker::before{background:var(--road)}
@@ -370,13 +378,13 @@ body{padding-bottom:78px}
 <section class="blk"><div class="wrap">
   <div class="pain rv">
     <span class="kicker">2月の、あの感じ</span>
-    <h2>毎年これ、しんどくないですか。</h2>
-    <p class="sec-lead">走るのが仕事なのに、確定申告のたびに手が止まる。</p>
+    <h2>毎年これ、<br class="brm">しんどくないですか。</h2>
+    <p class="sec-lead">走るのが仕事なのに、<br class="brm">確定申告のたびに手が止まる。</p>
     <ul>
-      <li><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg></span>レシートが、車のダッシュボードと財布に山積み。どれが経費かもわからない。</li>
-      <li><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg></span>ガソリン代って何割落とせる？車は？高速代は？毎年ネットで調べて、結局あいまい。</li>
-      <li><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg></span>2月になってから一気にやろうとして、毎年泣く。</li>
-      <li><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg></span>請求書はExcelを毎回コピペ。インボイスの番号も合ってるか不安。</li>
+      <li><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg></span><span>レシートが、<br class="brm">車のダッシュボードと財布に山積み。<br class="brm">どれが経費かもわからない。</span></li>
+      <li><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg></span><span>ガソリン代って<br class="brm">何割落とせる？車は？高速代は？<br class="brm">毎年ネットで調べて、結局あいまい。</span></li>
+      <li><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg></span><span>2月になってから<br class="brm">一気にやろうとして、毎年泣く。</span></li>
+      <li><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg></span><span>請求書はExcelを毎回コピペ。<br class="brm">インボイスの番号も、合ってるか不安。</span></li>
     </ul>
   </div>
 </div></section>
