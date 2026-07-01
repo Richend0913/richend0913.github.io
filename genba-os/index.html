@@ -230,6 +230,8 @@ h2{font-size:clamp(1.48rem,4.3vw,2.4rem);font-weight:900;letter-spacing:-.01em;m
 .val .prog-label{font-size:.78rem;font-weight:600;color:var(--ink-dim);margin-top:9px}
 .val .prog-label b{color:var(--brand-deep)}
 .val-shot{background:linear-gradient(160deg,#eef6f1,#e2efe8);display:flex;align-items:center;justify-content:center;padding:26px}
+.desk-only{display:none}
+@media(min-width:760px){.val-shot.desk-only{display:flex}}
 .val-shot .device{width:min(230px,60vw);box-shadow:var(--shadow)}
 .val-shot .device::before{width:76px;height:16px}
 @media(min-width:760px){
@@ -294,7 +296,7 @@ h2{font-size:clamp(1.48rem,4.3vw,2.4rem);font-weight:900;letter-spacing:-.01em;m
 .final .cta-note b{color:var(--ink-soft)}
 
 /* footer */
-footer{padding:56px 0 46px;border-top:1px solid var(--line-soft);margin-top:30px}
+footer{padding:34px 0 40px;border-top:1px solid var(--line-soft);margin-top:0}
 footer .f-logo{font-weight:900;font-size:1.05rem;display:flex;align-items:center;gap:10px;justify-content:center}
 footer .f-logo .mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(150deg,var(--brand-2),var(--brand-deep));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900}
 footer .f-desc{text-align:center;font-size:.8rem;color:var(--ink-dim);margin-top:14px;font-weight:500}
@@ -400,7 +402,7 @@ body{padding-bottom:78px}
 
   <div class="values">
     <!-- 1 -->
-    <div class="val rv">
+    <div class="val wide rv">
       <div class="val-body">
         <span class="vnum">01</span>
         <div class="vic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3Z"/><circle cx="12" cy="13" r="3.5"/></svg></div>
@@ -412,6 +414,9 @@ body{padding-bottom:78px}
           <span class="chip">高速・駐車場代</span>
           <span class="chip">インボイス2割特例</span>
         </div>
+      </div>
+      <div class="val-shot desk-only">
+        <div class="device"><img src="app-expense.png" width="230" height="500" alt="現場職OS 経費入力画面（職種で勘定科目が切り替わる）" loading="lazy"></div>
       </div>
     </div>
 
@@ -431,7 +436,7 @@ body{padding-bottom:78px}
     </div>
 
     <!-- 3 -->
-    <div class="val rv">
+    <div class="val wide rv">
       <div class="val-body">
         <span class="vnum">03</span>
         <div class="vic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 2v20l2-1.5L8 22l2-1.5L12 22l2-1.5L16 22l2-1.5L20 22V2l-2 1.5L16 2l-2 1.5L12 2l-2 1.5L8 2 6 3.5 4 2Z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
@@ -443,6 +448,9 @@ body{padding-bottom:78px}
           <span class="chip">請求書番号 自動連番</span>
           <span class="chip">PDFで送付</span>
         </div>
+      </div>
+      <div class="val-shot desk-only">
+        <div class="device"><img src="app-invoice.png" width="230" height="500" alt="現場職OS 請求書作成画面（インボイス番号・連番・PDF）" loading="lazy"></div>
       </div>
     </div>
   </div>
