@@ -90,8 +90,8 @@ body{
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
 /* --- 日本語組版: 単語(熟語)を割らずに折り返す（全ブラウザで確実） --- */
-h1,h2,h3,h4{line-height:1.42;letter-spacing:-.005em;word-break:keep-all;overflow-wrap:anywhere;line-break:strict}
-p,li,summary,.lead,.sec-lead,.d,.badge,.cta-note,.prog-label,.honest,.preorder,.cmp,.f-desc{word-break:keep-all;overflow-wrap:anywhere;line-break:strict}
+h1,h2,h3,h4{line-height:1.42;letter-spacing:-.005em;word-break:keep-all;overflow-wrap:anywhere;line-break:strict;text-wrap:balance}
+p,li,summary,.lead,.sec-lead,.d,.badge,.cta-note,.prog-label,.honest,.preorder,.cmp,.free,.f-desc{word-break:keep-all;overflow-wrap:anywhere;line-break:strict}
 /* 文節チャンク（内部で折り返さない）。<br>と併用して"人が読みやすい"改行に */
 .nb{display:inline-block}
 /* 意図的な改行はスマホのみ適用（PCは自然に流す＝右側の空白を防ぐ） */
@@ -195,7 +195,7 @@ section.blk{padding:46px 0}
 @media(min-width:820px){section.blk{padding:64px 0}}
 .sec-head{max-width:640px}
 .sec-head.center{margin:0 auto;text-align:center}
-h2{font-size:clamp(1.6rem,4.6vw,2.5rem);font-weight:900;letter-spacing:-.01em;margin-top:12px;line-height:1.28}
+h2{font-size:clamp(1.48rem,4.3vw,2.4rem);font-weight:900;letter-spacing:-.01em;margin-top:12px;line-height:1.4}
 .sec-lead{color:var(--ink-soft);font-size:1rem;margin-top:16px;font-weight:500}
 
 /* pain */
@@ -205,7 +205,7 @@ h2{font-size:clamp(1.6rem,4.6vw,2.5rem);font-weight:900;letter-spacing:-.01em;ma
 .pain h2{color:#fff}.pain .sec-lead{color:#b7bcc3}
 .pain ul{list-style:none;margin-top:22px;display:grid;gap:15px;max-width:620px}
 .pain h2,.pain .sec-lead{max-width:24em}
-.pain li{display:flex;gap:11px;align-items:flex-start;font-size:.88rem;font-weight:500;color:#d9dce1;letter-spacing:0}
+.pain li{display:flex;gap:10px;align-items:flex-start;font-size:.84rem;font-weight:500;color:#d9dce1;letter-spacing:-.01em}
 .pain li>span:last-child{min-width:0}
 .pain li .x{flex-shrink:0;width:24px;height:24px;border-radius:7px;background:rgba(255,203,31,.14);color:var(--road);display:flex;align-items:center;justify-content:center;margin-top:1px}
 .pain li .x svg{width:15px;height:15px}
@@ -237,7 +237,7 @@ h2{font-size:clamp(1.6rem,4.6vw,2.5rem);font-weight:900;letter-spacing:-.01em;ma
 }
 
 /* AI band */
-.ai{background:linear-gradient(155deg,#0f2a1c,#123a26);color:#dcefe4;border-radius:22px;padding:34px 28px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.ai{background:linear-gradient(155deg,#0f2a1c,#123a26);color:#dcefe4;border-radius:22px;padding:32px 20px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
 .ai::after{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 85% 15%,rgba(27,167,102,.3),transparent 60%)}
 .ai>*{position:relative;z-index:1}
 .ai .kicker{color:var(--road)}.ai .kicker::before{background:var(--road)}
@@ -247,7 +247,7 @@ h2{font-size:clamp(1.6rem,4.6vw,2.5rem);font-weight:900;letter-spacing:-.01em;ma
 .ai p.d{font-size:.96rem;color:#bcd3c7;margin-top:16px;font-weight:500;max-width:44em}
 
 /* keep */
-.keep{background:var(--ink);color:#fff;border-radius:22px;padding:34px 28px;text-align:center;position:relative;overflow:hidden}
+.keep{background:var(--ink);color:#fff;border-radius:22px;padding:32px 20px;text-align:center;position:relative;overflow:hidden}
 .keep .q{font-size:clamp(1.3rem,3.6vw,1.7rem);font-weight:900;line-height:1.5;max-width:20em;margin:0 auto}
 .keep .q .u{background:linear-gradient(transparent 60%,rgba(255,203,31,.85) 60%);padding:0 .05em}
 .keep p{color:#b7bcc3;font-size:.95rem;margin-top:16px;font-weight:500;max-width:40em;margin-left:auto;margin-right:auto}
@@ -261,14 +261,14 @@ h2{font-size:clamp(1.6rem,4.6vw,2.5rem);font-weight:900;letter-spacing:-.01em;ma
 .price .amount .num{font-family:var(--num);font-size:5.4rem;line-height:.85;color:var(--ink)}
 .price .amount .per{font-size:1.05rem;font-weight:700;color:var(--ink-dim)}
 .price .free{font-size:1.05rem;font-weight:900;color:var(--brand-deep);margin-top:12px}
-.price .cmp{margin-top:24px;background:var(--paper);border-radius:16px;padding:20px;text-align:left;font-size:.92rem;font-weight:500;color:var(--ink-soft)}
+.price .cmp{margin-top:24px;background:var(--paper);border-radius:16px;padding:18px 15px;text-align:left;font-size:.86rem;line-height:1.85;font-weight:500;color:var(--ink-soft)}
 .price .cmp b{color:var(--ink);font-weight:900}
 .price .preorder{font-size:.84rem;color:var(--ink-dim);margin-top:20px;line-height:1.8;font-weight:500}
 .price .preorder b{color:var(--brand-deep)}
 .price .btn{margin-top:24px;width:100%}
 
 /* future */
-.future{background:#0d2418;color:#dfeee6;border-radius:22px;padding:34px 28px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.future{background:#0d2418;color:#dfeee6;border-radius:22px;padding:32px 20px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
 .future::after{content:"";position:absolute;bottom:-60px;left:-30px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(27,167,102,.22),transparent 70%)}
 .future>*{position:relative;z-index:1}
 .future .kicker{color:var(--road)}.future .kicker::before{background:var(--road)}
@@ -339,7 +339,7 @@ body{padding-bottom:78px}
       <div class="hero-copy">
         <span class="badge rv"><span class="dot"></span>現場職（軽貨物・建設・電気・清掃ほか）のためのアプリ／先行公開中</span>
         <h1 class="rv"><span class="nb">確定申告、</span><br><span class="hl nb">もう一人で泣かない。</span><br><span class="u">領収書は<span class="nb">「撮るだけ」。</span></span></h1>
-        <p class="lead rv">現場で働く一人親方の<b>確定申告・経費・請求書</b>を、<b class="nb">スマホだけ</b>で。軽貨物・建設・電気・設備・清掃・警備・引越し――<b>職種を選ぶと、経費の科目が切り替わります。</b>パソコンも簿記の知識も、いりません。</p>
+        <p class="lead rv">現場で働く一人親方の<br class="brm"><b>確定申告・経費・請求書</b>を、<b class="nb">スマホだけ</b>で。<br class="brm">軽貨物・建設・電気・設備・清掃・警備・引越し<br class="brm">――<b>職種を選ぶと、経費の科目が切り替わります。</b><br class="brm">パソコンも簿記の知識も、いりません。</p>
         <div class="cta-row rv">
           <a class="btn btn-brand" href="https://genba-os.pages.dev/" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -350,7 +350,7 @@ body{padding-bottom:78px}
             LINEで先行登録
           </a>
         </div>
-        <p class="cta-note rv">アプリは <b>登録不要・インストール不要</b>。ブラウザで開いてすぐ使えます。先行公開中につき無料。</p>
+        <p class="cta-note rv">アプリは <b>登録不要・インストール不要</b>。<br class="brm">ブラウザで開いてすぐ使えます。<br class="brm">先行公開中につき無料。</p>
         <div class="hero-trust rv">
           <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>登録不要ですぐ試せる</div>
           <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>税理士¥10万→月¥980予定</div>
@@ -394,7 +394,7 @@ body{padding-bottom:78px}
   <div class="sec-head">
     <span class="kicker">現場職OSがやること</span>
     <h2>やることは、たった3つ。</h2>
-    <p class="sec-lead">難しい機能は、いりません。現場で働く人の「事務」だけを、まるごとラクにします。</p>
+    <p class="sec-lead">難しい機能は、いりません。<br class="brm">現場で働く人の「事務」だけを、まるごとラクにします。</p>
   </div>
 
   <div class="values">
@@ -404,7 +404,7 @@ body{padding-bottom:78px}
         <span class="vnum">01</span>
         <div class="vic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3Z"/><circle cx="12" cy="13" r="3.5"/></svg></div>
         <h3>レシートは<span class="hl">撮るだけ</span>。<br>経費を自動で仕分け。</h3>
-        <p>スマホでレシートを撮るだけ。日付・金額・店名を読み取って、勘定科目に自動で振り分けます。職種に合わせた経費判断のナレッジを内蔵しているから、「これ経費にしていいの？」がなくなります。</p>
+        <p>スマホでレシートを撮るだけ。<br class="brm">日付・金額・店名を読み取って、勘定科目に自動で振り分けます。<br class="brm">職種に合わせた経費判断のナレッジを内蔵しているから、<br class="brm">「これ経費にしていいの？」がなくなります。</p>
         <div class="chips">
           <span class="chip">ガソリン代の家事按分</span>
           <span class="chip">車両の減価償却・少額特例</span>
@@ -420,7 +420,7 @@ body{padding-bottom:78px}
         <span class="vnum">02</span>
         <div class="vic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-4 4"/></svg></div>
         <h3>確定申告が<span class="hl">「貯まっていく」</span>。</h3>
-        <p>撮る・答える、それだけで申告の準備が毎日少しずつ積み上がります。2月にゼロから始めるのではなく、走った日に少しずつ。気づいたら、もうほぼ終わっている状態に。売上・経費から所得税・住民税の概算まで自動で試算します。</p>
+        <p>撮る・答える、それだけで申告の準備が毎日少しずつ積み上がります。<br class="brm">2月にゼロから始めるのではなく、走った日に少しずつ。<br class="brm">気づいたら、もうほぼ終わっている状態に。<br class="brm">売上・経費から所得税・住民税の概算まで自動で試算します。</p>
         <div class="prog"><span class="bar"></span></div>
         <p class="prog-label">今年の経費 <b>たまっています</b>／確定申告の準備 <b>62%完了</b>（※体験イメージ）</p>
       </div>
@@ -435,7 +435,7 @@ body{padding-bottom:78px}
         <span class="vnum">03</span>
         <div class="vic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 2v20l2-1.5L8 22l2-1.5L12 22l2-1.5L16 22l2-1.5L20 22V2l-2 1.5L16 2l-2 1.5L12 2l-2 1.5L8 2 6 3.5 4 2Z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
         <h3>スマホで<span class="hl">請求書</span>。<br>元請けにすぐ送れる。</h3>
-        <p>屋号・インボイス登録番号・連番に対応。テンプレートに金額を入れるだけで、きれいな請求書が完成。その場でPDFにして、元請けにすぐ送れます。Excelのコピペは、もう卒業。</p>
+        <p>屋号・インボイス登録番号・連番に対応。<br class="brm">テンプレートに金額を入れるだけで、きれいな請求書が完成。<br class="brm">その場でPDFにして、元請けにすぐ送れます。<br class="brm">Excelのコピペは、もう卒業。</p>
         <div class="chips">
           <span class="chip">屋号・ロゴ</span>
           <span class="chip">インボイス登録番号</span>
@@ -451,17 +451,17 @@ body{padding-bottom:78px}
 <section class="blk"><div class="wrap">
   <div class="ai rv">
     <span class="kicker">手を動かす量を、減らす</span>
-    <h2>AI秘書が、事務をぜんぶ引き受ける。</h2>
+    <h2>AI秘書が、<br class="brm">事務をぜんぶ引き受ける。</h2>
     <p class="big"><span class="u">撮る・きく → もう終わってる。</span></p>
-    <p class="d">新しく覚えることはありません。AIは「上の3つ」をラクにするための道具です。「今年の経費は？」「車検はいつ？」と聞けば、記録から即答。レシートを撮る、経費をしゃべる。それだけで、仕分けも記録も裏で進みます。※データにない事は正直に「記録なし」と答え、嘘は作りません。</p>
+    <p class="d">新しく覚えることはありません。<br class="brm">AIは「上の3つ」をラクにするための道具です。<br class="brm">「今年の経費は？」「車検はいつ？」と聞けば、記録から即答。<br class="brm">レシートを撮る、経費をしゃべる。それだけで、仕分けも記録も裏で進みます。<br class="brm">※データにない事は正直に「記録なし」と答え、嘘は作りません。</p>
   </div>
 </div></section>
 
 <!-- KEEP -->
 <section class="blk"><div class="wrap">
   <div class="keep rv">
-    <p class="q">やめたら、また <span class="u">2月の地獄</span> に戻る。</p>
-    <p>続けるほど、経費も申告準備もたまっていきます。止めるのはいつでもできるけれど、たまり続ける安心は、続けている人だけのもの。</p>
+    <p class="q">やめたら、また<br class="brm"><span class="u">2月の地獄</span>に戻る。</p>
+    <p>続けるほど、経費も申告準備もたまっていきます。<br class="brm">止めるのはいつでもできるけれど、<br class="brm">たまり続ける安心は、続けている人だけのもの。</p>
   </div>
 </div></section>
 
@@ -474,9 +474,9 @@ body{padding-bottom:78px}
   <div class="price rv">
     <span class="tag">まずは無料で試せる</span>
     <div class="amount"><span class="yen">¥</span><span class="num">980</span><span class="per">／月（予定）</span></div>
-    <p class="free">無料で試して、続けるなら 月¥980。</p>
-    <div class="cmp">税理士に確定申告をお願いすると、<b>年10万円〜</b>かかることも珍しくありません。<br>現場職OSなら <b>1年でも約1万円ちょっと</b>。浮いたお金も、空いた時間も、現場に回せます。</div>
-    <p class="preorder"><b>※ 現在は先行公開中で、すべての機能を無料でお使いいただけます。</b>課金はまだ開始しておらず、ニセの課金や「購入済み」表示は一切ありません。正式版は月¥980を予定（変更の可能性あり）。</p>
+    <p class="free">無料で試して、<br class="brm">続けるなら月¥980。</p>
+    <div class="cmp">税理士に確定申告をお願いすると、<br class="brm"><b>年10万円〜</b>かかることも珍しくありません。<br>現場職OSなら <b>1年でも約1万円ちょっと</b>。<br class="brm">浮いたお金も、空いた時間も、現場に回せます。</div>
+    <p class="preorder"><b>※ 現在は先行公開中で、すべての機能を無料でお使いいただけます。</b><br class="brm">課金はまだ開始しておらず、ニセの課金や「購入済み」表示は一切ありません。<br class="brm">正式版は月¥980を予定（変更の可能性あり）。</p>
     <a class="btn btn-brand" href="https://genba-os.pages.dev/" target="_blank" rel="noopener">無料で使ってみる（登録不要）</a>
   </div>
 </div></section>
@@ -485,9 +485,9 @@ body{padding-bottom:78px}
 <section class="blk" id="future"><div class="wrap">
   <div class="future rv">
     <span class="kicker">これから目指すこと</span>
-    <h2>ゆくゆくは、現場職のすべてを一つに。</h2>
-    <p>現場職OSが最初に向き合うのは「確定申告・経費・請求」です。でも目指しているのは、その先。案件管理・仲間募集・車両・学習・コミュニティまで、現場で働く人の毎日を、ひとつにまとめていきます。</p>
-    <p>そして配送（軽貨物）から、建設・警備・清掃・設備・電気工事・引越しへ。現場で働くすべての人の、いちばん近い相棒に。</p>
+    <h2>ゆくゆくは、<br class="brm">現場職のすべてを一つに。</h2>
+    <p>現場職OSが最初に向き合うのは「確定申告・経費・請求」です。<br class="brm">でも目指しているのは、その先。<br class="brm">案件管理・仲間募集・車両・学習・コミュニティまで、<br class="brm">現場で働く人の毎日を、ひとつにまとめていきます。</p>
+    <p>そして配送（軽貨物）から、建設・警備・清掃・設備・電気工事・引越しへ。<br class="brm">現場で働くすべての人の、いちばん近い相棒に。</p>
     <div class="tags">
       <span class="ftag">案件管理</span><span class="ftag">仲間募集</span><span class="ftag">車両</span><span class="ftag">まなび</span><span class="ftag">コミュニティ</span><span class="ftag">AI秘書</span>
     </div>
@@ -502,9 +502,9 @@ body{padding-bottom:78px}
     <h2>ごまかしません。</h2>
   </div>
   <div class="honest-grid">
-    <div class="honest rv"><b>確定申告は「作成のお手伝い」をするツールです。</b>税務の代行はしません。最終的な申告内容のご確認は、税理士またはご本人でお願いします。内容に不安がある場合は、税理士へのご相談をおすすめします。</div>
-    <div class="honest rv"><b>「必ず節税できる」とは言いません。</b>制度や控除を漏れなく整理するお手伝いはしますが、結果を保証するものではありません。</div>
-    <div class="honest rv"><b>まだ先行公開の段階です。</b>利用者数や体験談を盛ることはしません。これから一緒に作っていく仲間を、いま募集しています。</div>
+    <div class="honest rv"><b>確定申告は「作成のお手伝い」をするツールです。</b><br class="brm">税務の代行はしません。<br class="brm">最終的な申告内容のご確認は、税理士またはご本人でお願いします。<br class="brm">内容に不安がある場合は、税理士へのご相談をおすすめします。</div>
+    <div class="honest rv"><b>「必ず節税できる」とは言いません。</b><br class="brm">制度や控除を漏れなく整理するお手伝いはしますが、<br class="brm">結果を保証するものではありません。</div>
+    <div class="honest rv"><b>まだ先行公開の段階です。</b><br class="brm">利用者数や体験談を盛ることはしません。<br class="brm">これから一緒に作っていく仲間を、いま募集しています。</div>
   </div>
 </div></section>
 
@@ -512,12 +512,12 @@ body{padding-bottom:78px}
 <section class="blk final"><div class="wrap">
   <span class="kicker eyebrow-center">今すぐ無料で</span>
   <h2>来年の2月を、<br>静かに迎えませんか。</h2>
-  <p class="sec-lead">登録もインストールもいりません。ブラウザで開いて、今日の経費を1件入れるだけ。</p>
+  <p class="sec-lead">登録もインストールもいりません。<br class="brm">ブラウザで開いて、今日の経費を1件入れるだけ。</p>
   <div class="cta-row">
     <a class="btn btn-brand" href="https://genba-os.pages.dev/" target="_blank" rel="noopener">無料で使ってみる（登録不要）</a>
     <a class="btn btn-line" href="https://lin.ee/8rR88pb" target="_blank" rel="noopener">LINEで先行登録</a>
   </div>
-  <p class="cta-note">アプリは <b>https://genba-os.pages.dev/</b> ですぐに使えます。先行公開中につき無料。</p>
+  <p class="cta-note">アプリは <b>https://genba-os.pages.dev/</b> ですぐに使えます。<br class="brm">先行公開中につき無料。</p>
 </div></section>
 
 <footer><div class="wrap">
