@@ -89,8 +89,11 @@ body{
   overflow-x:hidden;font-weight:400;letter-spacing:.01em;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
-h1,h2,h3,h4{text-wrap:balance;line-height:1.32;letter-spacing:-.01em}
-p,li,summary{text-wrap:pretty;word-break:normal;overflow-wrap:anywhere}
+/* --- 日本語組版: 文節単位の自然な改行（階段化を防ぐ） --- */
+h1,h2,h3,h4{text-wrap:balance;line-height:1.34;letter-spacing:-.01em;word-break:auto-phrase;line-break:strict}
+p,li,summary,.lead,.sec-lead,.d,.badge,.cta-note,.prog-label,.honest,.preorder,.cmp,.f-desc{text-wrap:pretty;word-break:auto-phrase;line-break:strict;overflow-wrap:anywhere}
+/* 文節を塊で扱う（内部で折り返さない＝孤立文字を防ぐ）。長すぎる語はauto-phrase/anywhereが救済 */
+.nb{display:inline-block}
 b,strong{box-decoration-break:clone;-webkit-box-decoration-break:clone}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
@@ -145,7 +148,7 @@ body::before{content:"";position:fixed;inset:0;z-index:999;pointer-events:none;o
 .badge{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;color:var(--brand-deep);background:rgba(255,255,255,.7);border:1px solid rgba(18,138,84,.24);padding:7px 14px;border-radius:999px}
 .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--brand);animation:pulse 1.9s infinite}
 @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(18,138,84,.4)}50%{opacity:.5;box-shadow:0 0 0 6px rgba(18,138,84,0)}}
-.hero h1{font-size:clamp(2.1rem,6.6vw,3.7rem);font-weight:900;letter-spacing:-.02em;line-height:1.2;margin:20px 0 0}
+.hero h1{font-size:clamp(2rem,6.1vw,3.35rem);font-weight:900;letter-spacing:-.005em;line-height:1.34;margin:20px 0 0}
 .hero h1 .hl{color:var(--brand-deep)}
 .hero h1 .u{background:linear-gradient(transparent 60%,var(--road) 60%);padding:0 .05em}
 .hero .lead{font-size:clamp(1rem,2.4vw,1.14rem);color:var(--ink-soft);margin-top:22px;font-weight:500;max-width:34em}
@@ -327,8 +330,8 @@ body{padding-bottom:78px}
     <div class="hero-grid">
       <div class="hero-copy">
         <span class="badge rv"><span class="dot"></span>現場職（軽貨物・建設・電気・清掃ほか）のためのアプリ／先行公開中</span>
-        <h1 class="rv">確定申告、<br><span class="hl">もう一人で泣かない。</span><br><span class="u">領収書は「撮るだけ」。</span></h1>
-        <p class="lead rv">現場で働く一人親方の <b>確定申告・経費・請求書</b> を、<b>スマホだけ</b>で。軽貨物・建設・電気・設備・清掃・警備・引越し――<b>職種を選ぶと経費の科目が切り替わります</b>。パソコンも簿記の知識も、いりません。</p>
+        <h1 class="rv"><span class="nb">確定申告、</span><br><span class="hl nb">もう一人で泣かない。</span><br><span class="u">領収書は<span class="nb">「撮るだけ」。</span></span></h1>
+        <p class="lead rv">現場で働く一人親方の<b>確定申告・経費・請求書</b>を、<b class="nb">スマホだけ</b>で。軽貨物・建設・電気・設備・清掃・警備・引越し――<b>職種を選ぶと、経費の科目が切り替わります。</b>パソコンも簿記の知識も、いりません。</p>
         <div class="cta-row rv">
           <a class="btn btn-brand" href="https://genba-os.pages.dev/" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
