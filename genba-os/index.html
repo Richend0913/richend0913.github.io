@@ -117,9 +117,10 @@ body::before{content:"";position:fixed;inset:0;z-index:999;pointer-events:none;o
 #progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:1000;background:linear-gradient(90deg,var(--brand),var(--brand-2))}
 
 /* top bar */
-.topbar{position:sticky;top:0;z-index:80;transition:background .4s,box-shadow .4s,border-color .4s;border-bottom:1px solid transparent}
-.topbar.on{background:rgba(244,241,234,.82);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);border-bottom-color:var(--line-soft)}
-.topbar .row{max-width:var(--maxw);margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:80;background:rgba(247,244,237,.88);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);border-bottom:1px solid var(--line-soft);transition:box-shadow .4s}
+.topbar.on{box-shadow:0 6px 20px -14px rgba(17,22,25,.4)}
+.topbar .row{max-width:var(--maxw);margin:0 auto;padding:11px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+body{padding-top:66px}
 .logo{font-weight:900;font-size:1.06rem;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
 .logo .mark{width:32px;height:32px;border-radius:9px;background:linear-gradient(150deg,var(--brand-2),var(--brand-deep));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:900;box-shadow:0 8px 18px -8px rgba(18,138,84,.7)}
 .logo small{display:block;font-family:var(--mono);font-size:.5rem;letter-spacing:.22em;color:var(--ink-dim);font-weight:700;margin-top:-3px}
@@ -143,14 +144,14 @@ body::before{content:"";position:fixed;inset:0;z-index:999;pointer-events:none;o
 .btn-ghost:hover{transform:translateY(-3px);border-color:var(--brand);color:var(--brand-deep)}
 
 /* ===== HERO ===== */
-.hero{position:relative;padding:14px 0 30px;overflow:hidden}
+.hero{position:relative;padding:6px 0 30px;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:0;
   background:
    radial-gradient(60% 60% at 78% 8%,rgba(27,167,102,.16),transparent 60%),
    radial-gradient(50% 50% at 8% 40%,rgba(255,203,31,.10),transparent 60%);
 }
 .hero-bg::after{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(70% 60% at 50% 30%,#000,transparent 75%);opacity:.5}
-.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:34px;align-items:center;padding-top:20px}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:34px;align-items:center;padding-top:6px}
 .badge{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;color:var(--brand-deep);background:rgba(255,255,255,.7);border:1px solid rgba(18,138,84,.24);padding:7px 14px;border-radius:999px}
 .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--brand);animation:pulse 1.9s infinite}
 @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(18,138,84,.4)}50%{opacity:.5;box-shadow:0 0 0 6px rgba(18,138,84,0)}}
