@@ -302,7 +302,7 @@ footer .fmark{font-family:"Bebas Neue",sans-serif;font-size:1.3rem;color:var(--r
       <span class="mark">NG</span>
       <span>NEXT GROWTH<small>軽貨物配送 / 岩国・周辺エリア</small></span>
     </a>
-    <a href="https://lin.ee/8rR88pb" class="nav-cta" target="_blank" rel="noopener">LINEで相談</a>
+    <a href="https://lin.ee/8rR88pb" class="nav-cta" onclick="try{gtag('event','contact_click',{method:'line',place:'nav'})}catch(e){}" target="_blank" rel="noopener">LINEで相談</a>
   </div>
 </header>
 
@@ -324,8 +324,8 @@ footer .fmark{font-family:"Bebas Neue",sans-serif;font-size:1.3rem;color:var(--r
       毎日のルート配送から、定期便・スポット便まで。自社便のドライバー不足・人件費・急な欠員に困っている企業様の配送を、地元密着・小回りでお引き受けします。
     </p>
     <div class="hero-cta">
-      <a href="https://lin.ee/8rR88pb" class="btn line" target="_blank" rel="noopener"><span class="ic">&#128172;</span>LINEで相談する</a>
-      <a href="tel:08089560913" class="btn tel"><span class="ic">&#128222;</span>080-8956-0913</a>
+      <a href="https://lin.ee/8rR88pb" class="btn line" onclick="try{gtag('event','contact_click',{method:'line'})}catch(e){}" target="_blank" rel="noopener"><span class="ic">&#128172;</span>LINEで相談する</a>
+      <a href="tel:08089560913" class="btn tel" onclick="try{gtag('event','contact_click',{method:'tel'})}catch(e){}"><span class="ic">&#128222;</span>080-8956-0913</a>
     </div>
     <p class="hero-note">ご相談・お見積りは無料。物量やルートをお聞かせいただくだけでOKです。</p>
 
@@ -402,13 +402,24 @@ footer .fmark{font-family:"Bebas Neue",sans-serif;font-size:1.3rem;color:var(--r
 <section class="sec-paper">
   <div class="wrap">
     <span class="eyebrow rv">PRICE</span>
-    <h2 class="rv">料金について</h2>
-    <p class="sub rv">配送内容は会社ごとに違うため、料金はお見積り制としています。まずはお気軽にご相談ください。</p>
-    <div class="price-box rv">
-      <div class="big">お見積り</div>
-      <p>ルート・物量・エリア・頻度に応じて、最適なプランとお値段をご提案します。</p>
-      <small>※ ご相談・お見積りは無料です。内容をお聞きするだけでも構いません。</small>
+    <h2 class="rv">料金の目安</h2>
+    <p class="sub rv">最終額は内容によって変わりますが、目安（一般的な相場）を正直に公開します。まずはご相談いただければ、その場でおおよその金額をお出しします。</p>
+    <div class="rv" style="display:grid;gap:14px;max-width:720px;margin:24px auto 0">
+      <div style="background:#fff;border:1px solid #e4ded4;border-radius:10px;padding:20px 22px;text-align:left">
+        <div style="font-weight:700;color:#b5734f">スポット便（単発・チャーター）</div>
+        <div style="font-size:26px;font-weight:900;margin:4px 0">7,000円〜<span style="font-size:14px;font-weight:400;color:#888"> ／ 回（目安）</span></div>
+        <div style="font-size:13px;color:#666;line-height:1.7">岩国市内・近距離の目安です。中距離は10,000〜15,000円ほど。距離・物量・拘束時間で変わります。</div>
+      </div>
+      <div style="background:#fff;border:1px solid #e4ded4;border-radius:10px;padding:20px 22px;text-align:left">
+        <div style="font-weight:700;color:#b5734f">定期便（ルート契約）</div>
+        <div style="font-size:26px;font-weight:900;margin:4px 0">月額でご相談</div>
+        <div style="font-size:13px;color:#666;line-height:1.7">毎日・毎週など決まった頻度で継続する便です。スポットより1件あたりを優遇します。頻度・物量に応じてお見積り。</div>
+      </div>
     </div>
+    <div class="rv" style="max-width:720px;margin:16px auto 0;background:#fff8ef;border:1px solid #e6c9a0;border-radius:10px;padding:18px 22px;text-align:left">
+      <strong style="color:#b5734f">初回は&quot;お試し&quot;で承ります。</strong> 初回のご依頼は通常料金で承り、<strong>品質にご満足いただけなければ請求いたしません</strong>。まずは一度、実際の仕事ぶりでご判断ください。
+    </div>
+    <small class="rv" style="display:block;margin-top:12px;color:#888">※上記は一般的な相場を踏まえた目安です。実際の金額は内容に応じて無料でお見積りします。</small>
   </div>
 </section>
 
@@ -420,7 +431,7 @@ footer .fmark{font-family:"Bebas Neue",sans-serif;font-size:1.3rem;color:var(--r
     <div class="faq">
       <details class="rv"><summary><span class="q">岩国で配送を外注したいのですが対応できますか？</span><span class="cr">+</span></summary><div class="a">はい。NEXT GROWTH は山口県岩国市を中心に、周南市・柳井市・和木町・大竹市など周辺エリアの軽貨物配送に対応しています。毎日のルート配送・定期便・スポット便まで、御社の状況に合わせてお引き受けします。まずはLINEまたは電話でご相談ください。</div></details>
       <details class="rv"><summary><span class="q">スポット（単発）だけの依頼も可能ですか？</span><span class="cr">+</span></summary><div class="a">可能です。繁忙期や急ぎの荷物など、単発のスポット便にも対応しています。「今日だけ」「この荷物だけ」といったご依頼もお気軽にご相談ください。</div></details>
-      <details class="rv"><summary><span class="q">料金はいくらですか？</span><span class="cr">+</span></summary><div class="a">配送内容（ルート・物量・エリア・頻度）によって変わるため、お見積り制としています。ご相談・お見積りは無料ですので、まずは配送の内容をお聞かせください。</div></details>
+      <details class="rv"><summary><span class="q">料金はいくらですか？</span><span class="cr">+</span></summary><div class="a">スポット便は近距離で7,000円〜（目安・相場）、中距離は10,000〜15,000円ほど。定期便は頻度・物量に応じて月額でお見積りし、スポットより1件あたりを優遇します。最終額は内容で変わるため、ご相談・お見積りは無料です。初回は通常料金で承り、ご満足いただけなければ請求いたしません。</div></details>
       <details class="rv"><summary><span class="q">どんな荷物・業種に対応していますか？</span><span class="cr">+</span></summary><div class="a">軽貨物（黒ナンバー）で運べる範囲の荷物に対応しています。EC・通販、食品・飲食、花、製造・卸、小売など、毎日決まったルートの配送を外注したい企業様からのご相談を歓迎しています。詳しくは荷物の内容をお聞かせください。</div></details>
       <details class="rv"><summary><span class="q">毎日のルート配送をまるごと任せられますか？</span><span class="cr">+</span></summary><div class="a">はい、毎日のルート配送が当事業の主軸です。自社便の代わりに、決まった配送先への日々のお届けを丸ごとお任せいただけます。ドライバーを1社に専属に近い形でアサインする柔軟さが強みです。</div></details>
       <details class="rv"><summary><span class="q">法人として契約したいのですが対応できますか？</span><span class="cr">+</span></summary><div class="a">通常は個人事業の NEXT GROWTH としてお引き受けしますが、「法人での契約が必要」という大型案件については、BURNING BROS. 株式会社 でも対応が可能です。ご事情をお聞かせください。</div></details>
@@ -496,7 +507,7 @@ footer .fmark{font-family:"Bebas Neue",sans-serif;font-size:1.3rem;color:var(--r
   "url":"https://richend0913.github.io/haisou/",
   "telephone":"+81-80-8956-0913",
   "image":"https://richend0913.github.io/haisou/",
-  "priceRange":"要見積り",
+  "priceRange":"¥7,000〜",
   "areaServed":[
     {"@type":"City","name":"岩国市"},
     {"@type":"City","name":"周南市"},
