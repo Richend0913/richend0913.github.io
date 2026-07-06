@@ -20,6 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Noto+Sans+JP:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body { font-family: 'Noto Sans JP', 'Inter', sans-serif; background: #0a0a0a; color: #e4e4e7; line-height: 1.6; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
 
     .bg-glow { position: fixed; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 30% 40%, rgba(99,102,241,.08) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(168,85,247,.06) 0%, transparent 50%); animation: bgMove 20s ease-in-out infinite; z-index: -1; }
@@ -32,8 +33,14 @@
 
     .main { max-width: 500px; margin: 0 auto; padding: 32px 20px 60px; }
 
-    .cat { margin-bottom: 32px; }
-    .cat-label { font-size: .65rem; font-weight: 700; color: #6366f1; text-transform: uppercase; letter-spacing: .15em; margin-bottom: 12px; padding-left: 2px; }
+    .cat { margin-bottom: 32px; scroll-margin-top: 16px; }
+    .cat-label { font-size: .7rem; font-weight: 700; color: #6366f1; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 12px; padding-left: 2px; scroll-margin-top: 16px; }
+
+    /* アンカーチップナビ (ux-portal-93244): 目的セクションへ即移動 */
+    .chip-nav { display: flex; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; margin-bottom: 24px; padding: 2px 2px 6px; }
+    .chip-nav::-webkit-scrollbar { display: none; }
+    .chip { flex-shrink: 0; display: inline-flex; align-items: center; min-height: 44px; padding: 10px 14px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 999px; font-size: .75rem; font-weight: 500; color: #c7d2fe; text-decoration: none; white-space: nowrap; transition: all .2s ease; }
+    .chip:hover { background: rgba(99,102,241,.12); border-color: rgba(99,102,241,.4); color: #e0e7ff; }
 
     .item { display: flex; align-items: center; gap: 14px; padding: 14px 16px; margin-bottom: 8px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06); border-radius: 14px; text-decoration: none; color: inherit; transition: all .2s ease; backdrop-filter: blur(10px); }
     .item:hover { background: rgba(99,102,241,.08); border-color: rgba(99,102,241,.2); transform: translateX(4px); }
@@ -127,7 +134,19 @@
       })();
     </script>
 
-    <div class="cat">
+    <!-- アンカーチップナビ (ux-portal-93244): 縦長ページの目的セクションへ即移動 -->
+    <nav class="chip-nav" aria-label="カテゴリへ移動">
+      <a class="chip" href="#biz">🤖 AI導入</a>
+      <a class="chip" href="#tools">🧾 ツール</a>
+      <a class="chip" href="#guide">📗 確定申告ガイド</a>
+      <a class="chip" href="#career">💼 キャリア</a>
+      <a class="chip" href="#gift">🎁 ギフト</a>
+      <a class="chip" href="#kids">🐻 キッズ</a>
+      <a class="chip" href="#shindan">🔮 診断</a>
+      <a class="chip" href="#recruit-cat">🚚 求人</a>
+    </nav>
+
+    <div class="cat" id="biz">
       <div class="cat-label">法人向け / B2B</div>
       <a href="/ai-shien/" class="item" style="background:linear-gradient(135deg,rgba(99,102,241,.24),rgba(34,211,238,.14));border-color:rgba(99,102,241,.5);">
         <div class="item-icon" style="background:linear-gradient(135deg,#6366f1,#22d3ee);">🤖</div>
@@ -136,7 +155,7 @@
           <p style="color:#a5b4fc;white-space:normal;">SNS更新・一次対応・集計・請求をAIエージェントで止まらず自動化｜提案で終わらない"動く実物"</p>
         </div>
       </a>
-      <div class="cat-label">Tools / 直販</div>
+      <div class="cat-label" id="tools">無料ツール / 直販</div>
       <a href="https://invoice-koubou.pages.dev/?utm_source=richend_home&utm_medium=portal&utm_campaign=invoice_free_tool" class="item" target="_blank" rel="noopener" style="background:linear-gradient(135deg,rgba(14,159,110,.16),rgba(34,211,238,.1));border-color:rgba(14,159,110,.4);">
         <div class="item-icon" style="background:linear-gradient(135deg,#0e9f6e,#22d3ee);">🧾</div>
         <div class="item-text">
@@ -149,13 +168,13 @@
            大手無料に機能で劣る有料は"正直"ブランドを毀損するため front door から撤去。詳細=feedback_sell_reason_research_gate -->
     </div>
 
-    <div class="cat">
-      <div class="cat-label">Guide</div>
+    <div class="cat" id="guide">
+      <div class="cat-label">ガイド / 確定申告</div>
       <a href="/keikamotsu-kakutei/" class="item"><div class="item-icon">🧾</div><div class="item-text"><h3>軽貨物ドライバーの確定申告ガイド</h3><p>開業・経費・インボイス2割特例まで実務を図解｜個人事業主向け</p></div></a>
     </div>
 
-    <div class="cat">
-      <div class="cat-label">Career</div>
+    <div class="cat" id="career">
+      <div class="cat-label">キャリア / 仕事</div>
       <a href="/salary-navi/" class="item"><div class="item-icon">💴</div><div class="item-text"><h3>年収ナビ</h3><p>44職種の年収・給料情報</p></div></a>
       <a href="/fukugyo-navi/" class="item"><div class="item-icon">💰</div><div class="item-text"><h3>副業ナビ</h3><p>35種類の副業ガイド</p></div></a>
       <a href="/shikaku-navi/" class="item"><div class="item-icon">📜</div><div class="item-text"><h3>資格ナビ</h3><p>40資格の難易度・勉強法</p></div></a>
@@ -163,24 +182,24 @@
       <a href="/rirekisho-maker/" class="item"><div class="item-icon">📄</div><div class="item-text"><h3>履歴書メーカー</h3><p>履歴書・職務経歴書をWeb作成</p></div></a>
     </div>
 
-    <div class="cat">
-      <div class="cat-label">Shopping</div>
+    <div class="cat" id="gift">
+      <div class="cat-label">ギフト</div>
       <a href="/okurite/" class="item"><div class="item-icon">🎁</div><div class="item-text"><h3>Okurite</h3><p>シーン別ギフト・プレゼント検索</p></div></a>
     </div>
 
-    <div class="cat">
-      <div class="cat-label">Kids</div>
+    <div class="cat" id="kids">
+      <div class="cat-label">キッズ</div>
       <a href="/manabijima/" class="item"><div class="item-icon">🐻</div><div class="item-text"><h3>くまのまなびじま</h3><p>2〜6さいの知育アプリ｜ブラウザで遊べる</p></div></a>
     </div>
 
-    <div class="cat">
-      <div class="cat-label">Diagnosis</div>
+    <div class="cat" id="shindan">
+      <div class="cat-label">診断 / 占い</div>
       <a href="/shindan/" class="item"><div class="item-icon">🔮</div><div class="item-text"><h3>占い診断</h3><p>前世診断 & 裏性格診断｜完全無料</p></div></a>
       <a href="/zense-shindan/" class="item"><div class="item-icon">🔮</div><div class="item-text"><h3>前世&来世診断</h3><p>名前と誕生日から魂の物語を診断</p></div></a>
     </div>
 
-    <div class="cat">
-      <div class="cat-label">Recruitment</div>
+    <div class="cat" id="recruit-cat">
+      <div class="cat-label">求人 / 採用</div>
       <a href="/recruit/" class="item" style="background:linear-gradient(135deg,rgba(255,107,53,.12),rgba(247,147,30,.08));border-color:rgba(255,107,53,.3);">
         <div class="item-icon" style="background:linear-gradient(135deg,#ff6b35,#f7931e);">🚚</div>
         <div class="item-text">
