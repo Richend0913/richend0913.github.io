@@ -24,7 +24,22 @@
 
 ## 資格・キャリア
 
-- [資格試験つまずき解説ノート](https://richend0913.github.io/shikaku/): 第二種電気工事士の複線図、危険物取扱者の指定数量の倍数計算など、受験者がつまずきやすいポイントを1テーマずつ正確に解説。ブラウザで実際に練習できる無料ツールへのリンクつき。
+- [資格試験つまずき解説ノート](https://richend0913.github.io/shikaku/): 第二種電気工事士・危険物取扱者のつまずきやすいポイントを1テーマずつ正確に解説するサイト。ブラウザで実際に練習できる無料計算ツールへのリンクつき。
+
+### 第二種電気工事士（複線図）
+
+- [複線図の書き方 基本](https://richend0913.github.io/shikaku/fukusenzu-kakikata-kihon.html): 第二種電気工事士 技能試験の複線図の書き方を、接地側（白）→非接地側（黒）→スイッチから灯への渡り、の基本4ステップで解説。どの線をどこへつなぐか順番でわかる。
+- [3路スイッチの複線図 書き方](https://richend0913.github.io/shikaku/fukusenzu-3ro-switch.html): 3路スイッチの0番（共通）・1番・3番の端子の意味と、2か所点滅の配線手順を解説。2つの3路の1番どうし・3番どうしを渡り線でつなぐ考え方が核心。
+- [4路スイッチの複線図 書き方](https://richend0913.github.io/shikaku/fukusenzu-4ro-switch.html): 4路スイッチの複線図を解説。3か所点滅は3路スイッチ2個の間に4路スイッチ1個を入れる構成。4路の端子のつなぎ方と3路との渡り線の手順。
+- [複線図の配線色ルール](https://richend0913.github.io/shikaku/fukusenzu-haishoku-rule.html): 電線色のルールを整理。接地側＝白、非接地側＝黒、スイッチから灯への渡り＝赤、接地線＝緑。どの色をどこに使うか、接地側の見分け方。
+- [リングスリーブの刻印（圧着マーク）早見表](https://richend0913.github.io/shikaku/ring-sleeve-kokuin.html): リングスリーブの刻印（○・小・中）を電線の組み合わせから引ける早見表。1.6mm×2本のみ○、2.0mm×2本は小など断面積合計での考え方と欠陥例を整理。
+
+### 危険物取扱者（乙4・甲種・丙種）
+
+- [危険物の指定数量「倍数」の計算方法](https://richend0913.github.io/shikaku/kikenbutsu-baisuu-keisan.html): 倍数＝貯蔵量÷指定数量の基本式と、複数品目の合算ルールを例題で解説。合計1以上で消防法の規制対象。ガソリン・灯油・軽油の具体例つき。
+- [危険物の倍数計算でkg→L換算する方法](https://richend0913.github.io/shikaku/kikenbutsu-hijuu-kansan.html): 容器がkg表記のとき比重を使ってLに換算する方法を例題で解説。体積(L)=重さ(kg)÷比重。第4類の倍数計算でよく出る換算手順。
+- [第4類危険物の指定数量 一覧](https://richend0913.github.io/shikaku/kikenbutsu-shitei-suuryou-dai4rui.html): 第4類（引火性液体）の指定数量を一覧整理。特殊引火物50L、第一石油類200L/400L、アルコール類400L、第二石油類1000L/2000Lなど政令値で正確に、覚え方も解説。
+- [危険物乙4 引火点一覧](https://richend0913.github.io/shikaku/kikenbutsu-inka-ten-ichiran.html): 第4類の品名別に引火点・発火点・指定数量を表で整理。ガソリン-40℃以下・灯油40℃以上・重油60℃以上など試験に出るポイントと覚え方のコツつき。
 
 ## ギフト
 
