@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-63VB4HT3T2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-63VB4HT3T2');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>青色申告の65万円控除をExcel複式簿記で｜仕訳→試算表・PL・BS自動作成</title>
+<link rel="canonical" href="https://richend0913.github.io/aoiro-fukushiki-excel/">
+<meta name="description" content="青色申告65万円控除を取るには複式簿記が必要。仕訳→試算表→PL・BSをExcelで自動作成する方法を解説。白色からの移行手順・仕訳例つき。個人事業主・フリーランス向け¥2,980テンプレ。">
+<meta property="og:title" content="青色申告の65万円控除をExcel複式簿記で｜仕訳→試算表・PL・BS自動作成">
+<meta property="og:description" content="青色申告65万円控除には複式簿記が必須。仕訳→試算表→PL・BSをExcelで自動作成。白色からの移行手順・仕訳例も解説。個人事業主向けテンプレ¥2,980。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://richend0913.github.io/aoiro-fukushiki-excel/">
+<meta property="og:image" content="https://richend0913.github.io/images/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--ink:#1a1d24;--mut:#5b6472;--line:#e6e8ee;--bg:#f7f8fb;--accent:#6366f1;--accent2:#a855f7;--ok:#16a34a}
+  body{font-family:'Noto Sans JP','Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.8;-webkit-text-size-adjust:100%}
+  .wrap{max-width:720px;margin:0 auto;padding:0 20px}
+  a{color:inherit}
+
+  /* breadcrumb */
+  .crumb{font-size:.74rem;color:var(--mut);padding:14px 0 0}
+  .crumb a{color:var(--accent);text-decoration:none}
+
+  /* hero */
+  .hero{background:linear-gradient(160deg,#0f1117 0%,#1b1e2b 60%,#241b3a 100%);color:#fff;padding:30px 0 40px;position:relative;overflow:hidden}
+  .hero::after{content:'';position:absolute;top:-40%;right:-20%;width:60%;height:160%;background:radial-gradient(circle,rgba(99,102,241,.25),transparent 60%)}
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{font-size:.72rem;letter-spacing:.16em;font-weight:700;color:#a5b4fc;text-transform:uppercase;margin-bottom:14px}
+  h1{font-size:1.6rem;font-weight:900;line-height:1.45;letter-spacing:-.01em}
+  h1 .hl{background:linear-gradient(120deg,#818cf8,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .lead{margin-top:16px;color:#c7cbd6;font-size:.96rem}
+  .cta{display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:linear-gradient(120deg,#6366f1,#a855f7);color:#fff;font-weight:800;font-size:1rem;text-decoration:none;padding:15px 26px;border-radius:14px;box-shadow:0 10px 30px rgba(99,102,241,.4);transition:transform .15s}
+  .cta:hover{transform:translateY(-2px)}
+  .cta.sm{font-size:.92rem;padding:13px 22px;box-shadow:0 8px 22px rgba(99,102,241,.35)}
+  .cta.ghost{background:transparent;border:1px solid rgba(255,255,255,.3);box-shadow:none}
+  .cta.green{background:linear-gradient(120deg,#0e9f6e,#0891b2);box-shadow:0 8px 22px rgba(14,159,110,.35)}
+  .reassure{margin-top:12px;font-size:.74rem;color:#9aa0b2}
+
+  section{padding:40px 0}
+  .sec-label{font-size:.7rem;letter-spacing:.14em;font-weight:700;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
+  h2{font-size:1.3rem;font-weight:800;letter-spacing:-.01em;margin-bottom:16px;line-height:1.45}
+  h3{font-size:1.02rem;font-weight:800;margin:20px 0 8px}
+  p{margin-bottom:14px}
+  .mut{color:var(--mut)}
+  .lede p{font-size:.96rem}
+
+  /* formula box */
+  .formula{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:18px 20px;margin:16px 0;font-size:.92rem}
+  .formula b{color:var(--accent)}
+  .formula code{font-family:'Inter','Noto Sans JP',monospace;background:#eef2ff;color:#3730a3;padding:2px 8px;border-radius:6px;font-size:.88rem;font-weight:600;white-space:nowrap}
+  .ex{background:#f3f1fc;border-radius:10px;padding:14px 16px;margin:14px 0;font-size:.9rem}
+  .ex b{color:var(--ink)}
+
+  /* table */
+  .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0 4px;border-radius:14px;border:1px solid var(--line)}
+  table{width:100%;border-collapse:collapse;background:#fff;font-size:.86rem;min-width:340px}
+  th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+  th:first-child,td:first-child{text-align:left}
+  thead th{background:#0f1117;color:#fff;font-weight:700;font-size:.78rem}
+  tbody tr:last-child td{border-bottom:0}
+  tbody tr:nth-child(even){background:#fafbfd}
+  .h-blue td{background:#eef2ff!important;font-weight:700}
+  .h-green td{background:#f0fdf4!important;font-weight:700;color:#15803d}
+
+  /* callout */
+  .note{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:16px 0}
+  .note.warn{border-left:4px solid #f59e0b;background:#fffbeb}
+  .note.tip{border-left:4px solid var(--ok);background:#f0fdf4}
+  .note h3{margin-top:0}
+  .note ul{margin:6px 0 0 18px}
+  .note li{margin-bottom:6px;font-size:.9rem}
+
+  /* grid cards */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+  .card .ic{font-size:1.4rem}
+  .card h3{font-size:.95rem;font-weight:800;margin:8px 0 4px}
+  .card p{font-size:.84rem;color:var(--mut);margin:0}
+
+  /* flow steps */
+  .flow{display:flex;flex-direction:column;gap:0;margin:16px 0}
+  .flow-item{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;position:relative}
+  .flow-item+.flow-item::before{content:'';display:block;width:2px;height:16px;background:var(--accent);margin:0 auto -16px;position:relative;z-index:0;left:0}
+  .flow-arrow{text-align:center;color:var(--accent);font-size:1.2rem;line-height:1;padding:4px 0}
+  .flow-step{font-size:.68rem;font-weight:700;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+  .flow-item h3{margin:0 0 4px;font-size:.95rem}
+  .flow-item p{margin:0;font-size:.84rem;color:var(--mut)}
+
+  /* inline cta strip */
+  .strip{background:linear-gradient(135deg,#eef2ff,#f6f1fc);border:1px solid #ddd6f3;border-radius:16px;padding:22px;text-align:center;margin:8px 0}
+  .strip h3{margin-top:0;font-size:1.05rem}
+  .strip p{font-size:.88rem;color:var(--mut)}
+
+  /* order block */
+  .order{background:#0f1117;color:#fff;border-radius:18px;padding:30px 24px;text-align:center}
+  .order h2{color:#fff}
+  .order p{color:#cdd2de;font-size:.9rem;max-width:480px;margin:0 auto 6px}
+  .order .price{font-family:'Inter',sans-serif;font-size:2rem;font-weight:900;margin:14px 0 4px}
+  .order .reassure{color:#7e8499}
+  .order .links{margin-top:12px;font-size:.84rem}
+  .order .links a{color:#a5b4fc;text-decoration:none}
+
+  details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px 16px;margin-bottom:10px}
+  summary{cursor:pointer;font-weight:700;padding:12px 0;font-size:.92rem}
+  details p{padding:0 0 14px;font-size:.86rem;color:var(--mut);margin:0}
+
+  footer{text-align:center;padding:34px 20px;color:#9aa0b2;font-size:.74rem}
+  footer a{color:#9aa0b2;text-decoration:none;margin:0 8px}
+  .disc{font-size:.72rem;color:#9aa0b2;margin-top:24px;border-top:1px solid var(--line);padding-top:14px}
+  @media(max-width:520px){h1{font-size:1.35rem}h2{font-size:1.18rem}.grid{grid-template-columns:1fr}}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"青色申告の65万円控除をExcel複式簿記で｜仕訳→試算表・PL・BS自動作成",
+  "description":"青色申告65万円控除には複式簿記が必須。仕訳→試算表→損益計算書・貸借対照表をExcelで自動作成する方法と仕訳例を解説。個人事業主・フリーランス向け。",
+  "author":{"@type":"Organization","name":"Richend Digital"},
+  "publisher":{"@type":"Organization","name":"Richend Digital","logo":{"@type":"ImageObject","url":"https://richend0913.github.io/images/ogp.png"}},
+  "datePublished":"2026-07-09",
+  "dateModified":"2026-07-09",
+  "image":"https://richend0913.github.io/images/ogp.png",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://richend0913.github.io/aoiro-fukushiki-excel/"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"ホーム","item":"https://richend0913.github.io/"},
+    {"@type":"ListItem","position":2,"name":"個人事業主のお金","item":"https://richend0913.github.io/kojin-excel/"},
+    {"@type":"ListItem","position":3,"name":"青色申告65万円控除 複式簿記Excel","item":"https://richend0913.github.io/aoiro-fukushiki-excel/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"e-Taxと連動できますか？","acceptedAnswer":{"@type":"Answer","text":"このExcelテンプレ単体ではe-Tax送信機能はありません。Excelで作成したPL・BSの数値をもとに、e-Taxソフト（国税庁提供・無料）や会計ソフトへ転記して申告していただく形です。仕訳・集計の手間を省くツールとして組み合わせてご活用ください。"}},
+    {"@type":"Question","name":"会計ソフトより安いですか？","acceptedAnswer":{"@type":"Answer","text":"主要クラウド会計ソフトの個人事業主プランは年額8,000〜13,000円程度の継続費用が発生します。このExcelテンプレは¥2,980の買い切りで、翌年以降も追加費用なしで使い続けられます。ただし、自動仕訳・銀行連携などの機能は備えていないため、入力はすべてご自身で行う必要があります。"}},
+    {"@type":"Question","name":"税理士は必要ですか？","acceptedAnswer":{"@type":"Answer","text":"このテンプレは帳簿作成（仕訳・試算表・PL・BS）を自動化するものです。確定申告書の作成・提出はご自身で行っていただく必要があります。税務判断が難しい取引や、初めての青色申告は税理士に確認することをおすすめします。本テンプレは税理士監修ではありません。"}},
+    {"@type":"Question","name":"白色申告から移行できますか？","acceptedAnswer":{"@type":"Answer","text":"はい、白色申告からの移行でも使えます。移行初年度は期首残高（開始貸借対照表）の入力が必要になりますが、事業用の預金・現金・未払金などを棚卸しして入力すれば複式簿記を始められます。テンプレには入力例シートを付属しています。"}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <nav class="crumb"><a href="https://richend0913.github.io/">ホーム</a> ＞ <a href="https://richend0913.github.io/kojin-excel/">個人事業主のお金</a> ＞ 青色申告65万円控除 複式簿記Excel</nav>
+    <div class="eyebrow" style="margin-top:18px">Richend Digital ｜ 個人事業主・フリーランスの実務ガイド</div>
+    <h1><span class="hl">青色申告65万円控除</span>を取るなら<br>複式簿記をExcelで自動化する</h1>
+    <p class="lead">65万円控除 vs 10万円控除、<b style="color:#fff">税額差は年間約9万円〜</b>。その差を生むのが「複式簿記」の有無です。仕訳を入力するだけでPL・BSが自動生成されるExcelテンプレで、外出・ソフト代ゼロで複式帳簿を完結させましょう。</p>
+    <div>
+      <a class="cta" href="https://richend.base.shop/items/147919450?utm_source=aoiro_lp&utm_medium=organic&utm_campaign=fukushiki_excel" target="_blank" rel="noopener"
+        onclick="gtag('event','order_click',{method:'base',product:'aoiro_fukushiki',location:'hero'})">
+        複式簿記Excelテンプレを見る（¥2,980）→
+      </a>
+    </div>
+    <p class="reassure">税理士監修ではありません。自動計算のみ・申告作業はご自身で行う必要があります。</p>
+  </div>
+</header>
+
+<main>
+
+<section class="wrap lede">
+  <p>「青色申告にしたら65万円控除が取れると聞いたけど、複式簿記ってどうやるの？」——青色申告に切り替えた（または検討中の）個人事業主の方が必ずぶつかる壁です。</p>
+  <p>青色申告の65万円控除（電子申告の場合）は、<b>複式簿記による記帳</b>と、そこから作成した<b>損益計算書（PL）・貸借対照表（BS）</b>の添付が要件です。この記事では、なぜ複式簿記が必要なのか、Excelでどう自動化するかを具体的に解説します。</p>
+  <p class="mut" style="font-size:.84rem">※ 本記事は2026年7月時点の一般的な制度にもとづく解説です。税率・控除額は将来変更になることがあります。個別の判断は税理士や所轄税務署にご確認ください。</p>
+</section>
+
+<section class="wrap">
+  <div class="sec-label">控除額の比較</div>
+  <h2>65万円控除 vs 10万円控除、税額差はいくらか</h2>
+  <p>青色申告の控除には大きく2種類あります。帳簿の方式によって取れる控除額が変わり、<b>手元に残るお金が大きく違います。</b></p>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr>
+          <th>区分</th>
+          <th>控除額</th>
+          <th>帳簿の要件</th>
+          <th>申告方式</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="h-green">
+          <td><b>青色申告（65万円控除）</b></td>
+          <td>65万円</td>
+          <td>複式簿記＋PL・BS</td>
+          <td>e-Tax（電子申告）</td>
+        </tr>
+        <tr>
+          <td>青色申告（55万円控除）</td>
+          <td>55万円</td>
+          <td>複式簿記＋PL・BS</td>
+          <td>書面申告でも可</td>
+        </tr>
+        <tr>
+          <td>青色申告（10万円控除）</td>
+          <td>10万円</td>
+          <td>単式簿記（簡易帳簿）</td>
+          <td>書面・e-Tax いずれも可</td>
+        </tr>
+        <tr>
+          <td>白色申告</td>
+          <td>なし</td>
+          <td>収支記録のみ</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>税額の差を概算で確認する</h3>
+  <div class="formula">
+    <b>65万円控除と10万円控除の差額</b><br>
+    控除差 ＝ 65万円 − 10万円 ＝ <b>55万円</b><br><br>
+    <span class="mut" style="font-size:.88rem">所得税率20%（課税所得330〜695万円の区分）を仮定すると：</span><br>
+    税額差 ≒ 55万円 × 20% ＝ <b>約11万円／年</b>（概算）<br>
+    <span class="mut" style="font-size:.84rem">※ 住民税（一律10%）まで含めると 55万円 × 30% ≒ <b>約16万5千円／年</b>の差になります</span>
+  </div>
+
+  <div class="note tip">
+    <h3>ポイント：複式簿記さえできれば55〜65万円控除が取れる</h3>
+    <p style="margin:0;font-size:.9rem">簡易帳簿（単式）のままでは10万円控除が上限です。仕訳を入力して損益計算書・貸借対照表を作れる体制を整えるだけで、控除額が最大6.5倍になります。</p>
+  </div>
+
+  <div class="ex">
+    <b>例：事業所得400万円・所得税率20%の個人事業主（概算）</b><br>
+    65万円控除あり → 課税所得 335万円 → 所得税 約47万円<br>
+    10万円控除あり → 課税所得 390万円 → 所得税 約58万円<br>
+    <b>差額 約11万円／年</b>（住民税を加えると約16万5千円）<br>
+    <span class="mut" style="font-size:.82rem">※ 税率区分・各種控除の適用によって実際の税額は異なります。上記はあくまで概算です。</span>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-label">複式簿記の仕組み</div>
+  <h2>複式簿記の流れ：仕訳→元帳→試算表→PL・BS</h2>
+  <p>複式簿記は「1取引を借方・貸方の2面で記録する」帳簿です。流れさえ分かれば、Excelで機械的に処理できます。</p>
+
+  <div class="flow">
+    <div class="flow-item">
+      <div class="flow-step">Step 1</div>
+      <h3>仕訳（しわけ）</h3>
+      <p>取引を「勘定科目・金額・借方/貸方」の組み合わせで記録する。すべての帳簿はここから始まる。</p>
+    </div>
+    <div class="flow-arrow">&#8595;</div>
+    <div class="flow-item">
+      <div class="flow-step">Step 2</div>
+      <h3>総勘定元帳（各科目の台帳）</h3>
+      <p>仕訳を勘定科目ごとに集計。「売上」「経費（旅費・消耗品費 等）」「現金」「預金」などの残高を把握。</p>
+    </div>
+    <div class="flow-arrow">&#8595;</div>
+    <div class="flow-item">
+      <div class="flow-step">Step 3</div>
+      <h3>試算表（残高一覧）</h3>
+      <p>全科目の残高を一覧化。借方合計＝貸方合計になれば記帳ミスなし（貸借一致の検証）。</p>
+    </div>
+    <div class="flow-arrow">&#8595;</div>
+    <div class="flow-item">
+      <div class="flow-step">Step 4</div>
+      <h3>損益計算書（PL）・貸借対照表（BS）</h3>
+      <p>試算表から収益・費用を抽出→PL。資産・負債・資本を抽出→BS。確定申告に添付する2大財務諸表が完成。</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>Excelなら「仕訳を入力するだけ」にできる</h3>
+    <ul>
+      <li>仕訳シートに1行ずつ入力 → SUMIF関数で科目別に自動集計</li>
+      <li>試算表シートが自動更新 → PL・BSに自動反映</li>
+      <li>数式を変えないかぎり、入力ミスが財務諸表の計算ミスになることはない</li>
+    </ul>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-label">Excel自動化</div>
+  <h2>ExcelでPL・BSを自動生成する仕組み</h2>
+  <p>複式簿記の各ステップをExcelに落とし込むと、次のような構成になります。自分でゼロから作ることもできますが、テンプレを使えば数式・科目設定が済んだ状態からスタートできます。</p>
+
+  <h3>基本の数式パターン</h3>
+  <div class="formula">
+    仕訳シートの「科目」列を条件に金額を集計：<br>
+    <code>=SUMIF(仕訳!$B:$B, "売上高", 仕訳!$D:$D)</code><br><br>
+    借方・貸方を区別して集計：<br>
+    <code>=SUMIF(仕訳!$B:$B, A2, 仕訳!$D:$D) - SUMIF(仕訳!$B:$B, A2, 仕訳!$E:$E)</code><br>
+    <span class="mut" style="font-size:.84rem">D列＝借方金額、E列＝貸方金額</span>
+  </div>
+
+  <div class="grid">
+    <div class="card"><div class="ic">&#128196;</div><h3>仕訳入力シート</h3><p>日付・摘要・借方科目・借方金額・貸方科目・貸方金額を1行ずつ入力。プルダウンで科目選択。</p></div>
+    <div class="card"><div class="ic">&#128202;</div><h3>試算表シート</h3><p>SUMIF で自動集計。借方残高合計＝貸方残高合計の「貸借チェック」セルでミスを即発見。</p></div>
+    <div class="card"><div class="ic">&#128181;</div><h3>損益計算書（PL）</h3><p>収益科目の合計 − 費用科目の合計 ＝ 当期純利益を自動計算。申告書に転記するだけ。</p></div>
+    <div class="card"><div class="ic">&#9878;&#65039;</div><h3>貸借対照表（BS）</h3><p>資産・負債・純資産を自動集計。青色申告決算書に添付できる形式で出力。</p></div>
+  </div>
+
+  <div class="note warn">
+    <h3>注意：これだけはご自身で対応が必要</h3>
+    <ul>
+      <li>仕訳の入力作業（銀行通帳・レシート等をもとに自分で入力）</li>
+      <li>e-Tax・申告書ソフトへの転記と電子申告の操作</li>
+      <li>減価償却・棚卸し等、特殊な取引の処理判断</li>
+    </ul>
+    <p style="margin:4px 0 0;font-size:.86rem">このExcelは<b>自動計算・集計ツール</b>です。入力した内容の正確性と申告手続きはご利用者自身の責任のもとで行ってください。税理士監修の商品ではありません。</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-label">仕訳の具体例</div>
+  <h2>実際の仕訳例（売上受取・経費支払 各3例）</h2>
+  <p>複式簿記は最初の「どっちが借方で、どっちが貸方？」が分かれば、あとはパターンの繰り返しです。よく使う6例を確認しましょう。</p>
+
+  <h3>売上受取の仕訳例</h3>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>取引の内容</th><th>借方科目・金額</th><th>貸方科目・金額</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>クライアントから報酬50,000円が普通預金に振り込まれた</td>
+          <td>普通預金 50,000円</td>
+          <td>売上高 50,000円</td>
+        </tr>
+        <tr>
+          <td>報酬100,000円の請求書を発行した（売掛金計上）</td>
+          <td>売掛金 100,000円</td>
+          <td>売上高 100,000円</td>
+        </tr>
+        <tr>
+          <td>上記の売掛金100,000円が入金された</td>
+          <td>普通預金 100,000円</td>
+          <td>売掛金 100,000円</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>経費支払の仕訳例</h3>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>取引の内容</th><th>借方科目・金額</th><th>貸方科目・金額</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>事務用品（ボールペン）を現金3,300円で購入した</td>
+          <td>消耗品費 3,000円<br>仮払消費税 300円</td>
+          <td>現金 3,300円</td>
+        </tr>
+        <tr>
+          <td>インターネット料金5,500円が普通預金から引き落とされた</td>
+          <td>通信費 5,000円<br>仮払消費税 500円</td>
+          <td>普通預金 5,500円</td>
+        </tr>
+        <tr>
+          <td>取引先との打ち合わせで電車賃1,650円を現金で支払った</td>
+          <td>旅費交通費 1,500円<br>仮払消費税 150円</td>
+          <td>現金 1,650円</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ex">
+    <b>仕訳の基本ルール（覚え方）</b><br>
+    ・<b>資産が増えたら借方、減ったら貸方</b>（現金・預金・売掛金など）<br>
+    ・<b>収益が発生したら貸方</b>（売上高など）<br>
+    ・<b>費用が発生したら借方</b>（消耗品費・旅費交通費など）<br>
+    借方合計＝貸方合計になっていれば仕訳の記帳は正しいです。
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="strip">
+    <h3>仕訳を入力するだけでPL・BSが自動完成するExcelテンプレ</h3>
+    <p>数式・科目設定済み。青色申告65万円控除に必要な複式帳簿を、ソフト代ゼロ・外出ゼロで作れます。</p>
+    <a class="cta sm" href="https://richend.base.shop/items/147919450?utm_source=aoiro_lp&utm_medium=organic&utm_campaign=fukushiki_excel_mid" target="_blank" rel="noopener"
+      onclick="gtag('event','order_click',{method:'base',product:'aoiro_fukushiki',location:'mid_strip'})">
+      複式簿記Excelテンプレを見る（¥2,980）→
+    </a>
+    <p style="margin-top:10px;font-size:.76rem;color:var(--mut)">税理士監修ではありません。自動計算のみ・申告作業はご自身で行う必要があります。</p>
+  </div>
+</div>
+
+<section class="wrap">
+  <div class="sec-label">FAQ</div>
+  <h2>よくある質問</h2>
+  <details>
+    <summary>e-Taxと連動できますか？</summary>
+    <p>このExcelテンプレ単体ではe-Tax送信機能はありません。Excelで作成したPL・BSの数値をもとに、e-Taxソフト（国税庁提供・無料）や会計ソフトへ転記して申告していただく形です。仕訳・集計の手間を省くツールとして組み合わせてご活用ください。</p>
+  </details>
+  <details>
+    <summary>会計ソフトより安いですか？</summary>
+    <p>主要クラウド会計ソフトの個人事業主プランは年額8,000〜13,000円程度の継続費用が発生します。このExcelテンプレは¥2,980の買い切りで、翌年以降も追加費用なしで使い続けられます。ただし、自動仕訳・銀行連携などの機能は備えていないため、入力はすべてご自身で行う必要があります。</p>
+  </details>
+  <details>
+    <summary>税理士は必要ですか？</summary>
+    <p>このテンプレは帳簿作成（仕訳・試算表・PL・BS）を自動化するものです。確定申告書の作成・提出はご自身で行っていただく必要があります。税務判断が難しい取引や、初めての青色申告は税理士に確認することをおすすめします。本テンプレは税理士監修ではありません。</p>
+  </details>
+  <details>
+    <summary>白色申告から移行できますか？</summary>
+    <p>はい、白色申告からの移行でも使えます。移行初年度は期首残高（開始貸借対照表）の入力が必要になりますが、事業用の預金・現金・未払金などを棚卸しして入力すれば複式簿記を始められます。テンプレには入力例シートを付属しています。</p>
+  </details>
+
+  <p class="disc">本記事は一般的な情報提供を目的としたもので、税務上の助言ではありません。記載の控除額・税率は2026年7月時点の制度にもとづきます。実際の税額は個々の状況により異なるため、個別の判断は税理士または所轄税務署にご確認ください。</p>
+</section>
+
+<section class="wrap">
+  <div class="order">
+    <div class="sec-label" style="color:#a5b4fc">購入する</div>
+    <h2>青色申告 複式簿記Excel テンプレ</h2>
+    <p>仕訳シート・試算表・損益計算書・貸借対照表がセットになった買い切りExcelファイルです。数式・科目設定済みなので、仕訳を入力するだけでPL・BSが自動生成されます。</p>
+    <div class="price">¥2,980 <span style="font-size:.9rem;font-weight:600;color:#9aa0b2">買い切り（税込）</span></div>
+    <p style="margin-top:8px">決済後すぐにExcelファイル（使い方シート付き）をダウンロードできます。</p>
+    <div style="margin-top:16px">
+      <a class="cta" href="https://richend.base.shop/items/147919450?utm_source=aoiro_lp&utm_medium=organic&utm_campaign=fukushiki_excel" target="_blank" rel="noopener"
+        onclick="gtag('event','order_click',{method:'base',product:'aoiro_fukushiki',location:'order_section'})">
+        BASEで購入する（¥2,980）→
+      </a>
+    </div>
+    <p class="reassure" style="margin-top:12px">デジタルコンテンツの性質上、購入後の返金はできません。内容はBASEの商品ページの説明でご確認のうえご購入ください。<br>税理士監修ではありません。自動計算のみ・申告作業はご自身で行う必要があります。</p>
+    <div class="links" style="margin-top:10px">
+      <a href="https://richend0913.github.io/kojin-excel/" onclick="gtag('event','cta_click',{location:'order_related'})">個人事業主向けExcel 3点セットを見る →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div style="margin-bottom:8px">
+    <a href="https://richend0913.github.io/">Richend Digital トップ</a>・
+    <a href="https://richend0913.github.io/genzeichoshu-keisan/">源泉徴収計算</a>・
+    <a href="https://richend0913.github.io/kaigyo-aoiro/">開業届ガイド</a>・
+    <a href="https://richend0913.github.io/kojin-excel/">個人事業主向けExcel 3点セット</a>
+  </div>
+  <div style="margin-bottom:8px">
+    <a href="https://richend0913.github.io/privacy.html">プライバシーポリシー</a>・
+    <a href="https://richend0913.github.io/contact.html">お問い合わせ</a>
+  </div>
+  &copy; 2026 Richend Digital
+</footer>
+
+</body>
+</html>
