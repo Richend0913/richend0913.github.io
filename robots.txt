@@ -1,6 +1,12 @@
 User-agent: *
 Allow: /
 
+# 2026-08-18 内部運用ドキュメント（社外向けではない）。
+# /office/ は会社の現行戦略・商品価格を含む state.json / daily_report.md を配信しているため遮断。
+# HTMLには併せて <meta name="robots" content="noindex, nofollow"> を入れてある。
+Disallow: /office/
+Disallow: /todo/
+
 Sitemap: https://richend0913.github.io/sitemap_index.xml
 Sitemap: https://richend0913.github.io/sitemap.xml
 Sitemap: https://richend0913.github.io/okurite/sitemap.xml
