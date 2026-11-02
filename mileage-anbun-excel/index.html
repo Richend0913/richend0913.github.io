@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-63VB4HT3T2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-63VB4HT3T2');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>走行記録・車両費 按分計算Excel｜事業割合を根拠つきで出す｜Richend Digital</title>
+<link rel="canonical" href="https://richend0913.github.io/mileage-anbun-excel/">
+<meta name="description" content="走行距離を記録するだけで事業割合が自動計算され、ガソリン代・保険・車検などの車両費のうち経費にできる金額が項目ごとに出るExcelテンプレート。家事按分の根拠づくりに。軽貨物ドライバー・個人事業主向け。¥1,480。">
+<meta property="og:title" content="走行記録・車両費 按分計算Excel｜事業割合を根拠つきで出す">
+<meta property="og:description" content="走行記録から事業割合を自動計算し、車両費の経費にできる金額を項目ごとに按分。家事按分の根拠づくりに。軽貨物・個人事業主向けExcelテンプレート。¥1,480。">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://richend0913.github.io/mileage-anbun-excel/">
+<meta property="og:image" content="https://richend0913.github.io/images/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#1a1d24;--mut:#5b6472;--line:#e6e8ee;--bg:#f7f8fb;--accent:#0e9f6e;--accent2:#1F3864;--ok:#16a34a}
+body{font-family:'Noto Sans JP','Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+
+.hero{background:linear-gradient(160deg,#0c1411 0%,#13261d 55%,#0f2233 100%);color:#fff;padding:54px 0 40px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;top:-40%;right:-20%;width:60%;height:160%;background:radial-gradient(circle,rgba(14,159,110,.25),transparent 60%)}
+.hero.wrap{position:relative;z-index:1}
+.eyebrow{font-size:.72rem;letter-spacing:.16em;font-weight:700;color:#6ee7b7;text-transform:uppercase;margin-bottom:14px}
+h1{font-size:1.7rem;font-weight:900;line-height:1.4;letter-spacing:-.01em}
+h1.hl{background:linear-gradient(120deg,#34d399,#67e8f9);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.lead{margin-top:14px;color:#c7cbd6;font-size:.96rem}
+.pricetag{display:inline-flex;align-items:baseline;gap:8px;margin-top:22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:10px 18px;border-radius:14px}
+.pricetag b{font-size:1.9rem;font-weight:900;font-family:'Inter',sans-serif}
+.pricetag span{color:#6ee7b7;font-size:.78rem}
+.cta{display:inline-flex;align-items:center;gap:8px;margin-top:24px;background:linear-gradient(120deg,#0e9f6e,#0891b2);color:#fff;font-weight:800;font-size:1rem;text-decoration:none;padding:15px 28px;border-radius:14px;box-shadow:0 10px 30px rgba(14,159,110,.4);transition:transform.15s}
+.cta:hover{transform:translateY(-2px)}
+.cta.sm{font-size:.92rem;padding:13px 24px;box-shadow:0 8px 22px rgba(14,159,110,.35)}
+.reassure{margin-top:12px;font-size:.74rem;color:#9aa0b2}
+
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(12,20,17,.96);backdrop-filter:blur(6px);border-top:1px solid rgba(110,231,183,.3);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.buybar.bp{color:#fff;font-weight:900;font-family:'Inter',sans-serif;font-size:1.1rem;white-space:nowrap}
+.buybar.bp small{display:block;color:#9aa0b2;font-size:.62rem;font-weight:600;letter-spacing:.02em}
+.buybar a{flex:1;text-align:center;background:linear-gradient(120deg,#0e9f6e,#0891b2);color:#fff;font-weight:800;text-decoration:none;padding:13px 10px;border-radius:12px;font-size:.98rem}
+body{padding-bottom:72px}
+
+section{padding:44px 0}
+.sec-label{font-size:.7rem;letter-spacing:.14em;font-weight:700;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
+h2{font-size:1.3rem;font-weight:800;letter-spacing:-.01em;margin-bottom:18px}
+.mut{color:var(--mut)}
+
+.preview{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 40px rgba(20,24,40,.08);padding:26px 24px;font-size:.82rem}
+.pv-top{border-bottom:2px solid var(--accent2);padding-bottom:10px;margin-bottom:14px}
+.pv-top h3{font-size:1.15rem;color:var(--accent2);letter-spacing:.04em}
+.pv-top p{color:var(--mut);font-size:.74rem;margin-top:2px}
+table{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:6px}
+th,td{padding:8px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+thead th{background:#f1f2f7;color:var(--mut);font-weight:600;font-size:.74rem}
+tr.total td{font-weight:900;background:#e8f5e9;font-size:.92rem}
+tr.total td.best{color:#2E7D32}
+.pv-cap{text-align:center;color:var(--mut);font-size:.72rem;margin-top:12px}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+.card.ic{font-size:1.4rem}
+.card h3{font-size:.95rem;font-weight:800;margin:8px 0 4px}
+.card p{font-size:.82rem;color:var(--mut)}
+
+.who{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+.who li{list-style:none;padding:8px 0 8px 30px;position:relative;font-size:.9rem;border-bottom:1px dashed var(--line)}
+.who li:last-child{border-bottom:0}
+.who li::before{content:'✓';position:absolute;left:0;color:var(--ok);font-weight:900}
+.who.ng li::before{content:'×';color:#c0263b}
+
+.cmp{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:.84rem}
+.cmp th,.cmp td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:center}
+.cmp th:first-child,.cmp td:first-child{text-align:left;color:var(--mut)}
+.cmp thead th{background:#0c1411;color:#fff;font-weight:700}
+.cmp thead th.us{background:linear-gradient(120deg,#0e9f6e,#0891b2)}
+.cmp.yes{color:var(--ok);font-weight:800}
+.cmp.no{color:#c0263b}
+
+.pricebox{background:linear-gradient(160deg,#fff,#eefaf4);border:1px solid #c8ecdb;border-radius:18px;padding:28px 24px;text-align:center}
+.pricebox.big{font-size:2.4rem;font-weight:900;font-family:'Inter',sans-serif;color:var(--ink)}
+.pricebox.opt{margin-top:16px;font-size:.84rem;color:var(--mut);text-align:left;max-width:440px;margin-left:auto;margin-right:auto}
+.pricebox.opt div{padding:5px 0;border-top:1px dashed var(--line)}
+
+.bundle{background:linear-gradient(135deg,#0f2233,#13261d);color:#fff;border-radius:18px;padding:26px 22px;text-align:center;border:1px solid rgba(110,231,183,.25)}
+.bundle h3{font-size:1.1rem;font-weight:800;color:#fff}
+.bundle.b-price{margin:10px 0 4px;font-family:'Inter',sans-serif}
+.bundle.b-price b{font-size:2rem;font-weight:900;color:#6ee7b7}
+.bundle p{color:#cdd2de;font-size:.84rem}
+
+.order{background:#0c1411;color:#fff;border-radius:18px;padding:30px 24px;text-align:center}
+.order h2{color:#fff}
+.steps{display:flex;flex-direction:column;gap:10px;max-width:440px;margin:16px auto 0;text-align:left}
+.step{display:flex;gap:12px;align-items:flex-start;font-size:.86rem;color:#cdd2de}
+.step b{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:linear-gradient(120deg,#0e9f6e,#0891b2);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:800}
+.order.reassure{color:#7e8499}
+
+details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px 16px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700;padding:12px 0;font-size:.9rem}
+details p{padding:0 0 14px;font-size:.84rem;color:var(--mut)}
+
+footer{text-align:center;padding:34px 20px;color:#9aa0b2;font-size:.74rem}
+footer a{color:#9aa0b2;text-decoration:none;margin:0 8px}
+@media(max-width:520px){h1{font-size:1.4rem}.grid{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"Product",
+"name":"走行記録・車両費 按分計算Excel",
+"description":"走行距離の記録から事業割合を自動計算し、ガソリン代・保険・車検・減価償却費など車両費のうち経費にできる金額を項目ごとに按分計算するExcelテンプレート。月別集計・按分の根拠資料つき。",
+"brand":{"@type":"Brand","name":"Richend Digital"},
+"offers":{"@type":"Offer","price":"1480","priceCurrency":"JPY","availability":"https://schema.org/InStock","url":"https://richend.base.shop/"}
+}
+</script>
+</head>
+<body>
+<!-- ============================================================
+このページの購入リンクは現在すべて
+仮リンク https://richend.base.shop/ （BASEトップ）になっています。
+BASEで商品を出品したら、発行される商品URL
+（https://richend.base.shop/items/XXXXXXXX）に、
+このファイル内の https://richend.base.shop/ をすべて差し替えてください
+（JSON-LD内のURLも含みます）。
+============================================================ -->
+
+<header class="hero">
+<div class="wrap">
+<div class="eyebrow">Richend Digital ｜ 直販ツール</div>
+<h1>「ガソリン代の何割が経費？」に、<br><span class="hl">走行記録から根拠つきで答える</span>Excel</h1>
+<p class="lead">家事按分でいちばん説明が難しいのが車両費。このシートは、走行距離を記録するだけで<b style="color:#fff">事業割合が自動計算</b>され、ガソリン代・保険・車検・減価償却費まで<b style="color:#fff">項目ごとに「経費にできる金額」</b>が出ます。記録そのものが按分の根拠資料になります。</p>
+<div class="pricetag"><span>買い切り</span><b>¥1,480</b></div>
+<!-- TODO: BASE出品後に実商品URLへ差し替え（現在は仮リンク） -->
+<div><a class="cta" href="https://richend.base.shop/" target="_blank" rel="noopener" onclick="gtag('event','buy_click',{item:'mileage_anbun_excel',value:1480,currency:'JPY',transport_type:'beacon'});">🛒 いますぐ購入する（¥1,480）→</a></div>
+<p class="reassure">Excel / Googleスプレッドシート / 無料のLibreOffice で利用可・月額0円の買い切り</p>
+</div>
+</header>
+
+<main>
+
+<section class="wrap" style="padding-top:38px">
+<div class="sec-label">Preview</div>
+<h2>入力例では、こう計算されました</h2>
+<p class="mut" style="margin-bottom:18px;font-size:.9rem">走行記録のサンプル（仕事547km＋私用64km＝総走行611km）と、車両費の年間金額を入れた場合の実計算結果です。</p>
+<div class="preview">
+<div class="pv-top">
+<h3>事業割合 89.5%（仕事 547km ÷ 総走行 611km）</h3>
+<p>按分集計シートの出力イメージ。記録と金額を変えれば自動で再計算されます。</p>
+</div>
+<table>
+<thead><tr><th>車両費の項目</th><th>年間の支払額</th><th>経費にできる金額</th></tr></thead>
+<tbody>
+<tr><td>ガソリン代</td><td>¥420,000</td><td>¥376,007</td></tr>
+<tr><td>任意保険料</td><td>¥96,000</td><td>¥85,944</td></tr>
+<tr><td>減価償却費（またはリース料）</td><td>¥180,000</td><td>¥161,146</td></tr>
+<tr><td>車検費用</td><td>¥80,000</td><td>¥71,620</td></tr>
+<tr class="total"><td>合計（全10項目）</td><td>¥926,000</td><td class="best">¥829,004</td></tr>
+</tbody>
+</table>
+<p class="pv-cap">「なんとなく7割」ではなく、自分の走行記録から出た割合で按分するから、税務署に聞かれても説明できます。</p>
+</div>
+</section>
+
+<section class="wrap">
+<div class="sec-label">Why it helps</div>
+<h2>按分の「根拠づくり」まで終わる</h2>
+<div class="grid">
+<div class="card"><div class="ic">🛣️</div><h3>走行記録シート（150行）</h3><p>日付・用途（プルダウン）・走行距離・メモを1行ずつ記録。月別の仕事距離・総距離・事業割合も自動集計されます。</p></div>
+<div class="card"><div class="ic">🧮</div><h3>車両費10項目をまとめて按分</h3><p>ガソリン・オイル/タイヤ・修理・車検・税金・自賠責・任意保険・駐車場・減価償却費（リース料）・その他。年間の支払額を入れるだけです。</p></div>
+<div class="card"><div class="ic">📊</div><h3>月別集計でムラが見える</h3><p>月ごとの事業割合が出るので、「繁忙期だけ割合が高い」といった実態も数字で把握できます。</p></div>
+<div class="card"><div class="ic">🗂️</div><h3>記録がそのまま根拠資料に</h3><p>按分の割合には合理的な根拠が必要です。このシートの走行記録を保存しておくことが、そのまま説明材料になります。</p></div>
+</div>
+</section>
+
+<section class="wrap">
+<div class="sec-label">Who it's for</div>
+<h2>こんな方のためのテンプレートです</h2>
+<ul class="who">
+<li>軽バンを仕事と私用で兼用していて、車両費の按分割合を「なんとなく」で決めている方</li>
+<li>ガソリン代・保険・車検を、根拠を持って経費に入れたい軽貨物ドライバー・個人事業主</li>
+<li>走行距離の記録を、帳簿とは別にきちんと残しておきたい方</li>
+<li>月によって仕事と私用の比率が大きく変わる方</li>
+</ul>
+</section>
+
+<section class="wrap">
+<div class="sec-label">Honest notes</div>
+<h2>先に伝えておくこと（できること・できないこと）</h2>
+<ul class="who ng">
+<li>按分の割合は<strong>走行距離ベースのみ</strong>です。スマホ代・電気代など距離で測れないものは対象外です（考え方は<a href="/keikamotsu-keihi/" style="color:var(--accent);text-decoration:underline">経費ガイド</a>を参照）</li>
+<li>割合が根拠として認められるのは<strong>記録が残っている期間だけ</strong>です。記録していない期間の分まで自動で遡ることはできません</li>
+<li>「その他」の用途は事業割合に含めていません。仕事に含めるべき走行は「仕事（配送）」で記録してください</li>
+<li>これは按分計算の補助ツールです。申告内容そのものの判断は行いません（迷う場合は税理士へ）</li>
+</ul>
+</section>
+
+<section class="wrap">
+<div class="sec-label">Compare</div>
+<h2>「なんとなく按分」・自作表と比べると</h2>
+<table class="cmp">
+<thead><tr><th></th><th>なんとなく決める</th><th>自分で表計算</th><th class="us">このテンプレート</th></tr></thead>
+<tbody>
+<tr><td>料金</td><td>0円（ただし根拠なし）</td><td>0円</td><td class="yes">¥1,480 買い切り</td></tr>
+<tr><td>事業割合の根拠</td><td class="no">× 説明できない</td><td>記録すれば可</td><td class="yes">○ 走行記録が根拠になる</td></tr>
+<tr><td>項目ごとの按分計算</td><td class="no">× 電卓で都度計算</td><td>式を組めば可</td><td class="yes">○ 金額を入れるだけ</td></tr>
+<tr><td>月別集計</td><td class="no">×</td><td>式を組めば可</td><td class="yes">○ 自動</td></tr>
+<tr><td>導入の手間</td><td>なし</td><td class="no">数式づくりから</td><td class="yes">○ 開いて記録するだけ</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="wrap">
+<div class="sec-label">Price</div>
+<h2>価格</h2>
+<div class="pricebox">
+<div class="big">¥1,480<span style="font-size:.9rem;color:var(--mut);font-weight:600"> 買い切り（税込）</span></div>
+<p class="mut" style="margin-top:6px;font-size:.86rem">月額なし。毎年の確定申告に、そのまま使い回せます。按分に特化した単機能ツールなので、フルセットの帳簿テンプレートより手頃な価格にしています。</p>
+<div style="margin-top:20px"><a class="cta sm" href="#order" onclick="gtag('event','cta_click',{location:'price'})">購入する →</a></div>
+</div>
+</section>
+
+<section class="wrap">
+<div class="bundle">
+<div class="sec-label" style="color:#6ee7b7">Cross-sell ・ あわせて使える</div>
+<h3>按分した金額は、帳簿へ記録。</h3>
+<p style="margin-top:6px">売上・経費管理Excel（確定申告対応）</p>
+<div class="b-price"><b>¥1,980</b></div>
+<p>このシートで出した「経費にできる金額」は、確定申告の帳簿に記録してはじめて効きます。入力するだけで所得と勘定科目別の経費が自動集計される<b>売上・経費管理Excel</b>もBASEで購入できます。</p>
+<div style="margin-top:18px"><a class="cta sm" href="https://richend.base.shop/items/147890288" target="_blank" rel="noopener" onclick="gtag('event','buy_click',{item:'uriage_keihi_excel',value:1980,currency:'JPY',transport_type:'beacon'});">🛒 売上・経費管理Excelを購入する（¥1,980）→</a></div>
+<p style="margin-top:10px;font-size:.78rem"><a href="/kakuteishinkoku-template/" style="color:#6ee7b7;text-decoration:underline">▶ 売上・経費管理Excel 単体のページを見る</a></p>
+</div>
+</section>
+
+<section class="wrap" id="order">
+<div class="order">
+<div class="sec-label" style="color:#6ee7b7">Order</div>
+<h2>ご注文（クレジットカード決済・購入後すぐダウンロード）</h2>
+<p style="color:#cdd2de;font-size:.9rem;max-width:460px;margin:0 auto">下の購入ボタンからBASEの安全な決済画面へ進みます。クレジットカード等でお支払い後、<b style="color:#fff">Excelファイルをその場ですぐにダウンロード</b>できます（メール返信や振込待ちはありません）。</p>
+<div class="steps">
+<div class="step"><b>1</b><div>「BASEで購入する」を押すと、安全な購入ページが開きます。</div></div>
+<div class="step"><b>2</b><div>クレジットカード等でお支払い（その場で完了）。</div></div>
+<div class="step"><b>3</b><div>購入後すぐに、Excelファイル（使い方シート付き）をダウンロードできます。</div></div>
+</div>
+<div style="margin-top:22px">
+<!-- TODO: BASE出品後に実商品URLへ差し替え（現在は仮リンク） -->
+<a class="cta" href="https://richend.base.shop/" target="_blank" rel="noopener" onclick="gtag('event','buy_click',{item:'mileage_anbun_excel',value:1480,currency:'JPY',transport_type:'beacon'});">🛒 BASEで購入する（¥1,480）</a>
+</div>
+<p class="reassure">決済はBASE（安全な国内サービス）。購入後すぐダウンロード。デジタル商品のため、購入後の返金はお受けできません。</p>
+</div>
+</section>
+
+<section class="wrap">
+<div class="sec-label">FAQ</div>
+<h2>よくある質問</h2>
+<details><summary>Excelを持っていなくても使えますか？</summary><p>はい。無料のGoogleスプレッドシートやLibreOffice Calcでも開いて利用できます。マクロは使っていないので、そのまま計算されます。</p></details>
+<details><summary>記録を途中から始めてもいいですか？</summary><p>はい。ただし按分の根拠になるのは記録がある期間だけです。年の途中からでも、始めた時点からの記録を根拠に、その期間の割合で按分するのが実務的です。</p></details>
+<details><summary>リース車でも使えますか？</summary><p>使えます。「車両の減価償却費（またはリース料）」の行に年間リース料を入れてください。他の項目と同じ事業割合で按分されます。</p></details>
+<details><summary>スマホ代も按分できますか？</summary><p>このシートは走行距離で測る車両費専用です。スマホ代は使用時間など別の根拠で割合を決めるものなので、対象にしていません。</p></details>
+<details><summary>確定申告書にどう転記しますか？</summary><p>「経費にできる金額」の列の金額を、帳簿・申告書の各科目（燃料費・車両費・減価償却費など）に記録します。日々の記録と集計には<a href="/kakuteishinkoku-template/" style="color:var(--accent);text-decoration:underline">売上・経費管理Excel</a>が向いています。</p></details>
+<details><summary>支払い方法は？</summary><p>クレジットカード等（BASEの決済）です。購入後すぐにExcelファイルをダウンロードできます。</p></details>
+</section>
+
+</main>
+
+<footer>
+<div style="margin-bottom:8px">
+<a href="/">Richend Digital トップ</a>・
+<a href="/kakuteishinkoku-template/">売上・経費管理Excel</a>・
+<a href="/vehicle-cost-compare/">車両コスト比較Excel</a>・
+<a href="/privacy.html">プライバシーポリシー</a>・
+<a href="/contact.html">お問い合わせ</a>
+</div>
+&copy; 2026 Richend Digital
+</footer>
+
+<div class="buybar">
+<div class="bp">¥1,480<small>買い切り・税込</small></div>
+<!-- TODO: BASE出品後に実商品URLへ差し替え（現在は仮リンク） -->
+<a href="https://richend.base.shop/" target="_blank" rel="noopener" onclick="gtag('event','buy_click',{item:'mileage_anbun_excel',value:1480,currency:'JPY',transport_type:'beacon'});">🛒 BASEで購入する</a>
+</div>
+
+</body>
+</html>
