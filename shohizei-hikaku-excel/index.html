@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-63VB4HT3T2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-63VB4HT3T2');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>消費税 方式比較シミュレーションExcel｜本則・簡易課税・2割特例を比べる｜Richend Digital</title>
+<link rel="canonical" href="https://richend0913.github.io/shohizei-hikaku-excel/">
+<meta name="description" content="インボイス登録した個人事業主向け。年間の売上と経費を入れるだけで、本則課税・簡易課税・2割特例の消費税納税額を自動比較し、いちばん安い方式が分かるExcelテンプレート。¥1,980。">
+<meta property="og:title" content="消費税 方式比較シミュレーションExcel｜本則・簡易・2割特例を比べる">
+<meta property="og:description" content="売上と経費を入れるだけ。本則課税・簡易課税・2割特例の納税額を自動比較。インボイス登録した個人事業主向けExcelテンプレート。¥1,980。">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://richend0913.github.io/shohizei-hikaku-excel/">
+<meta property="og:image" content="https://richend0913.github.io/images/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#1a1d24;--mut:#5b6472;--line:#e6e8ee;--bg:#f7f8fb;--accent:#0e9f6e;--accent2:#1F3864;--ok:#16a34a}
+body{font-family:'Noto Sans JP','Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;-webkit-text-size-adjust:100%}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+
+.hero{background:linear-gradient(160deg,#0c1411 0%,#13261d 55%,#0f2233 100%);color:#fff;padding:54px 0 40px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;top:-40%;right:-20%;width:60%;height:160%;background:radial-gradient(circle,rgba(14,159,110,.25),transparent 60%)}
+.hero.wrap{position:relative;z-index:1}
+.eyebrow{font-size:.72rem;letter-spacing:.16em;font-weight:700;color:#6ee7b7;text-transform:uppercase;margin-bottom:14px}
+h1{font-size:1.7rem;font-weight:900;line-height:1.4;letter-spacing:-.01em}
+h1.hl{background:linear-gradient(120deg,#34d399,#67e8f9);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.lead{margin-top:14px;color:#c7cbd6;font-size:.96rem}
+.pricetag{display:inline-flex;align-items:baseline;gap:8px;margin-top:22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:10px 18px;border-radius:14px}
+.pricetag b{font-size:1.9rem;font-weight:900;font-family:'Inter',sans-serif}
+.pricetag span{color:#6ee7b7;font-size:.78rem}
+.cta{display:inline-flex;align-items:center;gap:8px;margin-top:24px;background:linear-gradient(120deg,#0e9f6e,#0891b2);color:#fff;font-weight:800;font-size:1rem;text-decoration:none;padding:15px 28px;border-radius:14px;box-shadow:0 10px 30px rgba(14,159,110,.4);transition:transform.15s}
+.cta:hover{transform:translateY(-2px)}
+.cta.sm{font-size:.92rem;padding:13px 24px;box-shadow:0 8px 22px rgba(14,159,110,.35)}
+.reassure{margin-top:12px;font-size:.74rem;color:#9aa0b2}
+
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(12,20,17,.96);backdrop-filter:blur(6px);border-top:1px solid rgba(110,231,183,.3);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.buybar.bp{color:#fff;font-weight:900;font-family:'Inter',sans-serif;font-size:1.1rem;white-space:nowrap}
+.buybar.bp small{display:block;color:#9aa0b2;font-size:.62rem;font-weight:600;letter-spacing:.02em}
+.buybar a{flex:1;text-align:center;background:linear-gradient(120deg,#0e9f6e,#0891b2);color:#fff;font-weight:800;text-decoration:none;padding:13px 10px;border-radius:12px;font-size:.98rem}
+body{padding-bottom:72px}
+
+section{padding:44px 0}
+.sec-label{font-size:.7rem;letter-spacing:.14em;font-weight:700;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
+h2{font-size:1.3rem;font-weight:800;letter-spacing:-.01em;margin-bottom:18px}
+.mut{color:var(--mut)}
+
+.preview{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 40px rgba(20,24,40,.08);padding:26px 24px;font-size:.82rem}
+.pv-top{border-bottom:2px solid var(--accent2);padding-bottom:10px;margin-bottom:14px}
+.pv-top h3{font-size:1.15rem;color:var(--accent2);letter-spacing:.04em}
+.pv-top p{color:var(--mut);font-size:.74rem;margin-top:2px}
+table{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:6px}
+th,td{padding:8px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+thead th{background:#f1f2f7;color:var(--mut);font-weight:600;font-size:.74rem}
+tr.total td{font-weight:900;background:#e8f5e9;font-size:.92rem}
+tr.total td.best{color:#2E7D32}
+.pv-cap{text-align:center;color:var(--mut);font-size:.72rem;margin-top:12px}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+.card.ic{font-size:1.4rem}
+.card h3{font-size:.95rem;font-weight:800;margin:8px 0 4px}
+.card p{font-size:.82rem;color:var(--mut)}
+
+.who{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+.who li{list-style:none;padding:8px 0 8px 30px;position:relative;font-size:.9rem;border-bottom:1px dashed var(--line)}
+.who li:last-child{border-bottom:0}
+.who li::before{content:'✓';position:absolute;left:0;color:var(--ok);font-weight:900}
+.who.ng li::before{content:'×';color:#c0263b}
+
+.cmp{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:.84rem}
+.cmp th,.cmp td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:center}
+.cmp th:first-child,.cmp td:first-child{text-align:left;color:var(--mut)}
+.cmp thead th{background:#0c1411;color:#fff;font-weight:700}
+.cmp thead th.us{background:linear-gradient(120deg,#0e9f6e,#0891b2)}
+.cmp.yes{color:var(--ok);font-weight:800}
+.cmp.no{color:#c0263b}
+
+.pricebox{background:linear-gradient(160deg,#fff,#eefaf4);border:1px solid #c8ecdb;border-radius:18px;padding:28px 24px;text-align:center}
+.pricebox.big{font-size:2.4rem;font-weight:900;font-family:'Inter',sans-serif;color:var(--ink)}
+.pricebox.opt{margin-top:16px;font-size:.84rem;color:var(--mut);text-align:left;max-width:440px;margin-left:auto;margin-right:auto}
+.pricebox.opt div{padding:5px 0;border-top:1px dashed var(--line)}
+
+.bundle{background:linear-gradient(135deg,#0f2233,#13261d);color:#fff;border-radius:18px;padding:26px 22px;text-align:center;border:1px solid rgba(110,231,183,.25)}
+.bundle h3{font-size:1.1rem;font-weight:800;color:#fff}
+.bundle.b-price{margin:10px 0 4px;font-family:'Inter',sans-serif}
+.bundle.b-price b{font-size:2rem;font-weight:900;color:#6ee7b7}
+.bundle p{color:#cdd2de;font-size:.84rem}
+
+.order{background:#0c1411;color:#fff;border-radius:18px;padding:30px 24px;text-align:center}
+.order h2{color:#fff}
+.steps{display:flex;flex-direction:column;gap:10px;max-width:440px;margin:16px auto 0;text-align:left}
+.step{display:flex;gap:12px;align-items:flex-start;font-size:.86rem;color:#cdd2de}
+.step b{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:linear-gradient(120deg,#0e9f6e,#0891b2);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:800}
+.order.reassure{color:#7e8499}
+
+details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px 16px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700;padding:12px 0;font-size:.9rem}
+details p{padding:0 0 14px;font-size:.84rem;color:var(--mut)}
+
+footer{text-align:center;padding:34px 20px;color:#9aa0b2;font-size:.74rem}
+footer a{color:#9aa0b2;text-decoration:none;margin:0 8px}
+@media(max-width:520px){h1{font-size:1.4rem}.grid{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"Product",
+"name":"消費税 方式比較シミュレーションExcel（本則・簡易課税・2割特例）",
+"description":"年間の課税売上と課税仕入れを入力するだけで、本則課税・簡易課税・2割特例の消費税納税額と差額を自動比較するExcelテンプレート。みなし仕入率はプルダウン選択（初期値：運送業＝第五種50%）。",
+"brand":{"@type":"Brand","name":"Richend Digital"},
+"offers":{"@type":"Offer","price":"1980","priceCurrency":"JPY","availability":"https://schema.org/InStock","url":"https://richend.base.shop/"}
+}
+</script>
+</head>
+<body>
+<!-- ============================================================
+このページの購入リンクは現在すべて
+仮リンク https://richend.base.shop/ （BASEトップ）になっています。
+BASEで商品を出品したら、発行される商品URL
+（https://richend.base.shop/items/XXXXXXXX）に、
+このファイル内の https://richend.base.shop/ をすべて差し替えてください
+（JSON-LD内のURLも含みます）。
+============================================================ -->
+
+<header class="hero">
+<div class="wrap">
+<div class="eyebrow">Richend Digital ｜ 直販ツール</div>
+<h1>本則・簡易・2割特例、<br><span class="hl">消費税はいちばん安い方式で払う</span>ためのExcel</h1>
+<p class="lead">インボイス登録したら、次は「どの方式で計算するか」で納税額が大きく変わります。年間の売上と経費を入れるだけで、<b style="color:#fff">3方式の納税額・差額・判定</b>が自動で出ます。軽貨物ドライバー・個人事業主の消費税の申告前に。</p>
+<div class="pricetag"><span>買い切り</span><b>¥1,980</b></div>
+<!-- TODO: BASE出品後に実商品URLへ差し替え（現在は仮リンク） -->
+<div><a class="cta" href="https://richend.base.shop/" target="_blank" rel="noopener" onclick="gtag('event','buy_click',{item:'shohizei_hikaku_excel',value:1980,currency:'JPY',transport_type:'beacon'});">🛒 いますぐ購入する（¥1,980）→</a></div>
+<p class="reassure">Excel / Googleスプレッドシート / 無料のLibreOffice で利用可・月額0円の買い切り</p>
+</div>
+</header>
+
+<main>
+
+<section class="wrap" style="padding-top:38px">
+<div class="sec-label">Preview</div>
+<h2>入力例では、30万円の差が出ました</h2>
+<p class="mut" style="margin-bottom:18px;font-size:.9rem">年間の配送売上が税込660万円（消費税60万円）、経費にかかった消費税が18万円のドライバーの場合の実計算結果です（当サイトの<a href="/keikamotsu-invoice/" style="color:var(--accent);text-decoration:underline">インボイス制度ガイド</a>のシミュレーション例と同じ前提）。</p>
+<div class="preview">
+<div class="pv-top">
+<h3>方式ごとの納税額（年間）</h3>
+<p>方式比較シートの出力イメージ。数字を変えれば自動で再計算されます。</p>
+</div>
+<table>
+<thead><tr><th>方式</th><th>納税額</th><th>最安との差</th></tr></thead>
+<tbody>
+<tr><td>本則課税（60万円 − 18万円）</td><td>¥420,000</td><td>¥300,000</td></tr>
+<tr><td>簡易課税（第五種・みなし仕入率50%）</td><td>¥300,000</td><td>¥180,000</td></tr>
+<tr class="total"><td>2割特例（60万円 × 20%）</td><td class="best">¥120,000</td><td>¥0</td></tr>
+</tbody>
+</table>
+<p class="pv-cap">この例では2割特例が最安。ただし車両購入など経費の消費税が多い年は本則が逆転することもあります。毎年比べるためのシートです。</p>
+</div>
+</section>
+
+<section class="wrap">
+<div class="sec-label">Why it helps</div>
+<h2>方式選びを「数字」で決められる</h2>
+<div class="grid">
+<div class="card"><div class="ic">⚖️</div><h3>3方式をその場で比較</h3><p>本則・簡易・2割特例の納税額と、いちばん安い方式との差額を一覧表示。判定文も自動で出ます。</p></div>
+<div class="card"><div class="ic">🚚</div><h3>初期値は運送業（第五種・50%）</h3><p>みなし仕入率はプルダウンで変更可能。軽貨物ドライバーの標準＝第五種事業50%が初期値です。他の事業区分（90〜40%）にも対応。</p></div>
+<div class="card"><div class="ic">🥬</div><h3>8%（軽減税率）にも対応</h3><p>売上・仕入れとも、10%と8%を分けて入力できます。食品の取り扱いがある事業でも使えます。</p></div>
+<div class="card"><div class="ic">🔁</div><h3>毎年の申告前に使い回せる</h3><p>方式の有利・不利は年によって変わります。前年の実績を入れて翌年の方式選びに使う、という使い方もできます。</p></div>
+</div>
+</section>
+
+<section class="wrap">
+<div class="sec-label">Who it's for</div>
+<h2>こんな方のためのテンプレートです</h2>
+<ul class="who">
+<li>インボイス登録をして、初めて消費税の申告をする軽貨物ドライバー・個人事業主</li>
+<li>2割特例・簡易課税・本則のどれが安いか、自分の数字で確かめたい方</li>
+<li>簡易課税の届出を出す前に、出す価値があるか数字で判断したい方</li>
+<li>車両を買った年など、経費が大きい年の方式選びで迷っている方</li>
+</ul>
+</section>
+
+<section class="wrap">
+<div class="sec-label">Honest notes</div>
+<h2>先に伝えておくこと（できること・できないこと）</h2>
+<ul class="who ng">
+<li>これは<strong>概算シミュレーション</strong>です。実際の申告額は端数処理・個別の取引内容で変わります。消費税の申告書そのものは作成しません</li>
+<li><strong>2割特例は期間限定</strong>です（免税事業者から登録した方が対象で、令和8年9月30日を含む課税期間まで）。期間後は本則と簡易の2択になります</li>
+<li>簡易課税は<strong>事前の届出に期限</strong>があります（適用年の前年末まで）。このシートは「選ぶべきか」の判断用で、届出書は作成しません</li>
+<li>みなし仕入率の事業区分は実態で判定されます。シートの初期値（第五種）は運送業の目安です</li>
+<li>輸出・非課税売上のみの事業、2種類以上の事業を営む場合の按分計算には対応していません</li>
+</ul>
+</section>
+
+<section class="wrap">
+<div class="sec-label">Compare</div>
+<h2>ガイドの概算・自作表と比べると</h2>
+<table class="cmp">
+<thead><tr><th></th><th>記事の計算例</th><th>自分で表計算</th><th class="us">このテンプレート</th></tr></thead>
+<tbody>
+<tr><td>料金</td><td>無料（他人の数字の例）</td><td>0円</td><td class="yes">¥1,980 買い切り</td></tr>
+<tr><td>自分の売上・経費で計算</td><td class="no">× 例の数字のみ</td><td>式を組めば可</td><td class="yes">○ 入れるだけ</td></tr>
+<tr><td>8%（軽減税率）の区分</td><td class="no">△ 省略されがち</td><td>式を組めば可</td><td class="yes">○</td></tr>
+<tr><td>みなし仕入率の切替</td><td class="no">×</td><td>式を組めば可</td><td class="yes">○ プルダウン</td></tr>
+<tr><td>導入の手間</td><td>読むだけ</td><td class="no">数式づくりから</td><td class="yes">○ 開いて入力するだけ</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="wrap">
+<div class="sec-label">Price</div>
+<h2>価格</h2>
+<div class="pricebox">
+<div class="big">¥1,980<span style="font-size:.9rem;color:var(--mut);font-weight:600"> 買い切り（税込）</span></div>
+<p class="mut" style="margin-top:6px;font-size:.86rem">月額なし。方式選びで数万円単位の差が出る場面に比べれば、1回の申告で元が取れる価格にしています。</p>
+<div style="margin-top:20px"><a class="cta sm" href="#order" onclick="gtag('event','cta_click',{location:'price'})">購入する →</a></div>
+</div>
+</section>
+
+<section class="wrap">
+<div class="bundle">
+<div class="sec-label" style="color:#6ee7b7">Cross-sell ・ あわせて使える</div>
+<h3>比較の前に、集計が要ります。</h3>
+<p style="margin-top:6px">売上・経費管理Excel（確定申告対応）</p>
+<div class="b-price"><b>¥1,980</b></div>
+<p>方式比較に使う「課税売上」と「経費にかかった消費税」は、日々の記録から集計するものです。入力するだけで所得と科目別の経費が自動集計される<b>売上・経費管理Excel</b>もBASEで購入できます。</p>
+<div style="margin-top:18px"><a class="cta sm" href="https://richend.base.shop/items/147890288" target="_blank" rel="noopener" onclick="gtag('event','buy_click',{item:'uriage_keihi_excel',value:1980,currency:'JPY',transport_type:'beacon'});">🛒 売上・経費管理Excelを購入する（¥1,980）→</a></div>
+<p style="margin-top:10px;font-size:.78rem"><a href="/kakuteishinkoku-template/" style="color:#6ee7b7;text-decoration:underline">▶ 売上・経費管理Excel 単体のページを見る</a></p>
+</div>
+</section>
+
+<section class="wrap" id="order">
+<div class="order">
+<div class="sec-label" style="color:#6ee7b7">Order</div>
+<h2>ご注文（クレジットカード決済・購入後すぐダウンロード）</h2>
+<p style="color:#cdd2de;font-size:.9rem;max-width:460px;margin:0 auto">下の購入ボタンからBASEの安全な決済画面へ進みます。クレジットカード等でお支払い後、<b style="color:#fff">Excelファイルをその場ですぐにダウンロード</b>できます（メール返信や振込待ちはありません）。</p>
+<div class="steps">
+<div class="step"><b>1</b><div>「BASEで購入する」を押すと、安全な購入ページが開きます。</div></div>
+<div class="step"><b>2</b><div>クレジットカード等でお支払い（その場で完了）。</div></div>
+<div class="step"><b>3</b><div>購入後すぐに、Excelファイル（使い方シート付き）をダウンロードできます。</div></div>
+</div>
+<div style="margin-top:22px">
+<!-- TODO: BASE出品後に実商品URLへ差し替え（現在は仮リンク） -->
+<a class="cta" href="https://richend.base.shop/" target="_blank" rel="noopener" onclick="gtag('event','buy_click',{item:'shohizei_hikaku_excel',value:1980,currency:'JPY',transport_type:'beacon'});">🛒 BASEで購入する（¥1,980）</a>
+</div>
+<p class="reassure">決済はBASE（安全な国内サービス）。購入後すぐダウンロード。デジタル商品のため、購入後の返金はお受けできません。</p>
+</div>
+</section>
+
+<section class="wrap">
+<div class="sec-label">FAQ</div>
+<h2>よくある質問</h2>
+<details><summary>Excelを持っていなくても使えますか？</summary><p>はい。無料のGoogleスプレッドシートやLibreOffice Calcでも開いて利用できます。マクロは使っていないので、そのまま計算されます。</p></details>
+<details><summary>まだ免税事業者ですが、使えますか？</summary><p>「登録したらいくら払うことになるか」の試算として使えます。将来の売上見込みを入れて、登録の判断材料にしてください。制度の考え方は<a href="/keikamotsu-invoice/" style="color:var(--accent);text-decoration:underline">インボイス制度ガイド</a>で解説しています。</p></details>
+<details><summary>みなし仕入率の事業区分が分かりません。</summary><p>運送業は原則として第五種事業（50%）です。シートでは第一種〜第六種（90%〜40%）をプルダウンで切り替えて比べられます。最終的な区分判定は実態によるため、不明な場合は税務署・税理士に確認してください。</p></details>
+<details><summary>2割特例が終わったら使えなくなりますか？</summary><p>いいえ。本則と簡易の比較はそのまま使えます。特例の対象期間が過ぎたら、その行を除いた2方式で比べてください。</p></details>
+<details><summary>消費税の申告書まで作れますか？</summary><p>作れません。このシートは方式選びのための概算比較専用です。申告書の作成は、集計済みの数字をもとに申告ソフトや税務署の作成コーナーで行ってください。</p></details>
+<details><summary>支払い方法は？</summary><p>クレジットカード等（BASEの決済）です。購入後すぐにExcelファイルをダウンロードできます。</p></details>
+</section>
+
+</main>
+
+<footer>
+<div style="margin-bottom:8px">
+<a href="/">Richend Digital トップ</a>・
+<a href="/kakuteishinkoku-template/">売上・経費管理Excel</a>・
+<a href="/vehicle-cost-compare/">車両コスト比較Excel</a>・
+<a href="/privacy.html">プライバシーポリシー</a>・
+<a href="/contact.html">お問い合わせ</a>
+</div>
+&copy; 2026 Richend Digital
+</footer>
+
+<div class="buybar">
+<div class="bp">¥1,980<small>買い切り・税込</small></div>
+<!-- TODO: BASE出品後に実商品URLへ差し替え（現在は仮リンク） -->
+<a href="https://richend.base.shop/" target="_blank" rel="noopener" onclick="gtag('event','buy_click',{item:'shohizei_hikaku_excel',value:1980,currency:'JPY',transport_type:'beacon'});">🛒 BASEで購入する</a>
+</div>
+
+</body>
+</html>
