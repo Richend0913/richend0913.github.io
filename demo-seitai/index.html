@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>整体サロン てらす｜完全予約制・一人の整体サロン</title>
+<meta name="description" content="完全予約制・一人運営の整体サロンのホームページ制作サンプルです。メニュー・料金・営業時間・アクセスと、AI受付（サンプル）を体験できます。※架空のお店です。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="整体サロン てらす">
+<meta property="og:description" content="AI受付付きホームページの制作サンプル（架空のお店）。右下のAI受付に話しかけられます。">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-63VB4HT3T2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-63VB4HT3T2',{page_area:'demo-seitai'});</script>
+<style>
+:root{
+--c-bg:#faf7f1; --c-surface:#ffffff; --c-ink:#2e2a24; --c-ink-soft:#6f675a;
+--c-accent:#3e6b4f; --c-accent-soft:#e6efe7; --c-line:#e5ddd0; --c-warm:#c89b5a;
+--radius:16px; --shadow:0 10px 30px rgba(46,42,36,.10);
+--font:"Hiragino Mincho ProN","Yu Mincho",serif;
+--font-sans:"Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--c-bg);color:var(--c-ink);font-family:var(--font-sans);line-height:1.8;-webkit-font-smoothing:antialiased}
+.container{max-width:960px;margin-inline:auto;padding-inline:20px}
+h1,h2,.serif{font-family:var(--font);font-weight:600;letter-spacing:.02em}
+a{color:var(--c-accent)}
+.sample-bar{background:var(--c-ink);color:#f3ead9;text-align:center;font-size:12.5px;padding:8px 16px;letter-spacing:.04em}
+.sample-bar b{color:#ffd98a}
+/* header */
+header{position:sticky;top:0;z-index:40;background:rgba(250,247,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--c-line)}
+header.in{display:flex;align-items:center;justify-content:space-between;padding-block:12px}
+.brand{font-family:var(--font);font-size:19px;color:var(--c-ink);text-decoration:none}
+.brand small{display:block;font-family:var(--font-sans);font-size:10.5px;color:var(--c-ink-soft);letter-spacing:.14em}
+.hdr-tel{font-size:13px;color:var(--c-ink-soft);text-align:right}
+.hdr-tel b{display:block;font-size:16px;color:var(--c-ink)}
+.btn{display:inline-block;border-radius:999px;padding:13px 28px;font-weight:700;text-decoration:none;font-size:15px;transition:.2s}
+.btn-primary{background:var(--c-accent);color:#fff;box-shadow:0 6px 16px rgba(62,107,79,.28)}
+.btn-primary:hover{background:#33573f}
+.btn-ghost{background:transparent;color:var(--c-accent);border:1.5px solid var(--c-accent)}
+.btn-sm{padding:9px 20px;font-size:13.5px}
+/* hero */
+.hero{padding:64px 0 56px;background:linear-gradient(180deg,#f3ecdd 0%,var(--c-bg) 100%);text-align:center}
+.eyebrow{display:inline-block;font-size:12px;letter-spacing:.22em;color:var(--c-accent);border:1px solid var(--c-accent);border-radius:999px;padding:4px 14px;margin-bottom:20px;background:#fff}
+.hero h1{font-size:clamp(27px,6vw,42px);line-height:1.5;margin-bottom:18px}
+.hero h1.ac{color:var(--c-accent)}
+.hero p.sub{max-width:620px;margin:0 auto 26px;color:var(--c-ink-soft);font-size:15.5px}
+.open-badge{display:inline-flex;gap:8px;align-items:center;background:var(--c-accent-soft);color:var(--c-accent);border-radius:999px;padding:7px 18px;font-size:13.5px;font-weight:700;margin-bottom:26px}
+.open-badge.dot{width:8px;height:8px;border-radius:50%;background:#43a35f;box-shadow:0 0 0 4px rgba(67,163,95,.18)}
+.hero.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.hero.note{margin-top:18px;font-size:12.5px;color:var(--c-ink-soft)}
+/* sections */
+section{padding:64px 0}
+.sec-head{text-align:center;margin-bottom:36px}
+.sec-head.eyebrow{margin-bottom:12px}
+.sec-head h2{font-size:clamp(23px,4.5vw,30px)}
+.sec-head p{color:var(--c-ink-soft);font-size:14.5px;margin-top:10px}
+.cards{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:720px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--c-surface);border:1px solid var(--c-line);border-radius:var(--radius);padding:26px 22px}
+.card.ico{font-size:26px;margin-bottom:10px}
+.card h3{font-size:17px;margin-bottom:8px;font-family:var(--font)}
+.card p{font-size:14px;color:var(--c-ink-soft)}
+/* menu */
+.menu-list{background:var(--c-surface);border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden}
+.menu-item{display:flex;justify-content:space-between;gap:16px;padding:20px 24px;border-bottom:1px solid var(--c-line);align-items:baseline}
+.menu-item:last-child{border-bottom:none}
+.menu-item.name{font-weight:700;font-size:16px}
+.menu-item.desc{font-size:13px;color:var(--c-ink-soft);margin-top:2px}
+.menu-item.price{font-family:var(--font);font-size:19px;color:var(--c-accent);white-space:nowrap}
+.menu-item.price small{font-size:12px;color:var(--c-ink-soft)}
+.badge-first{background:var(--c-warm);color:#fff;font-size:11px;border-radius:999px;padding:2px 10px;margin-left:8px;vertical-align:2px}
+/* info table */
+.info-grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:720px){.info-grid{grid-template-columns:1fr 1fr}}
+table.hours{width:100%;border-collapse:collapse;font-size:14.5px}
+table.hours th,table.hours td{padding:10px 8px;border-bottom:1px solid var(--c-line);text-align:left}
+table.hours th{color:var(--c-ink-soft);font-weight:600;width:38%}
+.owner{display:flex;gap:20px;align-items:flex-start}
+.owner.face{flex:0 0 92px;width:92px;height:92px;border-radius:50%;background:var(--c-accent-soft);display:flex;align-items:center;justify-content:center;font-size:38px}
+.voices{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:720px){.voices{grid-template-columns:1fr 1fr}}
+.voice{background:var(--c-surface);border:1px solid var(--c-line);border-radius:var(--radius);padding:22px}
+.voice.who{font-size:12.5px;color:var(--c-warm);font-weight:700;margin-bottom:6px}
+.voice p{font-size:14.5px}
+/* contact */
+.contact-box{background:var(--c-ink);color:#f5efe2;border-radius:20px;padding:36px 26px;text-align:center}
+.contact-box h2{color:#fff;margin-bottom:10px}
+.contact-box p{font-size:14.5px;color:#cfc6b2;margin-bottom:22px}
+.contact-box.tel-big{font-family:var(--font);font-size:clamp(24px,5vw,32px);color:#fff;text-decoration:none;display:block;margin-bottom:6px}
+.contact-box.tel-note{font-size:12.5px;color:#a99f88;margin-bottom:22px}
+footer{padding:34px 0 110px;text-align:center;color:var(--c-ink-soft);font-size:12.5px;border-top:1px solid var(--c-line)}
+/* AI受付 widget */
+.ai-fab{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--c-accent);color:#fff;border:none;border-radius:999px;padding:14px 22px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 10px 24px rgba(62,107,79,.4);display:flex;gap:8px;align-items:center;font-family:var(--font-sans)}
+.ai-fab:hover{background:#33573f}
+.ai-panel{position:fixed;right:18px;bottom:84px;z-index:60;width:min(360px,calc(100vw - 32px));background:#fff;border-radius:18px;box-shadow:var(--shadow);border:1px solid var(--c-line);overflow:hidden;display:none;flex-direction:column;max-height:min(560px,calc(100dvh - 120px))}
+.ai-panel.open{display:flex}
+.ai-head{background:var(--c-accent);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+.ai-head b{font-size:15px}
+.ai-head small{display:block;font-weight:400;font-size:11px;opacity:.85}
+.ai-close{background:none;border:none;color:#fff;font-size:20px;cursor:pointer;line-height:1}
+.ai-body{padding:16px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;background:#fbf9f4}
+.msg{max-width:86%;padding:10px 14px;border-radius:14px;font-size:14px;line-height:1.65;white-space:pre-wrap}
+.msg.bot{background:#fff;border:1px solid var(--c-line);align-self:flex-start;border-bottom-left-radius:4px}
+.msg.user{background:var(--c-accent);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 16px 12px;background:#fbf9f4}
+.chip{border:1.5px solid var(--c-accent);color:var(--c-accent);background:#fff;border-radius:999px;padding:6px 14px;font-size:13px;cursor:pointer;font-family:var(--font-sans)}
+.chip:hover{background:var(--c-accent-soft)}
+.ai-input{display:flex;gap:8px;padding:12px;border-top:1px solid var(--c-line);background:#fff}
+.ai-input input{flex:1;border:1px solid var(--c-line);border-radius:999px;padding:10px 16px;font-size:14px;font-family:var(--font-sans);min-width:0}
+.ai-input button{background:var(--c-accent);color:#fff;border:none;border-radius:999px;padding:10px 18px;font-weight:700;cursor:pointer;font-family:var(--font-sans)}
+</style>
+</head>
+<body>
+
+<div class="sample-bar">このサイトは <b>制作サンプル</b> です。店舗・料金・人物はすべて架空です。</div>
+
+<header><div class="container in">
+<a class="brand" href="#top">整体サロン てらす<small>SEITAI SALON TERASU</small></a>
+<div style="display:flex;gap:14px;align-items:center">
+<div class="hdr-tel">お電話<b>03-0000-0000</b></div>
+<a class="btn btn-primary btn-sm" href="#contact">予約・お問い合わせ</a>
+</div>
+</div></header>
+
+<section class="hero" id="top" style="padding-top:56px">
+<div class="container">
+<span class="eyebrow">完全予約制 ・ 一人の整体サロン</span>
+<h1>からだの重さを、<br><span class="ac">そっと降ろせる場所。</span></h1>
+<p class="sub">施術は最初から最後まで店主ひとりが担当します。大きな宣伝はしませんが、一人ひとりのからだに合わせて、静かに丁寧に整えます。</p>
+<div class="open-badge"><span class="dot"></span>本日 10:00〜20:00 営業中（最終受付 19:00）</div>
+<div class="btns">
+<a class="btn btn-primary" href="#menu">メニュー・料金を見る</a>
+<button class="btn btn-ghost" type="button" onclick="openAI()">AI受付に聞いてみる</button>
+</div>
+<p class="note">施術中は電話に出られないことがあります。右下の「AI受付」が24時間ご質問にお答えします。</p>
+</div>
+</section>
+
+<section style="padding-top:24px">
+<div class="container">
+<div class="sec-head"><span class="eyebrow">FEATURE</span><h2>てらすの3つの約束</h2></div>
+<div class="cards">
+<div class="card"><div class="ico">🤲</div><h3>一人が一貫して担当</h3><p>担当が毎回変わることはありません。前回の状態を覚えた上で、今日のからだに合わせて施術します。</p></div>
+<div class="card"><div class="ico">🕰️</div><h3>完全予約制・貸し切り</h3><p>お客様同士が顔を合わせないよう、予約の間隔を空けています。静かな空間でゆっくり過ごせます。</p></div>
+<div class="card"><div class="ico">📩</div><h3>24時間のAI受付</h3><p>営業時間・料金・空き状況の一次案内はAI受付が24時間対応。予約の確定は店主が直接ご連絡します。</p></div>
+</div>
+</div>
+</section>
+
+<section id="menu" style="background:var(--c-surface);border-block:1px solid var(--c-line)">
+<div class="container">
+<div class="sec-head"><span class="eyebrow">MENU</span><h2>メニュー・料金</h2><p>すべて税込表示です。初回はカウンセリングの時間を含みます。</p></div>
+<div class="menu-list">
+<div class="menu-item"><div><div class="name">全身整体 60分</div><div class="desc">頭から足先まで、全体のバランスを整える基本コース</div></div><div class="price">¥6,000</div></div>
+<div class="menu-item"><div><div class="name">全身整体 90分</div><div class="desc">気になる部位を重点的に。慢性的な疲れが溜まった方に</div></div><div class="price">¥8,500</div></div>
+<div class="menu-item"><div><div class="name">部分集中 30分</div><div class="desc">肩・腰・脚など、一部位に絞った短時間コース</div></div><div class="price">¥3,500</div></div>
+<div class="menu-item"><div><div class="name">初回体験 60分<span class="badge-first">初回限定</span></div><div class="desc">カウンセリング＋全身整体60分。初めての方の入口に</div></div><div class="price">¥4,500</div></div>
+</div>
+<p style="font-size:13px;color:var(--c-ink-soft);margin-top:14px;text-align:center">お支払い: 現金 / クレジットカード / QR決済（サンプル表記）</p>
+</div>
+</section>
+
+<section id="access">
+<div class="container">
+<div class="sec-head"><span class="eyebrow">INFO</span><h2>営業時間・アクセス</h2></div>
+<div class="info-grid">
+<div class="card">
+<h3 style="margin-bottom:12px">営業時間</h3>
+<table class="hours">
+<tr><th>平日・土日祝</th><td>10:00 〜 20:00（最終受付 19:00）</td></tr>
+<tr><th>定休日</th><td>木曜日</td></tr>
+<tr><th>予約</th><td>完全予約制（当日予約はお電話・AI受付で）</td></tr>
+</table>
+</div>
+<div class="card">
+<h3 style="margin-bottom:12px">アクセス</h3>
+<table class="hours">
+<tr><th>住所</th><td>東京都○○区サンプル町1-2-3 てらすビル2F<br><small style="color:var(--c-ink-soft)">※サンプル住所です</small></td></tr>
+<tr><th>最寄り</th><td>サンプル駅 東口から徒歩5分</td></tr>
+<tr><th>駐車場</th><td>近隣コインパーキングをご利用ください</td></tr>
+</table>
+</div>
+</div>
+<div class="card owner" style="margin-top:16px">
+<div class="face">🧑</div>
+<div>
+<h3 style="margin-bottom:6px">店主あいさつ</h3>
+<p>はじめまして、店主の田中です（サンプル人物）。整骨院での勤務を経て、この小さなサロンを開きました。「なんとなく重い」「休んでも抜けない」——そんな日々の疲れを降ろして帰れる場所でありたいと思っています。強い刺激が苦手な方も、どうぞ安心してお越しください。</p>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background:var(--c-surface);border-block:1px solid var(--c-line)">
+<div class="container">
+<div class="sec-head"><span class="eyebrow">VOICE</span><h2>お客様の声</h2><p style="font-size:12.5px">※サンプル掲載です</p></div>
+<div class="voices">
+<div class="voice"><div class="who">40代・会社員（サンプル）</div><p>施術中は電話に出られないお店だと分かっていたので、夜にAI受付で空きを聞いて予約できました。静かで落ち着く空間です。</p></div>
+<div class="voice"><div class="who">50代・自営業（サンプル）</div><p>担当が毎回同じなのが安心。先月の状態を覚えてくれていて、今日は腰を重点的にやってもらえました。</p></div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<div class="contact-box">
+<h2>ご予約・お問い合わせ</h2>
+<p>施術中は電話に出られない場合があります。その際は右下のAI受付（24時間）が一次対応し、店主から折り返します。</p>
+<a class="tel-big" href="tel:0300000000">03-0000-0000</a>
+<div class="tel-note">受付 10:00〜19:00（木曜定休）※サンプル番号です</div>
+<button class="btn btn-primary" type="button" onclick="openAI()">AI受付で質問・予約希望を送る</button>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<p>整体サロン てらす（架空）｜ AI受付付きホームページ制作サンプル</p>
+<p style="margin-top:6px">このページは制作実演用のサンプルです。実在の店舗ではありません。制作: NEXT GROWTH のHP制作サービス紹介用デモ</p>
+</div>
+</footer>
+
+<button class="ai-fab" type="button" onclick="openAI()">💬 AI受付</button>
+
+<div class="ai-panel" id="aiPanel" role="dialog" aria-label="AI受付サンプル">
+<div class="ai-head">
+<div><b>AI受付</b><small>サンプルです ― 定型の質問に自動でお答えします</small></div>
+<button class="ai-close" type="button" onclick="closeAI()" aria-label="閉じる">×</button>
+</div>
+<div class="ai-body" id="aiBody">
+<div class="msg bot">こんにちは、整体サロン てらすのAI受付です。営業時間・料金・アクセスなどのご質問にお答えします。予約のご希望もこちらで伺い、店主にお伝えします。</div>
+</div>
+<div class="chips">
+<button class="chip" type="button" onclick="ask('営業時間は？')">営業時間は？</button>
+<button class="chip" type="button" onclick="ask('料金を教えて')">料金を教えて</button>
+<button class="chip" type="button" onclick="ask('予約したい')">予約したい</button>
+<button class="chip" type="button" onclick="ask('場所はどこ？')">場所はどこ？</button>
+<button class="chip" type="button" onclick="ask('駐車場はある？')">駐車場はある？</button>
+</div>
+<form class="ai-input" onsubmit="return sendFree(event)">
+<input id="aiText" type="text" placeholder="質問を入力…" autocomplete="off">
+<button type="submit">送信</button>
+</form>
+</div>
+
+<script>
+var panel=document.getElementById('aiPanel'),body=document.getElementById('aiBody'),started=false;
+function openAI(){panel.classList.add('open');if(!started){started=true;gtag('event','ai_demo_open',{page_area:'demo-seitai'});}}
+function closeAI(){panel.classList.remove('open');}
+function addMsg(t,who){var d=document.createElement('div');d.className='msg '+who;d.textContent=t;body.appendChild(d);body.scrollTop=body.scrollHeight;}
+var ANSWERS=[
+{k:['営業時間','何時','定休日','休み','開いて'],a:'営業時間は10:00〜20:00（最終受付19:00）、定休日は木曜日です。本日は営業中です。'},
+{k:['料金','値段','いくら','メニュー','コース'],a:'料金のご案内です。\n・全身整体60分 ¥6,000\n・全身整体90分 ¥8,500\n・部分集中30分 ¥3,500\n・初回体験60分 ¥4,500（初回限定）\nすべて税込です。'},
+{k:['予約','空き','行きたい','お願い'],a:'ありがとうございます。ご希望の日時とお名前・お電話番号を教えていただければ、店主に取り次ぎます。確定のご連絡は店主から直接いたします。\n（このAI受付は一次対応で、予約の確定は店主が行います）'},
+{k:['場所','アクセス','住所','駅','どこ'],a:'住所は東京都○○区サンプル町1-2-3 てらすビル2F、最寄りのサンプル駅 東口から徒歩5分です。\n※このサイトはサンプルのため、住所も架空です。'},
+{k:['駐車場','車','パーキング'],a:'専用駐車場はございません。近隣のコインパーキングをご利用ください。'},
+{k:['支払','カード','クレジット','決済'],a:'お支払いは現金・クレジットカード・QR決済に対応しています（サンプル表記）。'},
+{k:['キャンセル','変更'],a:'ご予約の変更・キャンセルは、店主が確認してお手続きします。希望内容をこのままお送りいただければ取り次ぎます。'}
+];
+function reply(q){
+for(var i=0;i<ANSWERS.length;i++){for(var j=0;j<ANSWERS[i].k.length;j++){if(q.indexOf(ANSWERS[i].k[j])>=0)return ANSWERS[i].a;}}
+return '申し訳ありません、その内容は私では分からないため、店主に確認します。お急ぎの場合はお電話（03-0000-0000 ※サンプル番号）へお願いします。';
+}
+function ask(q){addMsg(q,'user');setTimeout(function(){addMsg(reply(q),'bot');},350);gtag('event','ai_demo_ask',{page_area:'demo-seitai'});}
+function sendFree(e){e.preventDefault();var inp=document.getElementById('aiText');var v=inp.value.trim();if(!v)return false;inp.value='';ask(v);return false;}
+</script>
+</body>
+</html>
