@@ -38,7 +38,7 @@
   "name": "現場職OS",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "iOS, Android, Web",
-  "description": "現場で働く一人親方・個人事業主（軽貨物・建設・電気・設備・清掃・警備・引越し）のための、確定申告の準備・経費(レシート撮影・職種別の勘定科目)・請求書発行をスマホで完結できるアプリ。現在は先行登録を受付中。",
+  "description": "現場で働く一人親方・個人事業主（軽貨物・建設・電気・設備・清掃・警備・引越し）のための、確定申告の準備・経費(レシート撮影・職種別の勘定科目)・請求書発行をスマホで完結できるアプリ。現在は先行公開中で、登録不要・全機能無料。課金プラン開始時の案内を受け取る先行登録も受付中。",
   "url": "https://richend0913.github.io/genba-os/",
   "offers": {
     "@type": "Offer",
@@ -270,6 +270,27 @@ h2{font-size:clamp(1.48rem,4.3vw,2.4rem);font-weight:900;letter-spacing:-.01em;m
 .price .preorder{font-size:.84rem;color:var(--ink-dim);margin-top:20px;line-height:1.8;font-weight:500}
 .price .preorder b{color:var(--brand-deep)}
 .price .btn{margin-top:24px;width:100%}
+.price .preorder a{color:var(--brand-deep);font-weight:800;border-bottom:1px solid rgba(18,138,84,.4)}
+
+/* pre-register form */
+.reg{background:var(--card);border:1.5px solid rgba(18,138,84,.35);border-radius:22px;padding:36px 28px;box-shadow:var(--shadow);max-width:560px;margin:44px auto 0;position:relative;overflow:hidden;text-align:left}
+.reg::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--brand),var(--road))}
+.reg form{display:grid;gap:16px}
+.reg label{font-size:.86rem;font-weight:700;display:block;margin-bottom:6px}
+.reg label .req{color:var(--warn);font-size:.72rem;margin-left:6px;font-weight:800}
+.reg input[type=email],.reg select{width:100%;font:inherit;font-size:.95rem;font-weight:500;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--paper-2);color:var(--ink)}
+.reg input[type=email]:focus,.reg select:focus{outline:none;border-color:var(--brand);background:#fff}
+.reg .consent{display:flex;gap:9px;align-items:flex-start;font-size:.8rem;font-weight:500;color:var(--ink-soft);margin-bottom:0;cursor:pointer}
+.reg .consent input{margin-top:6px;flex-shrink:0;width:16px;height:16px;accent-color:var(--brand)}
+.reg .consent a{color:var(--brand-deep);font-weight:700;border-bottom:1px solid rgba(18,138,84,.4)}
+.reg .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.reg button[type=submit]{border:none;cursor:pointer;width:100%;font:inherit}
+.reg button[type=submit]:disabled{opacity:.6;cursor:wait}
+.reg .msg{font-size:.9rem;font-weight:800;min-height:1.2em;text-align:center;line-height:1.7}
+.reg .msg.ok{color:var(--brand-deep)}
+.reg .msg.err{color:var(--warn)}
+.reg .fineprint{font-size:.78rem;color:var(--ink-dim);text-align:center;line-height:1.9;font-weight:500}
+.reg .fineprint a{color:var(--brand-deep);font-weight:700}
 
 /* future */
 .future{background:#0d2418;color:#dfeee6;border-radius:22px;padding:32px 20px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
@@ -329,6 +350,7 @@ body{padding-bottom:78px}
     <nav class="topnav">
       <a href="#values">できること</a>
       <a href="#price">料金</a>
+      <a href="#register">先行登録</a>
       <a href="#future">これから</a>
       <a class="topcta" href="https://genba-os.pages.dev/" target="_blank" rel="noopener">無料で使ってみる</a>
     </nav>
@@ -351,10 +373,10 @@ body{padding-bottom:78px}
           </a>
           <a class="btn btn-line" href="https://lin.ee/8rR88pb" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.79 2 10.46c0 4.18 3.62 7.68 8.51 8.34.33.07.78.22.9.5.1.26.06.66.03.92l-.15.9c-.04.27-.21 1.05.92.57 1.13-.48 6.1-3.59 8.32-6.15C22.29 13.85 22 11.9 22 10.46 22 5.79 17.52 2 12 2Z"/></svg>
-            LINEで先行登録
+            質問はLINEでも可
           </a>
         </div>
-        <p class="cta-note rv">アプリは <b>登録不要・インストール不要</b>。<br class="brm">ブラウザで開いてすぐ使えます。<br class="brm">先行公開中につき無料。</p>
+        <p class="cta-note rv">アプリは <b>登録不要・インストール不要</b>。<br class="brm">ブラウザで開いてすぐ使えます。<br class="brm">先行公開中につき無料。<br>課金プランの開始案内を受け取る → <a href="#register" style="color:var(--brand-deep);font-weight:700;border-bottom:1px solid rgba(18,138,84,.4)">先行登録フォーム</a></p>
         <div class="hero-trust rv">
           <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>登録不要ですぐ試せる</div>
           <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>税理士¥10万→月¥980予定</div>
@@ -486,8 +508,40 @@ body{padding-bottom:78px}
     <div class="amount"><span class="yen">¥</span><span class="num">980</span><span class="per">／月（予定）</span></div>
     <p class="free">無料で試して、<br class="brm">続けるなら月¥980。</p>
     <div class="cmp">税理士に確定申告をお願いすると、<br class="brm"><b>年10万円〜</b>かかることも珍しくありません。<br>現場職OSなら <b>1年でも約1万円ちょっと</b>。<br class="brm">浮いたお金も、空いた時間も、現場に回せます。</div>
-    <p class="preorder"><b>※ 現在は先行公開中で、すべての機能を無料でお使いいただけます。</b><br class="brm">課金はまだ開始しておらず、ニセの課金や「購入済み」表示は一切ありません。<br class="brm">正式版は月¥980を予定（変更の可能性あり）。</p>
+    <p class="preorder"><b>※ 現在は先行公開中で、すべての機能を無料でお使いいただけます。</b><br class="brm">課金はまだ開始しておらず、ニセの課金や「購入済み」表示は一切ありません。<br class="brm">正式版は月¥980を予定（変更の可能性あり）。<br><a href="#register">→ 課金プラン開始の案内を受け取る（先行登録）</a></p>
     <a class="btn btn-brand" href="https://genba-os.pages.dev/" target="_blank" rel="noopener">無料で使ってみる（登録不要）</a>
+  </div>
+</div></section>
+
+<!-- PRE-REGISTER -->
+<section class="blk" id="register" style="scroll-margin-top:80px"><div class="wrap">
+  <div class="sec-head center">
+    <span class="kicker eyebrow-center">先行登録</span>
+    <h2>課金プランの開始案内を、<br class="brm">メールで受け取る。</h2>
+    <p class="sec-lead">アプリは<b>登録不要で、今すぐ無料で使えます</b>（<a href="https://genba-os.pages.dev/" target="_blank" rel="noopener" style="color:var(--brand-deep);font-weight:700;border-bottom:1px solid rgba(18,138,84,.4)">アプリを開く</a>）。<br class="brm">先行登録は、<b>課金プラン（月¥980予定）の開始時に、ご案内をメールでお届けするため</b>のものです。</p>
+  </div>
+  <div class="reg rv">
+    <!-- 送信は formsubmit.co 経由で next.growth0913@gmail.com へ届きます（BURNING RECRUIT のフォームと同一方式・同一受信箱）。 -->
+    <form id="preorder-form" novalidate>
+      <div>
+        <label for="p-email">メールアドレス<span class="req">必須</span></label>
+        <input type="email" id="p-email" name="メールアドレス" autocomplete="email" placeholder="you@example.jp" required>
+      </div>
+      <div>
+        <label for="p-type">区分</label>
+        <select id="p-type" name="区分">
+          <option value="">選択してください</option>
+          <option>ドライバー</option>
+          <option>建設・現場</option>
+          <option>その他</option>
+        </select>
+      </div>
+      <div class="hp" aria-hidden="true"><label>この欄は入力しないでください<input type="text" id="p-honey" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+      <label class="consent"><input type="checkbox" id="p-consent" required><span>課金プラン開始時のご案内メールを受け取ることに同意します（<a href="https://richend0913.github.io/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>）<span class="req">必須</span></span></label>
+      <button type="submit" class="btn btn-brand" id="p-submit">先行登録する</button>
+      <p class="msg" id="p-msg" role="status" aria-live="polite"></p>
+      <p class="fineprint">送信できない場合は、メール <a href="mailto:next.growth0913@gmail.com?subject=%E7%8F%BE%E5%A0%B4%E8%81%B7OS%20%E5%85%88%E8%A1%8C%E7%99%BB%E9%8C%B2">next.growth0913@gmail.com</a> へ件名「現場職OS 先行登録」でお送りください。<br>ご質問は <a href="https://lin.ee/8rR88pb" target="_blank" rel="noopener">LINE</a> でも受け付けています。</p>
+    </form>
   </div>
 </div></section>
 
@@ -525,7 +579,7 @@ body{padding-bottom:78px}
   <p class="sec-lead">登録もインストールもいりません。<br class="brm">ブラウザで開いて、今日の経費を1件入れるだけ。</p>
   <div class="cta-row">
     <a class="btn btn-brand" href="https://genba-os.pages.dev/" target="_blank" rel="noopener">無料で使ってみる（登録不要）</a>
-    <a class="btn btn-line" href="https://lin.ee/8rR88pb" target="_blank" rel="noopener">LINEで先行登録</a>
+    <a class="btn btn-line" href="https://lin.ee/8rR88pb" target="_blank" rel="noopener">質問はLINEでも可</a>
   </div>
   <p class="cta-note">アプリは <b>https://genba-os.pages.dev/</b> ですぐに使えます。<br class="brm">先行公開中につき無料。</p>
 </div></section>
@@ -547,7 +601,7 @@ body{padding-bottom:78px}
 
 <div class="sticky-cta">
   <a class="s-brand" href="https://genba-os.pages.dev/" target="_blank" rel="noopener">無料で使ってみる</a>
-  <a class="s-line" href="https://lin.ee/8rR88pb" target="_blank" rel="noopener" aria-label="LINEで先行登録">LINE</a>
+  <a class="s-line" href="https://lin.ee/8rR88pb" target="_blank" rel="noopener" aria-label="質問はLINEでも可">LINE</a>
 </div>
 
 <script>
@@ -566,6 +620,45 @@ addEventListener('scroll',function(){
   els.forEach(function(el){io.observe(el);});
   // progress bars use .in on their .val container
   document.querySelectorAll('.val').forEach(function(v){io.observe(v);});
+})();
+</script>
+<script>
+/* 先行登録フォーム（formsubmit.co AJAX → next.growth0913@gmail.com） */
+(function(){
+  var form=document.getElementById('preorder-form');
+  if(!form)return;
+  var msg=document.getElementById('p-msg');
+  var btn=document.getElementById('p-submit');
+  function show(text,ok){msg.textContent=text;msg.className='msg '+(ok?'ok':'err');}
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    // honeypot: bot が入力していたら送信せず成功表示だけ返す
+    if(document.getElementById('p-honey').value){show('登録しました。課金プランの開始時に、ご案内をメールでお送りします。',true);form.reset();return;}
+    if(!form.checkValidity()){show('メールアドレスの入力と、ご案内メール受信への同意をご確認ください。',false);form.reportValidity();return;}
+    var data={
+      _subject:'現場職OS 先行登録',
+      _template:'table',
+      'メールアドレス':document.getElementById('p-email').value.trim(),
+      '区分':document.getElementById('p-type').value
+    };
+    btn.disabled=true;btn.textContent='送信中…';
+    fetch('https://formsubmit.co/ajax/next.growth0913@gmail.com',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(data)
+    }).then(function(res){
+      if(!res.ok)throw new Error('HTTP '+res.status);
+      return res.json();
+    }).then(function(){
+      if(window.gtag)gtag('event','preorder_submit',{page_area:'genba-os'});
+      show('登録しました。課金プランの開始時に、ご案内をメールでお送りします。',true);
+      form.reset();
+    }).catch(function(){
+      show('送信に失敗しました。お手数ですが、メール next.growth0913@gmail.com へ直接ご連絡ください。',false);
+    }).finally(function(){
+      btn.disabled=false;btn.textContent='先行登録する';
+    });
+  });
 })();
 </script>
 </body>
