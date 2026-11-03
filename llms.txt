@@ -53,5 +53,4 @@
 ## 新規事業・会社
 
 - [中小企業のAI導入支援・業務自動化代行](https://richend0913.github.io/ai-shien/): 提案で終わらせず、AIエージェントが業務部を無人運用する導入支援。30分の無料AI業務診断を受付中。
-- [現場職OS（genba-os）](https://richend0913.github.io/genba-os/): 現場で働く一人親方・個人事業主向けの、確定申告・請求書・経費・案件・車両・AI秘書などをまとめた現場職向けWebアプリ。
 - [Richend Digital 事業一覧](https://richend0913.github.io/business/): Richend Digital が運営する事業（集客メディア・直販ツール・B2B支援・軽貨物配送など）の一覧。
