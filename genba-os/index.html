@@ -540,7 +540,7 @@ body{padding-bottom:78px}
       <label class="consent"><input type="checkbox" id="p-consent" required><span>課金プラン開始時のご案内メールを受け取ることに同意します（<a href="https://richend0913.github.io/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>）<span class="req">必須</span></span></label>
       <button type="submit" class="btn btn-brand" id="p-submit">先行登録する</button>
       <p class="msg" id="p-msg" role="status" aria-live="polite"></p>
-      <p class="fineprint">送信できない場合は、メール <a href="mailto:next.growth0913@gmail.com?subject=%E7%8F%BE%E5%A0%B4%E8%81%B7OS%20%E5%85%88%E8%A1%8C%E7%99%BB%E9%8C%B2">next.growth0913@gmail.com</a> へ件名「現場職OS 先行登録」でお送りください。<br>ご質問は <a href="https://lin.ee/8rR88pb" target="_blank" rel="noopener">LINE</a> でも受け付けています。</p>
+      <p class="fineprint">送信できない場合は、メール <a href="mailto:info@mimoria.jp?subject=%E7%8F%BE%E5%A0%B4%E8%81%B7OS%20%E5%85%88%E8%A1%8C%E7%99%BB%E9%8C%B2">info@mimoria.jp</a> へ件名「現場職OS 先行登録」でお送りください。<br>ご質問は <a href="https://lin.ee/8rR88pb" target="_blank" rel="noopener">LINE</a> でも受け付けています。</p>
     </form>
   </div>
 </div></section>
@@ -588,11 +588,11 @@ body{padding-bottom:78px}
   <div class="f-logo"><span class="mark">現</span>現場職OS</div>
   <p class="f-desc">現場職（軽貨物・建設・電気・設備・清掃・警備・引越し）のための 確定申告・経費・請求 アプリ（開発中）</p>
   <div class="links">
-    <a href="https://richend0913.github.io/haisou/" target="_blank" rel="noopener">運営の配送事業</a>
+    <a href="https://richend0913.github.io/haisou/" target="_blank" rel="noopener">配送事業（NEXT GROWTH運営）</a>
     <a href="https://richend0913.github.io/privacy.html" target="_blank" rel="noopener">プライバシー</a>
     <a href="tokushoho.html">特定商取引法に基づく表記</a>
     <a href="terms.html">利用規約</a>
-    <a href="mailto:next.growth0913@gmail.com">お問い合わせ</a>
+    <a href="mailto:info@mimoria.jp">お問い合わせ</a>
   </div>
   <p class="disc">
     現場職OSは現在開発中であり、表示している機能・料金・特典は予定です。内容は予告なく変更となる場合があります。<br>
@@ -644,7 +644,7 @@ addEventListener('scroll',function(){
       '区分':document.getElementById('p-type').value
     };
     btn.disabled=true;btn.textContent='送信中…';
-    fetch('https://formsubmit.co/ajax/next.growth0913@gmail.com',{
+    fetch('https://formsubmit.co/ajax/info@mimoria.jp',{
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
       body:JSON.stringify(data)
@@ -656,7 +656,7 @@ addEventListener('scroll',function(){
       show('登録しました。課金プランの開始時に、ご案内をメールでお送りします。',true);
       form.reset();
     }).catch(function(){
-      show('送信に失敗しました。お手数ですが、メール next.growth0913@gmail.com へ直接ご連絡ください。',false);
+      show('送信に失敗しました。お手数ですが、メール info@mimoria.jp へ直接ご連絡ください。',false);
     }).finally(function(){
       btn.disabled=false;btn.textContent='先行登録する';
     });
