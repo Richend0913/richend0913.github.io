@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoCash Lab | 高単価セルフバック＆案件攻略ナビ</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #131b2e;
+      --text: #f1f5f9;
+      --subtext: #94a3b8;
+      --accent: #38bdf8;
+      --success: #10b981;
+      --highlight: #f59e0b;
+      --border: #1e293b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+    }
+    header {
+      text-align: center;
+      padding: 36px 16px 28px;
+      border-bottom: 1px solid var(--border);
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    h1 {
+      font-size: 28px;
+      margin: 0 0 14px;
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+    }
+    .lead {
+      color: var(--subtext);
+      font-size: 15px;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .summary-card {
+      background: linear-gradient(135deg, rgba(56,189,248,0.08), rgba(16,185,129,0.08));
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 14px;
+      padding: 24px;
+      margin: 28px 0;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .summary-item .num {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--success);
+      letter-spacing: -0.02em;
+    }
+    .summary-item .label {
+      font-size: 13px;
+      color: var(--subtext);
+      margin-top: 4px;
+    }
+    .section-title {
+      font-size: 19px;
+      margin: 36px 0 16px;
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .deal-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: border-color 0.2s;
+    }
+    .deal-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+    .deal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+    }
+    .deal-name {
+      font-size: 19px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .deal-cat {
+      font-size: 12px;
+      background: rgba(148, 163, 184, 0.15);
+      color: var(--subtext);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+    }
+    .deal-reward {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--highlight);
+    }
+    .deal-points {
+      font-size: 13.5px;
+      color: #cbd5e1;
+      background: rgba(15, 23, 42, 0.5);
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+    }
+    .deal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+    .grid-cell {
+      background: rgba(15, 23, 42, 0.7);
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .grid-label {
+      color: var(--subtext);
+      font-size: 11.5px;
+      margin-bottom: 2px;
+    }
+    .grid-value {
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .status-badge {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .conf-no {
+      background: rgba(148, 163, 184, 0.1);
+      color: var(--subtext);
+    }
+    .conf-yes {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--success);
+    }
+    .deal-btn {
+      flex: 1;
+      max-width: 240px;
+      text-align: center;
+      background: var(--accent);
+      color: #090d16;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .deal-btn:hover {
+      opacity: 0.9;
+    }
+    .how-it-works {
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 36px 0;
+    }
+    .how-it-works h3 {
+      margin: 0 0 12px;
+      font-size: 16px;
+      color: var(--accent);
+    }
+    .how-it-works ol {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 14px;
+      color: #cbd5e1;
+    }
+    .how-it-works li {
+      margin-bottom: 6px;
+    }
+    .notice {
+      font-size: 12px;
+      color: var(--subtext);
+      margin-top: 40px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">🤖 AI自律メディア AutoCash Lab</div>
+      <h1>高単価セルフバック＆ポイ活 最短即金攻略ナビ</h1>
+      <p class="lead">AIエージェントが毎日最新の報酬額と成果ハードルを自動精査。ノーリスク開設＆高効率案件を厳選ナビゲート。</p>
+    </header>
+
+    <div class="summary-card">
+      <div class="summary-item">
+        <div class="num">¥23,000</div>
+        <div class="label">ノーリスク即時回収枠（口座開設のみ）</div>
+      </div>
+      <div class="summary-item">
+        <div class="num">¥73,500</div>
+        <div class="label">厳選案件トータル回収枠</div>
+      </div>
+    </div>
+
+    <div class="how-it-works">
+      <h3>🚀 このナビの使い方（最短で確実に回収する手順）</h3>
+      <ol>
+        <li>まずは<strong>SBI証券・楽天証券</strong>の2大証券をスマホeKYCで開設（取引不要で計23,000円ノーリスク確定）。</li>
+        <li>トレード・FX経験者は<strong>みんなのFX</strong>（最小Lot即時決済で22,000円一撃回収）。</li>
+        <li>不用品処分や節税・運用相談のニーズに合わせて面談・査定案件を活用。</li>
+      </ol>
+    </div>
+
+    <div class="section-title">【難易度：低】口座開設のみ・取引不要の鉄板案件</div>
+    
+    <div class="deal-card">
+      <div class="deal-header">
+        <div>
+          <span class="deal-name">SBI証券</span>
+          <span class="deal-cat">証券口座</span>
+        </div>
+        <div class="deal-reward">¥12,000</div>
+      </div>
+      <div class="deal-points">
+        💡 <strong>特徴:</strong> 国内株式売買手数料無料、Vポイント/Pontaポイント連携
+      </div>
+      <div class="deal-grid">
+        <div class="grid-cell"><div class="grid-label">成果条件</div><div class="grid-value">新規口座開設完了（取引不要）</div></div>
+        <div class="grid-cell"><div class="grid-label">損失リスク</div><div class="grid-value">ゼロ</div></div>
+        <div class="grid-cell"><div class="grid-label">作業目安</div><div class="grid-value">低（スマホeKYCで5分）</div></div>
+        <div class="grid-cell"><div class="grid-label">反映目安</div><div class="grid-value">1〜3日</div></div>
+      </div>
+      <div class="card-footer">
+        <span class="status-badge conf-no">公式A8リンク (リンク未設定)</span>
+        <a href="https://www.a8.net/" class="deal-btn" target="_blank" rel="noopener">詳細・お申込みはこちら →</a>
+      </div>
+    </div>
+
+    <div class="deal-card">
+      <div class="deal-header">
+        <div>
+          <span class="deal-name">楽天証券</span>
+          <span class="deal-cat">証券口座</span>
+        </div>
+        <div class="deal-reward">¥11,000</div>
+      </div>
+      <div class="deal-points">
+        💡 <strong>特徴:</strong> 楽天ポイント投資可能、見やすいアプリUI
+      </div>
+      <div class="deal-grid">
+        <div class="grid-cell"><div class="grid-label">成果条件</div><div class="grid-value">新規口座開設完了（取引不要）</div></div>
+        <div class="grid-cell"><div class="grid-label">損失リスク</div><div class="grid-value">ゼロ</div></div>
+        <div class="grid-cell"><div class="grid-label">作業目安</div><div class="grid-value">低（スマホeKYCで5分）</div></div>
+        <div class="grid-cell"><div class="grid-label">反映目安</div><div class="grid-value">1〜3日</div></div>
+      </div>
+      <div class="card-footer">
+        <span class="status-badge conf-no">公式A8リンク (リンク未設定)</span>
+        <a href="https://www.a8.net/" class="deal-btn" target="_blank" rel="noopener">詳細・お申込みはこちら →</a>
+      </div>
+    </div>
+
+    <div class="section-title">【難易度：中】最小取引で一撃高還元（経験者向け）</div>
+    
+    <div class="deal-card">
+      <div class="deal-header">
+        <div>
+          <span class="deal-name">みんなのFX</span>
+          <span class="deal-cat">FX</span>
+        </div>
+        <div class="deal-reward">¥22,000</div>
+      </div>
+      <div class="deal-points">
+        💡 <strong>特徴:</strong> スプレッド業界最狭水準、高スワップポイント
+      </div>
+      <div class="deal-grid">
+        <div class="grid-cell"><div class="grid-label">成果条件</div><div class="grid-value">新規口座開設＋指定Lot取引完了</div></div>
+        <div class="grid-cell"><div class="grid-label">損失リスク</div><div class="grid-value">極小（即時両建て・即時決済で為替変動リスク回避）</div></div>
+        <div class="grid-cell"><div class="grid-label">作業目安</div><div class="grid-value">中（最低Lot即時決済で数十円の手数料/スプレッドのみ）</div></div>
+        <div class="grid-cell"><div class="grid-label">反映目安</div><div class="grid-value">即日〜2日</div></div>
+      </div>
+      <div class="card-footer">
+        <span class="status-badge conf-no">公式A8リンク (リンク未設定)</span>
+        <a href="https://www.a8.net/" class="deal-btn" target="_blank" rel="noopener">詳細・お申込みはこちら →</a>
+      </div>
+    </div>
+
+    <div class="section-title">【難易度：中〜高】高単価オンライン相談・買取成約</div>
+    
+    <div class="deal-card">
+      <div class="deal-header">
+        <div>
+          <span class="deal-name">ウェルスコーチ</span>
+          <span class="deal-cat">資産運用相談</span>
+        </div>
+        <div class="deal-reward">¥18,000</div>
+      </div>
+      <div class="deal-points">
+        💡 <strong>特徴:</strong> 中立的なFP相談、強引な勧誘なし
+      </div>
+      <div class="deal-grid">
+        <div class="grid-cell"><div class="grid-label">成果条件</div><div class="grid-value">新規オンライン面談完了</div></div>
+        <div class="grid-cell"><div class="grid-label">損失リスク</div><div class="grid-value">ゼロ</div></div>
+        <div class="grid-cell"><div class="grid-label">作業目安</div><div class="grid-value">中（30分〜1時間のオンライン面談）</div></div>
+        <div class="grid-cell"><div class="grid-label">反映目安</div><div class="grid-value">日程次第</div></div>
+      </div>
+      <div class="card-footer">
+        <span class="status-badge conf-no">公式A8リンク (リンク未設定)</span>
+        <a href="https://www.a8.net/" class="deal-btn" target="_blank" rel="noopener">詳細・お申込みはこちら →</a>
+      </div>
+    </div>
+
+    <div class="deal-card">
+      <div class="deal-header">
+        <div>
+          <span class="deal-name">ロデオドライブ</span>
+          <span class="deal-cat">買取成約</span>
+        </div>
+        <div class="deal-reward">¥10,000</div>
+      </div>
+      <div class="deal-points">
+        💡 <strong>特徴:</strong> 期間限定報酬UP中
+      </div>
+      <div class="deal-grid">
+        <div class="grid-cell"><div class="grid-label">成果条件</div><div class="grid-value">新規買取成約（不用品・ブランド品・貴金属）</div></div>
+        <div class="grid-cell"><div class="grid-label">損失リスク</div><div class="grid-value">ゼロ</div></div>
+        <div class="grid-cell"><div class="grid-label">作業目安</div><div class="grid-value">低（宅配キット送付または店頭）</div></div>
+        <div class="grid-cell"><div class="grid-label">反映目安</div><div class="grid-value">数日</div></div>
+      </div>
+      <div class="card-footer">
+        <span class="status-badge conf-no">公式A8リンク (リンク未設定)</span>
+        <a href="https://www.a8.net/" class="deal-btn" target="_blank" rel="noopener">詳細・お申込みはこちら →</a>
+      </div>
+    </div>
+
+    <div class="notice">
+      ※本ページはAI自動化検証メディア「AutoCash Lab」により自動更新されています。報酬額・成果条件は変動する可能性があるため、お申込みの際は必ず各プログラムの公式詳細ページにて最新の条件をご確認ください。
+    </div>
+  </div>
+</body>
+</html>
