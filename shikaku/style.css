@@ -40,6 +40,11 @@ table.cmp td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-
 .tool p{font-size:.92rem;color:#3a414d;margin-bottom:18px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;font-weight:900;font-size:1rem;padding:14px 24px;border-radius:12px;text-decoration:none;background:var(--accent);color:#fff}
 .btn:hover{background:var(--accent-2)}
+.tool.work{background:linear-gradient(120deg,#e9f9f0,#fff);border-color:#c5ecd6}
+.tool.work h3{text-wrap:balance}
+.tool.work .btns{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.btn.ghost{background:#fff;color:var(--accent);border:2px solid var(--accent);padding:12px 22px}
+.btn.ghost:hover{background:#eef2ff;color:var(--accent-2);border-color:var(--accent-2)}
 .free{color:var(--ok);font-weight:700}
 .faq-q{font-weight:700;font-size:1.04rem;margin:22px 0 6px;padding-left:26px;position:relative}
 .faq-q::before{content:"Q";position:absolute;left:0;top:-2px;color:var(--accent);font-weight:900}
